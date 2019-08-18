@@ -29,3 +29,7 @@
 .form-log:first-of-type input[type="text"]{margin-top: 108px;}
 
 .formu_small{float: right;width: 50%;}
+.dsblock {
+	display: block;
+}
+.dsnone{display: none;}

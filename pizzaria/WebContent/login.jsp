@@ -18,8 +18,10 @@
 					<h3>já possuo cadastro</h3>
 					<input type="text" name="login" placeholder="E-mail" /> <input
 						type="password" name="senha" placeholder="senha"> <input
-						type="hidden" name="acao" value="Login"> <input
-						type="submit" class="btn">
+						type="hidden" name="acao" value="Login">
+						<button class="btn waves-effect waves-light" type="submit" name="action">login
+    					<i class="material-icons right">send</i>
+  					</button>
 				</form>
 
 
@@ -35,7 +37,9 @@
 					<input	type="text" name="e-mail" placeholder="Logradouro/rua"> 
 					<input type="text" name="e-mail" placeholder="n°"> 
 					<input type="text" name="e-mail" placeholder="complento"> 
-					<input	type="button" value="cadastrar" class="btn">
+					<button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar
+    					<i class="material-icons right">send</i>
+  					</button>
 				</form>
 			</div>
 

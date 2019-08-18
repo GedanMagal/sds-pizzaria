@@ -23,9 +23,10 @@
             </div>
           </div>
           <div class="clear"></div>
+           <script type="text/javascript" src="js/jquery.js"></script>   
+            <script type="text/javascript" src="materialize.min.css"></script>        
+    		<script type="text/javascript" src="js/main.js"></script>  
         </footer>
-            <script type="text/javascript" src="js/jquery.js"></script>   
-            <script type="text/javascript" src="js/materialize.js"></script>        
-    		<script type="text/javascript" src="js/main.js"></script>    
+             
     		
     		    
