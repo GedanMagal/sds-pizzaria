@@ -18,6 +18,8 @@ function addSabores(){
 	
 	}
 	else if(qtd==='2'){
+		 add.classList.add('dsblock');
+		 add.classList.remove('dsnone');
 		add2.classList.add('dsblock');
 		add2.classList.remove('dsnone');
 		add3.classList.add('dsnone');
@@ -39,6 +41,6 @@ function carregaIng(){
 	
 	ing[i].classList.add('dsblock');
 	ing[i].classList.remove('dsnone');
-	
+		
 	}
 }

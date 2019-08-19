@@ -11,17 +11,16 @@
 <!-- Compiled and minified JavaScript -->
 
 </head>
-<div class="content">
+
+<div class="content ">
 	<nav>
 		<div class="nav-wrapper main-menu">
-			<a href="" class="brand-logo">Logo</a> <a href="index.jsp"
-				data-target="mobile-demo" class="sidenav-trigger"> <i
-				class="material-icons">dehaze</i></a>
+			
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="index.jsp">home</a></li>
 				<li><a href="cardapio.jsp">cardapio</a></li>
-				<li><a href="pedido.jsp">Monte seu pedido</a></li>
-				<li><a href="carrinho.jsp">carrinho</a></li>
+				<li><a href="montaPizza.jsp">Monte seu pedido</a></li>
+				<li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i> </a></li>
 				<li><a class="waves-effect waves-light btn modal-trigger"
 					href="login.jsp">login</a></li>
 			</ul>
