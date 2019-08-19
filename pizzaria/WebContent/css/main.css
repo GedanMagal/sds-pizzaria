@@ -1,10 +1,16 @@
 
+a{text-decoration: none; color: black;}
+
 .background-img{
 	background-image:url("../img/pizza-1.jpg");
 	background-attachment: fixed;
 	background-size:cover;
 	background-repeat:no-repeat;
 	height: 100%;
+}
+
+.bg-color{
+	background-color: black;
 }
 .sm-card{
 	width:200px;
@@ -27,7 +33,7 @@
 .clear{clear: both;}
 
 .form-log:first-of-type input[type="text"]{margin-top: 108px;}
-
+.login_form_admin{margin: 15% auto;width: 50%}
 .formu_small{float: right;width: 50%;}
 .dsblock {
 	display: block;
@@ -35,3 +41,8 @@
 .dsnone{display: none;}
 
 .cont{height: 400px;}
+.img_pizza{width: 50px;}
+
+.table_cart th, td{text-align: center;}
+.number_form{width: 30px!important;}
+.right{float: right;}

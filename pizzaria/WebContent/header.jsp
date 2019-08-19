@@ -14,6 +14,7 @@
 
 <div class="content ">
 	<nav>
+	<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 		<div class="nav-wrapper main-menu">
 			
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -27,7 +28,7 @@
 		</div>
 	</nav>
 
-	<ul class="sidenav" id="mobile-demo">
+	<ul class="sidenav	" id="mobile-demo">
 
 		<li><a href="">home</a></li>
 		<li><a href="">cardapio</a></li>

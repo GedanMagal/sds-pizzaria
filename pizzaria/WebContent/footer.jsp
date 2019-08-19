@@ -19,12 +19,13 @@
           <div class="footer-copyright">
             <div class="container">
             © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <a class="grey-text text-lighten-4 right" href="admin/login.jsp">Admin</a>
             </div>
           </div>
           <div class="clear"></div>
            <script type="text/javascript" src="js/jquery.js"></script>   
-            <script type="text/javascript" src="js/materialize.min.js"></script>        
+            <script type="text/javascript" src="js/materialize.min.js"></script> 
+                   
     		<script type="text/javascript" src="js/main.js"></script>  
         </footer>
              

@@ -1,4 +1,6 @@
-
+ $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
 
 
 function addSabores(){
@@ -44,3 +46,12 @@ function carregaIng(){
 		
 	}
 }
+
+$(document).ready(function(){
+    $('.modal').modal();
+   
+  });
+
+
+
+

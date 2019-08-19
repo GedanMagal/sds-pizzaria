@@ -12,6 +12,11 @@
 	<section class="content background-img ">
 
 		<div class="container side-content">
+			<div class="row">
+				<div class="img_pizza">
+					
+				</div>
+			</div>
 			<div class="row col s12 cont">
 				<h3>Monte sua pizza</h3>
 				<div class="input-field col s3 dsblock">

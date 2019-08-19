@@ -22,15 +22,17 @@
 						<button class="btn waves-effect waves-light" type="submit" name="action">login
     					<i class="material-icons right">send</i>
   					</button>
+  					<p>Caso tenha esquecido seu Usuário clique<strong>
+  					<a class="modal-trigger" href="#modal1"> aqui</a></strong></p>
 				</form>
-
+			
 
 				<form class="col s6 form-log" method="post"
 					action="${linkEntradaServlet}">
 					<h3>cadastre-se</h3>
 					<input type="text" name="e-mail" placeholder="Nome"> 
-					<inputtype="text" name="e-mail" placeholder="cpf"> 
-					<inputtype="text" name="e-mail" placeholder="data de Nascimento">
+					<input type="text" name="e-mail" placeholder="cpf"> 
+					<input type="text" name="e-mail" placeholder="data de Nascimento">
 					<input type="text" name="e-mail" placeholder="senha"> 
 					<input type="text" name="e-mail" placeholder="Repita a senha"> 
 					<input type="text" name="e-mail" placeholder="cep"> 
@@ -41,14 +43,23 @@
     					<i class="material-icons right">send</i>
   					</button>
 				</form>
+		
 			</div>
 
 			<div class="clear"></div>
-
+			
 		</div>
 		<div class="clear"></div>
 	</section>
-
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			<h4>Modal Header</h4>
+			<p>A bunch of text</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+		</div>
+	</div>
 	<jsp:include page="footer.jsp" />
 
 </body>
