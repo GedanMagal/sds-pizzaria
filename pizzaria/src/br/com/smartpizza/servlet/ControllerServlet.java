@@ -25,7 +25,7 @@ public class ControllerServlet extends HttpServlet {
 		boolean ehAcaoProtegida = !(paramAcao.equals("login") || paramAcao.equals("LoginPrincipal"));
 
 		if (ehAcaoProtegida && usuarioNaoEstaLogado) {
-			response.sendRedirect("pizzaria/acao=LoginPrincipal");
+			response.sendRedirect("entrada?acao=LoginPrincipal");
 			return;
 		}
 
