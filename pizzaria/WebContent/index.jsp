@@ -24,12 +24,7 @@
 	
 	<div class="side-content container">
 	
-	<form action="" class="formu_small">
-	<div class="row">
-		<input type="search" name="pesquisa" class="col s8">
-		<button><i class="material-icons">search</i></button>
-	</div>
-	</form>
+
 	
 	<h1>Promoções</h1>
 	<div class="card small sm-card">
@@ -38,11 +33,13 @@
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Mussarela<i class="material-icons right">menu</i></span>
-      <p><a class="waves-effect waves-light btn-small" href="#">Comprar</a></p>
+      <p><a class="waves-effect waves-teal btn-small" href="#">Comprar</a></p>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">Mussarela<i class="material-icons right">close</i></span>
       <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      
+      
     </div>
     </div>
     
