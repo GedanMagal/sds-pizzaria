@@ -68,3 +68,8 @@ h6 {
 p label {
     margin-right: 35px;
 }
+
+.switch label .lever {
+	float: left;
+	margin: 0px 17px;
+}
