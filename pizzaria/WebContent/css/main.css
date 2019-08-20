@@ -26,6 +26,8 @@ a{text-decoration: none; color: black;}
 	border-radius: 20px;
 		background: #fff;
 }
+
+select{display: none;}
 .main-menu{width: 70%;margin: 0px 15%;}
 .main{width: 100%;}
 
