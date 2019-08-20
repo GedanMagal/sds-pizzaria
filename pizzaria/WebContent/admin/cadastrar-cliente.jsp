@@ -9,19 +9,7 @@
     <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
-    <div class="content ">
-        <nav>
-            <div class="nav-wrapper main-menu">
-
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="index.jsp">home</a></li>
-                    <li><a href="cardapio.jsp">cardapio</a></li>
-                    <li><a href="montaPizza.jsp">Monte seu pedido</a></li>
-                    <li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i> </a></li>
-                    <li><a class="waves-effect waves-light btn modal-trigger" href="login.jsp">login</a></li>
-                </ul>
-            </div>
-        </nav>
+       <jsp:include page="header.jsp"/>
 
         <ul class="sidenav" id="mobile-demo">
 
