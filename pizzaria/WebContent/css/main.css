@@ -70,6 +70,12 @@ p label {
 }
 
 .switch label .lever {
+	float: right;
+	margin: 2px 50px;
+}
+
+.input-field.col label {
+	width: 100%;
 	float: left;
-	margin: 0px 17px;
+	margin-bottom: 3px;
 }
