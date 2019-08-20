@@ -61,7 +61,7 @@
 			<div class="row">
 				<div class="input-field col s6">
 					<input type="text" name="endereco" id="endereco"> <label
-						class="active" for="nome">EndereÃ§o</label>
+						class="active" for="nome">Endereço</label>
 				</div>
 				<div class="input-field col s3">
 					<input type="text" name="complemento" id="complemento"> <label
@@ -72,7 +72,7 @@
 				<div class="input-field col s6">
 					<input type="text" name="localReferencia" id="localReferencia">
 					<label class="active" for="localReferencia">Local de
-						ReferÃªncia</label>
+						Referencia</label>
 				</div>
 			</div>
 			<div class="row">
@@ -96,7 +96,6 @@
 						name="action">
 						Enviar <i class="material-icons right">send</i>
 					</button>
-
 				</div>
 			</div>
 		</div>
