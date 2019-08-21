@@ -41,6 +41,19 @@
 >>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
            <div class="header-title">
 =======
+<<<<<<< HEAD
+       <jsp:include page="../imports/header.jsp"/>
+
+        <ul class="sidenav" id="mobile-demo">
+
+            <li><a href="">home</a></li>
+            <li><a href="">cardapio</a></li>
+            <li><a href="">Monte seu pedido</a></li>
+            <li><a href="">carrinho</a></li>
+            <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">login</a></li>
+
+=======
+>>>>>>> 5a457a4ba15405edebbea110a73224fbd00772b6
         </ul>
         <div class="clear"></div>
 

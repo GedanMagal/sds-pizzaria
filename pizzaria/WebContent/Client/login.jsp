@@ -13,11 +13,15 @@
 </head>
 <body>
 <<<<<<< HEAD
+<<<<<<< HEAD:pizzaria/WebContent/admin/login.jsp
+
+=======
 <<<<<<< HEAD
 <jsp:include page="header-admin.jsp"/>
 =======
 
 >>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
+>>>>>>> 5a457a4ba15405edebbea110a73224fbd00772b6:pizzaria/WebContent/Client/login.jsp
 =======
 <jsp:include page="../imports/header.jsp"/>
 >>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
