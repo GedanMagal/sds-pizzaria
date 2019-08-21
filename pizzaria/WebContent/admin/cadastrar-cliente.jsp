@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
+<<<<<<< HEAD
 <div class="row">
 <<<<<<< HEAD
 <div class="col s3 bg-color a-side">
@@ -20,6 +21,9 @@
 				<li><a class="waves-effect waves-light btn modal-trigger"
 					href="login.jsp">login</a></li>
 			</ul>
+=======
+       <jsp:include page="../imports/header.jsp"/>
+>>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
 
 <div class="clear"></div>
 </div>
@@ -30,11 +34,20 @@
 =======
 <jsp:include page="header.jsp"/>
 
+<<<<<<< HEAD
     <section class="col s9 main">
      
         <div class="col s9 offset-s6">
 >>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
            <div class="header-title">
+=======
+        </ul>
+        <div class="clear"></div>
+
+
+    <section>
+        <div class="header-title">
+>>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
             <h4>Cadastrar Cliente</h4>
         </div>
             <h6>Dados Pessoais</h6>

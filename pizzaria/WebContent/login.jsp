@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+	<jsp:include page="imports/header.jsp" />
 	<section class="content background-img">
 		<div class="side-content">
 			<div class="row">
@@ -60,7 +60,7 @@
 			<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
 		</div>
 	</div>
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="imports/footer.jsp" />
 
 </body>
 </html>

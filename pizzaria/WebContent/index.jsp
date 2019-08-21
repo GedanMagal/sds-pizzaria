@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="imports/header.jsp"/>
 	<section class="content background-img">
 	<!-- <div class="carousel carousel-slider container">
     <a class="carousel-item" href="#one!">
@@ -176,7 +176,7 @@
 </div>
 
 </section>
-        <jsp:include page="footer.jsp"/>
+        <jsp:include page="imports/footer.jsp"/>
             
 </body>
 </html>
