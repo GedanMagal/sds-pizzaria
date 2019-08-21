@@ -11,13 +11,37 @@
 <body>
 <<<<<<< HEAD
 <div class="row">
+<<<<<<< HEAD
+<div class="col s3 bg-color a-side">
+	<ul  class="left hide-on-med-and-down menu-admin">
+				<li><a href="index.jsp">home</a></li>
+				<li><a href="cardapio.jsp">cardapio</a></li>
+				<li><a href="montaPizza.jsp">Monte seu pedido</a></li>
+				<li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i> </a></li>
+				<li><a class="waves-effect waves-light btn modal-trigger"
+					href="login.jsp">login</a></li>
+			</ul>
+=======
+       <jsp:include page="../imports/header.jsp"/>
+>>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
+
+<div class="clear"></div>
+</div>
+
+    <section class="col s9">
+     
+        <div class="">
+=======
 <jsp:include page="header.jsp"/>
 
+<<<<<<< HEAD
     <section class="col s9 main">
      
         <div class="col s9 offset-s6">
+>>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
            <div class="header-title">
 =======
+<<<<<<< HEAD
        <jsp:include page="../imports/header.jsp"/>
 
         <ul class="sidenav" id="mobile-demo">
@@ -28,6 +52,8 @@
             <li><a href="">carrinho</a></li>
             <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">login</a></li>
 
+=======
+>>>>>>> 5a457a4ba15405edebbea110a73224fbd00772b6
         </ul>
         <div class="clear"></div>
 
@@ -114,8 +140,13 @@
 
                 </div>
             </div>
+            
         </div>
+<<<<<<< HEAD
+	
+=======
 		<div class="clear"></div>
+>>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
     </section>
  
 </div>

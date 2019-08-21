@@ -4,24 +4,23 @@
 <head>
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="../css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+
 <link rel="stylesheet" href="../css/main.css">
+<!-- Compiled and minified JavaScript -->
+
 </head>
 
-<div class="content ">
+<div class="content main-menu-admin ">
 	<nav>
-		<a href="#" data-target="slide-out" class="sidenav-trigger"><i
-			class="material-icons">menu</i></a>
-		<div class="nav-wrapper main-menu">
-
+	<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+		<div class="nav-wrapper">
+			
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li>Olá, "Usuario logado"</li>
-				<li><a href="cardapio.jsp">cardapio</a></li>
-				<li><a href="montaPizza.jsp">Monte seu pedido</a></li>
-				<li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i>
-				</a></li>
+			
 				<li><a class="waves-effect waves-light btn modal-trigger"
-					href="login.jsp">login</a></li>
+					href="login.jsp">ver site</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -36,5 +35,5 @@
 			href="#modal1">login</a></li>
 
 	</ul>
-	<div class="clear"></div>
+<div class="clear"></div>
 </div>

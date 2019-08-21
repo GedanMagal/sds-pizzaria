@@ -5,7 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">ca
+<meta charset="ISO-8859-1">
+<<<<<<< HEAD
+ca
+=======
+>>>>>>> df78f6a29826a04c97da030e490597fbe9434d4c
 <title>Insert title here</title>
 </head>
 <body>
@@ -19,35 +23,34 @@
 					<input type="text" name="login" placeholder="E-mail" /> <input
 						type="password" name="senha" placeholder="senha"> <input
 						type="hidden" name="acao" value="Login">
-						<button class="btn waves-effect waves-light" type="submit" name="action">login
-    					<i class="material-icons right">send</i>
-  					</button>
-  					<p>Caso tenha esquecido seu Usuário clique<strong>
-  					<a class="modal-trigger" href="#modal1"> aqui</a></strong></p>
+					<button class="btn waves-effect waves-light" type="submit"
+						name="action">
+						login <i class="material-icons right">send</i>
+					</button>
+					<p>
+						Caso tenha esquecido seu Usuário clique<strong> <a
+							class="modal-trigger" href="#modal1"> aqui</a></strong>
+					</p>
 				</form>
-			
-
 				<form class="col s6 form-log" method="post"
 					action="${linkEntradaServlet}">
 					<h3>cadastre-se</h3>
-					<input type="text" name="e-mail" placeholder="Nome"> 
-					<input type="text" name="e-mail" placeholder="cpf"> 
-					<input type="text" name="e-mail" placeholder="data de Nascimento">
-					<input type="text" name="e-mail" placeholder="senha"> 
-					<input type="text" name="e-mail" placeholder="Repita a senha"> 
-					<input type="text" name="e-mail" placeholder="cep"> 
-					<input	type="text" name="e-mail" placeholder="Logradouro/rua"> 
-					<input type="text" name="e-mail" placeholder="n°"> 
-					<input type="text" name="e-mail" placeholder="complento"> 
-					<button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar
-    					<i class="material-icons right">send</i>
-  					</button>
+					<input type="text" name="e-mail" placeholder="Nome"> <input
+						type="text" name="e-mail" placeholder="cpf"> <input
+						type="text" name="e-mail" placeholder="data de Nascimento">
+					<input type="text" name="e-mail" placeholder="senha"> <input
+						type="text" name="e-mail" placeholder="Repita a senha"> <input
+						type="text" name="e-mail" placeholder="cep"> <input
+						type="text" name="e-mail" placeholder="Logradouro/rua"> <input
+						type="text" name="e-mail" placeholder="n°"> <input
+						type="text" name="e-mail" placeholder="complento">
+					<button class="btn waves-effect waves-light" type="submit"
+						name="action">
+						Cadastrar <i class="material-icons right">send</i>
+					</button>
 				</form>
-		
 			</div>
-
 			<div class="clear"></div>
-			
 		</div>
 		<div class="clear"></div>
 	</section>
