@@ -97,3 +97,7 @@ p label {
 	width: 100%;
     margin-top: 22%;
 }
+.main-container{width: 80%; 
+    position: static;
+    margin-left: 20%;
+}

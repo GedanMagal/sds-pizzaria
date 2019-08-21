@@ -8,12 +8,14 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link rel="stylesheet" href="../css/sideBar.css">
+<link rel="stylesheet" href="../css/main.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 
 <script type="text/javascript">
 	function toggleSidebar() {
 		document.getElementById('sidebar').classList.toggle('active');
+
 	}
 </script>
 </head>
@@ -21,7 +23,7 @@
 
 <nav id="sidebar">
 	<figure>
-		<img width="120px" height="90px" alt="logo" src="../img/logo.jpg">
+		<img width="120px" height="90px" alt="logo" src="../img/logo.png">
 	</figure>
 	<ul>
 		<li><a>Relatório </a></li>
