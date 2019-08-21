@@ -12,15 +12,7 @@
 <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<jsp:include page="../imports/header-admin.jsp"/>
-=======
-
->>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
-=======
-<jsp:include page="../imports/header.jsp"/>
->>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
+<jsp:include page="../admin/header-admin.jsp"/>
  <section class="content">
 	<div class="container">
 		<div class="row col s12">
@@ -30,7 +22,6 @@
 					<div class="input-field col s12">
 						<input placeholder="usuario" id="first_name" type="text"
 							class="validate"> 
-							
 					</div>
 					</div>
 					<div class="row">
