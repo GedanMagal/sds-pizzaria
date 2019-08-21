@@ -7,7 +7,7 @@
 <title>Monte sua pizza</title>
 </head>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="imports/header.jsp"></jsp:include>
 
 	<section class="content background-img ">
 
@@ -287,6 +287,6 @@
 		<div class="clear"></div>
 	</section>
 
-	<jsp:include page="footer.jsp" />
+	<jsp:include page="imports/footer.jsp" />
 </body>
 </html>

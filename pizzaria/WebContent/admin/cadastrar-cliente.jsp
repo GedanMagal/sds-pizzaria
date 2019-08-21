@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
+<<<<<<< HEAD
 <div class="row">
 <jsp:include page="header.jsp"/>
 
@@ -16,6 +17,24 @@
      
         <div class="col s9 offset-s6">
            <div class="header-title">
+=======
+       <jsp:include page="../imports/header.jsp"/>
+
+        <ul class="sidenav" id="mobile-demo">
+
+            <li><a href="">home</a></li>
+            <li><a href="">cardapio</a></li>
+            <li><a href="">Monte seu pedido</a></li>
+            <li><a href="">carrinho</a></li>
+            <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">login</a></li>
+
+        </ul>
+        <div class="clear"></div>
+
+
+    <section>
+        <div class="header-title">
+>>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
             <h4>Cadastrar Cliente</h4>
         </div>
             <h6>Dados Pessoais</h6>

@@ -12,7 +12,11 @@
 <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+<<<<<<< HEAD
 
+=======
+<jsp:include page="../imports/header.jsp"/>
+>>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
  <section class="content">
 	<div class="container">
 		<div class="row col s12">
@@ -43,6 +47,6 @@
 	</div>
 
 </section>
-<jsp:include page="../footer.jsp"/>
+<jsp:include page="../imports/footer.jsp"/>
 </body>
 </html>
