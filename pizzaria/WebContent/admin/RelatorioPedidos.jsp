@@ -9,7 +9,7 @@
 <body>
 
 <div class="row">
-<jsp:include page="header-admin.jsp"/>
+<jsp:include page="../imports/headerAdmin.jsp"/>
 
 </div>
 
