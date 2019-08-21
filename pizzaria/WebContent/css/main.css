@@ -10,13 +10,22 @@ a{text-decoration: none; color: black;}
 }
 
 .bg-color{
-	background-color: black;
+	background-color: gray;
+	text-align: center;
 }
 .a-side{
+<<<<<<< HEAD
 	background-color: gray;
 	height: 1000px;
 	position: fixed;
 }
+=======
+	height: 1100px;
+	position: fixed;
+	width: 25%;
+}
+.main{margin-left: 25%;}
+>>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
 .sm-card{
 	width:200px;
 	float: left;
@@ -84,4 +93,11 @@ p label {
 	float: left;
 	margin-bottom: 3px;
 }
+<<<<<<< HEAD
 
+=======
+.menu-admin{
+	    width: 100%;
+    margin-top: 22%;
+}
+>>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8

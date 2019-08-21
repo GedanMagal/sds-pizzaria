@@ -10,6 +10,7 @@
 </head>
 <body>
 <div class="row">
+<<<<<<< HEAD
 <div class="col s3 bg-color a-side">
 	<ul  class="left hide-on-med-and-down menu-admin">
 				<li><a href="index.jsp">home</a></li>
@@ -26,6 +27,13 @@
     <section class="col s9">
      
         <div class="">
+=======
+<jsp:include page="header.jsp"/>
+
+    <section class="col s9 main">
+     
+        <div class="col s9 offset-s6">
+>>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
            <div class="header-title">
             <h4>Cadastrar Cliente</h4>
         </div>
@@ -108,7 +116,11 @@
             </div>
             
         </div>
+<<<<<<< HEAD
 	
+=======
+		<div class="clear"></div>
+>>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
     </section>
  
 </div>

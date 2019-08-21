@@ -12,7 +12,11 @@
 <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+<<<<<<< HEAD
 <jsp:include page="header-admin.jsp"/>
+=======
+
+>>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
  <section class="content">
 	<div class="container">
 		<div class="row col s12">
