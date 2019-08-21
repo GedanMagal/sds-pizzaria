@@ -9,45 +9,17 @@
     <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
-<<<<<<< HEAD
-<div class="row">
-<<<<<<< HEAD
-<div class="col s3 bg-color a-side">
-	<ul  class="left hide-on-med-and-down menu-admin">
-				<li><a href="index.jsp">home</a></li>
-				<li><a href="cardapio.jsp">cardapio</a></li>
-				<li><a href="montaPizza.jsp">Monte seu pedido</a></li>
-				<li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i> </a></li>
-				<li><a class="waves-effect waves-light btn modal-trigger"
-					href="login.jsp">login</a></li>
-			</ul>
-=======
+       
+       
        <jsp:include page="../imports/header.jsp"/>
->>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
-
-<div class="clear"></div>
-</div>
-
+	
     <section class="col s9">
      
         <div class="">
-=======
-<jsp:include page="header.jsp"/>
-
-<<<<<<< HEAD
-    <section class="col s9 main">
+       <section class="col s9 main">
      
         <div class="col s9 offset-s6">
->>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
-           <div class="header-title">
-=======
-        </ul>
-        <div class="clear"></div>
 
-
-    <section>
-        <div class="header-title">
->>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
             <h4>Cadastrar Cliente</h4>
         </div>
             <h6>Dados Pessoais</h6>
@@ -129,11 +101,8 @@
             </div>
             
         </div>
-<<<<<<< HEAD
-	
-=======
 		<div class="clear"></div>
->>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
+
     </section>
  
 </div>

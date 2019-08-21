@@ -21,7 +21,7 @@
 
 
 
-			<div class="side-content container">
+			<div class="side-content">
 
 				<form action="" class="formu_medium">
 					<div class="row">
@@ -369,11 +369,11 @@
 					</div>
 				</div>
 
-
+				
 			</div>
-			<div class="clear"></div>
-		</div>
 
+		</div>
+				<div class="clear"></div>
 	</section>
 <jsp:include page="imports/footer.jsp"/>
 </body>
