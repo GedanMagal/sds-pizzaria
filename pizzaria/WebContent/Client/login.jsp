@@ -12,7 +12,23 @@
 <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+<<<<<<< HEAD
 <jsp:include page="../admin/header-admin.jsp"/>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD:pizzaria/WebContent/admin/login.jsp
+
+=======
+<<<<<<< HEAD
+<jsp:include page="header-admin.jsp"/>
+=======
+
+>>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
+>>>>>>> 5a457a4ba15405edebbea110a73224fbd00772b6:pizzaria/WebContent/Client/login.jsp
+=======
+<jsp:include page="../imports/header.jsp"/>
+>>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
+>>>>>>> 6087e570fa1aa0bd324a2068bd0e2496c3ca2708
  <section class="content">
 	<div class="container">
 		<div class="row col s12">
