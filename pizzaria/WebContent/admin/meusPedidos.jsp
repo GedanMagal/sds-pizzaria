@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
-<jsp:include page="../header.jsp"></jsp:include>
+<jsp:include page="../imports/header.jsp"></jsp:include>
 
 <section>
 	<h3>Meus Pedidos:</h3>
@@ -52,7 +52,7 @@
   </ul>
 </section>
 
-<jsp:include page="../footer.jsp"></jsp:include>
+<jsp:include page="../imports/footer.jsp"></jsp:include>
 
 </body>
 </html>

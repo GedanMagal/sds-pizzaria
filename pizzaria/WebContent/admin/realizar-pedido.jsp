@@ -10,16 +10,13 @@
 </head>
 
 <body>
-   <jsp:include page="header.jsp"/>
-
+   <jsp:include page="../imports/header.jsp"/>
         <ul class="sidenav" id="mobile-demo">
-
             <li><a href="">home</a></li>
             <li><a href="">cardapio</a></li>
             <li><a href="">Monte seu pedido</a></li>
             <li><a href="">carrinho</a></li>
             <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">login</a></li>
-
         </ul>
         <div class="clear"></div>
     </div>

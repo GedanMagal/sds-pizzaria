@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
-       <jsp:include page="header.jsp"/>
+       <jsp:include page="../imports/header.jsp"/>
 
         <ul class="sidenav" id="mobile-demo">
 
@@ -21,7 +21,6 @@
 
         </ul>
         <div class="clear"></div>
-    </div>
 
 
     <section>

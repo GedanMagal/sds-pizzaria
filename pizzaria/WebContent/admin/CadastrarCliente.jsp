@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="../imports/header.jsp" />
 
 
 	<section>
@@ -102,7 +102,7 @@
 
 	</section>
 
-	<jsp:include page="../footer.jsp"></jsp:include>
+	<jsp:include page="../imports/footer.jsp"></jsp:include>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>

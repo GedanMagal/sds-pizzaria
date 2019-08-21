@@ -8,7 +8,7 @@
 
 </head>
 <body>
-<jsp:include page="header.jsp"/>
+<jsp:include page="../imports/header.jsp"/>
  <section class="content">
 	<div class="container">
 		<div class="row col s12">
@@ -39,6 +39,6 @@
 	</div>
 
 </section>
-<jsp:include page="../footer.jsp"/>
+<jsp:include page="../imports/footer.jsp"/>
 </body>
 </html>
