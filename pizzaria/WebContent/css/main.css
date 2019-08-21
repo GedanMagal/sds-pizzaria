@@ -12,6 +12,11 @@ a{text-decoration: none; color: black;}
 .bg-color{
 	background-color: black;
 }
+.a-side{
+	background-color: gray;
+	height: 1000px;
+	position: fixed;
+}
 .sm-card{
 	width:200px;
 	float: left;
@@ -79,3 +84,4 @@ p label {
 	float: left;
 	margin-bottom: 3px;
 }
+

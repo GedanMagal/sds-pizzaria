@@ -5,10 +5,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 
+<link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-<jsp:include page="header.jsp"/>
+<jsp:include page="header-admin.jsp"/>
  <section class="content">
 	<div class="container">
 		<div class="row col s12">

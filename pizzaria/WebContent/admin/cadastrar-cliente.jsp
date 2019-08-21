@@ -10,11 +10,22 @@
 </head>
 <body>
 <div class="row">
-<jsp:include page="header.jsp"/>
+<div class="col s3 bg-color a-side">
+	<ul  class="left hide-on-med-and-down menu-admin">
+				<li><a href="index.jsp">home</a></li>
+				<li><a href="cardapio.jsp">cardapio</a></li>
+				<li><a href="montaPizza.jsp">Monte seu pedido</a></li>
+				<li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i> </a></li>
+				<li><a class="waves-effect waves-light btn modal-trigger"
+					href="login.jsp">login</a></li>
+			</ul>
 
-    <section class="col s9 main">
+<div class="clear"></div>
+</div>
+
+    <section class="col s9">
      
-        <div class="col s9 offset-s6">
+        <div class="">
            <div class="header-title">
             <h4>Cadastrar Cliente</h4>
         </div>
@@ -95,8 +106,9 @@
 
                 </div>
             </div>
+            
         </div>
-		<div class="clear"></div>
+	
     </section>
  
 </div>
