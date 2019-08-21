@@ -10,8 +10,15 @@ a{text-decoration: none; color: black;}
 }
 
 .bg-color{
-	background-color: black;
+	background-color: gray;
+	text-align: center;
 }
+.a-side{
+	height: 1100px;
+	position: fixed;
+	width: 25%;
+}
+.main{margin-left: 25%;}
 .sm-card{
 	width:200px;
 	float: left;
@@ -72,4 +79,8 @@ p label {
 .switch label .lever {
 	float: left;
 	margin: 0px 17px;
+}
+.menu-admin{
+	    width: 100%;
+    margin-top: 22%;
 }
