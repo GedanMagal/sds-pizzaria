@@ -43,13 +43,13 @@
 
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+							<select>
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
 								<option value="3">Option 3</option>
 							</select>
-							<div class="clear"></div>
+							
 						</div>
 						<p>
 							<a class="waves-effect waves-light btn-small" href="#">Comprar</a>
@@ -286,7 +286,7 @@
 						</p>
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+							<select onchange="">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -309,8 +309,8 @@
 							<a class="waves-effect waves-light btn-small" href="#">Comprar</a>
 						</p>
 
-						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+						<div  class="input-field col s3 ">
+							<select>
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>

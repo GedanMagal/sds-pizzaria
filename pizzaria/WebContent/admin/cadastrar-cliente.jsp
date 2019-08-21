@@ -15,34 +15,11 @@
 	
     <section class="col s9">
      
-        <div class="">
-       <section class="col s9 main">
+        <div class="container">
+      
      
         <div class="col s9 offset-s6">
-<<<<<<< HEAD
-=======
->>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
-           <div class="header-title">
-=======
-<<<<<<< HEAD
-       <jsp:include page="../imports/header.jsp"/>
-
-        <ul class="sidenav" id="mobile-demo">
-
-            <li><a href="">home</a></li>
-            <li><a href="">cardapio</a></li>
-            <li><a href="">Monte seu pedido</a></li>
-            <li><a href="">carrinho</a></li>
-            <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">login</a></li>
-
-=======
->>>>>>> 5a457a4ba15405edebbea110a73224fbd00772b6
-        </ul>
-        <div class="clear"></div>
-
->>>>>>> d77ab07fc54a4e7484a7d546d6ad64ad98dbb4c9
-
-            <h4>Cadastrar Cliente</h4>
+		<h4>Cadastrar Cliente</h4>
         </div>
             <h6>Dados Pessoais</h6>
             <div class="row">
@@ -111,7 +88,7 @@
             <div class="row">
                 <div class="col s3 offset-s6">
                     <button class="btn waves-effect waves-light red" type="submit" name="action">Limpar
-                        <i class="material-icons right">send</i>
+                        <i class="material-icons right">clear</i>
                     </button>
                 </div>
                 <div class="col s3">
@@ -126,8 +103,7 @@
 		<div class="clear"></div>
 
     </section>
- 
-</div>
+
 
 </body>
 

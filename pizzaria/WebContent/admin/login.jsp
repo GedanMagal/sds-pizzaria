@@ -14,7 +14,6 @@
 <body>
 
 
-<jsp:include page="../imports/header.jsp"/>
 
  <section class="content">
 	<div class="container">
@@ -46,6 +45,6 @@
 	</div>
 
 </section>
-<jsp:include page="../imports/footer.jsp"/>
+
 </body>
 </html>
