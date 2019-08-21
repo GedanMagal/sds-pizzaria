@@ -12,7 +12,8 @@
 <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-<jsp:include page="../admin/header-admin.jsp"/>
+
+<jsp:include page="../imports/headerAdmin.jsp"/>
 
  <section class="content">
 	<div class="container">
@@ -43,6 +44,6 @@
 	</div>
 
 </section>
-<jsp:include page="../imports/footer.jsp"/>
+
 </body>
 </html>

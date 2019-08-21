@@ -8,5 +8,12 @@
 </head>
 <body>
 
+<div class="row">
+<jsp:include page="../imports/headerAdmin.jsp"/>
+
+</div>
+
+
+
 </body>
 </html>
