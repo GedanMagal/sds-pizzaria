@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<jsp:include page="../imports/headerAdmin.jsp"/>
+
 
  <section class="content">
 	<div class="container">
