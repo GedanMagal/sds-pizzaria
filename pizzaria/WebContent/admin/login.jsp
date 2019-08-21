@@ -13,7 +13,7 @@
 </head>
 <body>
 
-
+<jsp:include page="../admin/header-admin.jsp"/>
 
  <section class="content">
 	<div class="container">
@@ -24,7 +24,6 @@
 					<div class="input-field col s12">
 						<input placeholder="usuario" id="first_name" type="text"
 							class="validate"> 
-							
 					</div>
 					</div>
 					<div class="row">
