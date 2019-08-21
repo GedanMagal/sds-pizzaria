@@ -6,7 +6,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<<<<<<< HEAD
 ca
+=======
+>>>>>>> df78f6a29826a04c97da030e490597fbe9434d4c
 <title>Insert title here</title>
 </head>
 <body>

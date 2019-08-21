@@ -5,10 +5,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link rel="stylesheet" href="../css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 
+<link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<jsp:include page="header-admin.jsp"/>
+=======
+
+>>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
+=======
 <jsp:include page="../imports/header.jsp"/>
+>>>>>>> 377aabc8b585b815b33dbc5e784189d3b3f731ec
  <section class="content">
 	<div class="container">
 		<div class="row col s12">
