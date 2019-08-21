@@ -8,13 +8,14 @@
 </head>
 <body>
 
-<jsp:include page="../imports/headerAdmin.jsp"/>
-<section class="content">
 
+<section class="content">
+<jsp:include page="../imports/headerAdmin.jsp"/>
 <div class="main-container" id="main-container">
 
 <div class="container">
-<h1>Relatorio de Pedidos</h1>
+
+<h4>Cadastrar Cliente</h4>
 	<table>
         <thead>
           <tr>
@@ -42,6 +43,7 @@
           </tr>
         </tbody>
       </table>
+</div>
 </div>
 </div>
 </section>

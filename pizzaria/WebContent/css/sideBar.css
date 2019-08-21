@@ -11,7 +11,11 @@
 	background: #ee6e73;
 	left: -200px;
 	transition: 0.5s;
+<<<<<<< HEAD
 	top: 0;
+=======
+	    top: 0;
+>>>>>>> 29bf8b778818ba4b266e07192e79ff0cde53bd69
 }
 
 #sidebar.active {
