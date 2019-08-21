@@ -12,15 +12,15 @@
 
 </head>
 
-<div class="content ">
-	<nav>
-		<div class="nav-wrapper main-menu">
-			
-			
-		</div>
-	</nav>
+<div class="col s3 bg-color a-side">
+	<ul  class="left hide-on-med-and-down menu-admin">
+				<li><a href="index.jsp">home</a></li>
+				<li><a href="cardapio.jsp">cardapio</a></li>
+				<li><a href="montaPizza.jsp">Monte seu pedido</a></li>
+				<li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i> </a></li>
+				<li><a class="waves-effect waves-light btn modal-trigger"
+					href="login.jsp">login</a></li>
+			</ul>
 
-	
 <div class="clear"></div>
 </div>
-	
