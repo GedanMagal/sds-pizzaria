@@ -14,7 +14,7 @@
 <body>
 <<<<<<< HEAD
 <<<<<<< HEAD
-<jsp:include page="header-admin.jsp"/>
+<jsp:include page="../imports/header-admin.jsp"/>
 =======
 
 >>>>>>> 8daea69eedaa7b1dfcb14d83a361f73ccd0911f8
