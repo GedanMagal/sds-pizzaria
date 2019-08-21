@@ -8,12 +8,11 @@
 </head>
 <body>
 
-<div class="row">
+
+<section class="content">
 <jsp:include page="../imports/headerAdmin.jsp"/>
 
-</div>
-
-
+</section>
 
 </body>
 </html>
