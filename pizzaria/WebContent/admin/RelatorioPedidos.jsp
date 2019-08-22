@@ -14,8 +14,7 @@
 <div class="main-container" id="main-container">
 
 <div class="container">
-
-<h4>Cadastrar </h4>
+<h4>Relatorio Pedidos</h4>
 	<table>
         <thead>
           <tr>

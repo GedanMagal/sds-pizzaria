@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,37 +13,39 @@
 </head>
 <body>
 
+<figure ><img width="120px" height="90px" alt="logo" src="../img/logo.png" class="center-align"> </figure>
 
+	<section class="content">
+		<div class="container">
+			<div class="row col s12">
 
- <section class="content">
-	<div class="container">
-		<div class="row col s12">
-			
-			<form class="login_form_admin">
+				<form class="login_form_admin" action="home-admin.jsp">
 					<div class="row">
-					<div class="input-field col s12">
-						<input placeholder="usuario" id="first_name" type="text"
-							class="validate"> 
-					</div>
+						<div class="input-field col s12">
+							<input placeholder="Usuário" id="first_name" type="text"
+								class="validate">
+						</div>
 					</div>
 					<div class="row">
-					<div class="input-field col s12">
-						
-						<input placeholder="senha" id="first_name" type="text"
-							class="validate">
-					</div>
+						<div class="input-field col s12">
+
+							<input placeholder="Senha" id="first_name" type="text"
+								class="validate">
+						</div>
 					</div>
 					<div class="row">
-					<div class="input-field col s6">
-						<input type="button" id="first_name" class="waves-light btn" value="log in">
+						<div class="input-field col s6">							
+								<button type="submit" id="entrar" class="waves-ligth btn">
+								Entrar
+								</button>
+						</div>
 					</div>
-					</div>
-					<p>Caso tenha esquecido seu Usuário clique aqui</p>
+					<p>Caso tenha esquecido seu Usuário clique <a href="recuperacao-senha.jsp">aqui</a></p>
 				</form>
-		</div>	
-	</div>
+			</div>
+		</div>
 
-</section>
+	</section>
 
 </body>
 </html>

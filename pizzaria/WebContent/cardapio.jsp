@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +7,9 @@
 <title>Cárdapio</title>
 </head>
 <body>
-	<jsp:include page="imports/header.jsp"/>
+	<jsp:include page="imports/header.jsp" />
 	<section class="content background-img">
-	<!-- <div class="carousel carousel-slider container">
+		<!-- <div class="carousel carousel-slider container">
     <a class="carousel-item" href="#one!">
     <img src="img/banner_site_pedepizza.jpg"></a>
     <a class="carousel-item" href="#two!"><img src="https://lorempixel.com/800/400/food/2"></a>
@@ -49,7 +49,7 @@
 								<option value="2">Option 2</option>
 								<option value="3">Option 3</option>
 							</select>
-							
+
 						</div>
 						<p>
 							<a class="waves-effect waves-light btn-small" href="#">Comprar</a>
@@ -309,7 +309,7 @@
 							<a class="waves-effect waves-light btn-small" href="#">Comprar</a>
 						</p>
 
-						<div  class="input-field col s3 ">
+						<div class="input-field col s3 ">
 							<select>
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
@@ -369,12 +369,12 @@
 					</div>
 				</div>
 
-				
+
 			</div>
 
 		</div>
-				<div class="clear"></div>
+		<div class="clear"></div>
 	</section>
-<jsp:include page="imports/footer.jsp"/>
+	<jsp:include page="imports/footer.jsp" />
 </body>
 </html>
