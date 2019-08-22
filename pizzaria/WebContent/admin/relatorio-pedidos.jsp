@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 	<div class="container">
 		<div>
 			<jsp:include page="../imports/headerAdmin.jsp" />
@@ -33,6 +34,10 @@
 				</button>
 			</div>
 		</div>
+=======
+<div class="row">
+<jsp:include page="../imports/headerAdmin.jsp"/>
+>>>>>>> refs/remotes/origin/master
 
 		<table class="highlight centered responsive-table">
 			<thead>
