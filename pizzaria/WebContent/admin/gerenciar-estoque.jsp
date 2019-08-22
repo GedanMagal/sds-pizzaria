@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
-
 	<jsp:include page="header-admin.jsp" />
 
 	<div class="container">
