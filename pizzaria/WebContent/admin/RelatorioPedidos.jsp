@@ -15,7 +15,7 @@
 
 <div class="container">
 
-<h4>Cadastrar Cliente</h4>
+<h4>Cadastrar </h4>
 	<table>
         <thead>
           <tr>
