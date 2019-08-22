@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
 <section class="content">
 <jsp:include page="../imports/headerAdmin.jsp"/>
 <div class="main-container" id="main-container">
