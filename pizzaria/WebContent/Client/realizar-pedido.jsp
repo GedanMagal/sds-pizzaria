@@ -19,6 +19,7 @@
             <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">login</a></li>
         </ul>
         <div class="clear"></div>
+    </div>
 
 
     <section>

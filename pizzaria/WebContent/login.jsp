@@ -15,7 +15,7 @@
 		<div class="side-content">
 			<div class="row">
 				<form class="col s6 form-log" method="post"
-					action="${linkEntradaServlet}">
+					action="index.jsp">
 					<h3>já possuo cadastro</h3>
 					<input type="text" name="login" placeholder="E-mail" /> <input
 						type="password" name="senha" placeholder="senha"> <input
@@ -30,7 +30,7 @@
 					</p>
 				</form>
 				<form class="col s6 form-log" method="post"
-					action="${linkEntradaServlet}">
+					action="index.jsp">
 					<h3>cadastre-se</h3>
 					<input type="text" name="e-mail" placeholder="Nome"> <input
 						type="text" name="e-mail" placeholder="cpf"> <input
