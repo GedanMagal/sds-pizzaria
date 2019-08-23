@@ -104,3 +104,7 @@ p label {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+table th:last-of-type{
+	text-align: center;
+}
+}

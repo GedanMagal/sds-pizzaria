@@ -18,9 +18,13 @@
 	</div>
 	<div class="container">
 		<div class="header-content">
-			<h5>Relatórios de Pedidos</h5>
+			<h5>Relatório de Pedidos</h5>
 		</div>
 		<div class="row">
+			<div class="input-field col s3 offset-s1">
+				<input type="text" id="codPedido"
+					placeholder="Código Pedido">
+			</div>
 			<div class="input-field col s3 offset-s1">
 				<input type="text" class="datepicker" id="dataInicio"
 					placeholder="Data de Inicio">
@@ -36,50 +40,56 @@
 				</button>
 			</div>
 		</div>
->>>>>>> a8f36ddfee8219a073b5a22f97cf601685a37cd2
 
 		<table class="highlight centered responsive-table">
 			<thead>
 				<tr>
-					<th>9999999</th>
-					<th>Nome</th>
+					<th>Cod. Pedido</th>
+					<th>Data</th>
+					<th>Cliente</th>
 					<th>Quantidade de Pedido</th>
-					<th>Valor</th>
+					<th>Valor Total</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td>999999</td>
+					<td>01/01/2001</td>
 					<td>José</td>
 					<td>2</td>
 					<td>56.90</td>
 				</tr>
 				<tr>
 					<td>999999</td>
+					<td>01/01/2001</td>
 					<td>José</td>
 					<td>2</td>
 					<td>56.90</td>
 				</tr>
 				<tr>
 					<td>999999</td>
+					<td>01/01/2001</td>
 					<td>José</td>
 					<td>2</td>
 					<td>56.90</td>
 				</tr>
 				<tr>
 					<td>999999</td>
+					<td>01/01/2001</td>
 					<td>José</td>
 					<td>2</td>
 					<td>56.90</td>
 				</tr>
 				<tr>
 					<td>999999</td>
+					<td>01/01/2001</td>
 					<td>José</td>
 					<td>2</td>
 					<td>56.90</td>
 				</tr>
 				<tr>
 					<td>999999</td>
+					<td>01/01/2001</td>
 					<td>José</td>
 					<td>2</td>
 					<td>56.90</td>

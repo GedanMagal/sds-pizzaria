@@ -16,7 +16,7 @@
 	<div class="container">
 
 		<div class="col s9 offset-s6">
-			<h4>Cliente</h4>
+			<h4>Funcionário</h4>
 		</div>
 		<h6>Dados Pessoais</h6>
 		<div class="row">
@@ -101,18 +101,10 @@
 				<input type="text" name="estado" id="estado"> <label
 					class="active" for="nome">Estado</label>
 			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<input type="text" name="localReferencia" id="localReferencia">
-				<label class="active" for="localReferencia">Local de
-					Referência</label>
-			</div>
-		</div>
-		
+		</div>		
 		<div class="row">
 			<div class="col s3 offset-s6">
-				<a href="gerenciar-cliente.jsp" class="btn waves-effect waves-light red" []
+				<a href="gerenciar-funcionario.jsp" class="btn waves-effect waves-light red" []
 						name="action">
 						Cancelar <i class="material-icons right">add</i>
 				</a>
