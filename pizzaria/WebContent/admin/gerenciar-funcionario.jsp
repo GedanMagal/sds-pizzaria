@@ -14,12 +14,12 @@
 
 	<div class="container">
 		<div class="col s9 offset-s6">
-			<h4>Gerenciar estoque</h4>
+			<h4>Gerenciar funcionário</h4>
 		</div>		
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="text" name="produto" id="produto"> <label
-					class="active" for="nome">Produto</label>
+				<input type="text" name="funcionario" id="funcionario"> <label
+					class="active" for="nome">Funcionário</label>
 			</div>	
 			<div class="input-field col s6">
 				<button class="btn waves-effect waves-light red" type="submit"
@@ -28,57 +28,56 @@
 				</button>
 			</div>				
 		</div>
-
-
+		
 		<div class="row">
 		  <table>
 	        <thead>
 	          <tr>
-	              <th>Produto</th>
-	              <th>Tamanho</th>
-	              <th>Quantidade</th>
+	              <th>Funcionário</th>
+	              <th>Telefone</th>
+	              <th>Cargo</th>
 	              <th>Ação</th>	              
 	          </tr>
 	        </thead>
 	
 	        <tbody>
 	          <tr>
-	            <td>Coca Cola</td>
-	            <td>1L</td>
-	            <td>87</td>
+	            <td>Walter Campos</td>
+	            <td>11 987654322</td>
+	            <td>Pizzaiolo</td>
 	            <td>
-		            <a href="gerenciar-produto.jsp" class="btn waves-effect waves-light red" []
+		            <a href="editar-funcionario.jsp" class="btn waves-effect waves-light red" []
 						name="action">
-						Movimentar <i class="material-icons right">add</i>
+						Editar <i class="material-icons right">add</i>
 					</a>
 				</td>
 	          </tr>
 	          <tr>
-	            <td>Skol</td>
-	            <td>350ml</td>
-	            <td>100</td>
+	            <td>Tamara Barbosa</td>
+	            <td>11 987654322</td>
+	            <td>Atendente</td>
 	            <td>
-		            <a href="gerenciar-produto.jsp" class="btn waves-effect waves-light red" []
+		            <a href="editar-funcionario.jsp" class="btn waves-effect waves-light red" []
 						name="action">
-						Movimentar <i class="material-icons right">add</i>
+						Editar <i class="material-icons right">add</i>
 					</a>
 				</td>
 	          </tr>
 	          <tr>
-	            <td>Fanta</td>
-	            <td>2L</td>
-	            <td>10</td>
+	            <td>João da Silva</td>
+	            <td>11 987654322</td>
+	            <td>Entregador</td>
 	            <td>
-		            <a href="gerenciar-produto.jsp" class="btn waves-effect waves-light red" []
+		            <a href="editar-funcionario.jsp" class="btn waves-effect waves-light red" []
 						name="action">
-						Movimentar <i class="material-icons right">add</i>
+						Editar <i class="material-icons right">add</i>
 					</a>
 				</td>
 	          </tr>
 	        </tbody>
 	      </table>
 		</div>
-
+		
 	</div>
 
 	<jsp:include page="footer-admin.jsp" />

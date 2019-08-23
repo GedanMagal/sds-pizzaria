@@ -13,15 +13,13 @@
 
 		<div class="container side-content">
 			<div class="row">
-				<div class="img_pizza">
-					
-				</div>
+				<div class="img_pizza"></div>
 			</div>
 			<div class="row col s12 cont">
 				<h3>Monte sua pizza</h3>
 				<div class="input-field col s3 dsblock">
 					<select id="select" onchange="addSabores()">
-						<option value="" disabled selected>Quantidade de sabores</option>
+						<option value="" disabled selected>Qtd.sabores</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -147,144 +145,145 @@
 					</div>
 
 				</div>
-				
-			
-				
+
+
+
 			</div>
-				<div class="row btn_proximo">
-			<a class="waves-effect waves-light btn">proximo</a>
+			<div class="row btn_proximo">
+				<a class="waves-effect waves-light btn">proximo</a>
 			</div>
-			
-				<h4>Adicione bebidas</h4>
-				<div class="card medium sm-card">
-					<div class="card-image waves-effect waves-block waves-light">
-						<img class="activator" src="img/refrigerante.jpg">
-					</div>
-					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">Coca-Cola<i
-							class="material-icons right">menu</i></span>
-						<p>
-							<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
-						</p>
-						<div id="add2" class="input-field col s10 ">
-							<select onchange="carregaIng()">
-								<option value="" disabled selected>tamanho</option>
-								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
-							</select>
-							<div class="clear"></div>
-						</div>
-					</div>
 
-					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Coca-Cola<i
-							class="material-icons right">close</i></span>
-						<p>Here is some more information about this product that is
-							only revealed once clicked on.</p>
-
-
+			<h4>Adicione bebidas</h4>
+			<div class="card medium sm-card">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="img/refrigerante.jpg">
+				</div>
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">Coca-Cola<i
+						class="material-icons right">menu</i></span>
+					<p>
+						<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
+					</p>
+					<div id="add2" class="input-field col s10 ">
+						<select onchange="carregaIng()">
+							<option value="" disabled selected>tamanho</option>
+							<option value="1">Option 1</option>
+							<option value="2">Option 2</option>
+							<option value="3">Option 3</option>
+						</select>
+						<div class="clear"></div>
 					</div>
 				</div>
-				
-				<div class="card medium sm-card">
-					<div class="card-image waves-effect waves-block waves-light">
-						<img class="activator" src="img/refrigerante.jpg">
-					</div>
-					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">Coca-Cola<i
-							class="material-icons right">menu</i></span>
-						<p>
-							<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
-						</p>
-						<div id="add2" class="input-field col s10 ">
-							<select onchange="carregaIng()">
-								<option value="" disabled selected>tamanho</option>
-								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
-							</select>
-							<div class="clear"></div>
-						</div>
-					</div>
 
-					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Coca-Cola<i
-							class="material-icons right">close</i></span>
-						<p>Here is some more information about this product that is
-							only revealed once clicked on.</p>
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">Coca-Cola<i
+						class="material-icons right">close</i></span>
+					<p>Here is some more information about this product that is
+						only revealed once clicked on.</p>
 
 
-					</div>
-				</div>
-			
-		
-		
-				<div class="card medium sm-card">
-					<div class="card-image waves-effect waves-block waves-light">
-						<img class="activator" src="img/refrigerante.jpg">
-					</div>
-					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">Coca-Cola<i
-							class="material-icons right">menu</i></span>
-						<p>
-							<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
-						</p>
-						<div id="add2" class="input-field col s10 ">
-							<select onchange="carregaIng()">
-								<option value="" disabled selected>tamanho</option>
-								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
-							</select>
-							<div class="clear"></div>
-						</div>
-					</div>
-
-					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Coca-Cola<i
-							class="material-icons right">close</i></span>
-						<p>Here is some more information about this product that is
-							only revealed once clicked on.</p>
-
-
-					</div>
-				</div>
-				
-					<div class="card medium sm-card">
-					<div class="card-image waves-effect waves-block waves-light">
-						<img class="activator" src="img/refrigerante.jpg">
-					</div>
-					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">Coca-Cola<i
-							class="material-icons right">menu</i></span>
-						<p>
-							<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
-						</p>
-						<div id="add2" class="input-field col s10 ">
-							<select onchange="carregaIng()">
-								<option value="" disabled selected>tamanho</option>
-								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
-							</select>
-							<div class="clear"></div>
-						</div>
-					</div>
-
-					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Coca-Cola<i
-							class="material-icons right">close</i></span>
-						<p>Here is some more information about this product that is
-							only revealed once clicked on.</p>
-
-
-					</div>
 				</div>
 			</div>
-	
 
-		<div class="clear"></div>
+			<div class="card medium sm-card">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="img/refrigerante.jpg">
+				</div>
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">Coca-Cola<i
+						class="material-icons right">menu</i></span>
+					<p>
+						<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
+					</p>
+					<div id="add2" class="input-field col s10 ">
+						<select onchange="carregaIng()">
+							<option value="" disabled selected>tamanho</option>
+							<option value="1">Option 1</option>
+							<option value="2">Option 2</option>
+							<option value="3">Option 3</option>
+						</select>
+						<div class="clear"></div>
+					</div>
+				</div>
+
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">Coca-Cola<i
+						class="material-icons right">close</i></span>
+					<p>Here is some more information about this product that is
+						only revealed once clicked on.</p>
+
+
+				</div>
+			</div>
+
+
+
+			<div class="card medium sm-card">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="img/refrigerante.jpg">
+				</div>
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">Coca-Cola<i
+						class="material-icons right">menu</i></span>
+					<p>
+						<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
+					</p>
+					<div id="add2" class="input-field col s10 ">
+						<select onchange="carregaIng()">
+							<option value="" disabled selected>tamanho</option>
+							<option value="1">Option 1</option>
+							<option value="2">Option 2</option>
+							<option value="3">Option 3</option>
+						</select>
+						<div class="clear"></div>
+					</div>
+				</div>
+
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">Coca-Cola<i
+						class="material-icons right">close</i></span>
+					<p>Here is some more information about this product that is
+						only revealed once clicked on.</p>
+
+
+				</div>
+			</div>
+
+			<div class="card medium sm-card">
+				<div class="card-image waves-effect waves-block waves-light">
+					<img class="activator" src="img/refrigerante.jpg">
+				</div>
+				<div class="card-content">
+					<span class="card-title activator grey-text text-darken-4">Coca-Cola<i
+						class="material-icons right">menu</i></span>
+					<p>
+						<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
+					</p>
+					<div id="add2" class="input-field col s10 ">
+						<select onchange="carregaIng()">
+							<option value="" disabled selected>tamanho</option>
+							<option value="1">Option 1</option>
+							<option value="2">Option 2</option>
+							<option value="3">Option 3</option>
+						</select>
+						<div class="clear"></div>
+					</div>
+				</div>
+
+				<div class="card-reveal">
+					<span class="card-title grey-text text-darken-4">Coca-Cola<i
+						class="material-icons right">close</i></span>
+					<p>Here is some more information about this product that is
+						only revealed once clicked on.</p>
+
+
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+
+			<div class="clear"></div>
 	</section>
 
 	<jsp:include page="imports/footer.jsp" />
