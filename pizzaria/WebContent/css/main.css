@@ -107,4 +107,9 @@ p label {
 table th:last-of-type{
 	text-align: center;
 }
+
+@media (min-width: 375) .side-content {
+	width: 100%;
+	
+	
 }
