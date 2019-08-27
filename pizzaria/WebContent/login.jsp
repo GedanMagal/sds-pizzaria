@@ -14,37 +14,117 @@
 	<section class="content background-img">
 		<div class="side-content">
 			<div class="row">
-				<form class="col s6 form-log" method="post" action="index.jsp">
-					<h3>já possuo cadastro</h3>
-					<input type="text" name="login" placeholder="E-mail" /> <input
-						type="password" name="senha" placeholder="senha"> <input
-						type="hidden" name="acao" value="Login">
-					<button class="btn waves-effect waves-light" type="submit"
-						name="action">
-						login <i class="material-icons right">send</i>
-					</button>
-					<p>
-						Caso tenha esquecido seu Usuário clique<strong> <a
-							class="modal-trigger" href="#modal1"> aqui</a></strong>
-					</p>
+
+				<form class="col s5 form-log" method="post" action="index.jsp">
+					<h3>Já possuo cadastro</h3>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input type="text" name="emailLogin" id="emailLogin"> <label
+								class="active" for="emailLogin">E-Mail</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input type="password" name="senha" id="senha"> <label
+								class="active" for="senha">Senha</label>
+						</div>
+					</div>
+
+					<input type="hidden" name="acao" value="Login">
+
+					<div class="row">
+						<div class="col s12">
+							<button class="btn waves-effect waves-light" type="submit"
+								name="action">
+								login <i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col s12">
+							<p>
+								Caso tenha esquecido seu Usuário clique<strong> <a
+									class="modal-trigger" href="#modal1"> aqui</a></strong>
+							</p>
+						</div>
+					</div>
+
 				</form>
-				<form class="col s6 form-log" method="post"
+
+				<form class="col s5 offset-s1 form-log" method="post"
 					action="index.jsp">
-					<h3>cadastre-se</h3>
-					<input type="text" name="e-mail" placeholder="Nome"> 
-					<input type="text" name="e-mail" placeholder="cpf"> 
-					<input type="text" name="e-mail" placeholder="data de Nascimento"> 
-					<input type="text" name="e-mail" placeholder="telefone "> 
-					<input type="text" name="e-mail" placeholder="celular"> 
-					<input type="text" name="e-mail" placeholder="senha">
-					 <input type="text"name="e-mail" placeholder="Repita a senha"> 
-					 <input type="text" name="e-mail" placeholder="cep"> 
-					 <input type="text" name="e-mail" placeholder="Logradouro/rua"> 
-					 <input type="text" name="e-mail" placeholder="n°"> 
-					 <input type="text" name="e-mail" placeholder="complento">
-					<button class="btn waves-effect waves-light" type="submit" name="action">
-						Cadastrar <i class="material-icons right">send</i>
-					</button>
+					<h3>Cadastre-se</h3>
+
+					<div class="row">
+						<div class="input-field col s12">
+							<input type="text" name="nome" id="nome"> <label
+								class="active" for="nome">Nome</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s6">
+							<input type="text" name="cpf" id="cpf" class="cpf"> <label
+								class="active" for="cpf">CPF</label>
+						</div>
+						<div class="input-field col s6">
+							<input type="text" name="dataNascimento" class="datepicker"
+								placeholder="Data de Nascimento">
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s6">
+							<input type="text" name="telefone" id="telefone"> <label
+								class="active" for=""telefone "">Telefone</label>
+						</div>
+						<div class="input-field col s6">
+							<input type="text" name="celular" id="celular"> <label
+								class="active" for="celular">Celular</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s4">
+							<input type="text" name="cep" id="cep"> <label
+								class="active" for="cep">CEP</label>
+						</div>
+						<div class="input-field col s8">
+							<input type="text" name="complemento" id="complento"> <label
+								class="active" for="complemento">Complemento</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s8">
+							<input type="text" name="logradouro" id="logradouro"> <label
+								class="active" for="logradouro">Logradouro/rua</label>
+						</div>
+						<div class="input-field col s4">
+							<input type="text" name="numero" id="numero"> <label
+								class="active" for="numero">Número</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s6">
+							<input type="password" name="senha" id="senha"> <label
+								class="active" for="senha">Senha</label>
+						</div>
+						<div class="input-field col s6">
+							<input type="password" name="repetirSenha" id="repetirSenha">
+							<label class="active" for="repetirSenha">Repetir a Senha</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col s12">
+							<button class="btn waves-effect waves-light" type="submit"
+								name="action">
+								Cadastrar <i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+
+
+
 				</form>
 			</div>
 			<div class="clear"></div>

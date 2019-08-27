@@ -1,6 +1,16 @@
+
  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+     $('select').formSelect();
+     $('.modal').modal();
+     $('.sidenav').sidenav();
+     $('.datepicker').datepicker({
+    	 format: 'dd mmm, yyyy'
+     });
+     $('.cep').mask('00000-000');
+     $('.phone').mask('(00) 0000-0000');
+     $('.cpf').mask('000.000.000-00', {reverse: true});
+     $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
+   });
 
 
 function addSabores(){
@@ -46,18 +56,4 @@ function carregaIng(){
 		
 	}
 }
-
-$(document).ready(function(){
-    $('.modal').modal();
-   
-  });
-
-
-$(document).ready(function(){
-    $('select').formSelect();
-  });
-
-$(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
       
