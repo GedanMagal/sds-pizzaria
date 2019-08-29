@@ -152,7 +152,7 @@
 		</div>
 	</div>
 	<jsp:include page="imports/footer.jsp" />
-	<scrip src="../js/getLocation.js"></scrip>
+	<script src="js/getLocation.js"></script>
 
 </body>
 </html>
