@@ -10,13 +10,13 @@
 	width: 200px;
 	height: 100%;
 	background: #ee6e73;
-	left: -200px;
+	left: 0px;
 	transition: 1s;
 	top: 0;
 }
 
 #sidebar.active {
-	left: 0px;
+	left: -200px;
 	transform: translate(100deg);
 	
 }
