@@ -8,6 +8,7 @@
                         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/banco-sql"/>
                         
         
         <property name="java-output-path" value="/pizzaria/build/classes"/>

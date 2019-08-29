@@ -13,10 +13,24 @@
 	
 </head>
 <body>
+<nav>
+		<a href="#" data-target="slide-out" class="sidenav-trigger"><i
+			class="material-icons">menu</i></a>
+		<div class="nav-wrapper main-menu">
 
-<jsp:include page="../imports/header.jsp"></jsp:include>
-<section class="side-content">
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				
+				
+				<li><a class="waves-effect waves-light btn modal-trigger"
+					href="index.jsp">SAIR</a></li>
+			</ul>
+		</div>
+	</nav>
+
+<div class="content bg-red-sal">
+<section class="side-content ">
 	<div class="row">
+	<h1 align="center">Pedidos do José</h1>
 		<table>
 			<tr>
 			<td>Pedido</td>
@@ -26,31 +40,58 @@
 			<tr>
 			<td>9999090</td>
 			<td>Em andamento</td>
-			<td><i class="material-icons">add_box</i></td>
+		
+			<td><a href=""><i class="material-icons">add_box</i></a></td>
 			</tr>		
 			<tr>
 			<td>9999090</td>
 			<td>Em andamento</td>
-			<td><i class="material-icons">add_box</i></td>
+			
+			<td><a href=""><i class="material-icons">add_box</i></a></td>
 			</tr>	
 			<tr>
 			<td>9999090</td>
 			<td>Em andamento</td>
-			<td><i class="material-icons">add_box</i></td>
+			<td><a href=""><i class="material-icons">add_box</i></a></td>
+			</tr>	
+			<tr>
+			<td>9999090</td>
+			<td>Em andamento</td>		
+			<td><a href=""><i class="material-icons">add_box</i></a></td>
 			</tr>	
 			<tr>
 			<td>9999090</td>
 			<td>Em andamento</td>
-			<td><i class="material-icons">add_box</i></td>
+			<td><a href=""><i class="material-icons">add_box</i></a></td>
 			</tr>	
 			<tr>
 			<td>9999090</td>
 			<td>Em andamento</td>
-			<td><i class="material-icons">add_box</i></td>
+			<td><a href=""><i class="material-icons">add_box</i></a></td>
+			</tr>	
+			<tr>
+			<td>9999090</td>
+			<td>Em andamento</td>
+			<td><a href=""><i class="material-icons">add_box</i></a></td>
+			</tr>	
+			<tr>
+			<td>9999090</td>
+			<td>Em andamento</td>
+			<td><a href=""><i class="material-icons">add_box</i></a></td>
+			</tr>	
+			<tr>
+			<td>9999090</td>
+			<td>Em andamento</td>
+			<td><a href=""><i class="material-icons">add_box</i></a></td>
 			</tr>		
 		</table>
+		
 	</div>
+	
 </section>
-<jsp:include page="footer.jsp"></jsp:include>
+<div class="clear"></div>
+</div>
+	<jsp:include page="footer-admin.jsp" />
+
 </body>
 </html>

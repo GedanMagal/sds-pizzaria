@@ -22,6 +22,9 @@ a{text-decoration: none; color: black;}
 	background-color: gray;
 	text-align: center;
 }
+.bg-red-sal{
+	background-color: #ee6e73!important;
+}
 .a-side{
 
 	background-color: gray;
