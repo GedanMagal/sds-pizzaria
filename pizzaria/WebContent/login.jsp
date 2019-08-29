@@ -84,29 +84,40 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="input-field col s4">
-							<input type="text" name="cep" id="cep"> <label
+						<div class="input-field col s3">
+							<input type="text" name="cep" id="cep" > <label
 								class="active" for="cep">CEP</label>
 						</div>
-						<div class="input-field col s8">
-							<input type="text" name="complemento" id="complento"> <label
-								class="active" for="complemento">Complemento</label>
+						<div class="input-field col s9 endereco-info">
+							<input type="text" name="logradouro" id="logradouro">
+						</div>
+						
+					</div>
+					<div class="row endereco-info">
+						<div class="input-field col s5">
+							<input type="text" name="bairro" id="bairro">
+						</div>
+						<div class="input-field col s4">
+							<input type="text" name="cidade" id="cidade">
+						</div>
+						<div class="input-field col s3">
+							<input type="text" name="estado" id="estado">
 						</div>
 					</div>
 					<div class="row">
-						<div class="input-field col s8">
-							<input type="text" name="logradouro" id="logradouro"> <label
-								class="active" for="logradouro">Logradouro/rua</label>
+						<div class="input-field col s9">
+							<input type="text" name="complemento" id="complemento"> <label
+								class="active" for="complemento">Complemento</label>
 						</div>
-						<div class="input-field col s4">
+						<div class="input-field col s3">
 							<input type="text" name="numero" id="numero"> <label
-								class="active" for="numero">Número</label>
+								class="active" for="numero">Numero</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s6">
-							<input type="password" name="senha" id="senha"> <label
-								class="active" for="senha">Senha</label>
+							<input type="password" name="senhaCadastro" id="senhaCadastro"> <label
+								class="active" for="senhaCadastro">Senha</label>
 						</div>
 						<div class="input-field col s6">
 							<input type="password" name="repetirSenha" id="repetirSenha">
@@ -141,6 +152,7 @@
 		</div>
 	</div>
 	<jsp:include page="imports/footer.jsp" />
+	<script src="js/getLocation.js"></script>
 
 </body>
 </html>

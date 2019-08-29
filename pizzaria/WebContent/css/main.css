@@ -1,4 +1,13 @@
 
+.row {
+	margin-bottom: 15px;
+}
+
+.input-field {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
 a{text-decoration: none; color: black;}
 
 .background-img{
@@ -36,8 +45,8 @@ a{text-decoration: none; color: black;}
 }
 .side-content{
 	float: left;
-	width: 70%;
-	margin: 20px 15%;
+	width: 80%;
+	margin: 20px 10%;
 	padding: 4px 60px; 
 	border-radius: 20px;
 		background: #fff;

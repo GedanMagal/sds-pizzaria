@@ -43,7 +43,7 @@
 
 
 						<div id="add2" class="input-field col s3 ">
-							<select>
+							<select id="select">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -72,37 +72,7 @@
 
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
-								<option value="" disabled selected>tamanho</option>
-								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
-							</select>
-							<div class="clear"></div>
-						</div>
-						<p>
-							<a class="waves-effect waves-light btn-small" href="#">Comprar</a>
-						</p>
-					</div>
-					<div class="card-reveal">
-						<span class="card-title grey-text text-darken-4">Mussarela<i
-							class="material-icons right">close</i></span>
-						<p>Here is some more information about this product that is
-							only revealed once clicked on.</p>
-					</div>
-				</div>
-
-				<div class="card medium sm-card">
-					<div class="card-image waves-effect waves-block waves-light">
-						<img class="activator" src="img/pizza-1.jpg">
-					</div>
-					<div class="card-content">
-						<span class="card-title activator grey-text text-darken-4">Mussarela<i
-							class="material-icons right">menu</i></span>
-
-
-						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+							<select  id="select" onchange="carregaIng()">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -132,7 +102,7 @@
 
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+							<select  id="select" onchange="carregaIng()">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -162,7 +132,7 @@
 
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+							<select  id="select" onchange="carregaIng()">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -192,7 +162,7 @@
 
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+							<select  id="select" onchange="carregaIng()">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -222,7 +192,7 @@
 
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+							<select  id="select" onchange="carregaIng()">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -252,7 +222,37 @@
 
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+							<select  id="select" onchange="carregaIng()">
+								<option value="" disabled selected>tamanho</option>
+								<option value="1">Option 1</option>
+								<option value="2">Option 2</option>
+								<option value="3">Option 3</option>
+							</select>
+							<div class="clear"></div>
+						</div>
+						<p>
+							<a class="waves-effect waves-light btn-small" href="#">Comprar</a>
+						</p>
+					</div>
+					<div class="card-reveal">
+						<span class="card-title grey-text text-darken-4">Mussarela<i
+							class="material-icons right">close</i></span>
+						<p>Here is some more information about this product that is
+							only revealed once clicked on.</p>
+					</div>
+				</div>
+
+				<div class="card medium sm-card">
+					<div class="card-image waves-effect waves-block waves-light">
+						<img class="activator" src="img/pizza-1.jpg">
+					</div>
+					<div class="card-content">
+						<span class="card-title activator grey-text text-darken-4">Mussarela<i
+							class="material-icons right">menu</i></span>
+
+
+						<div id="add2" class="input-field col s3 ">
+							<select  id="select" onchange="carregaIng()">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -286,7 +286,7 @@
 						</p>
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="">
+							<select  id="select" onchange="">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -310,7 +310,7 @@
 						</p>
 
 						<div class="input-field col s3 ">
-							<select>
+							<select  id="select">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -334,7 +334,7 @@
 						</p>
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+							<select  id="select" onchange="carregaIng()">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
@@ -358,7 +358,7 @@
 						</p>
 
 						<div id="add2" class="input-field col s3 ">
-							<select onchange="carregaIng()">
+							<select  id="select" onchange="carregaIng()">
 								<option value="" disabled selected>tamanho</option>
 								<option value="1">Option 1</option>
 								<option value="2">Option 2</option>
