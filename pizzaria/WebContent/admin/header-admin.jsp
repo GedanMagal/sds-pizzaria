@@ -25,7 +25,7 @@
 		<li><a href="gerenciar-produto.jsp">Gerenciar Produto</a></li>
 		<li><a href="gerenciar-cliente.jsp">Gerenciar Clientes</a></li>
 		<li><a href="gerenciar-funcionario.jsp">Gerenciar Funcionário</a></li>
-		<li><a href="login.jsp">Sair</a></li>
+		<li><a href="index.jsp">Sair</a></li>
 	</ul>
 	<div class="toggle-btn" onclick="toggleSidebar()">
 		<span></span>

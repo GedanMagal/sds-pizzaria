@@ -16,19 +16,17 @@
               </div>
             </div>
           </div>
-          <div class="footer-copyright", position: fixed,
-    bottom:0,
-    left:0,>
+          <div class="footer-copyright">
             <div class="container">
             © 2014 Copyright Text
             <a class="grey-text text-lighten-4 right" href="login.jsp">Admin</a>
             </div>
           </div>
           <div class="clear"></div>
-           <script type="text/javascript" src="js/jquery.js"></script>   
-            <script type="text/javascript" src="js/materialize.min.js"></script> 
+           <script type="text/javascript" src="../js/jquery.js"></script>   
+            <script type="text/javascript" src="../js/materialize.min.js"></script> 
                    
-    		<script type="text/javascript" src="js/main.js"></script>  
+    		<script type="text/javascript" src="../js/main.js"></script>  
         </footer>
              
     		

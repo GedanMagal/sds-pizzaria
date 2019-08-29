@@ -27,7 +27,7 @@
 
 				</div>
 				<div id="add" class=" add input-field col s3 dsnone">
-					<select onchange="carregaIng()">
+					<select  id="select"onchange="carregaIng()">
 						<option value="" disabled selected>Sabor 1</option>
 						<option value="1">Option 1</option>
 						<option value="2">Option 2</option>
@@ -66,7 +66,7 @@
 					</div>
 				</div>
 				<div id="add2" class="input-field col s3 dsnone">
-					<select onchange="carregaIng()">
+					<select  id="select"onchange="carregaIng()">
 						<option value="" disabled selected>Sabor 2</option>
 						<option value="1">Option 1</option>
 						<option value="2">Option 2</option>
@@ -106,7 +106,7 @@
 
 				</div>
 				<div id="add3" class="input-field col s3 dsnone">
-					<select>
+					<select   id="select">
 						<option value="" disabled selected>Sabor 3</option>
 						<option value="1">Option 1</option>
 						<option value="2">Option 2</option>
@@ -165,7 +165,7 @@
 						<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
 					</p>
 					<div id="add2" class="input-field col s10 ">
-						<select onchange="carregaIng()">
+						<select  id="select"onchange="carregaIng()">
 							<option value="" disabled selected>tamanho</option>
 							<option value="1">Option 1</option>
 							<option value="2">Option 2</option>
@@ -196,7 +196,7 @@
 						<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
 					</p>
 					<div id="add2" class="input-field col s10 ">
-						<select onchange="carregaIng()">
+						<select id="select" onchange="carregaIng()">
 							<option value="" disabled selected>tamanho</option>
 							<option value="1">Option 1</option>
 							<option value="2">Option 2</option>
@@ -229,7 +229,7 @@
 						<a class="waves-effect waves-teal btn-flat" href="#">Comprar</a>
 					</p>
 					<div id="add2" class="input-field col s10 ">
-						<select onchange="carregaIng()">
+						<select  id="select" onchange="carregaIng()">
 							<option value="" disabled selected>tamanho</option>
 							<option value="1">Option 1</option>
 							<option value="2">Option 2</option>
