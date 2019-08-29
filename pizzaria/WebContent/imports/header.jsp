@@ -19,14 +19,15 @@
 				<li><a href="index.jsp">home</a></li>
 				<li><a href="cardapio.jsp">cardapio</a></li>
 				<li><a href="montaPizza.jsp">Monte seu pedido</a></li>
-				<li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i>
-				</a></li>
+				<li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i></a></li>
+				<li><a href="index.jsp"><b>bem vindo !</b></a></li>
 				<li><a class="waves-effect waves-light btn modal-trigger"
 					href="login.jsp">login</a></li>
+					
 			</ul>
 		</div>
 	</nav>
-
+		
 	<ul class="sidenav	" id="mobile-demo">
 
 		<li><a href="">home</a></li>

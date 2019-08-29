@@ -19,7 +19,9 @@
 	transform: translate(100deg);
 	
 }
-
+.card-pagamento{
+	width: 50%;
+}
 #sidebar ul li {
 	color: rgba(230, 230, 230, 0.9);
 	list-style: none;

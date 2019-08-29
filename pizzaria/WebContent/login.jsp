@@ -13,10 +13,10 @@
 	<jsp:include page="imports/header.jsp" />
 	<section class="content background-img">
 		<div class="side-content">
-			<div class="row">
+			<div class="row form-log">
 
-				<form class="col s5 form-log" method="post" action="index.jsp">
-					<h3>Já possuo cadastro</h3>
+				<form class="col s5 " method="post" action="index.jsp">
+					<h3>login</h3>
 
 					<div class="row">
 						<div class="input-field col s12">
@@ -53,91 +53,7 @@
 
 				</form>
 
-				<form class="col s5 offset-s1 form-log" method="post"
-					action="index.jsp">
-					<h3>Cadastre-se</h3>
-
-					<div class="row">
-						<div class="input-field col s12">
-							<input type="text" name="nome" id="nome"> <label
-								class="active" for="nome">Nome</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s6">
-							<input type="text" name="cpf" id="cpf" class="cpf"> <label
-								class="active" for="cpf">CPF</label>
-						</div>
-						<div class="input-field col s6">
-							<input type="text" name="dataNascimento" class="datepicker"
-								placeholder="Data de Nascimento">
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s6">
-							<input type="text" name="telefone" id="telefone"> <label
-								class="active" for=""telefone "">Telefone</label>
-						</div>
-						<div class="input-field col s6">
-							<input type="text" name="celular" id="celular"> <label
-								class="active" for="celular">Celular</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s3">
-							<input type="text" name="cep" id="cep" > <label
-								class="active" for="cep">CEP</label>
-						</div>
-						<div class="input-field col s9 endereco-info">
-							<input type="text" name="logradouro" id="logradouro">
-						</div>
-						
-					</div>
-					<div class="row endereco-info">
-						<div class="input-field col s5">
-							<input type="text" name="bairro" id="bairro">
-						</div>
-						<div class="input-field col s4">
-							<input type="text" name="cidade" id="cidade">
-						</div>
-						<div class="input-field col s3">
-							<input type="text" name="estado" id="estado">
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s9">
-							<input type="text" name="complemento" id="complemento"> <label
-								class="active" for="complemento">Complemento</label>
-						</div>
-						<div class="input-field col s3">
-							<input type="text" name="numero" id="numero"> <label
-								class="active" for="numero">Numero</label>
-						</div>
-					</div>
-					<div class="row">
-						<div class="input-field col s6">
-							<input type="password" name="senhaCadastro" id="senhaCadastro"> <label
-								class="active" for="senhaCadastro">Senha</label>
-						</div>
-						<div class="input-field col s6">
-							<input type="password" name="repetirSenha" id="repetirSenha">
-							<label class="active" for="repetirSenha">Repetir a Senha</label>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col s12">
-							<button class="btn waves-effect waves-light" type="submit"
-								name="action">
-								Cadastrar <i class="material-icons right">send</i>
-							</button>
-						</div>
-					</div>
-
-
-
-				</form>
-			</div>
+				</div>
 			<div class="clear"></div>
 		</div>
 		<div class="clear"></div>
