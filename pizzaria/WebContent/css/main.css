@@ -108,6 +108,18 @@ table th:last-of-type{
 	text-align: center;
 }
 
+.logo {
+	width: 20%;
+	margin: 7% 11% -10% 40%;
+	background-image: url("../img/logo.png");
+	height: 200px;
+	background-size: 200px 200px; 
+	background-position: center;
+	background-repeat: no-repeat;
+	}
+.ds-none{
+	display: none;
+}
 @media (min-width: 375) .side-content {
 	width: 100%;
 	

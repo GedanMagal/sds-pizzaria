@@ -12,11 +12,11 @@
 <link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
+<section class="container">
+<div class="logo">
+	<h1 class="ds-none">Smart pizza</h1>
+</div>
 
-<figure ><img width="120px" height="90px" alt="logo" src="../img/logo.png" class="center-align"> </figure>
-
-	<section class="content">
-		<div class="container">
 			<div class="row col s12">
 
 				<form class="login_form_admin" action="home-admin.jsp">
@@ -43,9 +43,6 @@
 					<p>Caso tenha esquecido seu Usuário clique <a href="recuperacao-senha.jsp">aqui</a></p>
 				</form>
 			</div>
-		</div>
-
 	</section>
-
 </body>
 </html>
