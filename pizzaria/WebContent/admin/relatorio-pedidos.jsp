@@ -36,7 +36,7 @@
 <div class="row">
 <jsp:include page="../imports/headerAdmin.jsp"/>
 
-<<<<<<< HEAD
+
 	<div class="container">
 		<div>
 			<jsp:include page="../imports/headerAdmin.jsp" />
