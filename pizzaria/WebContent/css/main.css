@@ -59,7 +59,7 @@ a{text-decoration: none; color: black;}
 .fl-left{float: left;}
 #select{display: none!important;}
 .main-menu{width: 70%;margin: 0px 15%;}
-.main{width: 100%;}
+.main{width: 100%};
 
 .side-form{margin: 90px 50px;}
 .clear{clear: both;}

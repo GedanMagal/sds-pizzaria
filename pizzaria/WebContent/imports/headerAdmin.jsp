@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <head>
 <!-- Compiled and minified CSS -->
@@ -7,33 +7,18 @@
 <link rel="stylesheet" href="../css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-<link rel="stylesheet" href="../css/sideBar.css">
+<link rel="stylesheet" href="../css/side-bar-admin.css">
 <link rel="stylesheet" href="../css/main.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-
-<script type="text/javascript">
-	function toggleSidebar() {
-		document.getElementById('sidebar').classList.toggle('active');
-
-	}
-</script>
 </head>
 
 
-<nav id="sidebar">
-	<figure>
-		<img width="120px" height="90px" alt="logo" src="../img/logo.png">
-	</figure>
-	<ul>
-		<li><a>Relatório </a></li>
-		<li><a>Gerenciar Estoque</a></li>
-		<li><a>Adicionar Produto</a></li>
-		<li><a>Gerenciar Clientes</a></li>
-	</ul>
-	<div class="toggle-btn" onclick="toggleSidebar()">
-		<span></span> <span></span> <span></span>
-	</div>
-
+<nav id="mySidebar" class="sidebar">
+<a href="#" class="closebtn" onclick="closeNav()">x</a>
+  <a href="#">RelatÃ³rio</a>
+  <a href="#">Gerenciar Estoque</a>
+  <a href="#">Adicionar Produto</a>
+  <a href="#">Gerenciar Clientes</a>
 </nav>
 

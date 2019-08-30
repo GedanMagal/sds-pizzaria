@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link rel="stylesheet" href="../css/main.css">
-<link rel="stylesheet" href="../css/cadastrar-cliente.css">
+<!-- <link rel="stylesheet" href="../css/cadastrar-cliente.css"> -->
+<link rel="stylesheet" href="../css/side-bar-admin.css">
 </head>
 <body>
 
-	<jsp:include page="header-admin.jsp" />
+	<jsp:include page="../imports/headerAdmin.jsp" />
 
-	<div class="container">
+
+
+	<div class="main">
+		<button class="openbtn" onclick="openNav()">Menu</button>
 
 		<div class="col s9 offset-s6">
 			<h4>Funcionário</h4>
@@ -28,11 +31,11 @@
 				<input type="text" name="sobrenome" id="sobrenome"> <label
 					class="active" for="sobrenome">Sobrenome</label>
 			</div>
-			
+
 		</div>
-		
+
 		<div class="row">
-		<div class="input-field col s4">
+			<div class="input-field col s4">
 				<input type="text" name="cpf" id="cpf"> <label
 					class="active" for="cpf">CPF</label>
 			</div>
@@ -44,9 +47,9 @@
 				<input type="text" name="telefone2" id="telefone2"> <label
 					class="active" for="telefone2">Telefone 2</label>
 			</div>
-			
+
 		</div>
-		
+
 		<!--<div class="row">
 			<div class="col s12">
 				<p>
@@ -68,7 +71,7 @@
 					class="active" for="senha">Senha</label>
 			</div>
 		</div>
-		
+
 		<h6>Localização Endereço</h6>
 		<div class="row">
 			<div class="input-field col s6">
@@ -101,15 +104,15 @@
 				<input type="text" name="estado" id="estado"> <label
 					class="active" for="nome">Estado</label>
 			</div>
-		</div>		
+		</div>
 		<div class="row">
 			<div class="col s3 offset-s6">
-				<a href="gerenciar-funcionario.jsp" class="btn waves-effect waves-light red" []
-						name="action">
-						Cancelar <i class="material-icons right">add</i>
+				<a href="gerenciar-funcionario.jsp"
+					class="btn waves-effect waves-light red" [] name="action">
+					Cancelar <i class="material-icons right">add</i>
 				</a>
 			</div>
-			<div class="col s3" offset-s6">
+			<div class="col s3"offset-s6">
 				<button class="btn waves-effect waves-light" type="submit"
 					name="action">
 					Salvar <i class="material-icons right">check</i>
@@ -118,11 +121,10 @@
 			</div>
 		</div>
 
-
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/materialize.min.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
 	</div>
-
-	<jsp:include page="footer-admin.jsp" />
-
 </body>
 
 
