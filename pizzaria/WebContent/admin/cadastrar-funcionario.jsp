@@ -13,11 +13,7 @@
 
 	<jsp:include page="../imports/headerAdmin.jsp" />
 
-
-
-	<div class="main">
-		<button class="openbtn" onclick="openNav()">Menu</button>
-
+	<div class="main-container">
 		<div class="col s9 offset-s6">
 			<h4>Funcionário</h4>
 		</div>
@@ -120,11 +116,8 @@
 
 			</div>
 		</div>
-
-		<script type="text/javascript" src="../js/jquery.js"></script>
-		<script type="text/javascript" src="../js/materialize.min.js"></script>
-		<script type="text/javascript" src="../js/main.js"></script>
 	</div>
+	<jsp:include page="footer-admin.jsp" />
 </body>
 
 

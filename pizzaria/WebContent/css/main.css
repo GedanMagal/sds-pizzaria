@@ -1,3 +1,14 @@
+.btn-sair{
+	top: 20%;
+    right: 3%;
+}
+
+.main-container {
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
 
 .row {
 	margin-bottom: 15px;

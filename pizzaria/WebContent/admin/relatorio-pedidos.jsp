@@ -8,22 +8,15 @@
 </head>
 <body>
 
-	<div class="container">
-		<div>
-		<jsp:include page="header-admin.jsp" />
-		</div>
-	</div>
-	<div class="container">
+	<jsp:include page="../imports/headerAdmin.jsp" />
 
-
-	<div class="container">
+	<div class="main-container">
 		<div class="header-content">
 			<h5>Relatório de Pedidos</h5>
 		</div>
 		<div class="row">
 			<div class="input-field col s3 offset-s1">
-				<input type="text" id="codPedido"
-					placeholder="Código Pedido">
+				<input type="text" id="codPedido" placeholder="Código Pedido">
 			</div>
 			<div class="input-field col s3 offset-s1">
 				<input type="text" class="datepicker" id="dataInicio"
@@ -49,8 +42,6 @@
 					<th>Cliente</th>
 					<th>Quantidade de Pedido</th>
 					<th>Valor Total</th>
-
-		
 			<thead>
 				<tr>
 					<th>9999999</th>
@@ -126,7 +117,6 @@
 
 	</div>
 
-</div>
 
 	<jsp:include page="footer-admin.jsp" />
 

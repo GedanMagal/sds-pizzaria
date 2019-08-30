@@ -14,11 +14,60 @@
 </head>
 
 
-<nav id="mySidebar" class="sidebar">
-<a href="#" class="closebtn" onclick="closeNav()">x</a>
-  <a href="#">Relatório</a>
-  <a href="#">Gerenciar Estoque</a>
-  <a href="#">Adicionar Produto</a>
-  <a href="#">Gerenciar Clientes</a>
-</nav>
+<div class="navbar-fixed">
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo center">Logo</a>
+			<ul id="nav-mobile" class="left hide-on-med-and-down">
+				<li><a href="#" data-target="slide-out" class="sidenav-trigger">
+						<i class="material-icons">dehaze</i>
+				</a></li>				
+			</ul>
+			<a class="btn-sair right waves-effect waves-light btn modal-trigger"
+					href="index.jsp">SAIR</a>
+		</div>
+	</nav>
+</div>
+
+<ul id="slide-out" class="sidenav">
+	<li>
+		<div class="user-view">
+			<div class="background">
+				<img src="../img/office.jpg">
+			</div>
+			<a href="#user"><img class="circle" src="../img/user.png"></a>
+			<a href="#name"> <span class="white-text name"> Gabriel
+					Pires </span>
+			</a> <a href="#email"><span class="white-text email">gapires.gap@hotmail.com</span></a>
+		</div>
+	</li>
+	<li>
+		<a href="#!">
+			<i class="material-icons">content_copy</i>
+			Relatório
+		</a>
+	</li>
+	<li><div class="divider"></div></li>
+	<li>
+		<a href="#!">
+			<i class="material-icons">account_balance</i>
+			Gerenciar Estoque
+		</a>
+	</li>
+	<li><div class="divider"></div></li>
+	<li>
+		<a class="waves-effect" href="#!">
+			<i class="material-icons">event_note</i>
+			Gerenciar Produto
+		</a>
+	</li>
+	<li><div class="divider"></div></li>
+	<li>
+		<a class="waves-effect" href="#!">
+			<i class="material-icons">assignment_ind</i>
+			Gerenciar Clientes
+		</a>
+	</li>
+</ul>
+
 

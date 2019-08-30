@@ -1,8 +1,6 @@
 #footer {
   position: absolute;
-  bottom: 0px;
   margin-right: auto;
-  margin-left: auto; 
-  
+  margin-left: auto;   
   width: 100%;
 }

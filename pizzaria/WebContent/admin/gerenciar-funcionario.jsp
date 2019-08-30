@@ -10,9 +10,9 @@
 <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
-	<jsp:include page="header-admin.jsp" />
+	<jsp:include page="../imports/headerAdmin.jsp" />
 
-	<div class="container">
+	<div class="main-container">
 		<div class="col s9 offset-s6">
 			<h4>Gerenciar funcionário</h4>
 		</div>		

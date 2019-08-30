@@ -1,17 +1,3 @@
-function openNav() {
-	$("#mySidebar").css('width', "20%");
-	$(".main").css({'margin-left':"23%", 'width': 'calc(100% - 23%)'});
-	$('.openbtn').hide();
-}
-
-function closeNav() {
-	$("#mySidebar").css('width', "0");
-	$(".main").css({
-		"margin-left" : "0",
-		'width': '100%'
-	});
-	$('.openbtn').show();
-}
 
 $(document).ready(function() {
 

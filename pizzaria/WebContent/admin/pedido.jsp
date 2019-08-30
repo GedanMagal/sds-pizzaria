@@ -14,10 +14,9 @@
 </head>
 <body>
 
-	<jsp:include page="header-admin.jsp" />
+	<jsp:include page="../imports/headerAdmin.jsp" />
 
-
-	<div class="container">
+	<div class="main-container">
 		<div class="row">
 			<div class="img_pizza"></div>
 		</div>
