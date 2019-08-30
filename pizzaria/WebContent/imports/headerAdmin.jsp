@@ -21,10 +21,10 @@
 			<ul id="nav-mobile" class="left hide-on-med-and-down">
 				<li><a href="#" data-target="slide-out" class="sidenav-trigger">
 						<i class="material-icons">dehaze</i>
-				</a></li>				
+				</a></li>
 			</ul>
 			<a class="btn-sair right waves-effect waves-light btn modal-trigger"
-					href="index.jsp">SAIR</a>
+				href="index.jsp">SAIR</a>
 		</div>
 	</nav>
 </div>
@@ -35,39 +35,27 @@
 			<div class="background">
 				<img src="../img/office.jpg">
 			</div>
-			<a href="#user"><img class="circle" src="../img/user.png"></a>
-			<a href="#name"> <span class="white-text name"> Gabriel
+			<a href="#user"> <img class="circle" src="../img/user.png">
+			</a> <a href="#name"> <span class="white-text name"> Gabriel
 					Pires </span>
 			</a> <a href="#email"><span class="white-text email">gapires.gap@hotmail.com</span></a>
 		</div>
 	</li>
-	<li>
-		<a href="#!">
-			<i class="material-icons">content_copy</i>
-			Relatório
-		</a>
-	</li>
+	<li><a class="waves-effect" href="relatorio-pedidos.jsp"> <i
+			class="material-icons">content_copy</i> Relatório
+	</a></li>
 	<li><div class="divider"></div></li>
-	<li>
-		<a href="#!">
-			<i class="material-icons">account_balance</i>
-			Gerenciar Estoque
-		</a>
-	</li>
+	<li><a class="waves-effect" href="gerenciar-estoque.jsp"> <i
+			class="material-icons">account_balance</i> Gerenciar Estoque
+	</a></li>
 	<li><div class="divider"></div></li>
-	<li>
-		<a class="waves-effect" href="#!">
-			<i class="material-icons">event_note</i>
-			Gerenciar Produto
-		</a>
-	</li>
+	<li><a class="waves-effect" href="gerenciar-produto.jsp"> <i
+			class="material-icons">event_note</i> Gerenciar Produto
+	</a></li>
 	<li><div class="divider"></div></li>
-	<li>
-		<a class="waves-effect" href="#!">
-			<i class="material-icons">assignment_ind</i>
-			Gerenciar Clientes
-		</a>
-	</li>
+	<li><a class="waves-effect" href="gerenciar-cliente.jsp"> <i
+			class="material-icons">assignment_ind</i> Gerenciar Clientes
+	</a></li>
 </ul>
 
 
