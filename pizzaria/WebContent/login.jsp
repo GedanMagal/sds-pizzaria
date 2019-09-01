@@ -15,7 +15,7 @@
 		<div class="side-content">
 			<div class="row form-log">
 
-				<form class="col s5 " method="post" action="index.jsp">
+				<form class="col s8 " method="post" action="index.jsp">
 					<h3>login</h3>
 
 					<div class="row">
