@@ -35,9 +35,10 @@
 			</table>
 			
 				<div class="row btn_proximo right">
-				<a class="waves-effect waves-light btn">Finalizar Pedidoj</a>
+				<a class="waves-effect waves-light btn" href="pagamento.jsp">Finalizar Pedidoj</a>
 				</div>
 		</div>
+		
     </div> 
     <div class="clear"></div> 
 </section>

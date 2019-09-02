@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-
+	
 	$('select').formSelect();
 	$('.modal').modal();
 	$('.sidenav').sidenav();
@@ -57,4 +57,7 @@ function carregaIng() {
 		ing[i].classList.remove('dsnone');
 
 	}
+}
+ function flip() {
+	 document.querySelector("#flip-container").classList.toggle("flip")
 }

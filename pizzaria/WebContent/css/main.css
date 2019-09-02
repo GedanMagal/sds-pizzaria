@@ -74,8 +74,73 @@ a{text-decoration: none; color: black;}
 
 .side-form{margin: 90px 50px;}
 .clear{clear: both;}
+/* flip card pagamento*/
+.flip-container { perspective: 1000; }  	
 
+/* vira os containers frente e verso quando o mouse passa em cima */
+.flip-container.hover .flipper, .flip-container.hover .flipper {  		
+  transform: rotateY(180deg);  	
+}    
+.flip-container, .front, .back {  	
+  width: 320px;  	
+  height: 480px;  
+  margin: auto;
+}
 
+/* define a velocidade da transição */
+.flipper {  	
+  transition: 0.6s;  	
+  transform-style: preserve-3d;    	
+  position: relative;  
+}
+    
+/* esconde o verso durante a animação */
+.front, .back {  	
+  backface-visibility: hidden;    	
+  position: absolute;  	
+  top: 0;  	
+ left: 0;  
+}
+    #front{
+
+    padding: 20px;
+    border: solid 1px;
+    }
+    .back{
+    	width: 300px;
+    }
+    .pay-card{
+    	width: 400px;
+    	height: 200px;
+    	background: aquamarine;
+    	margin: auto;
+    	border-radius: 10px;
+
+    }
+/* frente posicionada sobre o verso */
+.front { z-index: 2;  }    
+
+/* verso inicialmente escondido */
+.back { transform: rotateY(180deg); }
+.card-pagamento button{
+	    margin: 10px 0px 15px 64px;
+	    padding: 20px 30px;
+		border: none;
+		background-color: aqua;
+}
+/*
+.flip-container:hover .flipper, 
+.flip-container.hover .flipper, 
+.flip-container.flip .flipper {  	
+  transform: rotateY(180deg);  
+}*/
+
+.card-pagamento{
+	width: 40%;
+	margin: 80px auto;
+}
+
+/*fim flip card pagamento*/
 .login_form_admin{margin: 15% auto;width: 50%}
 .formu_small{float: right;width: 50%;}
 .dsblock {
