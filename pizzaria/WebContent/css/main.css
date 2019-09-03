@@ -107,12 +107,19 @@ a{text-decoration: none; color: black;}
     border: solid 1px;
     }
     .back{
-    	width: 300px;
+    
+        width: 401px;
+    background: black;
+    height: 266px;
+    border: solid 3px white;
+    border-radius: 18px;
+    box-shadow: 1px 1px 2px #151313
     }
     .pay-card{
+    	padding:40px;
     	width: 400px;
     	height: 200px;
-    	background: aquamarine;
+    	
     	margin: auto;
     	border-radius: 10px;
 
@@ -124,17 +131,21 @@ a{text-decoration: none; color: black;}
 .back { transform: rotateY(180deg); }
 .card-pagamento button{
 	    margin: 10px 0px 15px 64px;
-	    padding: 20px 30px;
-		border: none;
-		background-color: aqua;
-}
+	    
+		border: none;}
+		
 /*
 .flip-container:hover .flipper, 
 .flip-container.hover .flipper, 
 .flip-container.flip .flipper {  	
   transform: rotateY(180deg);  
 }*/
-
+.tarja{
+	width: 100%;
+    height: 50px;
+    background-color: #2b2929;
+    margin-top: -94px;
+}
 .card-pagamento{
 	width: 40%;
 	margin: 80px auto;

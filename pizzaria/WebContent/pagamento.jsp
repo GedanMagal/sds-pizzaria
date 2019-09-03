@@ -12,12 +12,12 @@
 	<section class="content">
 		<div class="row">
 			<div class="card-pagamento">
-				<form>
+
 				
 				 	<div id="flip-container" class="flip-container">  	
   					<div class="flipper">  		
    			 		<div class="front" id="front">  
-   			 		<button id="btn1" onclick="document.querySelector('#flip-container').classList.toggle('hover');">Cartão</button>			
+   			 		<button class="waves-effect waves-light btn" id="btn1" onclick="document.querySelector('#flip-container').classList.toggle('hover');">Cartão</button>			
       				<!-- Conteúdo da frente -->  
       				<br>	
       				<label>Valor total:</label>
@@ -26,18 +26,41 @@
       				<input type="text" value="0.00">
    					</div>  		
     			<div class="back">
-    			<button id="btn1" onclick="document.querySelector('#flip-container').classList.toggle('hover');">Dinheiro</button>  			
+    			<button class="waves-effect waves-light btn" id="btn1" onclick="document.querySelector('#flip-container').classList.toggle('hover');">Dinheiro</button>  			
      				<div class="pay-card">
-     					
-     				</div>	
+     					<i class="material-icons">credit_card</i>
+     					<label>
+                        <input name="cartao" type="radio"  />
+        				<span>visa</span>
+      					</label>
+      					<i class="material-icons">credit_card</i>
+     					<label>
+                        <input name="cartao" type="radio"  />
+        				<span>Master</span>
+      					</label>
+      					<i class="material-icons">credit_card</i>
+     					<label>
+                        <input name="cartao" type="radio" id="elo" />
+        				<span for="elo">Elo</span>
+      					</label>
+      					</div>
+      					<div class="tarja">
+      					</div>
+      						
     		</div>  	
-  			</div>  
+    		<div class="clear"></div>
+  			</div>
+  			
+						
 		</div>
-		</form>
+		<a class="btn waves-effect waves-light fl-right" href="login.jsp"
+								>
+								prosseguir <i class="material-icons right">send</i>
+		</a>  
 			
 			</div>
-		
 		</div>
+		
 		
 		
 	</section>
