@@ -10,6 +10,7 @@
 <jsp:include page="imports/header.jsp" />
 
 <section class="content background-img">
+<form method="post">
     <div class="container side-content">
 		<div class="col s9 offset-s6">
 			<h4>Cliente</h4>
@@ -123,6 +124,7 @@
 	</div>
 	<div class="clear"></div>
 	</div>
+	</form>
 </section>
 </body>
 </html>
