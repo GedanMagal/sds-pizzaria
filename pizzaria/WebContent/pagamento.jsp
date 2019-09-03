@@ -53,7 +53,7 @@
   			
 						
 		</div>
-		<a class="btn waves-effect waves-light fl-right" href="login.jsp"
+			<a class="btn waves-effect waves-light fl-right" href="login.jsp"
 								>
 								prosseguir <i class="material-icons right">send</i>
 		</a>  
