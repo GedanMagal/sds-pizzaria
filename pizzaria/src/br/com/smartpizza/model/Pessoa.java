@@ -5,7 +5,6 @@ public class Pessoa {
 	private String nome;
 	private String sobreNome;
 	private String cpf;
-	private String email;
 	
 	
 	
@@ -15,7 +14,7 @@ public class Pessoa {
 		this.nome = nome;
 		this.sobreNome = sobreNome;
 		this.cpf = cpf;
-		this.email = email;
+		
 	}
 
 	public Pessoa() {
@@ -54,12 +53,5 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	
 }
