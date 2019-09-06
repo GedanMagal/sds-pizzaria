@@ -1,4 +1,4 @@
-package br.com.smartpizza.jdbc;
+package br.com.smartpizza.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,5 +15,16 @@ public class ConexaoUtil {
 			System.out.println("Conexão invalida");
 		}
 		return con;
+	}
+	
+	public static void main(String[] args) {
+		
+		try {
+			Connection connection = getConexao();
+			connection.close();
+			System.out.println("Conexão aberta com sucesso");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -10,7 +10,7 @@
 	<jsp:include page="imports/header.jsp" />
 
 	<section class="content background-img">
-		<form method="post" action="Acao">
+		<form method="post" action="acao">
 			<div class="container side-content">
 				<div class="col s9 offset-s6">
 					<h4>Cliente</h4>
