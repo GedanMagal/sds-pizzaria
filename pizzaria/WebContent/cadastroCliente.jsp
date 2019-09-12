@@ -10,7 +10,7 @@
 	<jsp:include page="imports/header.jsp" />
 
 	<section class="content background-img">
-		<form method="post" action="acao">
+		<form method="post" action="servlet?acao=cadastroPessoa">
 			<div class="container side-content">
 				<div class="col s9 offset-s6">
 					<h4>Cliente</h4>
@@ -34,11 +34,13 @@
 							class="active" for="cpf">CPF</label>
 					</div>
 					<div class="input-field col s4">
+						<input type="hidden" name="classificador">
 						<input type="text" name="telefone" id="telefone"> <label
 							class="active" for="telefone">Telefone</label>
 					</div>
 					<div class="input-field col s4">
-						<input type="text" name="celular" id=""celular""> <label
+					<input type="hidden" name="classificador">
+						<input type="text" name="celular" id="celular"> <label
 							class="active" for="celular">Celular</label>
 					</div>
 
@@ -59,7 +61,7 @@
 					<div class="input-field col s6">
 						<input type="text" name="endereco" id="endereco"> <label
 							class="active" for="endereco">Logradouro (Av. / R. / Pç.)</label>
-							class="active" for="endereco">Logradouro (Av. / R. / Pç.)</label>
+							
 					</div>
 					<div class="input-field col s3">
 						<input type="text" name="numero" id="numero"> <label
