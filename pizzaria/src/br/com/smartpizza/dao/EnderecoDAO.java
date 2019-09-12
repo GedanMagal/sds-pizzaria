@@ -16,7 +16,7 @@ public class EnderecoDAO {
 		StringBuilder sql = new StringBuilder();
 		
 		sql.append("INSERT INTO TB_ENDERECO (ds_logradouro, nm_endereco, nm_cep, ds_bairro, id_cidade, id_cliente)");
-		sql.append(" values (?,?,?,?,?,?,?)");
+		sql.append(" values (?,?,?,?,?,?)");
 		try {
 			conn = ConexaoUtil.getConexao();
 			for(Endereco endereco : enderecos) {
@@ -26,7 +26,8 @@ public class EnderecoDAO {
 				stmt.setString(3,endereco.getCep());
 				stmt.setString(4,endereco.getBairro());
 				stmt.setInt(5,endereco.getCidade().getIdCidade());
-				stmt.setInt(5,idPessoa);
+				stmt.setInt(6,idPessoa);
+				stmt.executeUpdate();
 			}
 		
 			
