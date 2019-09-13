@@ -13,7 +13,7 @@ public class UsuarioDAO {
 
 	
 	public Integer cadastrarUsuario(Usuario usuario) throws Exception {
-		Integer id =null;
+		Integer id = null;
 		Connection conn = null;
 	
 		StringBuilder sql = new StringBuilder();
@@ -38,4 +38,6 @@ public class UsuarioDAO {
 		}
 	
 	}
+	
+	
 }
