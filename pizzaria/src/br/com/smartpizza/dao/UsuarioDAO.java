@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.com.smartpizza.model.Cliente;
 import br.com.smartpizza.model.Usuario;
 import br.com.smartpizza.util.ConexaoUtil;
 
@@ -15,10 +16,10 @@ public class UsuarioDAO {
 	public Integer cadastrarUsuario(Usuario usuario) throws Exception {
 		Integer id = null;
 		Connection conn = null;
-	
+		String grupo ="Cliente";
 		StringBuilder sql = new StringBuilder();
 		
-		sql.append("INSERT INTO TB_USUARIO (US_LOGIN,US_SENHA) VALUES(?,?)");
+		sql.append("INSERT INTO TB_USUARIO (US_LOGIN,US_SENHA,gp_usuario) VALUES(?,?,?)");
 		
 		try {
 			conn =ConexaoUtil.getConexao();
@@ -26,6 +27,7 @@ public class UsuarioDAO {
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, usuario.getLogin());
 			stmt.setString(2, usuario.getSenha());
+			stmt.setString(3, grupo);
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			

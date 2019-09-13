@@ -4,6 +4,22 @@ public class Usuario {
 		private int id;
 		private String login;
 		private String senha;
+		private String gpUs;
+		
+		
+		public Usuario(int id, String login, String senha, String gpUs) {
+			super();
+			this.id = id;
+			this.login = login;
+			this.senha = senha;
+			this.gpUs = gpUs;
+		}
+		public String getGpUs() {
+			return gpUs;
+		}
+		public void setGpUs(String gpUs) {
+			this.gpUs = gpUs;
+		}
 		public int getId() {
 			return id;
 		}

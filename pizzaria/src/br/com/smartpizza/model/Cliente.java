@@ -7,18 +7,14 @@ public class Cliente extends Pessoa {
 
 	private String email;
 	private String senha;
-	private List<Telefone> telefone;
 
-	
-	public Cliente(String email, String senha, List<Telefone> telefone, Usuario usuario) {
-		super();
-		this.email = email;
-		this.senha = senha;
-		this.telefone = telefone;
-		
-	}
+
 	public Cliente() {
 	}
+	
+	
+	
+	
 	public String getEmail() {
 		return email;
 	}
@@ -31,12 +27,17 @@ public class Cliente extends Pessoa {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public List<Telefone> getTelefone() {
-		return telefone;
+
+
+
+
+	public Cliente(int id, String nome, String sobrenome, String cpf, String email, String senha,
+			List<Endereco> endereco, Usuario usuario, String email2, String senha2) {
+		super(id, nome, sobrenome, cpf, email, senha, endereco, usuario);
+		email = email2;
+		senha = senha2;
 	}
-	public void setTelefone(List<Telefone> telefone) {
-		this.telefone = telefone;
-	}
+
 
 
 
