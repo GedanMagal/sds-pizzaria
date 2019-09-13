@@ -94,8 +94,9 @@
 					class="active" for="nome">Bairro.</label>
 			</div>
 			<div class="input-field col s4">
-				<input type="text" name="cidade" id="cidade"> <label
-					class="active" for="nome">Cidade</label>
+				<select>
+					<option></option>
+				</select>
 			</div>
 			<div class="input-field col s1">
 				<input type="text" name="estado" id="estado"> <label
@@ -105,22 +106,19 @@
 		<div class="row">
 			<div class="input-field col s12">
 				<input type="text" name="localReferencia" id="localReferencia">
-				<label class="active" for="localReferencia">Local de
-					Referência</label>
+				<label class="active" for="localReferencia">Local de Referência</label>
 			</div>
 		</div>
 		
 		<div class="row">
 			<div class="col s3 offset-s6">
 				<a href="gerenciar-cliente.jsp" class="btn waves-effect waves-light red" []
-						name="action">
-						Cancelar <i class="material-icons right">add</i>
+						name="action">Cancelar <i class="material-icons right">add</i>
 				</a>
 			</div>
 			<div class="col s3" offset-s6">
 				<button class="btn waves-effect waves-light" type="submit"
-					name="action">
-					Salvar <i class="material-icons right">check</i>
+					name="action">Salvar <i class="material-icons right">check</i>
 				</button>
 
 			</div>
