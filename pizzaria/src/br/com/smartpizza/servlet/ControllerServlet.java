@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Command.CadastroPessoaCommand;
 import Command.Command;
+import Command.ListaEstadosCommand;
 
 
 @WebServlet("/servlet")
@@ -22,6 +23,7 @@ public class ControllerServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		comandos.put("cadastroPessoa", new CadastroPessoaCommand());
+		comandos.put("listarEstados", new ListaEstadosCommand());
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
