@@ -19,6 +19,8 @@
 			<h4>Cliente</h4>
 		</div>
 		<h6>Dados Pessoais</h6>
+		
+		<form action="servlet?acao=salvarCliente"></form>
 		<div class="row">
 			<div class="input-field col s6">
 				<input type="text" name="nome" id="nome"> <label
@@ -72,7 +74,7 @@
 		<h6>Localização Endereço</h6>
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="text" name="endereco" id="endereco"> <label
+				<input type="text" name="logradouro" id="logradouro"> <label
 					class="active" for="nome">Logradouro (Av. / R. / Pç.)</label>
 			</div>
 			<div class="input-field col s3">

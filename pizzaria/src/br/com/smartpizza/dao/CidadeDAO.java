@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,4 +64,28 @@ public class CidadeDAO {
 		}
 		return listCidades;
 	}
+	public Integer cadastrarCidade(Cidade cidade) {
+		Connection conn = null;
+		Integer idCidade = null;
+		StringBuilder sql = new StringBuilder();
+		try {
+			conn = ConexaoUtil.getConexao();
+		sql.append("INSERT INTO TB_CIDADE (DS_CIDADE,ID_ESTADO)");
+		sql.append(" values(?,?)");
+		PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, cidade.getCidade());
+			stmt.setInt(2, cidade.getEstado().getIdEstado());
+			stmt.executeUpdate();
+			ResultSet rs =  stmt.getGeneratedKeys();
+			if(rs.first()) {
+				idCidade = rs.getInt(1);
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return idCidade;
+	}
+	
 }

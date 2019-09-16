@@ -8,11 +8,12 @@
 <meta charset="ISO-8859-1">
 <title>Cadastrar</title>
 </head>
+
 <body>
 	<jsp:include page="imports/header.jsp" />
 
 	<section class="content background-img">
-		<form method="post" action="servlet?acao=cadastroPessoa">
+		<form method="post" action="servlet?acao=salvarCliente">
 			<div class="container side-content">
 				<div class="col s9 offset-s6">
 					<h4>Cliente</h4>
@@ -61,7 +62,7 @@
 				<h6>Localização Endereço</h6>
 				<div class="row">
 					<div class="input-field col s6">
-						<input type="text" name="endereco" id="endereco"> <label
+						<input type="text" name="logradouro" id="logradouro"> <label
 							class="active" for="endereco">Logradouro (Av. / R. / Pç.)</label>
 							
 					</div>
@@ -88,7 +89,7 @@
 							class="active" for="cidade">Cidade</label>
 					</div>
 					<div class="input-field col s1">
-						<select name="estado">
+						<select name="estado" id="estado">
 							<option value="0">Selecione</option>
 							<c:forEach items="${estados}" var="est">
 							<option value="${est.idEstado}">${est.dsuf}</option>
@@ -124,5 +125,7 @@
 		<div class="clear"></div>
 	</section>
 	<jsp:include page="imports/footer.jsp" />
+	
+
 </body>
 </html>

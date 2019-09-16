@@ -17,7 +17,7 @@ public class EstadoDAO {
 		Connection conn = null;
 		
 		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT * FROM TB*ESTADOS");
+		sql.append("SELECT * FROM TB_ESTADO");
 		try {
 			conn = ConexaoUtil.getConexao();
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());

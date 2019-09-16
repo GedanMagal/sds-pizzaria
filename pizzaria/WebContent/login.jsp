@@ -30,7 +30,7 @@
 								class="active" for="senha">Senha</label>
 						</div>
 					</div>
-
+					
 					<input type="hidden" name="acao" value="Login">
 
 					<div class="row">
@@ -39,9 +39,17 @@
 								name="action">
 								login <i class="material-icons right">send</i>
 							</button>
+					
+					
+					
+						
+							<a class="btn waves-effect waves-light" href="servlet?acao=listaEstados">
+								Cadstre-se <i class="material-icons right">send</i>
+							</a>
 						</div>
 					</div>
-
+					</div>
+					
 					<div class="row">
 						<div class="col s12">
 							<p>
