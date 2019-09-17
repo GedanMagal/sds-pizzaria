@@ -40,6 +40,10 @@ public class SalvarClienteCommand implements Command {
 
 		try {
 			Cliente p = new Cliente();
+			Cidade cid = new Cidade();
+			Usuario usuar = new Usuario();
+			Endereco endereco = new Endereco();
+			Estado est = new Estado();
 			p.setNome(nome);
 			p.setSobrenome(sobreNome);
 			p.setCpf(cpf);
@@ -47,29 +51,31 @@ public class SalvarClienteCommand implements Command {
 			p.setSenha(senha);
 			p.setTelefone(telefone);
 			p.setCelular(celular);
-			Usuario usuar = new Usuario();
+			
 			p.setUsuario(usuar);
 			usuar.setLogin(email);
 			usuar.setSenha(senha);
-			
+			System.out.println(idEstado);
 		List<Endereco> listEndereco = new ArrayList<Endereco>();
+		
 		for (String end: logradouro) {
-			Endereco endereco = new Endereco();
+			
 			endereco.setDsLogradouro(end);
 			endereco.setNumEndereco(numero);
 			endereco.setCep(cep);
 			endereco.setBairro(bairro);
-			Cidade cid = new Cidade();
+			
 			endereco.setCidade(cid);
-			cid.setCidade(cidade);
-			Estado est = new Estado();
+			cid.setIdCidade(Integer.parseInt(cidade));
+			
 			cid.setEstado(est);
 			est.setIdEstado(Integer.parseInt(idEstado));
+			
 			listEndereco.add(endereco);
 			
 		}
-		
 		p.setEndereco(listEndereco);
+		
 	
 			dao.cadastroPessoaClient(p);
 		} catch (ClassNotFoundException | SQLException e) {

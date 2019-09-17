@@ -85,7 +85,12 @@
 							class="active" for="bairro">Bairro.</label>
 					</div>
 					<div class="input-field col s4">
-						<input type="text" name="cidade" id="cidade"> <label
+						<select name="cidade" id="cidade">
+						<option value="0">Selecione</option>
+					<c:forEach items="${listaCidade}" var="c">
+						
+					</c:forEach>		
+						</select><label
 							class="active" for="cidade">Cidade</label>
 					</div>
 					<div class="input-field col s1">
@@ -125,7 +130,43 @@
 		<div class="clear"></div>
 	</section>
 	<jsp:include page="imports/footer.jsp" />
-	
+<script>
+	$(document).ready(function() {
 
+		$('select[name=estado]').on('change',function(){
+			$.ajax({
+				method: "POST",
+				  url: "cidadeServlet",
+				  data: "idEstado="+ $('select[name=estado]').val(),
+				  statusCode:{
+					  404: function() {
+						alert('pagina não encontrada')
+					},
+					500: function() {
+						alert('erro no servidor')
+					}
+				  },		 
+				  success: function(dados) {
+					  $('select[name=cidade] option').remove();
+					  var pegaDados = dados.split(":");
+						
+						for(var i=0;i < pegaDados.length - 1;i++){
+							var codigoCidade = pegaDados[i].split("-")[0];
+							var nomeCidade = pegaDados[i].split("-")[1];
+							
+							$('select[name=cidade]').append('<option value= "'+codigoCidade+'">'+nomeCidade+'</option>');
+						}
+
+				  }
+				 
+				});
+
+			})
+		});
+
+
+	</script>
+
+	
 </body>
 </html>

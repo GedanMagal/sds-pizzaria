@@ -39,15 +39,15 @@ public class CidadeDAO {
 		}
 		return listCidades;
 	}
-	public List<Cidade> getListCidades(Integer idCidade){
+	public List<Cidade> getListCidades(){
 		List<Cidade> listCidades = new ArrayList<Cidade>();
 		Connection conn = null;
 		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT * FROM TB_CIDADE WHERE ID_CIDADE = ? ");
+		sql.append("SELECT * FROM TB_CIDADE");
 		try {
 			conn = ConexaoUtil.getConexao();
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
-			stmt.setInt(1, idCidade);
+		
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Cidade cid = new Cidade();
@@ -67,12 +67,14 @@ public class CidadeDAO {
 	public Integer cadastrarCidade(Cidade cidade) {
 		Connection conn = null;
 		Integer idCidade = null;
-		StringBuilder sql = new StringBuilder();
+		System.out.println(cidade.getCidade());
+		System.out.println(cidade.getIdCidade());
 		try {
+			StringBuilder sql = new StringBuilder();
 			conn = ConexaoUtil.getConexao();
-		sql.append("INSERT INTO TB_CIDADE (DS_CIDADE,ID_ESTADO)");
-		sql.append(" values(?,?)");
-		PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+			sql.append("INSERT INTO TB_CIDADE(DS_CIDADE,ID_ESTADO)");
+			sql.append(" VALUES(?,?)");
+			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, cidade.getCidade());
 			stmt.setInt(2, cidade.getEstado().getIdEstado());
 			stmt.executeUpdate();
@@ -80,6 +82,8 @@ public class CidadeDAO {
 			if(rs.first()) {
 				idCidade = rs.getInt(1);
 			}
+			
+			System.out.println(idCidade);
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -87,5 +91,28 @@ public class CidadeDAO {
 		
 		return idCidade;
 	}
-	
+	public List<Estado> listarEstados(){
+		List<Estado> listEstados = new  ArrayList<Estado>();
+		Connection conn = null;
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * FROM TB_ESTADO");
+		try {
+			conn = ConexaoUtil.getConexao();
+			PreparedStatement stmt = conn.prepareStatement(sql.toString());
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Estado estado = new Estado();
+				estado.setIdEstado(rs.getInt(1));
+				estado.setDsuf(rs.getString(2));
+				estado.setDsSigla(rs.getString(3));
+				listEstados.add(estado);
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return listEstados;
+	}
 }

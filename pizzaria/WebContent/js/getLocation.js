@@ -1,5 +1,8 @@
 $(document).ready(() => {
 	
+
+
+	
 	$('.endereco-info').hide();
 	
 	
@@ -34,32 +37,5 @@ $(document).ready(() => {
 		}
 	});
 	
-	$('select[name=estado]').on('change',function(){
-		$.ajax({
-		  method: "POST",
-		  url: "servlet?acao=listarEstados",
-		  data: "idEstado="+ $('select[name=estado]').val(),
-		  statusCode:{
-			  404: function() {
-				alert('pagina não encontrada')
-			},
-			500: function() {
-				alert('erro no servidor')
-			}
-		  },
-		 
-		  success: function(dados) {
-			  $('select[name=estado] option').remove();
-			  var pegaDados = dados.split(":");
-				
-				for(var i=0;i < pegaDados.length - 1;i++){
-					var codigoBairro = pegaDados[i].split("-")[0];
-					var nomeBairro = pegaDados[i].split("-")[1];
-					
-					$('select[name=bairro]').append('<option value= "'+codigoBairro+'">'+nomeBairro+'</option>');
-				}
-
-		  }
-		});
-});
+	
 });
