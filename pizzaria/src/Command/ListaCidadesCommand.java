@@ -26,7 +26,7 @@ public class ListaCidadesCommand implements Command{
 				sb.append(cid.getIdCidade() +"-"+ cid.getCidade());
 			}
 		}
-		request.setAttribute("dados", sb);
+		//request.setAttribute("dados", sb);
 		
 		return null;
 	}

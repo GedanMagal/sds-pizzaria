@@ -84,17 +84,14 @@
 						<input type="text" name="bairro" id="bairro"> <label
 							class="active" for="bairro">Bairro.</label>
 					</div>
-					<div class="input-field col s4">
+					<div class="input-field col s2">
 						<select name="cidade" id="cidade">
 						<option value="0">Selecione</option>
-					<c:forEach items="${listaCidade}" var="c">
-						
-					</c:forEach>		
-						</select><label
-							class="active" for="cidade">Cidade</label>
+					
+						</select><label class="active" for="cidade">Cidade</label>
 					</div>
-					<div class="input-field col s1">
-						<select name="estado" id="estado">
+					<div class="input-field col s2">
+						<select name="estado" id="estado" class="Sel">
 							<option value="0">Selecione</option>
 							<c:forEach items="${estados}" var="est">
 							<option value="${est.idEstado}">${est.dsuf}</option>
@@ -113,11 +110,11 @@
 				<div class="row">
 					<div class="col s3 offset-s6">
 						<a href="gerenciar-cliente.jsp"
-							class="btn waves-effect waves-light red" \name="action">
+							class="btn waves-effect waves-light red" name="action">
 							Cancelar <i class="material-icons right">add</i>
 						</a>
 					</div>
-					<div class="col s3"offset-s6">
+					<div class="col s3 offset-s6">
 						<button class="btn waves-effect waves-light" type="submit"
 							name="action">
 							Salvar <i class="material-icons right">check</i>
@@ -154,8 +151,10 @@
 							var codigoCidade = pegaDados[i].split("-")[0];
 							var nomeCidade = pegaDados[i].split("-")[1];
 							
-							$('select[name=cidade]').append('<option value= "'+codigoCidade+'">'+nomeCidade+'</option>');
+							$('select[name=cidade]').append('<option value= "'+codigoCidade+'">'+nomeCidade+'</option>');							
+							
 						}
+						$('select').formSelect();
 
 				  }
 				 

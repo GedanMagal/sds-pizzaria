@@ -56,7 +56,7 @@ public class SalvarClienteCommand implements Command {
 			usuar.setLogin(email);
 			usuar.setSenha(senha);
 			System.out.println(idEstado);
-		List<Endereco> listEndereco = new ArrayList<Endereco>();
+			List<Endereco> listEndereco = new ArrayList<Endereco>();
 		
 		for (String end: logradouro) {
 			

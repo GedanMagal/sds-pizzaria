@@ -68,7 +68,8 @@ a{text-decoration: none; color: black;}
 }
 .fl-right{float: right;}
 .fl-left{float: left;}
-#select{display: none!important;}
+#cidade{display: none!important;}
+#estado{display: none!important;}
 .main-menu{width: 70%;margin: 0px 15%;}
 .main{width: 100%};
 
