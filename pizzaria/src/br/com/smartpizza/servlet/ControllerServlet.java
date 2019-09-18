@@ -25,6 +25,7 @@ public class ControllerServlet extends HttpServlet {
 	public void init() throws ServletException {
 		comandos.put("salvarCLiente", new SalvarClienteCommand());
 		comandos.put("listaEstados", new ListaEstadosCommand());
+		comandos.put("listarClientes", new listarCliente());
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {

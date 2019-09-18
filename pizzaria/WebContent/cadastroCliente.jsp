@@ -113,8 +113,7 @@
 							class="btn waves-effect waves-light red" name="action">
 							Cancelar <i class="material-icons right">add</i>
 						</a>
-					</div>
-					<div class="col s3 offset-s6">
+					
 						<button class="btn waves-effect waves-light" type="submit"
 							name="action">
 							Salvar <i class="material-icons right">check</i>

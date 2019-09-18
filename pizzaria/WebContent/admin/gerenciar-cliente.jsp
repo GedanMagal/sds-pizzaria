@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/materialize.min.css">
+<link rel="stylesheet" href="css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-<link rel="stylesheet" href="../css/main.css">
-<link rel="stylesheet" href="../css/cadastrar-cliente.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/cadastrar-cliente.css">
 </head>
 <body>
 	<jsp:include page="../imports/headerAdmin.jsp" />
@@ -30,50 +31,38 @@
 		</div>
 		
 		<div class="row">
-		  <table>
-	        <thead>
-	          <tr>
-	              <th>Cliente</th>
-	              <th>Tel 1</th>
-	              <th>Tel 2</th>
+		  <table class="striped centered">
+	        <thead >
+	          <tr >
+	              <th align="center">Nome</th>
+	              <th align="center">E-mail</th>
+	              <th align="center">Telefone</th>
+	                  <th align="center">Celular</th>
+	              <th align="center">Endereço</th>
+	              <th align="center">numero</th>
+	                  <th align="center">Cep</th>
+	              <th align="center">bairro</th>
+	              
 	              <th>Ação</th>	              
 	          </tr>
 	        </thead>
 	
 	        <tbody>
+	        <c:forEach items="${pessoas}" var="p">
 	          <tr>
-	            <td>Walter Campos</td>
-	            <td>11 31328950</td>
-	            <td></td>
-	            <td>
-		            <a href="editar-cliente.jsp" class="btn waves-effect waves-light red" []
-						name="action">
-						Editar <i class="material-icons right">add</i>
-					</a>
-				</td>
+	          <!-- nm_cliente, sobrenome, ds_email, cli_telefone, cli_celular, ds_logradouro, nm_endereco, nm_cep, ds_bairro -->
+	          	<td> ${p.nome} ${p.sobrenome} </td>
+	          	<td> ${p.email}</td>
+	          	<td> ${p.telefone}</td>
+	          	<td> ${p.celular}</td>
+	          	<td> ${p.endereco}</td>
+	          	<td> ${p.numero}</td>
+	          	<td> ${p.cep}</td>
+	          	<td> ${p.bairro}</td>
+	          
 	          </tr>
-	          <tr>
-	            <td>Tamara Barbosa</td>
-	            <td>11 972005816</td>
-	            <td>11 995446502</td>
-	            <td>
-		            <a href="editar-cliente.jsp" class="btn waves-effect waves-light red" []
-						name="action">
-						Editar <i class="material-icons right">add</i>
-					</a>
-				</td>
-	          </tr>
-	          <tr>
-	            <td>João da Silva</td>
-	            <td>11 21342547</td>
-	            <td>11 932145874</td>
-	            <td>
-		            <a href="editar-cliente.jsp" class="btn waves-effect waves-light red" []
-						name="action">
-						Editar <i class="material-icons right">add</i>
-					</a>
-				</td>
-	          </tr>
+	          	</c:forEach>
+	           
 	        </tbody>
 	      </table>
 	       <br>

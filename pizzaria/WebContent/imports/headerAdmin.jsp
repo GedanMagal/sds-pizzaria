@@ -53,7 +53,7 @@
 			class="material-icons">event_note</i> Gerenciar Produto
 	</a></li>
 	<li><div class="divider"></div></li>
-	<li><a class="waves-effect" href="gerenciar-cliente.jsp"> <i
+	<li><a class="waves-effect" href="../servlet?acao=listarClientes"> <i
 			class="material-icons">assignment_ind</i> Gerenciar Clientes
 	</a></li>
 </ul>
