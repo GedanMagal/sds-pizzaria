@@ -1,10 +1,9 @@
-package br.com.smartpizza.servlet;
+package Command;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import Command.Command;
 import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.dto.PessoaDTO;
 
