@@ -19,7 +19,7 @@
 		</div>
 		<h6>Dados Pessoais</h6>
 		
-		<form method="POST" action="servlet?acao=atualizarCliente">
+		<form method="POST" action="servlet?acao=atualizarCliente">  
 		<div class="row">
 			<div class="input-field col s6">
 			<input type="hidden" name="idCliente" value="${p.idPessoa }">
