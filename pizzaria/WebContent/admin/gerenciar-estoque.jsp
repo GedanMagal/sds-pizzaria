@@ -4,13 +4,12 @@
 <meta charset="utf-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 <link rel="stylesheet" href="../css/main.css">
 <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
-	<jsp:include page="../imports/headerAdmin.jsp" />
+	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<div class="main-container">
 		<div class="col s9 offset-s6">
@@ -81,7 +80,9 @@
 
 	</div>
 
-	<jsp:include page="footer-admin.jsp" />
+
+	<jsp:include page="imports/footer-admin.jsp" />
+
 
 </body>
 

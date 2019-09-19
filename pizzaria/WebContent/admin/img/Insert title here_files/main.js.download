@@ -1,0 +1,46 @@
+
+
+
+function addSabores(){
+	let qtd = document.getElementById('select').value;
+	 let add = document.getElementById('add');
+	 let add2 = document.getElementById('add2');
+	 let add3 = document.getElementById('add3');
+	
+	if(qtd==='1'){
+	
+	 add.classList.add('dsblock');
+	 add.classList.remove('dsnone');
+	 add2.classList.add('dsnone');
+	 add2.classList.remove('dsblock');
+	 add3.classList.add('dsnone');
+	 add3.classList.remove('dsblock');
+	
+	}
+	else if(qtd==='2'){
+		 add.classList.add('dsblock');
+		 add.classList.remove('dsnone');
+		add2.classList.add('dsblock');
+		add2.classList.remove('dsnone');
+		add3.classList.add('dsnone');
+		add3.classList.remove('dsblock');
+	}
+	else if(qtd==='3'){
+		 add.classList.add('dsblock');
+		 add.classList.remove('dsnone');
+		add2.classList.add('dsblock');
+		add2.classList.remove('dsnone');
+		add3.classList.add('dsblock');
+		 add3.classList.remove('dsnone');
+	}
+	
+}
+function carregaIng(){
+	 let ing = document.getElementsByClassName('dsnone');
+	 for(let i=0;i<ing.length;i++){
+	
+	ing[i].classList.add('dsblock');
+	ing[i].classList.remove('dsnone');
+		
+	}
+}

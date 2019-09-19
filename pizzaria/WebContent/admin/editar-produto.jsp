@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../css/cadastrar-cliente.css">
 </head>
 <body>
-	<jsp:include page="../imports/headerAdmin.jsp" />
+	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<div class="main-container">
 		<div class="col s9 offset-s6">
@@ -56,7 +56,9 @@
 		</div>
 	</div>
 
-	<jsp:include page="footer-admin.jsp" />
+
+	<jsp:include page="imports/footer-admin.jsp" />
+
 
 </body>
 

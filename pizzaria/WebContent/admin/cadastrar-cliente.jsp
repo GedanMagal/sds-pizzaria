@@ -129,7 +129,7 @@
 
 	</div>
 
-	<jsp:include page="footer-admin.jsp" />
+	<jsp:include page="imports/footer-admin.jsp" />
 
 </body>
 

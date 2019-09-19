@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -9,10 +9,11 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/cadastrar-cliente.css">
+<link rel="stylesheet" href="css/side-bar-admin.css">
 </head>
 <body>
-	<jsp:include page="../imports/headerAdmin.jsp" />
-
+		<jsp:include page="imports/headerAdmin.jsp" />
+	
 	<div class="main-container">
 		<div class="col s9 offset-s6">
 			<h4>Gerenciar cliente</h4>
@@ -59,7 +60,13 @@
 	          	<td> ${p.numero}</td>
 	          	<td> ${p.cep}</td>
 	          	<td> ${p.bairro}</td>
-	          
+	          	<td><a href="servlet?acao=editarCliente&idCliente=${p.idPessoa}"
+							class="btn waves-effect waves-light " name="action">
+								 <i class="material-icons right">create</i>
+						</a> <a href="adicionar-produto.jsp"
+							class="btn waves-effect waves-light " name="action">
+								 <i class="material-icons right">local_grocery_store</i>
+						</a></td>
 	          </tr>
 	          	</c:forEach>
 	           
@@ -73,8 +80,10 @@
 		
 	</div>
 
-	<jsp:include page="footer-admin.jsp" />
+	
+	<jsp:include page="imports/footer-admin.jsp" />
 
+	
 </body>
 
 

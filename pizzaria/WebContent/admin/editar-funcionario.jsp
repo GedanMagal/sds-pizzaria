@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<jsp:include page="../imports/headerAdmin.jsp" />
+	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<div class="main-container">
 
@@ -121,7 +121,8 @@
 
 	</div>
 
-	<jsp:include page="footer-admin.jsp" />
+	<jsp:include page="imports/footer-admin.jsp" />
+
 
 </body>
 

@@ -1,0 +1,48 @@
+
+a{text-decoration: none; color: black;}
+
+.background-img{
+	background-image:url("../img/pizza-1.jpg");
+	background-attachment: fixed;
+	background-size:cover;
+	background-repeat:no-repeat;
+	height: 100%;
+}
+
+.bg-color{
+	background-color: black;
+}
+.sm-card{
+	width:200px;
+	float: left;
+	margin: 10px;
+	background: #fff;
+}
+.side-content{
+	float: left;
+	width: 70%;
+	margin: 20px 15%;
+	padding: 4px 60px; 
+	border-radius: 20px;
+		background: #fff;
+}
+.main-menu{width: 70%;margin: 0px 15%;}
+.main{width: 100%;}
+
+.side-form{margin: 90px 50px;}
+.clear{clear: both;}
+
+.form-log:first-of-type input[type="text"]{margin-top: 108px;}
+
+.formu_small{float: right;width: 50%;}
+.dsblock {
+	display: block;
+}
+.dsnone{display: none;}
+
+.cont{height: 400px;}
+.img_pizza{width: 50px;}
+
+.table_cart th, td{text-align: center;}
+.number_form{width: 30px!important;}
+.right{float: right;}

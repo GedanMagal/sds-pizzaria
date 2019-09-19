@@ -1,0 +1,48 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: sans-serif;
+}
+
+#sidebar {
+	position: fixed;
+	width: 200px;
+	height: 100%;
+	background: #ee6e73;
+	left: 0px;
+	transition: 1s;
+	top: 0;
+}
+
+#sidebar.active {
+	left: -200px;
+	transform: translate(100deg);
+	
+}
+.card-pagamento{
+	width: 50%;
+}
+#sidebar ul li {
+	color: rgba(230, 230, 230, 0.9);
+	list-style: none;
+	width: 100%;
+}
+
+#sidebar .toggle-btn {
+	position: absolute;
+	left: 230px;
+	top: 20px;
+}
+
+#sidebar .toggle-btn span {
+	display: block;
+	width: 30px;
+	height: 5px;
+	background: #151719;
+	margin: 5px 0px;
+}
+
+.logo{
+	width: 20px;
+	height: 30px;
+}

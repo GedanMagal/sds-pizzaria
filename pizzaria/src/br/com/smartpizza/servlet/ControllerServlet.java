@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import Command.CadastroPessoaCommand;
 import Command.Command;
+import Command.EditarClienteCommand;
 import Command.ListaEstadosCommand;
 import Command.SalvarClienteCommand;
 import Command.listarCliente;
@@ -27,6 +28,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("salvarCLiente", new SalvarClienteCommand());
 		comandos.put("listaEstados", new ListaEstadosCommand());
 		comandos.put("listarClientes", new listarCliente());
+		comandos.put("editarCliente", new EditarClienteCommand());
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
