@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<jsp:include page="../imports/headerAdmin.jsp" />
+	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<div class="main-container">
 
@@ -20,7 +20,7 @@
 		</div>
 		<h6>Dados Pessoais</h6>
 		
-		<form action="servlet?acao=salvarCliente"></form>
+		<form method="post" action="servlet?acao=salvarCliente">
 		<div class="row">
 			<div class="input-field col s6">
 				<input type="text" name="nome" id="nome"> <label
@@ -73,6 +73,30 @@
 		
 		<h6>Localização Endereço</h6>
 		<div class="row">
+					<div class="input-field col s3">
+						<input type="text" name="cep" id="cep"> <label
+							class="active" for="cep">CEP</label>
+					</div>
+					<div class="input-field col s4">
+						<input type="text" name="bairro" id="bairro"> <label
+							class="active" for="bairro">Bairro.</label>
+					</div>
+					<div class="input-field col s2">
+						<select name="cidade" id="cidade">
+						<option value="0">Selecione</option>
+					
+						</select><label class="active" for="cidade">Cidade</label>
+					</div>
+					<div class="input-field col s2">
+						<select name="estado" id="estado" class="Sel">
+							<option value="0">Selecione</option>
+							<c:forEach items="${estados}" var="est">
+							<option value="${est.idEstado}">${est.dsuf}</option>
+							</c:forEach>
+							</select> <label class="active" for="estado">Estado</label>
+					</div>
+				</div>
+		<div class="row">
 			<div class="input-field col s6">
 				<input type="text" name="logradouro" id="logradouro"> <label
 					class="active" for="nome">Logradouro (Av. / R. / Pç.)</label>
@@ -85,26 +109,7 @@
 				<input type="text" name="complemento" id="complemento"> <label
 					class="active" for="complemento">Complemento</label>
 			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s3">
-				<input type="text" name="cep" id="cep"> <label
-					class="active" for="nome">CEP</label>
-			</div>
-			<div class="input-field col s4">
-				<input type="text" name="bairro" id="bairro"> <label
-					class="active" for="nome">Bairro.</label>
-			</div>
-			<div class="input-field col s4">
-				<select>
-					<option></option>
-				</select>
-			</div>
-			<div class="input-field col s1">
-				<input type="text" name="estado" id="estado"> <label
-					class="active" for="nome">Estado</label>
-			</div>
-		</div>
+		</div>		
 		<div class="row">
 			<div class="input-field col s12">
 				<input type="text" name="localReferencia" id="localReferencia">
@@ -113,19 +118,17 @@
 		</div>
 		
 		<div class="row">
-			<div class="col s3 offset-s6">
-				<a href="gerenciar-cliente.jsp" class="btn waves-effect waves-light red" []
-						name="action">Cancelar <i class="material-icons right">add</i>
-				</a>
-			</div>
-			<div class="col s3" offset-s6">
-				<button class="btn waves-effect waves-light" type="submit"
-					name="action">Salvar <i class="material-icons right">check</i>
-				</button>
-
-			</div>
-		</div>
-
+					<div class="col s6 offset-s6">					
+						<button class="btn waves-effect waves-light red">
+							Cancelar <i class="material-icons right">cancel</i>
+						</button>					
+						<button class="btn waves-effect waves-light" type="submit"
+							name="action">
+							Salvar <i class="material-icons right">check</i>
+						</button>
+					</div>
+				</div>
+		</form>
 
 	</div>
 
