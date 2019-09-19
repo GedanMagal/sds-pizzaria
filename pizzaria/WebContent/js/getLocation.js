@@ -1,8 +1,5 @@
 $(document).ready(() => {
 	
-
-
-	
 	$('.endereco-info').hide();
 	
 	
@@ -23,12 +20,9 @@ $(document).ready(() => {
 					let cidadeEnd = `${localidade}`;
 					let estadoEnd = `${uf}`;
 						
-					$("#logradouro").val(logradouroRuaEnd);
-					$("#bairro").val(bairroEnd);
-					$("#cidade").val(cidadeEnd);
-					$("#estado").val(estadoEnd);
-					$('#complemento').focus();
-					$('.endereco-info').show();
+					$("#logradouro").val(`${logradouroRuaEnd}, ${bairroEnd}, ${cidadeEnd}, ${estadoEnd}`).focus();
+					$("#bairro").val(bairroEnd).focus();
+					$('#cep').focus();
 						
 						
 				}).catch(error => {
