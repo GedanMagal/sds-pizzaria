@@ -140,7 +140,7 @@ public void atualizarPessoa(Cliente p) throws ClassNotFoundException, SQLExcepti
 		StringBuilder sql = new StringBuilder();
 		sql.append("UPDATE FROM TB_CLIENTE ");
 		sql.append(" set nm_cliente=?, nm_cpf,sobrenome=?,cli_telefone=?,cli_celular=? ");
-		sql.append(" WhEre id_cliente = ? ");
+		sql.append(" WHERE id_cliente = ? ");
 		
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, p.getNome());
@@ -153,6 +153,7 @@ public void atualizarPessoa(Cliente p) throws ClassNotFoundException, SQLExcepti
 		
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
+			
 			if(rs.first()) {
 				idPessoa = rs.getInt(1);
 			}
