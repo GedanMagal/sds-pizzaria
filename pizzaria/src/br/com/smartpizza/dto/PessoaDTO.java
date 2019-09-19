@@ -9,6 +9,17 @@ public class PessoaDTO {
 	private String telefone;
 	private String celular;
 	private String email;
+	private Integer idEndereco;
+	
+	
+	public Integer getIdEndereco() {
+		return idEndereco;
+	}
+
+
+	public void setIdEndereco(Integer idEndereco) {
+		this.idEndereco = idEndereco;
+	}
 	private String endereco;
 	private String numero;
 	private String cep;
@@ -22,7 +33,7 @@ public class PessoaDTO {
 	
 	
 	public PessoaDTO(int idPessoa, String nome, String sobrenome, String cpf, String telefone, String celular,
-			String email, String endereco, String numero, String cep, String bairro, String cidade, String estado) {
+			String email, String endereco, String numero, String cep, String bairro, String cidade, String estado, Integer idEndereco) {
 	
 		this.idPessoa = idPessoa;
 		this.nome = nome;
@@ -37,6 +48,7 @@ public class PessoaDTO {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.estado = estado;
+		this.idEndereco = idEndereco;
 	}
 
 

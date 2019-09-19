@@ -13,13 +13,14 @@ import br.com.smartpizza.model.Endereco;
 import br.com.smartpizza.model.Estado;
 import br.com.smartpizza.model.Usuario;
 
-public class SalvarClienteCommand implements Command {
+public class atualizarClienteCommand implements Command {
 	private PessoaDAO dao = new PessoaDAO();
 	@Override
 	public String execute(HttpServletRequest request) {
 		
-		String proximo = "cadastroCliente.jsp";
 
+		String proximo = "cadastroCliente.jsp";
+		String idCliente = request.getParameter("");
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
 		String sobreNome = request.getParameter("sobrenome");
@@ -31,19 +32,20 @@ public class SalvarClienteCommand implements Command {
 		String[] logradouro = request.getParameterValues("logradouro");
 		String cep = request.getParameter("cep");
 		String bairro = request.getParameter("bairro");
-		String cidade = request.getParameter("cidade");
+		String idCidade = request.getParameter("cidade");
 		String idEstado = request.getParameter("estado");
 		//String referencia = request.getParameter("complemento");
 		String numero = request.getParameter("numero");
-	
+		try {
 		
 
-		try {
+		
 			Cliente p = new Cliente();
 			Cidade cid = new Cidade();
 			Usuario usuar = new Usuario();
 			Endereco endereco = new Endereco();
 			Estado est = new Estado();
+			p.setId(Integer.parseInt(idCliente));
 			p.setNome(nome);
 			p.setSobrenome(sobreNome);
 			p.setCpf(cpf);
@@ -66,7 +68,7 @@ public class SalvarClienteCommand implements Command {
 			endereco.setBairro(bairro);
 			
 			endereco.setCidade(cid);
-			cid.setIdCidade(Integer.parseInt(cidade));
+			cid.setIdCidade(Integer.parseInt(idCidade));
 			
 			cid.setEstado(est);
 			est.setIdEstado(Integer.parseInt(idEstado));
@@ -74,20 +76,19 @@ public class SalvarClienteCommand implements Command {
 			listEndereco.add(endereco);
 			
 		}
+		
 		p.setEndereco(listEndereco);
 		
-	
-			dao.cadastroPessoaClient(p);
+			dao.atualizarPessoa(p);
+			proximo ="servlet?acao=listarClientes";
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-
-	System.out.println("ok servlet funciona");
-		
-		
 		return proximo;
-	}
-
+	
+	
+	
 }
+	
+}	

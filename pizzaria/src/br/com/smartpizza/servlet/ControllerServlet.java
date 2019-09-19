@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Command.CadastroPessoaCommand;
 import Command.Command;
 import Command.EditarClienteCommand;
 import Command.ListaEstadosCommand;
-import Command.SalvarClienteCommand;
+import Command.atualizarClienteCommand;
+import Command.CadastrarClienteCommand;
 import Command.listarCliente;
 
 
@@ -25,10 +25,11 @@ public class ControllerServlet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-		comandos.put("salvarCLiente", new SalvarClienteCommand());
+		comandos.put("salvarCLiente", new CadastrarClienteCommand());
 		comandos.put("listaEstados", new ListaEstadosCommand());
 		comandos.put("listarClientes", new listarCliente());
 		comandos.put("editarCliente", new EditarClienteCommand());
+		comandos.put("atualizarCliente", new atualizarClienteCommand());
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {

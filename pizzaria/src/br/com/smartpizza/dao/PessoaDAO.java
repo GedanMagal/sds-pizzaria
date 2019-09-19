@@ -97,7 +97,7 @@ public class PessoaDAO {
 		try {
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT CLI.ID_CLIENTE,CLI.NM_CLIENTE, CLI.NM_CPF,CLI.SOBRENOME,CLI.DS_EMAIL, CLI.CLI_TELEFONE, CLI.CLI_CELULAR,EN.DS_LOGRADOURO, EN.NM_ENDERECO, EN.NM_CEP,en.ds_bairro"); 
+			sql.append("SELECT CLI.ID_CLIENTE,CLI.NM_CLIENTE, CLI.NM_CPF,CLI.SOBRENOME,CLI.DS_EMAIL, CLI.CLI_TELEFONE, CLI.CLI_CELULAR, EN.ID_ENDERECO,EN.DS_LOGRADOURO, EN.NM_ENDERECO, EN.NM_CEP,en.ds_bairro"); 
 			sql.append(" FROM PIZZA_PROJETO.TB_CLIENTE CLI INNER JOIN  TB_ENDERECO EN ON EN.ID_CLIENTE = CLI.ID_CLIENTE");
 			sql.append(" WHERE cli.ID_CLIENTE = ?");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
@@ -112,6 +112,7 @@ public class PessoaDAO {
 			p.setEmail(rs.getString("DS_EMAIL"));
 			p.setTelefone(rs.getString("CLI_TELEFONE"));
 			p.setCelular(rs.getString("CLI_CELULAR"));
+			p.setIdEndereco(rs.getInt("ID_ENDERECO"));
 			p.setEndereco(rs.getString("DS_LOGRADOURO"));
 			p.setNumero(rs.getString("NM_ENDERECO"));
 			p.setCep(rs.getString("NM_CEP"));
@@ -127,5 +128,41 @@ public class PessoaDAO {
 		return p;
 	}
 	
+public void atualizarPessoa(Cliente p) throws ClassNotFoundException, SQLException {
+		
+		Integer idPessoa = null;
+		Connection  conn = null;
+		
+		
+		try {
+		
+			conn = ConexaoUtil.getConexao();
+		StringBuilder sql = new StringBuilder();
+		sql.append("UPDATE FROM TB_CLIENTE ");
+		sql.append(" set nm_cliente=?, nm_cpf,sobrenome=?,cli_telefone=?,cli_celular=? ");
+		sql.append(" WhEre id_cliente = ? ");
+		
+			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, p.getNome());
+			stmt.setString(2, p.getCpf());
+			stmt.setString(3, p.getSobrenome());
+			stmt.setString(4, p.getEmail());
+			stmt.setString(5, p.getSenha());
+			stmt.setString(6, p.getTelefone());
+			stmt.setString(7, p.getCelular());
+		
+			stmt.executeUpdate();
+			ResultSet rs = stmt.getGeneratedKeys();
+			if(rs.first()) {
+				idPessoa = rs.getInt(1);
+			}
+			enderecoDAO.atualizarEndereco(p.getEndereco(),idPessoa);
+		
+			
+			} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

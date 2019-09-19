@@ -18,8 +18,11 @@
 			<h4>Cliente</h4>
 		</div>
 		<h6>Dados Pessoais</h6>
+		
+		<form method="POST" action="servlet?acao=atualizarCliente">
 		<div class="row">
 			<div class="input-field col s6">
+			<input type="hidden" name="idCliente" value="${p.idPessoa }">
 				<input type="text" name="nome" id="nome" value="${pessoa.nome}"> <label
 					class="active" for="nome">Nome</label>
 			</div>
@@ -68,6 +71,7 @@
 		<h6>Localização Endereço</h6>
 		<div class="row">
 			<div class="input-field col s6">
+				<input type="hidden" value="${pessoa.idEndereco }" name="idEndereco">
 				<input type="text" name="endereco" id="endereco" value="${pessoa.endereco }"> <label
 					class="active" for="nome">Logradouro (Av. / R. / Pç.)</label>
 			</div>
@@ -115,12 +119,12 @@
 			
 		<div class="row">
 			<div class="col s3 offset-s6">
-				<a href="gerenciar-cliente.jsp" class="btn waves-effect waves-light red" []
+				<a href="gerenciar-cliente.jsp" class="btn waves-effect waves-light red" 
 						name="action">
 						Cancelar <i class="material-icons right">add</i>
 				</a>
 			</div>
-			<div class="col s3" offset-s6">
+			<div class="col s3 offset-s6">
 				<button class="btn waves-effect waves-light" type="submit"
 					name="action">
 					Salvar <i class="material-icons right">check</i>
@@ -128,7 +132,7 @@
 
 			</div>
 		</div>
-
+</form>
 
 	</div>
 
