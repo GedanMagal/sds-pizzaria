@@ -61,21 +61,6 @@
 
 				<h6>Localização Endereço</h6>
 				<div class="row">
-					<div class="input-field col s6">
-						<input type="text" name="logradouro" id="logradouro"> <label
-							class="active" for="endereco">Logradouro (Av. / R. / Pç.)</label>
-							
-					</div>
-					<div class="input-field col s3">
-						<input type="text" name="numero" id="numero"> <label
-							class="active" for="numero">nº.</label>
-					</div>
-					<div class="input-field col s3">
-						<input type="text" name="complemento" id="complemento"> <label
-							class="active" for="complemento">Complemento</label>
-					</div>
-				</div>
-				<div class="row">
 					<div class="input-field col s3">
 						<input type="text" name="cep" id="cep"> <label
 							class="active" for="cep">CEP</label>
@@ -100,6 +85,22 @@
 					</div>
 				</div>
 				<div class="row">
+					<div class="input-field col s6">
+						<input type="text" name="logradouro" id="logradouro"> <label
+							class="active" for="endereco">Logradouro (Av. / R. / Pç.)</label>
+							
+					</div>
+					<div class="input-field col s3">
+						<input type="text" name="numero" id="numero"> <label
+							class="active" for="numero">nº.</label>
+					</div>
+					<div class="input-field col s3">
+						<input type="text" name="complemento" id="complemento"> <label
+							class="active" for="complemento">Complemento</label>
+					</div>
+				</div>
+				
+				<div class="row">
 					<div class="input-field col s12">
 						<input type="text" name="localReferencia" id="localReferencia">
 						<label class="active" for="localReferencia">Local de
@@ -108,12 +109,10 @@
 				</div>
 
 				<div class="row">
-					<div class="col s3 offset-s6">
-						<a href="gerenciar-cliente.jsp"
-							class="btn waves-effect waves-light red" name="action">
-							Cancelar <i class="material-icons right">add</i>
-						</a>
-					
+					<div class="col s6 offset-s6">					
+						<button class="btn waves-effect waves-light red">
+							Cancelar <i class="material-icons right">cancel</i>
+						</button>					
 						<button class="btn waves-effect waves-light" type="submit"
 							name="action">
 							Salvar <i class="material-icons right">check</i>
