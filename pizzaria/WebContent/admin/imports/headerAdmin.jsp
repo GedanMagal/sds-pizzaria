@@ -57,6 +57,10 @@
 	<li><a class="waves-effect" href="admin?acao=listarClientes"> <i
 			class="material-icons">assignment_ind</i> Gerenciar Clientes
 	</a></li>
+	<li><div class="divider"></div></li>
+	<li><a class="waves-effect" href="gerenciar-funcionario.jsp"> <i
+			class="material-icons">assignment_ind</i> Gerenciar Funcionario
+	</a></li>
 </ul>
 
 
