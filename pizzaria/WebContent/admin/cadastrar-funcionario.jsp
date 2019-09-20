@@ -18,35 +18,37 @@
 			<h4>Funcionário</h4>
 		</div>
 		<h6>Dados Pessoais</h6>
-		<div class="row">
-			<div class="input-field col s6">
-				<input type="text" name="nome" id="nome"> <label
-					class="active" for="nome">Nome</label>
-			</div>
-			<div class="input-field col s6">
-				<input type="text" name="sobrenome" id="sobrenome"> <label
-					class="active" for="sobrenome">Sobrenome</label>
+		<form method="post" action="servlet?acao=salvarFuncionario">
+			<div class="row">
+				<div class="input-field col s6">
+					<input type="text" name="nome" id="nome"> <label
+						class="active" for="nome">Nome</label>
+				</div>
+				<div class="input-field col s6">
+					<input type="text" name="sobrenome" id="sobrenome"> <label
+						class="active" for="sobrenome">Sobrenome</label>
+				</div>
+
 			</div>
 
-		</div>
+			<div class="row">
+				<div class="input-field col s4">
+					<input type="text" name="cpf" id="cpf"> <label
+						class="active" for="cpf">CPF</label>
+				</div>
+				<div class="input-field col s4">
+					<input type="text" name="telefone1" id="telefone1"> <label
+						class="active" for="telefone1">Telefone 1</label>
+				</div>
+				<div class="input-field col s4">
+					<input type="hidden" name="classificador"> <input
+						type="text" name="celular" id="celular"> <label
+						class="active" for="celular">Celular</label>
+				</div>
 
-		<div class="row">
-			<div class="input-field col s4">
-				<input type="text" name="cpf" id="cpf"> <label
-					class="active" for="cpf">CPF</label>
-			</div>
-			<div class="input-field col s4">
-				<input type="text" name="telefone1" id="telefone1"> <label
-					class="active" for="telefone1">Telefone 1</label>
-			</div>
-			<div class="input-field col s4">
-				<input type="text" name="telefone2" id="telefone2"> <label
-					class="active" for="telefone2">Telefone 2</label>
 			</div>
 
-		</div>
-
-		<!--<div class="row">
+			<!--<div class="row">
 			<div class="col s12">
 				<p>
 					<span class="gender">Sexo</span> <label> <input
@@ -57,65 +59,98 @@
 			</div>
 		</div>
 		-->
-		<div class="row">
-			<div class="input-field col s9">
-				<input type="email" name="email" id="email"> <label
-					class="active" for="email">E-mail</label>
+			<div class="row">
+				<div class="input-field col s9">
+					<input type="email" name="email" id="email"> <label
+						class="active" for="email">E-mail</label>
+				</div>
+				<div class="input-field col s3">
+					<input type="text" name="senha" id="senha"> <label
+						class="active" for="senha">Senha</label>
+				</div>
 			</div>
-			<div class="input-field col s3">
-				<input type="text" name="senha" id="senha"> <label
-					class="active" for="senha">Senha</label>
-			</div>
-		</div>
 
-		<h6>Localização Endereço</h6>
-		<div class="row">
-			<div class="input-field col s6">
-				<input type="text" name="endereco" id="endereco"> <label
-					class="active" for="nome">Logradouro (Av. / R. / Pç.)</label>
-			</div>
-			<div class="input-field col s3">
-				<input type="text" name="numero" id="numero"> <label
-					class="active" for="nome">nº.</label>
-			</div>
-			<div class="input-field col s3">
-				<input type="text" name="complemento" id="complemento"> <label
-					class="active" for="complemento">Complemento</label>
-			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s3">
-				<input type="text" name="cep" id="cep"> <label
-					class="active" for="nome">CEP</label>
-			</div>
-			<div class="input-field col s4">
-				<input type="text" name="bairro" id="bairro"> <label
-					class="active" for="nome">Bairro.</label>
-			</div>
-			<div class="input-field col s4">
-				<input type="text" name="cidade" id="cidade"> <label
-					class="active" for="nome">Cidade</label>
-			</div>
-			<div class="input-field col s1">
-				<input type="text" name="estado" id="estado"> <label
-					class="active" for="nome">Estado</label>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col s3 offset-s6">
-				<a href="gerenciar-funcionario.jsp"
-					class="btn waves-effect waves-light red" [] name="action">
-					Cancelar <i class="material-icons right">add</i>
-				</a>
-			</div>
-			<div class="col s3"offset-s6">
-				<button class="btn waves-effect waves-light" type="submit"
-					name="action">
-					Salvar <i class="material-icons right">check</i>
-				</button>
+			<h6>Localização Endereço</h6>
+			<div class="row">
+				<div class="input-field col s3">
+					<input type="text" name="cep" id="cep"> <label
+						class="active" for="cep">CEP</label>
+				</div>
+				<div class="input-field col s4">
+					<input type="text" name="bairro" id="bairro"> <label
+						class="active" for="bairro">Bairro.</label>
+				</div>
+				<div class="input-field col s2">
+					<select name="cidade" id="cidade">
+						<option value="0">Selecione</option>
 
+					</select><label class="active" for="cidade">Cidade</label>
+				</div>
+				<div class="input-field col s2">
+					<select name="estado" id="estado" class="Sel">
+						<option value="0">Selecione</option>
+						<c:forEach items="${estados}" var="est">
+							<option value="${est.idEstado}">${est.dsuf}</option>
+						</c:forEach>
+					</select> <label class="active" for="estado">Estado</label>
+				</div>
 			</div>
-		</div>
+			<div class="row">
+				<div class="input-field col s6">
+					<input type="text" name="logradouro" id="logradouro"> <label
+						class="active" for="logradouro">Logradouro (Av. / R. / Pç.)</label>
+				</div>
+				<div class="input-field col s3">
+					<input type="text" name="numero" id="numero"> <label
+						class="active" for="nome">nº.</label>
+				</div>
+				<div class="input-field col s3">
+					<input type="text" name="complemento" id="complemento"> <label
+						class="active" for="complemento">Complemento</label>
+				</div>
+			</div>
+
+			<h6>Dados do Funcionário</h6>
+			<div class="row">
+				<div class="input-field col s4">
+					<input type="text" name="nomeCargo" id="nomeCargo"> <label
+						class="active" for="nomeCargo">Nome do Cargo</label>
+				</div>
+				<div class="input-field col s4">
+					<input type="text" class="datepicker" id="dataAdmissao"
+						placeholder="Data de Admissão">
+				</div>
+				<div class="input-field col s4">
+					<input type="text" name="status" id="status"> <label
+						class="active" for="status">Status</label>
+				</div>
+			</div>
+			<div class="row">
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col s12">
+							<textarea id="descricao" name="descricao" class="materialize-textarea"></textarea>
+							<label for="descricao">Descrição do Cargo</label>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="row">
+				<div class="col s3 offset-s6">
+					<a href="gerenciar-funcionario.jsp"
+						class="btn waves-effect waves-light red" [] name="action">
+						Cancelar <i class="material-icons right">cancel</i>
+					</a>
+				</div>
+				<div class="col s3"offset-s6">
+					<button class="btn waves-effect waves-light" type="submit"
+						name="action">
+						Salvar <i class="material-icons right">check</i>
+					</button>
+
+				</div>
+			</div>
+		</form>
 	</div>
 
 	<jsp:include page="imports/footer-admin.jsp" />

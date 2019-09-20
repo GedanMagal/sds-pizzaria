@@ -15,6 +15,7 @@ import Command.EditarClienteCommand;
 import Command.ListaEstadosCommand;
 import Command.atualizarClienteCommand;
 import Command.CadastrarClienteCommand;
+import Command.CadastrarFuncionarioCommand;
 import Command.listarCliente;
 import Command.loginUserCommand;
 
@@ -27,10 +28,14 @@ public class ControllerServlet extends HttpServlet {
 	@Override
 	public void init() throws ServletException {
 		comandos.put("salvarCLiente", new CadastrarClienteCommand());
-		comandos.put("listaEstados", new ListaEstadosCommand());
 		comandos.put("listarClientes", new listarCliente());
 		comandos.put("editarCliente", new EditarClienteCommand());
 		comandos.put("atualizarCliente", new atualizarClienteCommand());
+		
+		comandos.put("salvarFuncionario", new CadastrarFuncionarioCommand());
+		
+		comandos.put("listaEstados", new ListaEstadosCommand());
+		
 		comandos.put("loginUser", new loginUserCommand());
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)
