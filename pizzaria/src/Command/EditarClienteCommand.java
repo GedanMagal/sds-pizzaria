@@ -18,7 +18,7 @@ public class EditarClienteCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request) {
-		proxima = "admin/editar-cliente.jsp";
+		proxima = "editar-cliente.jsp";
 		this.pessoaDAO = new PessoaDAO();
 		this.estadoDAO = new EstadoDAO();
 		try {

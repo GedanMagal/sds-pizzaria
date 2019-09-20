@@ -41,5 +41,31 @@ public class UsuarioDAO {
 	
 	}
 	
+	public boolean consultarUsuario(Usuario usuario) throws Exception {
+		
+		Connection con = null;
+		StringBuilder sql = new StringBuilder();
+		boolean user = false;
+		
+		sql.append("SELECT * FROM tb_usuario WHERE us_login = ? and us_senha = ?");
+		
+		try {
+			
+			con = ConexaoUtil.getConexao();
+			PreparedStatement stmt = con.prepareStatement(sql.toString());
+			stmt.setString(1, usuario.getLogin());
+			stmt.setString(2, usuario.getSenha());
+			ResultSet rs = stmt.executeQuery();
+			
+			
+			
+		} catch(SQLException e) {
+			throw new Exception();
+		}
+		
+		
+		return user;
+	}
+	
 	
 }

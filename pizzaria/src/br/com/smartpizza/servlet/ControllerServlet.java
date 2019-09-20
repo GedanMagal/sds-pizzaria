@@ -16,9 +16,10 @@ import Command.ListaEstadosCommand;
 import Command.atualizarClienteCommand;
 import Command.CadastrarClienteCommand;
 import Command.listarCliente;
+import Command.loginUserCommand;
 
 
-@WebServlet("/servlet")
+@WebServlet(urlPatterns = {"/admin/admin", "/servlet"})
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Command> comandos = new HashMap<String, Command>();
@@ -30,6 +31,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("listarClientes", new listarCliente());
 		comandos.put("editarCliente", new EditarClienteCommand());
 		comandos.put("atualizarCliente", new atualizarClienteCommand());
+		comandos.put("loginUser", new loginUserCommand());
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {

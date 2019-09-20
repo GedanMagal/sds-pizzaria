@@ -19,17 +19,17 @@
 
 			<div class="row col s12">
 
-				<form class="login_form_admin" action="home-admin.jsp">
+				<form class="login_form_admin" method="post" action="admin?acao=loginUser">
 					<div class="row">
 						<div class="input-field col s12">
-							<input placeholder="Usuário" id="first_name" type="text"
+							<input placeholder="Usuário" id="usuario" name="usuario" type="text"
 								class="validate">
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 
-							<input placeholder="Senha" id="first_name" type="text"
+							<input placeholder="Senha" id="senha" name="senha" type="text"
 								class="validate">
 						</div>
 					</div>
