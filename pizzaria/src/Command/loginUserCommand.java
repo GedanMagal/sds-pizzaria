@@ -2,39 +2,43 @@ package Command;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.dao.UsuarioDAO;
+import br.com.smartpizza.dto.PessoaDTO;
 import br.com.smartpizza.model.Usuario;
 
 public class loginUserCommand implements Command{
 	
-	Usuario user = new Usuario();
-	UsuarioDAO userDAO = new UsuarioDAO();
+
+	private UsuarioDAO userDAO;
+	private PessoaDAO pessoaDAO;
+	private PessoaDTO  pessoaLog;
 	
 	@Override
 	public String execute(HttpServletRequest request) {
 		// TODO Auto-generated method stub
+		userDAO = new UsuarioDAO();
+		pessoaDAO = new PessoaDAO();
 		
 		String proximo = "index.jsp";
 		
-		try {			
+		
 			
 			String usuario = request.getParameter("usuario");
 			String senha = request.getParameter("senha");
-			
+			Usuario user = new Usuario();
 			user.setLogin(usuario);
 			user.setSenha(senha);
-			
-			boolean isValid = userDAO.consultarUsuario(user);
-			
-			if(isValid) {
-				
+			System.out.println("ok aqui");
+			try {		
+			if(userDAO.consultarUsuario(user)) {
+				pessoaLog = pessoaDAO.getPessoa(user.getId());
 				request.getSession().setAttribute("loginUser", user);
+				request.getSession().setAttribute("pessoa", pessoaLog);
+				 proximo = "home-admin.jsp";
 				
-				if(user.getGpUs().equals("Admin") || user.getGpUs().equals("Funcionario")) {
-					proximo = "home-admin.jsp";
-				} else if (user.getGpUs().equals("Cliente")) {
-					proximo = "Client/meusPedidos.jsp";
-				}
+					
+			
 			}
 		} catch(Exception e) {
 			e.printStackTrace();

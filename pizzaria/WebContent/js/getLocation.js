@@ -20,7 +20,7 @@ $(document).ready(() => {
 					let cidadeEnd = `${localidade}`;
 					let estadoEnd = `${uf}`;
 						
-					$("#logradouro").val(`${logradouroRuaEnd}, ${bairroEnd}, ${cidadeEnd}, ${estadoEnd}`).focus();
+					$("#logradouro").val(`${logradouroRuaEnd}`).focus();
 					$("#bairro").val(bairroEnd).focus();
 					$('#cep').focus();
 						

@@ -18,7 +18,7 @@ public class CadastrarClienteCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request) {
 		
-		String proximo = "servlet?acao=listarClientes";
+		String proximo = "servlet?acao=listaEstados";
 
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
@@ -28,7 +28,7 @@ public class CadastrarClienteCommand implements Command {
 		String celular = request.getParameter("celular");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-		String idEndereco = request.getParameter("idEndereoc");
+	
 		String[] logradouro = request.getParameterValues("logradouro");
 		String cep = request.getParameter("cep");
 		String bairro = request.getParameter("bairro");
@@ -60,7 +60,7 @@ public class CadastrarClienteCommand implements Command {
 			List<Endereco> listEndereco = new ArrayList<Endereco>();
 		
 		for (String end: logradouro) {
-			endereco.setIdEndereco(Integer.parseInt(idEndereco));
+			
 			endereco.setDsLogradouro(end);
 			endereco.setNumEndereco(numero);
 			endereco.setCep(cep);
@@ -79,6 +79,7 @@ public class CadastrarClienteCommand implements Command {
 		
 	
 			dao.cadastroPessoaClient(p);
+			proximo = "index.jsp";
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

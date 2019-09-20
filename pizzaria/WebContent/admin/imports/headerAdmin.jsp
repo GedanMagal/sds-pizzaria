@@ -22,8 +22,11 @@
 						<i class="material-icons">dehaze</i>
 				</a></li>
 			</ul>
+			
+			
 			<a class="btn-sair right waves-effect waves-light btn modal-trigger"
 				href="index.jsp">SAIR</a>
+	
 		</div>
 	</nav>
 </div>
@@ -35,9 +38,8 @@
 				<img src="img/office.jpg">
 			</div>
 			<a href="#user"> <img class="circle" src="img/user.png">
-			</a> <a href="#name"> <span class="white-text name"> Gabriel
-					Pires </span>
-			</a> <a href="#email"><span class="white-text email">gapires.gap@hotmail.com</span></a>
+			</a> <a href="#name"> <span class="white-text name">${pessoa.nome}</span>
+			</a> <a href="#email"><span class="white-text email">${loginUser.login}</span></a>
 		</div>
 	</li>
 	<li><a class="waves-effect" href="relatorio-pedidos.jsp"> <i

@@ -56,15 +56,12 @@ public class UsuarioDAO {
 			stmt.setString(1, usuario.getLogin());
 			stmt.setString(2, usuario.getSenha());
 			ResultSet rs = stmt.executeQuery();
-			
+			return rs.next();
 			
 			
 		} catch(SQLException e) {
 			throw new Exception();
 		}
-		
-		
-		return user;
 	}
 	
 	
