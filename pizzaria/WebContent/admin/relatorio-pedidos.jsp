@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<jsp:include page="../imports/headerAdmin.jsp" />
+	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<div class="main-container">
 		<div class="header-content">

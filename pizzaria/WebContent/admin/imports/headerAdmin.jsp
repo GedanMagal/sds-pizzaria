@@ -46,15 +46,15 @@
 			class="material-icons">content_copy</i> Relatório
 	</a></li>
 	<li><div class="divider"></div></li>
-	<li><a class="waves-effect" href="admin/gerenciar-estoque.jsp"> <i
+	<li><a class="waves-effect" href="gerenciar-estoque.jsp"> <i
 			class="material-icons">account_balance</i> Gerenciar Estoque
 	</a></li>
 	<li><div class="divider"></div></li>
-	<li><a class="waves-effect" href="admin/gerenciar-produto.jsp"> <i
+	<li><a class="waves-effect" href="gerenciar-produto.jsp"> <i
 			class="material-icons">event_note</i> Gerenciar Produto
 	</a></li>
 	<li><div class="divider"></div></li>
-	<li><a class="waves-effect" href="../servlet?acao=listarClientes"> <i
+	<li><a class="waves-effect" href="admin?acao=listarClientes"> <i
 			class="material-icons">assignment_ind</i> Gerenciar Clientes
 	</a></li>
 </ul>

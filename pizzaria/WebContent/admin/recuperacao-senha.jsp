@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<jsp:include page="header-admin.jsp" />
+	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<section class="content">
 		<div class="container">

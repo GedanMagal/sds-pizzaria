@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<jsp:include page="../imports/headerAdmin.jsp" />
+	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<div class="main-container">
 		<div class="col s9 offset-s6">

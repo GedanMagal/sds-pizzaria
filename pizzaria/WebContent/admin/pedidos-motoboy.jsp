@@ -25,7 +25,7 @@
 	<!-- 		</div> -->
 	<!-- 	</nav> -->
 
-	<jsp:include page="../imports/headerAdmin.jsp" />
+	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<div class="content bg-red-sal">
 		<section class="side-content ">

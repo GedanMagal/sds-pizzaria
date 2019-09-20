@@ -1,6 +1,9 @@
 package Command;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.Session;
 
 import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.dao.UsuarioDAO;
@@ -33,8 +36,10 @@ public class loginUserCommand implements Command{
 			try {		
 			if(userDAO.consultarUsuario(user)) {
 				pessoaLog = pessoaDAO.getPessoa(user.getId());
-				request.getSession().setAttribute("loginUser", user);
-				request.getSession().setAttribute("pessoa", pessoaLog);
+				HttpSession session = request.getSession();
+				session.setAttribute("loginUser", user);
+				session.setAttribute("pessoa", pessoaLog);
+				session.setMaxInactiveInterval(120);
 				 proximo = "home-admin.jsp";
 				
 					
