@@ -18,35 +18,35 @@ import br.com.smartpizza.model.Funcionario;
 import br.com.smartpizza.model.Usuario;
 
 public class CadastrarFuncionarioCommand implements Command {
-	
+
 	private PessoaDAO dao = new PessoaDAO();
 	private CargoDAO cargoDAO = new CargoDAO();
-	
+
 	@Override
 	public String execute(HttpServletRequest request) {
-		
+
 		String proximo = "gerenciar-funcionario.jsp";
-		
+
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
 		String sobreNome = request.getParameter("sobrenome");
 		String telefone = request.getParameter("telefone");
-	
+
 		String celular = request.getParameter("celular");
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
-	
+
 		String[] logradouro = request.getParameterValues("logradouro");
 		String cep = request.getParameter("cep");
 		String bairro = request.getParameter("bairro");
 		String cidade = request.getParameter("cidade");
 		String idEstado = request.getParameter("estado");
-		//String referencia = request.getParameter("complemento");
+		// String referencia = request.getParameter("complemento");
 		String numero = request.getParameter("numero");
-		
+
 		String dataAdmissao = request.getParameter("dataAdmissao");
 		String status = request.getParameter("status");
-	
+
 		String nomeCargo = request.getParameter("nomeCargo");
 		String descricao = request.getParameter("descricao");
 
@@ -64,38 +64,38 @@ public class CadastrarFuncionarioCommand implements Command {
 			f.setSenha(senha);
 			f.setTelefone(telefone);
 			f.setCelular(celular);
-			
+
 			f.setDataAdmissao(new Date(dataAdmissao));
 			f.setStatus(Integer.parseInt(status));
-			
+
 			f.setCargo(cargo);
 			cargo.setNomeCargo(nomeCargo);
 			cargo.setDescricao(descricao);
-			
+
 			f.setUsuario(usuar);
 			usuar.setLogin(email);
 			usuar.setSenha(senha);
 			System.out.println(idEstado);
 			List<Endereco> listEndereco = new ArrayList<Endereco>();
-		
-		for (String end: logradouro) {
-			
-			endereco.setDsLogradouro(end);
-			endereco.setNumEndereco(numero);
-			endereco.setCep(cep);
-			endereco.setBairro(bairro);
-			
-			endereco.setCidade(cid);
-			cid.setIdCidade(Integer.parseInt(cidade));
-			
-			cid.setEstado(est);
-			est.setIdEstado(Integer.parseInt(idEstado));
-			
-			listEndereco.add(endereco);
-			
-		}
-		f.setEndereco(listEndereco);
-		
+
+			for (String end : logradouro) {
+
+				endereco.setDsLogradouro(end);
+				endereco.setNumEndereco(numero);
+				endereco.setCep(cep);
+				endereco.setBairro(bairro);
+
+				endereco.setCidade(cid);
+				cid.setIdCidade(Integer.parseInt(cidade));
+
+				cid.setEstado(est);
+				est.setIdEstado(Integer.parseInt(idEstado));
+
+				listEndereco.add(endereco);
+
+			}
+			f.setEndereco(listEndereco);
+
 			int idCargo = cargoDAO.cadastroCargo(cargo);
 			dao.cadastroFuncionario(f, idCargo);
 			proximo = "index.jsp";
@@ -103,11 +103,9 @@ public class CadastrarFuncionarioCommand implements Command {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
 
-	System.out.println("ok servlet funciona");
-		
-		
+		System.out.println("ok servlet funciona");
+
 		return proximo;
 	}
 

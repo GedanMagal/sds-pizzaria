@@ -62,7 +62,7 @@ public class PessoaDAO {
 	public void cadastroFuncionario(Funcionario f, int idCargo) throws ClassNotFoundException, SQLException {
 
 		Connection conn = null;
-		Integer idPessoa = null;
+		Integer idFuncionario = null;
 
 		try {
 
@@ -89,9 +89,9 @@ public class PessoaDAO {
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.first()) {
-				idPessoa = rs.getInt(1);
+				idFuncionario = rs.getInt(1);
 			}
-			//enderecoDAO.cadastrarEndereco(f.getEndereco(), idPessoa);
+			enderecoDAO.cadastrarEndereco(f.getEndereco(), idFuncionario);
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
