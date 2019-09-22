@@ -7,7 +7,6 @@ public class Pessoa  {
 	private String nome;
 	private String sobrenome;
 	private String cpf;
-
 	private String telefone;
 	private String celular;
 	private List<Endereco> endereco;

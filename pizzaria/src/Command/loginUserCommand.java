@@ -39,12 +39,9 @@ public class loginUserCommand implements Command{
 				HttpSession session = request.getSession();
 				session.setAttribute("loginUser", user);
 				session.setAttribute("pessoa", pessoaLog);
-				session.setMaxInactiveInterval(120);
+				session.setMaxInactiveInterval(60);
 				 proximo = "home-admin.jsp";
-				
-					
-			
-			}
+		}
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

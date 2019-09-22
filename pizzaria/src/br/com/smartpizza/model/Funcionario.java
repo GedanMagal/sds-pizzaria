@@ -11,15 +11,18 @@ public class Funcionario extends Pessoa {
 	private String senha;
 
 	private Cargo cargo;
+	 
 
-	public Funcionario(int id, String nome, String sobrenome, String cpf, String email, String senha,
-			List<Endereco> endereco, Usuario usuario, Date dataAdmissao, int status, String email2, String senha2) {
 
-		super(id, nome, sobrenome, cpf, email, senha, endereco, usuario);
-		dataAdmissao = dataAdmissao;
-		status = status;
-		email = email2;
-		senha = senha2;
+	public Funcionario(int id, String nome, String sobrenome, String cpf, String telefone, String celular,
+			List<Endereco> endereco, Usuario usuario, Date dataAdmissao, int status, String email, String senha,
+			Cargo cargo) {
+		super(id, nome, sobrenome, cpf, telefone, celular, endereco, usuario);
+		this.dataAdmissao = dataAdmissao;
+		this.status = status;
+		this.email = email;
+		this.senha = senha;
+		this.cargo = cargo;
 	}
 
 	public Funcionario() {
