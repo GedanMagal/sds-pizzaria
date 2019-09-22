@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.CidadeDAO;
 import br.com.smartpizza.model.Cidade;
-@WebServlet(urlPatterns = {"/admin/cidadeServlet"})
+@WebServlet(urlPatterns = {"/admin/cidadeServlet","/cidadeServlet"})
 public class CidadeServlet extends HttpServlet{
 
 
