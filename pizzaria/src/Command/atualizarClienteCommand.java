@@ -17,10 +17,10 @@ public class atualizarClienteCommand implements Command {
 	private PessoaDAO dao = new PessoaDAO();
 	@Override
 	public String execute(HttpServletRequest request) {
-		
-
 		String proximo = "cadastroCliente.jsp";
-		String idCliente = request.getParameter("");
+		String idCliente = request.getParameter("idCliente");
+		
+		
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
 		String sobreNome = request.getParameter("sobrenome");
@@ -28,7 +28,8 @@ public class atualizarClienteCommand implements Command {
 	
 		String celular = request.getParameter("celular");
 		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
+	
+		String idEndereco = request.getParameter("idEndereco");
 		String[] logradouro = request.getParameterValues("logradouro");
 		String cep = request.getParameter("cep");
 		String bairro = request.getParameter("bairro");
@@ -50,18 +51,17 @@ public class atualizarClienteCommand implements Command {
 			p.setSobrenome(sobreNome);
 			p.setCpf(cpf);
 			p.setEmail(email);
-			p.setSenha(senha);
+	
 			p.setTelefone(telefone);
 			p.setCelular(celular);
 			
 			p.setUsuario(usuar);
-			usuar.setLogin(email);
-			usuar.setSenha(senha);
+		
 			System.out.println(idEstado);
 			List<Endereco> listEndereco = new ArrayList<Endereco>();
 		
 		for (String end: logradouro) {
-			
+			endereco.setIdEndereco(Integer.parseInt(idEndereco));
 			endereco.setDsLogradouro(end);
 			endereco.setNumEndereco(numero);
 			endereco.setCep(cep);
@@ -80,7 +80,7 @@ public class atualizarClienteCommand implements Command {
 		p.setEndereco(listEndereco);
 		
 			dao.atualizarPessoa(p);
-			proximo ="servlet?acao=listarClientes";
+			proximo ="admin?acao=listarClientes";
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

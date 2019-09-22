@@ -42,7 +42,7 @@ public class EnderecoDAO {
 			e.printStackTrace();
 		}
 	}
-	public void atualizarEndereco(List<Endereco> enderecos, Integer idPessoa) {
+	public void atualizarEndereco(List<Endereco> enderecos) {
 		Connection conn = null;
 		
 		StringBuilder sql = new StringBuilder();
@@ -62,7 +62,7 @@ public class EnderecoDAO {
 				stmt.setString(3,endereco.getCep());
 				stmt.setString(4,endereco.getBairro());
 				stmt.setInt(5,endereco.getCidade().getIdCidade());
-				stmt.setInt(6,idPessoa);
+				stmt.setInt(6,endereco.getIdEndereco());
 				stmt.execute();
 			}
 		

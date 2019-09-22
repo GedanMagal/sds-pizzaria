@@ -180,26 +180,23 @@ public class PessoaDAO {
 
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("UPDATE FROM TB_CLIENTE ");
-			sql.append(" set nm_cliente=?, nm_cpf,sobrenome=?,cli_telefone=?,cli_celular=? ");
-			sql.append(" WHERE id_cliente = ? ");
+			sql.append("UPDATE TB_CLIENTE ");
+			sql.append(" set nm_cliente = ?, nm_cpf = ?, sobrenome = ?, cli_telefone = ?, cli_celular = ?");
+			sql.append(" WHERE id_cliente = ?");
 
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, p.getNome());
 			stmt.setString(2, p.getCpf());
 			stmt.setString(3, p.getSobrenome());
-			stmt.setString(4, p.getEmail());
-			stmt.setString(5, p.getSenha());
-			stmt.setString(6, p.getTelefone());
-			stmt.setString(7, p.getCelular());
+			stmt.setString(4, p.getTelefone());
+			stmt.setString(5, p.getCelular());
+			stmt.setInt(6, p.getId());
 
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 
-			if (rs.first()) {
-				idPessoa = rs.getInt(1);
-			}
-			enderecoDAO.atualizarEndereco(p.getEndereco(), idPessoa);
+	
+			enderecoDAO.atualizarEndereco(p.getEndereco());
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

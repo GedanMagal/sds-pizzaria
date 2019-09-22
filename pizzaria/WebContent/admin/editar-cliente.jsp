@@ -19,10 +19,10 @@
 		</div>
 		<h6>Dados Pessoais</h6>
 		
-		<form method="POST" action="servlet?acao=atualizarCliente">  
+		<form method="POST" action="admin?acao=atualizarCliente">  
 		<div class="row">
 			<div class="input-field col s6">
-			<input type="hidden" name="idCliente" value="${p.idPessoa }">
+			<input type="text" name="idCliente" value="${pessoa.idPessoa}">
 				<input type="text" name="nome" id="nome" value="${pessoa.nome}"> <label
 					class="active" for="nome">Nome</label>
 			</div>
@@ -39,11 +39,11 @@
 					class="active" for="cpf">CPF</label>
 			</div>
 			<div class="input-field col s4">
-				<input type="text" name="telefone1" id="telefone1" value="${pessoa.telefone }"> <label
+				<input type="text" name="telefone" id="telefone" value="${pessoa.telefone }"> <label
 					class="active" for="telefone1">Telefone 1</label>
 			</div>
 			<div class="input-field col s4">
-				<input type="text" name="telefone2" id="telefone2" value="${pessoa.celular}"> <label
+				<input type="text" name="celular" id="telefone2" value="${pessoa.celular}"> <label
 					class="active" for="telefone2">Telefone 2</label>
 			</div>
 			
@@ -71,8 +71,8 @@
 		<h6>Localização Endereço</h6>
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="hidden" value="${pessoa.idEndereco }" name="idEndereco">
-				<input type="text" name="endereco" id="endereco" value="${pessoa.endereco }"> <label
+				<input type="text" value="${pessoa.idEndereco }" name="idEndereco">
+				<input type="text" name="logradouro" id="logradouro" value="${pessoa.endereco }"> <label
 					class="active" for="nome">Logradouro (Av. / R. / Pç.)</label>
 			</div>
 			<div class="input-field col s3">

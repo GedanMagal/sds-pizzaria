@@ -9,10 +9,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
-/**
- * Servlet Filter implementation class ClientFilter
- */
-@WebFilter("oi")
+
+@WebFilter(urlPatterns = "/Client/*")
 public class ClientFilter implements Filter {
 
     /**

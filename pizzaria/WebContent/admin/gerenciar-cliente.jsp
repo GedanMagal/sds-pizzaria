@@ -60,7 +60,7 @@
 	          	<td> ${p.numero}</td>
 	          	<td> ${p.cep}</td>
 	          	<td> ${p.bairro}</td>
-	          	<td><a href="servlet?acao=editarCliente&idCliente=${p.idPessoa}"
+	          	<td><a href="admin?acao=editarCliente&idCliente=${p.idPessoa}"
 							class="btn waves-effect waves-light " name="action">
 								 <i class="material-icons right">create</i>
 						</a> <a href="adicionar-produto.jsp"

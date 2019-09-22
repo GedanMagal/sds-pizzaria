@@ -20,7 +20,7 @@ import Command.listarCliente;
 import Command.loginUserCommand;
 
 
-@WebServlet(urlPatterns = {"/admin/admin", "/servlet"})
+@WebServlet(urlPatterns = {"/admin/admin", "/client"})
 public class ControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Command> comandos = new HashMap<String, Command>();
