@@ -70,8 +70,7 @@ public class PessoaDAO {
 			StringBuilder sql = new StringBuilder();
 			Integer us_id = us.cadastrarUsuario(f.getUsuario());
 			sql.append("INSERT INTO TB_FUNCIONARIO");
-			sql.append(
-				" (nm_funcionario, nm_cpf,sobrenome,ds_email,senha,cli_telefone,cli_celular,us_id, id_cargo, dataAdmissao, status)");
+			sql.append( "(nm_funcionario, nm_cpf,sobrenome,ds_email,senha,cli_telefone,cli_celular,us_id, id_cargo, dataAdmissao, status)");
 			sql.append(" VALUES (?,?,?,?,?,?,?,?)");
 
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
