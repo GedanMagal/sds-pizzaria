@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -20,7 +21,7 @@
 		</div>
 		<h6>Dados Pessoais</h6>
 
-		<form method="post" action="servlet?acao=salvarCliente">
+		<form method="post" action="admin?acao=salvarCliente">
 			<div class="row">
 				<div class="input-field col s6">
 					<input type="text" name="nome" id="nome"> <label
@@ -39,8 +40,8 @@
 						class="active" for="cpf">CPF</label>
 				</div>
 				<div class="input-field col s4">
-					<input type="text" name="telefone1" id="telefone1"> <label
-						class="active" for="telefone1">Telefone 1</label>
+					<input type="text" name="telefone" id="telefone1"> <label
+						class="active" for="celular">Telefone 1</label>
 				</div>
 				<div class="input-field col s4">
 					<input type="hidden" name="classificador"> <input

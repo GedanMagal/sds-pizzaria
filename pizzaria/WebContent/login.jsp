@@ -43,7 +43,7 @@
 					
 					
 						
-							<a class="btn waves-effect waves-light" href="client?acao=listaEstados">
+							<a class="btn waves-effect waves-light" href="cliente?acao=listaEstado&param=cliente">
 								Cadstre-se <i class="material-icons right">send</i>
 							</a>
 						</div>

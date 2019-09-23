@@ -17,7 +17,7 @@ public class EnderecoDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		
-		sql.append("INSERT INTO TB_ENDERECO(ds_logradouro, nm_endereco, nm_cep, ds_bairro, id_cidade, id_funcionario)");
+		sql.append("INSERT INTO TB_ENDERECO(ds_logradouro, nm_endereco, nm_cep, ds_bairro, id_cidade, id_cliente)");
 		sql.append(" VALUES(?,?,?,?,?,?)");
 		try {
 			

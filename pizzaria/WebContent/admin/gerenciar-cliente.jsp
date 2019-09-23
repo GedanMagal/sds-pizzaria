@@ -74,7 +74,7 @@
 	      </table>
 	       <br>
 	      <div class="fl-right row">
-	      <a href="cadastrar-cliente.jsp" title="adicionar cliente"  class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+	      <a href="adminis?acao=listaEstado&param=admin" title="adicionar cliente"  class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 		</div>
 		</div>
 		

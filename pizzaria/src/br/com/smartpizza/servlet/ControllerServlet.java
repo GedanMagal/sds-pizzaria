@@ -27,13 +27,13 @@ public class ControllerServlet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
-		comandos.put("salvarCLiente", new CadastrarClienteCommand());
+		comandos.put("salvarCliente", new CadastrarClienteCommand());
 		comandos.put("listarClientes", new listarCliente());
 		comandos.put("editarCliente", new EditarClienteCommand());
 		comandos.put("atualizarCliente", new atualizarClienteCommand());
 		comandos.put("salvarFuncionario", new CadastrarFuncionarioCommand());
 		
-		comandos.put("listaEstados", new ListaEstadosCommand());
+		//comandos.put("listaEstados", new ListaEstadosCommand());
 		
 		comandos.put("loginUser", new loginUserCommand());
 	}
