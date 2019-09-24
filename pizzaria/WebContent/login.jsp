@@ -17,12 +17,12 @@
 
 				<form class="col s8 " method="post" action="index.jsp">
 					<h3>login</h3>
-
+ 
 					<div class="row">
 						<div class="input-field col s12">
 							<input type="text" name="emailLogin" id="emailLogin"> <label
 								class="active" for="emailLogin">E-Mail</label>
-						</div>
+						</div>  
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
