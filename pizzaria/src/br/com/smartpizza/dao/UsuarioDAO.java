@@ -41,11 +41,11 @@ public class UsuarioDAO {
 	
 	}
 	
-	public boolean consultarUsuario(Usuario usuario) throws Exception {
+	public Usuario consultarUsuario(Usuario usuario) throws Exception {
 		
 		Connection con = null;
 		StringBuilder sql = new StringBuilder();
-		boolean user = false;
+		
 		
 		sql.append("SELECT * FROM tb_usuario WHERE us_login = ? and us_senha = ?");
 		
@@ -56,7 +56,12 @@ public class UsuarioDAO {
 			stmt.setString(1, usuario.getLogin());
 			stmt.setString(2, usuario.getSenha());
 			ResultSet rs = stmt.executeQuery();
-			return rs.next();
+			if(rs.first()) {
+				 usuario = new Usuario();
+				usuario.setLogin(rs.getString("us_login"));
+				usuario.setGpUs(rs.getString("gp_usuario"));
+			}
+			return usuario;
 			
 			
 		} catch(SQLException e) {

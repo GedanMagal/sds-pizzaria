@@ -34,13 +34,19 @@ public class loginUserCommand implements Command{
 			user.setSenha(senha);
 			System.out.println("ok aqui");
 			try {		
-			if(userDAO.consultarUsuario(user)) {
+				Usuario us = userDAO.consultarUsuario(user);
+			if(us!=null) {
+				if(us.getGpUs().equals("Admin")) {
+					proximo = "home-admin.jsp";
+				}else {
+					proximo = "../login.jsp";
+				}
 				pessoaLog = pessoaDAO.getPessoa(user.getId());
 				HttpSession session = request.getSession();
 				session.setAttribute("loginUser", user);
 				session.setAttribute("pessoa", pessoaLog);
 				session.setMaxInactiveInterval(60);
-				 proximo = "home-admin.jsp";
+				 
 		}
 		} catch(Exception e) {
 			e.printStackTrace();

@@ -26,9 +26,9 @@ public class ListaEstadosCommand extends HttpServlet  {
 		if(param.equalsIgnoreCase("admin")) {
 		List<Estado> estados = estadoDAO.listarEstados();
 		req.setAttribute("estados", estados);
-		for (int i = 0; i < estados.size(); i++) {
-			System.out.println(estados.get(i).getDsSigla());
-		}
+//		for (int i = 0; i < estados.size(); i++) {
+//			System.out.println(estados.get(i).getDsSigla());
+//		}
 		proximo = "cadastrar-cliente.jsp";
 		}
 		if(param.equalsIgnoreCase("cliente")) {
