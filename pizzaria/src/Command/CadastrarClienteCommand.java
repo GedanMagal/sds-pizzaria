@@ -79,7 +79,7 @@ public class CadastrarClienteCommand implements Command {
 		
 	
 			dao.cadastroPessoaClient(p);
-			proximo = "admin?acao=acao=listarClientes";
+			proximo = "cardapio.jsp";
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

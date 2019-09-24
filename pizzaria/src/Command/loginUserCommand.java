@@ -23,7 +23,7 @@ public class loginUserCommand implements Command{
 		userDAO = new UsuarioDAO();
 		pessoaDAO = new PessoaDAO();
 		
-		String proximo = "index.jsp";
+		String proximo = "login.jsp";
 		
 		
 			
