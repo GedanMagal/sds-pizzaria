@@ -57,7 +57,7 @@ public class UsuarioDAO {
 			stmt.setString(2, usuario.getSenha());
 			ResultSet rs = stmt.executeQuery();
 			if(rs.first()) {
-				 usuario = new Usuario();
+				usuario = new Usuario();
 				usuario.setLogin(rs.getString("us_login"));
 				usuario.setGpUs(rs.getString("gp_usuario"));
 			}

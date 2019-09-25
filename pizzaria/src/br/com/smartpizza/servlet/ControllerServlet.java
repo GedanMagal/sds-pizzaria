@@ -13,11 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import Command.Command;
 import Command.EditarClienteCommand;
 import Command.ListaEstadosCommand;
+import Command.LoginClienteCommand;
 import Command.atualizarClienteCommand;
 import Command.CadastrarClienteCommand;
 import Command.CadastrarFuncionarioCommand;
 import Command.listarCliente;
-import Command.loginUserCommand;
+import Command.loginAdmCommand;
 
 
 @WebServlet(urlPatterns = {"/admin/admin", "/client"})
@@ -35,7 +36,8 @@ public class ControllerServlet extends HttpServlet {
 		
 		//comandos.put("listaEstados", new ListaEstadosCommand());
 		
-		comandos.put("loginUser", new loginUserCommand());
+		comandos.put("loginUser", new loginAdmCommand());
+		comandos.put("loginC", new LoginClienteCommand());
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {

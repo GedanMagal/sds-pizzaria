@@ -10,7 +10,7 @@ import br.com.smartpizza.dao.UsuarioDAO;
 import br.com.smartpizza.dto.PessoaDTO;
 import br.com.smartpizza.model.Usuario;
 
-public class loginUserCommand implements Command{
+public class loginAdmCommand implements Command{
 	
 
 	private UsuarioDAO userDAO;
@@ -32,14 +32,15 @@ public class loginUserCommand implements Command{
 			Usuario user = new Usuario();
 			user.setLogin(usuario);
 			user.setSenha(senha);
-			System.out.println("ok aqui");
+			
 			try {		
 				Usuario us = userDAO.consultarUsuario(user);
 			if(us!=null) {
+				System.out.println(us.getGpUs());
 				if(us.getGpUs().equals("Admin")) {
 					proximo = "home-admin.jsp";
 				}else {
-					proximo = "../login.jsp";
+					request.setAttribute("msgErro", "Erro ao acessar esta tela!");
 				}
 				pessoaLog = pessoaDAO.getPessoa(user.getId());
 				HttpSession session = request.getSession();

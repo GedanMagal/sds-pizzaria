@@ -15,12 +15,12 @@
 		<div class="side-content">
 			<div class="row form-log">
 
-				<form class="col s8 " method="post" action="index.jsp">
+				<form class="col s8 " method="post" action="client?acao=loginC">
 					<h3>login</h3>
  
 					<div class="row">
 						<div class="input-field col s12">
-							<input type="text" name="emailLogin" id="emailLogin"> <label
+							<input type="text" name="usuario" id="emailLogin"> <label
 								class="active" for="emailLogin">E-Mail</label>
 						</div>  
 					</div>
