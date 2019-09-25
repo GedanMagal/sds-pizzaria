@@ -28,7 +28,7 @@
 						<div class="input-field col s12">
 							<input type="password" name="senha" id="senha"> <label
 								class="active" for="senha">Senha</label>
-						</div>
+						</div>  
 					</div>
 					
 					<input type="hidden" name="acao" value="Login">
