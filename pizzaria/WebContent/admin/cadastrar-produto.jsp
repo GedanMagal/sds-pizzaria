@@ -1,3 +1,4 @@
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +14,7 @@
 	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<div class="main-container">
+	<form action="admin?acao=cadastrarProduto" method="POST">
 		<div class="col s9 offset-s6">
 			<h4>Produto</h4>
 		</div>
@@ -22,7 +24,12 @@
 					class="active" for="descricao">Descrição</label>
 			</div>
 			<div class="input-field col s6">
-				<input type="text" name="tipo" id="tipo"> <label
+			<select name="tipo">
+				<option value="0">Selecione </option>
+				<option value="1">Bebida </option>
+				<option value="2">Pizza </option>
+			</select>
+			<label
 					class="active" for="tipo">Tipo</label>
 			</div>
 
@@ -30,15 +37,28 @@
 
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="text" name="tamanho" id="tamanho"> <label
-					class="active" for="tamanho">Tamanho</label>
+				<select name="tamanho">
+				<option value="0">Selecione </option>
+				<option value="600ml">Pequeno </option>
+				<option value="2 litros">Grande </option>
+			</select>
+				
 			</div>
 			<div class="input-field col s6">
 				<input type="text" name="valor" id="valor"> <label
 					class="active" for="valor">Valor</label>
 			</div>
 		</div>
-
+		<div class="row">
+		<div class="input-field col s6">
+				<input type="text" name="quantidade" id="quantidade"> <label
+					class="active" for="quantidade">Quantidade</label>
+			</div>
+			<div class="input-field col s6">
+				<input type="text" name="sabor" id="sabor"> <label
+					class="active" for="sabor">Sabor</label>
+			</div>
+			</div>
 		<div class="row">
 			<div class="col s3 offset-s6">
 				<button class="btn waves-effect waves-light red" type="submit"
@@ -54,6 +74,7 @@
 
 			</div>
 		</div>
+		</form>
 	</div>
 
 	

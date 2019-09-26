@@ -13,10 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import Command.Command;
 import Command.EditarClienteCommand;
 import Command.ListaEstadosCommand;
+import Command.ListarProdutosCommand;
 import Command.LoginClienteCommand;
 import Command.atualizarClienteCommand;
 import Command.CadastrarClienteCommand;
 import Command.CadastrarFuncionarioCommand;
+import Command.CadastroProdutoCommand;
 import Command.listarCliente;
 import Command.loginAdmCommand;
 
@@ -33,6 +35,8 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("editarCliente", new EditarClienteCommand());
 		comandos.put("atualizarCliente", new atualizarClienteCommand());
 		comandos.put("salvarFuncionario", new CadastrarFuncionarioCommand());
+		comandos.put("cadastrarProduto", new CadastroProdutoCommand());
+		comandos.put("listaprodutos", new ListarProdutosCommand());
 		
 		//comandos.put("listaEstados", new ListaEstadosCommand());
 		

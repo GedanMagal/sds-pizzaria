@@ -1,5 +1,7 @@
 
 $(document).ready(function() {
+	ingredientes();
+	
 	$('select').formSelect();
 	$('.modal').modal();
 	$('.sidenav').sidenav();
@@ -62,5 +64,26 @@ function carregaIng() {
 	 document.querySelector("#flip-container").classList.toggle("flip")
 }
 
+function ingredientes() {
+	let i=0;
+	$("#btn1").click(function() {
+		
+		let ingre = [];
+		$("#form").append("<input type='text' placeholder='ingredientes' name='ingredientes' id=txtIngrediente >");
+		ingre = $("#txtIngrediente").val();
+		
+		
+	});
 
+	$("#btn3").click(function() {
+		
+		
+		let ingre = [];
+		$("#txtIngrediente").remove();
+		ingre = $("#txtIngrediente").val();
+		
+		
+		
+	});
+}
 

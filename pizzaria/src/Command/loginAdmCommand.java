@@ -46,7 +46,7 @@ public class loginAdmCommand implements Command{
 				HttpSession session = request.getSession();
 				session.setAttribute("loginUser", user);
 				session.setAttribute("pessoa", pessoaLog);
-				session.setMaxInactiveInterval(60);
+				session.setMaxInactiveInterval(60*10);
 				 
 		}
 		} catch(Exception e) {

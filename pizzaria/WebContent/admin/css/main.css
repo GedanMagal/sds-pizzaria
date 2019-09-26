@@ -225,6 +225,25 @@ table th:last-of-type{
 .ds-none{
 	display: none;
 }
+
+.btn2 {
+    padding: 0px 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #e1e1e1;
+    font-size: 31px;
+    float: right;
+    margin-right: 3px;}
+.btn3 {
+    padding: 0px 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #e1e1e1;
+    font-size: 31px;
+    float: right;
+    margin-right: 3px;
+    }
+.green{background: #2df00f;border:none;cursor: pointer;}
 @media (min-width: 375) .side-content {
 	width: 100%;
 	

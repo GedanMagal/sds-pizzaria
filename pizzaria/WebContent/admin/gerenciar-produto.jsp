@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -32,66 +33,54 @@
 
 
 		<div class="row">
-			<table>
+			<table  class="striped centered">
 				<thead>
 					<tr>
-						<th>Produto</th>
-						<th>Tipo</th>
+						<th>id</th>
+						<th>nome</th>
+						<th>tamanho</th>
 						<th>Valor</th>
+						<th>estoque</th>
+						<th>tipo</th>
 					</tr>
 				</thead>
 
 				<tbody>
+				<c:forEach items="${produtos}" var="prod">
 					<tr>
-						<td>Coca Cola</td>
-						<td>Refrigerante</td>
-						<td>R$ 10,00</td>
-						<td><a href="editar-produto.jsp"
-							class="btn waves-effect waves-light red" name="action">
+						
+						<td>${prod.idProduto}</td>
+						<td>${prod.nomeProduto}</td>
+						<td>${prod.tamanho}</td>
+						<td>${prod.valorProduto}</td>
+						<td>${prod.quantidade}</td>
+						<td>${prod.dsTipo}</td>
+						
+						
+						<td>
+						<a href="editar-produto.jsp"class="btn waves-effect waves-light red" name="action">
 								Editar <i class="material-icons right">create</i>
 						</a> <a href="adicionar-produto.jsp"
 							class="btn waves-effect waves-light red" name="action">
 								Excluir <i class="material-icons right">delete</i>
-						</a></td>
+						</a>
+						</td>
+						</c:forEach>
 					</tr>
-					<tr>
-						<td>Skol</td>
-						<td>350ml</td>
-						<td>100</td>
-						<td><a href="editar-produto.jsp"
-							class="btn waves-effect waves-light red" name="action">
-								Editar <i class="material-icons right">create</i>
-						</a> <a href="adicionar-produto.jsp"
-							class="btn waves-effect waves-light red" name="action">
-								Excluir <i class="material-icons right">delete</i>
-						</a></td>
-					</tr>
-					<tr>
-						<td>Fanta</td>
-						<td>2L</td>
-						<td>10</td>
-						<td><a href="editar-produto.jsp"
-							class="btn waves-effect waves-light red" name="action">
-								Editar <i class="material-icons right">create</i>
-						</a> <a href="adicionar-produto.jsp"
-							class="btn waves-effect waves-light red" name="action">
-								Excluir <i class="material-icons right">delete</i>
-						</a></td>
-					</tr>
+					
 				</tbody>
 			</table>
 		</div>
 
-		<form action="editar-produto.jsp">
+		
 			<div class="row">
 				<div class="input-field col s6">
-					<button class="btn waves-effect waves-light red" type="submit"
-						name="action">
+					<a class="btn waves-effect waves-light red" href="cadastrar-produto.jsp">
 						Novo Produto <i class="material-icons right">fiber_new</i>
-					</button>
+					</a>
 				</div>
 			</div>
-		</form>
+	
 
 	</div>
 

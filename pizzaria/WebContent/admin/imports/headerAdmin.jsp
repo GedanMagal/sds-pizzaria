@@ -50,8 +50,11 @@
 			class="material-icons">account_balance</i> Gerenciar Estoque
 	</a></li>
 	<li><div class="divider"></div></li>
-	<li><a class="waves-effect" href="gerenciar-produto.jsp"> <i
+	<li><a class="waves-effect" href="admin?acao=listaprodutos"> <i
 			class="material-icons">event_note</i> Gerenciar Produto
+	</a></li>
+	<li><a class="waves-effect" href="admin?acao=listaprodutos"> <i
+			class="material-icons">local_pizza</i> Gerenciar pizzas
 	</a></li>
 	<li><div class="divider"></div></li>
 	<li><a class="waves-effect" href="admin?acao=listarClientes"> <i
