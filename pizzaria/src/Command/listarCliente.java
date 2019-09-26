@@ -11,7 +11,7 @@ public class listarCliente implements Command {
 	private PessoaDAO pessoaDAO = new PessoaDAO();
 	@Override
 	public String execute(HttpServletRequest request) {
-		String proxima = "/admin/gerenciar-cliente.jsp";
+		String proxima = "gerenciar-cliente.jsp";
 		
 		List<PessoaDTO> lista = pessoaDAO.listaPessoas();
 		request.setAttribute("pessoas", lista);

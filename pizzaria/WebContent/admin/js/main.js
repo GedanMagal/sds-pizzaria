@@ -63,27 +63,30 @@ function carregaIng() {
  function flip() {
 	 document.querySelector("#flip-container").classList.toggle("flip")
 }
+ 
+ let increment = 1;
 
-function ingredientes() {
-	let i=0;
+function ingredientes() {	
+	
+	if(increment == 1){
+		$("#btn3").hide();
+	}
+	
 	$("#btn1").click(function() {
-		
-		let ingre = [];
-		$("#form").append("<input type='text' placeholder='ingredientes' name='ingredientes' id=txtIngrediente >");
-		ingre = $("#txtIngrediente").val();
-		
-		
+		increment++;		
+		$("#form").append(`<input type='text' class="ingre${increment}" placeholder='ingredientes' name='ingredientes' id='txtIngrediente' >`);
+		if(increment > 1){
+			$("#btn3").show();
+		}
 	});
 
 	$("#btn3").click(function() {
+		$(`.ingre${increment}`).remove();
+		increment--;		
 		
-		
-		let ingre = [];
-		$("#txtIngrediente").remove();
-		ingre = $("#txtIngrediente").val();
-		
-		
-		
+		if(increment == 1){
+			$("#btn3").hide();
+		}
 	});
 }
 

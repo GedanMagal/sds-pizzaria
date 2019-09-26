@@ -20,7 +20,7 @@
 			</div>
 			<div class="input-field col s6" id="form">
 			
-				<input type="text" name="ingredientes" id=txtIngrediente >
+				<input type="text" name="ingredientes" id=txtIngrediente class="ingre1">
 				<label class="active" for="ingredientes">Ingredientes</label>
 				
 			</div>
