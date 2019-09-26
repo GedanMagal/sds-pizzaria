@@ -1,11 +1,12 @@
 package br.com.smartpizza.model;
 
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 public class Funcionario extends Pessoa {
 
-	private Date dataAdmissao;
+	private Calendar dataAdmissao;
 	private int status;
 	private String email;
 	private String senha;
@@ -15,7 +16,7 @@ public class Funcionario extends Pessoa {
 
 
 	public Funcionario(int id, String nome, String sobrenome, String cpf, String telefone, String celular,
-			List<Endereco> endereco, Usuario usuario, Date dataAdmissao, int status, String email, String senha,
+			List<Endereco> endereco, Usuario usuario, Calendar dataAdmissao, int status, String email, String senha,
 			Cargo cargo) {
 		super(id, nome, sobrenome, cpf, telefone, celular, endereco, usuario);
 		this.dataAdmissao = dataAdmissao;
@@ -53,12 +54,12 @@ public class Funcionario extends Pessoa {
 		this.senha = senha;
 	}
 
-	public Date getDataAdmissao() {
+	public Calendar getDataAdmissao() {
 		return dataAdmissao;
 	}
 
-	public void setDataAdmissao(java.util.Date date) {
-		this.dataAdmissao = (Date) date;
+	public void setDataAdmissao(Calendar dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
 	}
 
 	public int getStatus() {

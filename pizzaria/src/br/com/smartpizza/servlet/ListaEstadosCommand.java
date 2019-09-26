@@ -26,10 +26,12 @@ public class ListaEstadosCommand extends HttpServlet  {
 		if(param.equalsIgnoreCase("admin")) {
 		List<Estado> estados = estadoDAO.listarEstados();
 		req.setAttribute("estados", estados);
-//		for (int i = 0; i < estados.size(); i++) {
-//			System.out.println(estados.get(i).getDsSigla());
-//		}
 		proximo = "cadastrar-cliente.jsp";
+		}
+		else if(param.contentEquals("adminFun")) {
+			List<Estado> estados = estadoDAO.listarEstados();
+			req.setAttribute("estados", estados);
+			proximo = "cadastrar-funcionario.jsp";
 		}
 		else if(param.equalsIgnoreCase("cliente")) {
 			List<Estado> estados = estadoDAO.listarEstados();

@@ -1,7 +1,9 @@
 package Command;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -64,8 +66,8 @@ public class CadastrarFuncionarioCommand implements Command {
 			f.setSenha(senha);
 			f.setTelefone(telefone);
 			f.setCelular(celular);
-
-			f.setDataAdmissao(new Date(dataAdmissao));
+			SimpleDateFormat sdf = new SimpleDateFormat();
+			f.setDataAdmissao(Calendar.getInstance());
 			f.setStatus(Integer.parseInt(status));
 
 			f.setCargo(cargo);

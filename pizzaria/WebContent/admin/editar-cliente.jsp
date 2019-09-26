@@ -22,7 +22,7 @@
 		<form method="POST" action="admin?acao=atualizarCliente">  
 		<div class="row">
 			<div class="input-field col s6">
-			<input type="text" name="idCliente" value="${pessoa.idPessoa}">
+			<input type="hidden" name="idCliente" value="${pessoa.idPessoa}">
 				<input type="text" name="nome" id="nome" value="${pessoa.nome}"> <label
 					class="active" for="nome">Nome</label>
 			</div>
@@ -71,7 +71,7 @@
 		<h6>Localização Endereço</h6>
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="text" value="${pessoa.idEndereco }" name="idEndereco">
+				<input type="hidden" value="${pessoa.idEndereco }" name="idEndereco">
 				<input type="text" name="logradouro" id="logradouro" value="${pessoa.endereco }"> <label
 					class="active" for="nome">Logradouro (Av. / R. / Pç.)</label>
 			</div>
@@ -120,8 +120,7 @@
 		<div class="row">
 			<div class="col s3 offset-s6">
 				<a href="gerenciar-cliente.jsp" class="btn waves-effect waves-light red" 
-						name="action">
-						Cancelar <i class="material-icons right">add</i>
+						name="action">Cancelar <i class="material-icons right">add</i>
 				</a>
 			</div>
 			<div class="col s3 offset-s6">

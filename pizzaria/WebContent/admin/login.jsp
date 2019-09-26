@@ -29,7 +29,7 @@
 					<div class="row">
 						<div class="input-field col s12">
 
-							<input placeholder="Senha" id="senha" name="senha" type="text"
+							<input placeholder="Senha" id="senha" name="senha" type="password"
 								class="validate">
 						</div>
 					</div>

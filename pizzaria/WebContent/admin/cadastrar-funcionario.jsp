@@ -1,3 +1,4 @@
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
 			<h4>Funcionário</h4>
 		</div>
 		<h6>Dados Pessoais</h6>
-		<form method="post" action="servlet?acao=salvarFuncionario">
+		<form method="post" action="admin?acao=salvarFuncionario">
 			<div class="row">
 				<div class="input-field col s6">
 					<input type="text" name="nome" id="nome"> <label
@@ -125,37 +126,72 @@
 						class="active" for="status">Status</label>
 				</div>
 			</div>
-			<div class="row">
-				<form class="col s12">
-					<div class="row">
+				<div class="row">
 						<div class="input-field col s12">
 							<textarea id="descricao" name="descricao" class="materialize-textarea"></textarea>
 							<label for="descricao">Descrição do Cargo</label>
 						</div>
 					</div>
-				</form>
-			</div>
+			
+			
 			<div class="row">
 				<div class="col s3 offset-s6">
 					<a href="gerenciar-funcionario.jsp"
-						class="btn waves-effect waves-light red" [] name="action">
+						class="btn waves-effect waves-light red" name="action">
 						Cancelar <i class="material-icons right">cancel</i>
 					</a>
 				</div>
+			
 				<div class="col s3"offset-s6">
 					<button class="btn waves-effect waves-light" type="submit"
 						name="action">
 						Salvar <i class="material-icons right">check</i>
 					</button>
-
-				</div>
+			</div>	
 			</div>
-		</form>
-	</div>
+	</form>
 
 	<jsp:include page="imports/footer-admin.jsp" />
 
 </body>
+<script>
+	$(document).ready(function() {
+
+		$('select[name=estado]').on('change',function(){
+			$.ajax({
+				method: "POST",
+				  url: "cidadeServlet",
+				  data: "idEstado="+ $('select[name=estado]').val(),
+				  statusCode:{
+					  404: function() {
+						alert('pagina não encontrada')
+					},
+					500: function() {
+						alert('erro no servidor')
+					}
+				  },		 
+				  success: function(dados) {
+					  $('select[name=cidade] option').remove();
+					  var pegaDados = dados.split(":");
+						
+						for(var i=0;i < pegaDados.length - 1;i++){
+							var codigoCidade = pegaDados[i].split("-")[0];
+							var nomeCidade = pegaDados[i].split("-")[1];
+							
+							$('select[name=cidade]').append('<option value= "'+codigoCidade+'">'+nomeCidade+'</option>');							
+							
+						}
+						$('select').formSelect();
+
+				  }
+				 
+				});
+
+			})
+		});
+	
+	</script>
+
 
 
 </html>

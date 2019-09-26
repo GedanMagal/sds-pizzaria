@@ -1,11 +1,13 @@
 package br.com.smartpizza.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.smartpizza.dto.PessoaDTO;
@@ -83,7 +85,7 @@ public class PessoaDAO {
 			stmt.setString(7, f.getCelular());
 			stmt.setInt(8, us_id);
 			stmt.setInt(9, idCargo);
-			stmt.setDate(10, f.getDataAdmissao());
+			stmt.setDate(10, new Date(f.getDataAdmissao().getTimeInMillis()));
 			stmt.setInt(11, f.getStatus());
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();

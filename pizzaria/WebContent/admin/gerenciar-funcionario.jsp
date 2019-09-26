@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -78,14 +79,50 @@
 	      </table>
 	      <br>
 	      <div class="fl-right row">
-	      <a href="cadastrar-funcionario.jsp" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+	      <a href="adminis?acao=listaEstado&param=adminFun" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 		</div>
 		</div>
 		</div>
 		
 
 	<jsp:include page="imports/footer-admin.jsp" />
+<script>
+	$(document).ready(function() {
 
+		$('select[name=estado]').on('change',function(){
+			$.ajax({
+				method: "POST",
+				  url: "cidadeServlet",
+				  data: "idEstado="+ $('select[name=estado]').val(),
+				  statusCode:{
+					  404: function() {
+						alert('pagina não encontrada')
+					},
+					500: function() {
+						alert('erro no servidor')
+					}
+				  },		 
+				  success: function(dados) {
+					  $('select[name=cidade] option').remove();
+					  var pegaDados = dados.split(":");
+						
+						for(var i=0;i < pegaDados.length - 1;i++){
+							var codigoCidade = pegaDados[i].split("-")[0];
+							var nomeCidade = pegaDados[i].split("-")[1];
+							
+							$('select[name=cidade]').append('<option value= "'+codigoCidade+'">'+nomeCidade+'</option>');							
+							
+						}
+						$('select').formSelect();
+
+				  }
+				 
+				});
+
+			})
+		});
+
+</script>
 
 </body>
 
