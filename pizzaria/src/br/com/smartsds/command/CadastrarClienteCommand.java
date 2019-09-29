@@ -56,6 +56,7 @@ public class CadastrarClienteCommand implements Command {
 			p.setUsuario(usuar);
 			usuar.setLogin(email);
 			usuar.setSenha(senha);
+			usuar.setGpUs("Cliente");
 			System.out.println(idEstado);
 			List<Endereco> listEndereco = new ArrayList<Endereco>();
 		
@@ -79,7 +80,7 @@ public class CadastrarClienteCommand implements Command {
 		
 	
 			dao.cadastroPessoaClient(p);
-			proximo = "gerenciar-cliente.jsp";
+			proximo = "cliente/entregas.jsp";
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

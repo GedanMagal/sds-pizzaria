@@ -2,19 +2,17 @@ package br.com.smartpizza.model;
 
 public class Cargo {
 
-	private String nomeCargo;
+	private int idCargo;
 	private String descricao;
 
 	public Cargo() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void setNomeCargo(String nomeCargo) {
-		this.nomeCargo = nomeCargo;
-	}
-
-	public String getNomeCargo() {
-		return nomeCargo;
+	public Cargo(int idCargo, String descricao) {
+		super();
+		this.idCargo = idCargo;
+		this.descricao = descricao;
 	}
 
 	public String getDescricao() {
@@ -22,7 +20,16 @@ public class Cargo {
 	}
 
 	public void setDescricao(String descricao) {
-		this.descricao= descricao;
+		this.descricao = descricao;
 	}
 
+	public int getIdCargo() {
+		return idCargo;
+	}
+
+	public void setIdCargo(int idCargo) {
+		this.idCargo = idCargo;
+	}
+
+	 
 }

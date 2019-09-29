@@ -20,11 +20,11 @@ public class CargoDAO {
 
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("INSERT INTO TB_CARGO (nm_cargo, ds_descricaoCargo) VALUES (?, ?)");
+			sql.append("INSERT INTO TB_CARGO (ds_descricaoCargo) VALUES (?)");
 
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, cargo.getNomeCargo());
-			stmt.setString(2, cargo.getDescricao());
+		
+			stmt.setString(1, cargo.getDescricao());
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.first()) {

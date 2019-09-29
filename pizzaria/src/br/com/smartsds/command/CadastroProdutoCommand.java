@@ -44,7 +44,7 @@ public class CadastroProdutoCommand implements Command{
 		}
 		
 		produtoDAO.cadastrarProduto(prod);
-		proximo = "gerenciar-produto.jsp";
+		proximo = "admin?acao=listaprodutos";
 		return proximo;
 	}
 

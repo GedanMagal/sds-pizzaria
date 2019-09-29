@@ -18,7 +18,6 @@ public class ProdutoDAO {
 	public void cadastrarProduto(Produto produto) {
 		Connection conn = null;
 		estoqueDAO = new EstoqueDAO();
-		Integer idProduto = null;
 		StringBuilder sql =  new StringBuilder();
 		try {
 			Integer idEstoque = estoqueDAO.cadastroEstoque(produto.getEstoque());
@@ -33,10 +32,8 @@ public class ProdutoDAO {
 			stmt.setInt(4, idEstoque);
 			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
 			stmt.execute();
-			ResultSet rs = stmt.getGeneratedKeys();
-			if(rs.first()) {
-				idProduto = rs.getInt(1);
-			}
+			
+			
 			conn.close();
 			
 			
@@ -53,7 +50,7 @@ public class ProdutoDAO {
 		try {
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT pro.id_produto, pro.nm_produto, pro.ds_tamanho, pro.valor_produto,est.qtd_estoque, tip.ds_tipo_produtocol");
+			sql.append("SELECT pro.id_produto, pro.nm_produto, pro.ds_tamanho, pro.valor_produto,est.qtd_estoque, tip.ds_tipo_produto");
 			sql.append(" from tb_produto pro inner join tb_estoque est on pro.id_estoque = est.id_estoque");
 			sql.append("  inner join tb_tipo_produto tip on tip.id_tipo_produto = pro.id_tipo_produto");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
@@ -65,7 +62,7 @@ public class ProdutoDAO {
 				p.setTamanho(rs.getString("ds_tamanho"));
 				p.setValorProduto(rs.getFloat("valor_produto"));
 				p.setQuantidade(rs.getInt("qtd_estoque"));
-				p.setDsTipo(rs.getString("ds_tipo_produtocol"));
+				p.setDsTipo(rs.getString("ds_tipo_produto"));
 				listaProdutos.add(p);
 			}
 			
@@ -75,5 +72,64 @@ public class ProdutoDAO {
 			e.printStackTrace();
 		}
 	return listaProdutos;
+	}
+	
+	public void atualizarProduto(Produto produto) {
+		Connection conn = null;
+		estoqueDAO = new EstoqueDAO();
+		StringBuilder sql =  new StringBuilder();
+		try {
+			Integer idEstoque = estoqueDAO.cadastroEstoque(produto.getEstoque());
+			conn = ConexaoUtil.getConexao();
+			sql.append("UPDATE TB_PRODUTO SET nm_produto = ?, ds_tamanho =?, valor_produto = ?, id_estoque ?, id_tipo_produto = ? ");
+			
+			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, produto.getNomeProduto());
+			stmt.setString(2, produto.getTamanho());
+			stmt.setFloat(3, produto.getValor());
+			stmt.setInt(4, idEstoque);
+			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
+			stmt.execute();
+			
+			
+			conn.close();
+			
+			
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public ProdutoDTO getProduto(Integer idProduto){
+		Connection conn = null;
+		ProdutoDTO p = null;
+		try {
+			conn = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT pro.id_produto, pro.nm_produto, pro.ds_tamanho, pro.valor_produto,est.qtd_estoque, tip.ds_tipo_produto");
+			sql.append(" from tb_produto pro inner join tb_estoque est on pro.id_estoque = est.id_estoque");
+			sql.append("  inner join tb_tipo_produto tip on tip.id_tipo_produto = pro.id_tipo_produto");
+			sql.append("  where id_produto = ?");
+			PreparedStatement stmt = conn.prepareStatement(sql.toString());
+					
+			stmt.setInt(1, idProduto);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.first()) {
+				 p = new ProdutoDTO();
+				p.setIdProduto(rs.getInt("id_produto"));
+				p.setNomeProduto(rs.getString("nm_produto"));
+				p.setTamanho(rs.getString("ds_tamanho"));
+				p.setValorProduto(rs.getFloat("valor_produto"));
+				p.setQuantidade(rs.getInt("qtd_estoque"));
+				p.setDsTipo(rs.getString("ds_tipo_produto"));
+				
+			}
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return p;
 	}
 }

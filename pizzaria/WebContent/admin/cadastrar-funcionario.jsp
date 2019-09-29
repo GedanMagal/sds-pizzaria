@@ -38,7 +38,7 @@
 						class="active" for="cpf">CPF</label>
 				</div>
 				<div class="input-field col s4">
-					<input type="text" name="telefone1" id="telefone1"> <label
+					<input type="text" name="telefone" id="telefone"> <label
 						class="active" for="telefone1">Telefone 1</label>
 				</div>
 				<div class="input-field col s4">
@@ -118,8 +118,8 @@
 						class="active" for="nomeCargo">Nome do Cargo</label>
 				</div>
 				<div class="input-field col s4">
-					<input type="text" class="datepicker" id="dataAdmissao"
-						placeholder="Data de Admissão">
+					<input type="text" id="dataAdmissao" name="dataAdmissao"
+						placeholder="Data de Admissão" maxlength="10">
 				</div>
 				<div class="input-field col s4">
 					<input type="text" name="status" id="status"> <label

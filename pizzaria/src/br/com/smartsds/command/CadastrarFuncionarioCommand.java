@@ -1,6 +1,8 @@
 package br.com.smartsds.command;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -26,15 +28,15 @@ public class CadastrarFuncionarioCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request) {
-
+		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		String proximo = "gerenciar-funcionario.jsp";
-
+		Date dataSF = null;
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
 		String sobreNome = request.getParameter("sobrenome");
 		String telefone = request.getParameter("telefone");
 
-		String celular = request.getParameter("celular");
+		
 		String email = request.getParameter("email");
 		String senha = request.getParameter("senha");
 
@@ -47,9 +49,10 @@ public class CadastrarFuncionarioCommand implements Command {
 		String numero = request.getParameter("numero");
 
 		String dataAdmissao = request.getParameter("dataAdmissao");
+		System.out.println(dataAdmissao);
 		String status = request.getParameter("status");
 
-		String nomeCargo = request.getParameter("nomeCargo");
+
 		String descricao = request.getParameter("descricao");
 
 		try {
@@ -62,21 +65,19 @@ public class CadastrarFuncionarioCommand implements Command {
 			f.setNome(nome);
 			f.setSobrenome(sobreNome);
 			f.setCpf(cpf);
-			f.setEmail(email);
-			f.setSenha(senha);
+		
 			f.setTelefone(telefone);
-			f.setCelular(celular);
-			SimpleDateFormat sdf = new SimpleDateFormat();
-			f.setDataAdmissao(Calendar.getInstance());
+			
+			f.setDataAdmissao(dataAdmissao);
 			f.setStatus(Integer.parseInt(status));
 
 			f.setCargo(cargo);
-			cargo.setNomeCargo(nomeCargo);
 			cargo.setDescricao(descricao);
 
 			f.setUsuario(usuar);
 			usuar.setLogin(email);
 			usuar.setSenha(senha);
+			usuar.setGpUs("Funcionario");
 			System.out.println(idEstado);
 			List<Endereco> listEndereco = new ArrayList<Endereco>();
 
@@ -100,7 +101,7 @@ public class CadastrarFuncionarioCommand implements Command {
 
 			int idCargo = cargoDAO.cadastroCargo(cargo);
 			dao.cadastroFuncionario(f, idCargo);
-			proximo = "index.jsp";
+			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

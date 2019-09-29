@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -20,7 +22,7 @@ public class PessoaDAO {
 	private UsuarioDAO us = new UsuarioDAO();
 	private EnderecoDAO enderecoDAO = new EnderecoDAO();
 	private CargoDAO cargoDAO = new CargoDAO();
-
+	private DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 	public PessoaDAO() {
 
 	}
@@ -72,21 +74,19 @@ public class PessoaDAO {
 			StringBuilder sql = new StringBuilder();
 			Integer us_id = us.cadastrarUsuario(f.getUsuario());
 			sql.append("INSERT INTO TB_FUNCIONARIO");
-			sql.append( "(nm_funcionario, nm_cpf,sobrenome,ds_email,senha,cli_telefone,cli_celular,us_id, id_cargo, dataAdmissao, status)");
-			sql.append(" VALUES (?,?,?,?,?,?,?,?)");
+			sql.append(" (nm_funcionario, nm_cpf, sobrenome, dataAdmissao, telefone, id_cargo, us_id)");
+			sql.append(" VALUES (?,?,?,?,?,?,?)");
 
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(), Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, f.getNome());
 			stmt.setString(2, f.getCpf());
 			stmt.setString(3, f.getSobrenome());
-			stmt.setString(4, f.getEmail());
-			stmt.setString(5, f.getSenha());
-			stmt.setString(6, f.getTelefone());
-			stmt.setString(7, f.getCelular());
-			stmt.setInt(8, us_id);
-			stmt.setInt(9, idCargo);
-			stmt.setDate(10, new Date(f.getDataAdmissao().getTimeInMillis()));
-			stmt.setInt(11, f.getStatus());
+			java.sql.Date dataAdmiss = new java.sql.Date(dateFormat.parse(f.getDataAdmissao()).getTime());
+			stmt.setDate(4, dataAdmiss);
+			stmt.setString(5, f.getTelefone());
+			stmt.setInt(6, idCargo);
+			stmt.setInt(7, us_id);
+			
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.first()) {

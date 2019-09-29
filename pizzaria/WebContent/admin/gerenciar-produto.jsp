@@ -18,13 +18,74 @@
 		<div class="col s9 offset-s6">
 			<h4>Gerenciar Produto</h4>
 		</div>
+		<form action="admin?acao=cadastrarProduto" method="POST">
+		<div class="col s9 offset-s6">
+			<h4>Produto</h4>
+		</div>
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="text" name="produto" id="produto"> <label
-					class="active" for="nome">Descrição</label>
+				<input type="text" name="descricao" id="descricao" value="${produto.nomeProduto}"> <label
+					class="active" for="descricao">Descrição</label>
 			</div>
 			<div class="input-field col s6">
+			<select name="tipo">
+				<option value="0">Selecione </option>
+				<option value="1">Bebida </option>
+				<option value="2">Pizza </option>
+			</select>
+			<label
+					class="active" for="tipo">Tipo</label>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="input-field col s6">
+				<select name="tamanho">
+				<option value="0">Selecione </option>
+				<option value="600ml">600ml </option>
+				<option value="2 litros">2 litros </option>
+			</select>
+				
+			</div>
+			<div class="input-field col s6">
+				<input type="text" name="valor" id="valor"> <label
+					class="active" for="valor">Valor</label>
+			</div>
+		</div>
+		<div class="row">
+		<div class="input-field col s6">
+				<input type="text" name="quantidade" id="quantidade"> <label
+					class="active" for="quantidade">Quantidade</label>
+			</div>
+			<div class="input-field col s6">
+				<input type="text" name="sabor" id="sabor"> <label
+					class="active" for="sabor">Sabor</label>
+			</div>
+			</div>
+		<div class="row">
+			<div class="col s3 offset-s6">
 				<button class="btn waves-effect waves-light red" type="submit"
+					name="action">
+					Limpar <i class="material-icons right">clear</i>
+				</button>
+			</div>
+			<div class="col s3">
+				<button class="btn waves-effect waves-light" type="submit"
+					name="action">
+					Salvar <i class="material-icons right">send</i>
+				</button>
+
+			</div>
+		</div>
+		</form>
+		<div class="row">
+			<div class="input-field col s6">
+				<input type="text" name="nome" id="nome"> <label
+					class="active" for="nome">Pesquisa</label>
+			</div>
+			<div class="input-field col s6">
+				<button class="btn waves-effect waves-light" type="submit"
 					name="action">
 					Filtrar <i class="material-icons right">search</i>
 				</button>
@@ -58,7 +119,7 @@
 						
 						
 						<td>
-						<a href="editar-produto.jsp"class="btn waves-effect waves-light red" name="action">
+						<a href="admin?acao=editarProduto&idProduto=${prod.idProduto}" class="btn waves-effect waves-light red" name="action">
 								Editar <i class="material-icons right">create</i>
 						</a> <a href="adicionar-produto.jsp"
 							class="btn waves-effect waves-light red" name="action">

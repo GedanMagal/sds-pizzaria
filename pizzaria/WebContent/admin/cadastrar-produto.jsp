@@ -39,8 +39,8 @@
 			<div class="input-field col s6">
 				<select name="tamanho">
 				<option value="0">Selecione </option>
-				<option value="600ml">Pequeno </option>
-				<option value="2 litros">Grande </option>
+				<option value="600ml">600ml </option>
+				<option value="2 litros">2 litros </option>
 			</select>
 				
 			</div>
