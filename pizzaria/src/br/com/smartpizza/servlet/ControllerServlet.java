@@ -10,17 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Command.Command;
-import Command.EditarClienteCommand;
-import Command.ListaEstadosCommand;
-import Command.ListarProdutosCommand;
-import Command.LoginClienteCommand;
-import Command.atualizarClienteCommand;
-import Command.CadastrarClienteCommand;
-import Command.CadastrarFuncionarioCommand;
-import Command.CadastroProdutoCommand;
-import Command.listarCliente;
-import Command.loginAdmCommand;
+import br.com.smartsds.command.CadastrarClienteCommand;
+import br.com.smartsds.command.CadastrarFuncionarioCommand;
+import br.com.smartsds.command.CadastrarSaboresPizza;
+import br.com.smartsds.command.CadastroProdutoCommand;
+import br.com.smartsds.command.Command;
+import br.com.smartsds.command.EditarClienteCommand;
+import br.com.smartsds.command.ListaEstadosCommand;
+import br.com.smartsds.command.ListarProdutosCommand;
+import br.com.smartsds.command.LoginClienteCommand;
+import br.com.smartsds.command.atualizarClienteCommand;
+import br.com.smartsds.command.listarCliente;
+import br.com.smartsds.command.loginAdmCommand;
 
 
 @WebServlet(urlPatterns = {"/admin/admin", "/client"})
@@ -37,6 +38,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("salvarFuncionario", new CadastrarFuncionarioCommand());
 		comandos.put("cadastrarProduto", new CadastroProdutoCommand());
 		comandos.put("listaprodutos", new ListarProdutosCommand());
+		comandos.put("cadastrarPizza", new CadastrarSaboresPizza());
 		
 		//comandos.put("listaEstados", new ListaEstadosCommand());
 		

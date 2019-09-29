@@ -1,4 +1,4 @@
-package Command;
+package br.com.smartsds.command;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;

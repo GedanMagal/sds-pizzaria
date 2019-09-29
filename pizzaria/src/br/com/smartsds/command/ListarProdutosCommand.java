@@ -1,4 +1,4 @@
-package Command;
+package br.com.smartsds.command;
 
 import java.util.List;
 

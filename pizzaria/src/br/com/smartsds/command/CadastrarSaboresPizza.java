@@ -1,4 +1,4 @@
-package Command;
+package br.com.smartsds.command;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class CadastrarSaboresPizza implements Command{
 		 }
 		saborObj.setIngredientes(listaIngred);
 		saborDAO.cadastrarSabores(saborObj);
-		return null;
+		return proximo;
 	}
 	
 

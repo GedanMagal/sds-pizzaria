@@ -1,4 +1,4 @@
-package Command;
+package br.com.smartsds.command;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,13 +13,14 @@ import br.com.smartpizza.model.Endereco;
 import br.com.smartpizza.model.Estado;
 import br.com.smartpizza.model.Usuario;
 
-public class CadastrarClienteCommand implements Command {
+public class atualizarClienteCommand implements Command {
 	private PessoaDAO dao = new PessoaDAO();
 	@Override
 	public String execute(HttpServletRequest request) {
+		String proximo = "cadastroCliente.jsp";
+		String idCliente = request.getParameter("idCliente");
 		
-		String proximo = "servlet?acao=listaEstados";
-
+		
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
 		String sobreNome = request.getParameter("sobrenome");
@@ -27,47 +28,47 @@ public class CadastrarClienteCommand implements Command {
 	
 		String celular = request.getParameter("celular");
 		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
 	
+		String idEndereco = request.getParameter("idEndereco");
 		String[] logradouro = request.getParameterValues("logradouro");
 		String cep = request.getParameter("cep");
 		String bairro = request.getParameter("bairro");
-		String cidade = request.getParameter("cidade");
+		String idCidade = request.getParameter("cidade");
 		String idEstado = request.getParameter("estado");
 		//String referencia = request.getParameter("complemento");
 		String numero = request.getParameter("numero");
-	
+		try {
 		
 
-		try {
+		
 			Cliente p = new Cliente();
 			Cidade cid = new Cidade();
 			Usuario usuar = new Usuario();
 			Endereco endereco = new Endereco();
 			Estado est = new Estado();
+			p.setId(Integer.parseInt(idCliente));
 			p.setNome(nome);
 			p.setSobrenome(sobreNome);
 			p.setCpf(cpf);
 			p.setEmail(email);
-			p.setSenha(senha);
+	
 			p.setTelefone(telefone);
 			p.setCelular(celular);
 			
 			p.setUsuario(usuar);
-			usuar.setLogin(email);
-			usuar.setSenha(senha);
+		
 			System.out.println(idEstado);
 			List<Endereco> listEndereco = new ArrayList<Endereco>();
 		
 		for (String end: logradouro) {
-			
+			endereco.setIdEndereco(Integer.parseInt(idEndereco));
 			endereco.setDsLogradouro(end);
 			endereco.setNumEndereco(numero);
 			endereco.setCep(cep);
 			endereco.setBairro(bairro);
 			
 			endereco.setCidade(cid);
-			cid.setIdCidade(Integer.parseInt(cidade));
+			cid.setIdCidade(Integer.parseInt(idCidade));
 			
 			cid.setEstado(est);
 			est.setIdEstado(Integer.parseInt(idEstado));
@@ -75,21 +76,19 @@ public class CadastrarClienteCommand implements Command {
 			listEndereco.add(endereco);
 			
 		}
+		
 		p.setEndereco(listEndereco);
 		
-	
-			dao.cadastroPessoaClient(p);
-			proximo = "gerenciar-cliente.jsp";
+			dao.atualizarPessoa(p);
+			proximo ="admin?acao=listarClientes";
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-
-	System.out.println("ok servlet funciona");
-		
-		
 		return proximo;
-	}
-
+	
+	
+	
 }
+	
+}	
