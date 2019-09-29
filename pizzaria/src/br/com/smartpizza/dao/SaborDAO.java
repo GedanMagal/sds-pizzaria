@@ -13,7 +13,7 @@ import br.com.smartpizza.util.ConexaoUtil;
 
 public class SaborDAO {
 		private IngredientaDAO Idao  = new IngredientaDAO();
-	public void cadastrarSabores(Sabor sabor) {
+	public Integer cadastrarSabores(Sabor sabor) {
 		Connection conn = null;
 		Integer idSabor = null;
 		StringBuilder sql = new StringBuilder();
@@ -29,11 +29,28 @@ public class SaborDAO {
 					idSabor = rs.getInt(1);
 				}
 				
-		} catch (ClassNotFoundException | SQLException e) {
+				} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		return idSabor;
 	}
-
+	public Integer findMaxId() {
+		Connection conn = null;
+		StringBuilder sql = new StringBuilder();
+		Integer idSabor = null;
+		try {
+			conn = ConexaoUtil.getConexao();
+			sql.append("SELECT MAX(id_sabor) FROM TB_SABOR");
+			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.first()) {
+				idSabor = rs.getInt(1);
+			}
+				} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return idSabor;
+	}
 }

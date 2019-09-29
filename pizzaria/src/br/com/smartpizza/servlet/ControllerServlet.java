@@ -38,7 +38,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("salvarFuncionario", new CadastrarFuncionarioCommand());
 		comandos.put("cadastrarProduto", new CadastroProdutoCommand());
 		comandos.put("listaprodutos", new ListarProdutosCommand());
-		comandos.put("cadastrarPizza", new CadastrarSaboresPizza());
+		comandos.put("cadastrarSaborPizza", new CadastrarSaboresPizza());
 		
 		//comandos.put("listaEstados", new ListaEstadosCommand());
 		

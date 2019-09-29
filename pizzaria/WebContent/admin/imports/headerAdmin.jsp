@@ -53,7 +53,7 @@
 	<li><a class="waves-effect" href="admin?acao=listaprodutos"> <i
 			class="material-icons">event_note</i> Gerenciar Produto
 	</a></li>
-	<li><a class="waves-effect" href="admin?acao=cadastrarPizzas"> <i
+	<li><a class="waves-effect" href="cadastrarSaboresPizza.jsp"> <i
 			class="material-icons">local_pizza</i> Gerenciar pizzas
 	</a></li>
 	<li><div class="divider"></div></li>

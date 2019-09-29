@@ -9,7 +9,7 @@
 	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<div class="main-container">
-	<form action="admin?acao=cadastrarPizza" method="POST">
+	<form action="admin?acao=cadastrarSaborPizza" method="POST">
 		<div class="col s9 offset-s6">
 			<h4>Produto</h4>
 		</div>
