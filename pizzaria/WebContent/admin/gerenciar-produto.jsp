@@ -24,14 +24,16 @@
 		</div>
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="text" name="descricao" id="descricao" value="${produto.nomeProduto}"> <label
+				<input type="text" name="descricao" id="descricao" value="${produto != null ? produto.nomeProduto : param.nomeProduto}"> <label
 					class="active" for="descricao">Descrição</label>
 			</div>
 			<div class="input-field col s6">
 			<select name="tipo">
 				<option value="0">Selecione </option>
-				<option value="1">Bebida </option>
-				<option value="2">Pizza </option>
+				<c:forEach items="${tiposProdutos}" var="t">
+				<option value="${t.idTipoProduto}">${t.dsTipoProduto} </option>
+				
+				</c:forEach>
 			</select>
 			<label
 					class="active" for="tipo">Tipo</label>
@@ -43,8 +45,9 @@
 			<div class="input-field col s6">
 				<select name="tamanho">
 				<option value="0">Selecione </option>
-				<option value="600ml">600ml </option>
-				<option value="2 litros">2 litros </option>
+				<option value="600ML">600ML </option>
+				<option value="2L">2 Litros </option>
+				
 			</select>
 				
 			</div>
@@ -134,13 +137,6 @@
 		</div>
 
 		
-			<div class="row">
-				<div class="input-field col s6">
-					<a class="btn waves-effect waves-light red" href="cadastrar-produto.jsp">
-						Novo Produto <i class="material-icons right">fiber_new</i>
-					</a>
-				</div>
-			</div>
 	
 
 	</div>

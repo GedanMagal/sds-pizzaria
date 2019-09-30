@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +26,7 @@
 			<div class="input-field col s3 dsblock">
 				<select id="select" onchange="addSabores()">
 					<option value="" disabled selected>Qtd.sabores</option>
+					
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -34,48 +36,30 @@
 			<div id="add" class= "input-field col s3 dsnone">
 				<select id ="select" onchange="carregaIng(this)">
 					<option value="" disabled selected>Sabor 1</option>
-					<option value="1">Option 1</option>
-					<option value="2">Option 2</option>
-					<option value="3">Option 3</option>
+					<c:forEach items="${sabores}" var="sabor">
+						<option value="${sabor.idSabor}">${sabor.dsSabor }</option>
+					</c:forEach>
 				</select>
 				<div id="ing" class="dsnone">
 					<h5>Ingredientes</h5>
+					<c:forEach items="${sabor.ingredientes}" var="ing" varStatus="status">
 					<div class="switch label">
-						<label> Oregano <input type="checkbox"> <span
+						<label>
+						<c:set var="ingre" value="${status.first ? ' ' : ingre} ${ing.dsIngrediente}" />
+						 <input type="checkbox"> <span
 							class="lever"></span>
 
 						</label>
 					</div>
-					<div class="switch">
-						<label> Tomate <input type="checkbox"> <span
-							class="lever"></span>
-						</label>
-					</div>
-					<div class="switch">
-						<label> Azeitona <input type="checkbox"> <span
-							class="lever"></span>
-						</label>
-					</div>
-
-					<div class="switch">
-						<label> cebola <input type="checkbox"> <span
-							class="lever"></span>
-						</label>
-					</div>
-					<div class="switch">
-						<label> Atum <input type="checkbox"> <span
-							class="lever"></span>
-
-						</label>
-					</div>
+					</c:forEach>
 				</div>
 			</div>
 			<div id="add2" class="input-field col s3 dsnone">
-				<select id="select" onchange="carregaIng()">
-					<option value="" disabled selected>Sabor 2</option>
-					<option value="1">Option 1</option>
-					<option value="2">Option 2</option>
-					<option value="3">Option 3</option>
+				<select id ="select" onchange="carregaIng(this)">
+					<option value="" disabled selected>Sabor 1</option>
+					<c:forEach items="${sabores}" var="sabor">
+						<option value="${sabor.idSabor}">${sabor.dsSabor }</option>
+					</c:forEach>
 				</select>
 				<div id="ing" class=" dsnone">
 					<h5>Ingredientes</h5>
@@ -111,11 +95,11 @@
 
 			</div>
 			<div id="add3" class="input-field col s3 dsnone">
-				<select id="select" >
-					<option value="" disabled selected>Sabor 3</option>
-					<option value="1">Option 1</option>
-					<option value="2">Option 2</option>
-					<option value="3">Option 3</option>
+				<select id ="select" onchange="carregaIng(this)">
+					<option value="" disabled selected>Sabor 1</option>
+					<c:forEach items="${sabores}" var="sabor">
+						<option value="${sabor.idSabor}">${sabor.dsSabor }</option>
+					</c:forEach>
 				</select>
 				<div id="ing" class="dsnone">
 					<h5>Ingredientes</h5>

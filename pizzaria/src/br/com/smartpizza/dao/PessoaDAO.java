@@ -140,10 +140,8 @@ public class PessoaDAO {
 		try {
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append(
-					"SELECT CLI.ID_CLIENTE,CLI.NM_CLIENTE, CLI.NM_CPF,CLI.SOBRENOME,CLI.DS_EMAIL, CLI.CLI_TELEFONE, CLI.CLI_CELULAR, EN.ID_ENDERECO,EN.DS_LOGRADOURO, EN.NM_ENDERECO, EN.NM_CEP,en.ds_bairro");
-			sql.append(
-					" FROM PIZZA_PROJETO.TB_CLIENTE CLI INNER JOIN  TB_ENDERECO EN ON EN.ID_CLIENTE = CLI.ID_CLIENTE");
+			sql.append("SELECT CLI.ID_CLIENTE,CLI.NM_CLIENTE, CLI.NM_CPF,CLI.SOBRENOME,CLI.DS_EMAIL, CLI.CLI_TELEFONE, CLI.CLI_CELULAR, EN.ID_ENDERECO,EN.DS_LOGRADOURO, EN.NM_ENDERECO, EN.NM_CEP,en.ds_bairro");
+			sql.append(" FROM PIZZA_PROJETO.TB_CLIENTE CLI INNER JOIN  TB_ENDERECO EN ON EN.ID_CLIENTE = CLI.ID_CLIENTE");
 			sql.append(" WHERE cli.ID_CLIENTE = ?");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 			stmt.setInt(1, idPessoa);

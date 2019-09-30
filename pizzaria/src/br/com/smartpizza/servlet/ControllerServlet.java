@@ -20,6 +20,7 @@ import br.com.smartsds.command.EditarProdutoCommand;
 import br.com.smartsds.command.ListaEstadosCommand;
 import br.com.smartsds.command.ListarProdutosCommand;
 import br.com.smartsds.command.LoginClienteCommand;
+import br.com.smartsds.command.PedidoCommand;
 import br.com.smartsds.command.atualizarClienteCommand;
 import br.com.smartsds.command.listarCliente;
 import br.com.smartsds.command.loginAdmCommand;
@@ -41,6 +42,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("listaprodutos", new ListarProdutosCommand());
 		comandos.put("cadastrarSaborPizza", new CadastrarSaboresPizza());
 		comandos.put("editarProduto", new EditarProdutoCommand());
+		comandos.put("realizarPedido", new PedidoCommand());
 		
 		//comandos.put("listaEstados", new ListaEstadosCommand());
 		
