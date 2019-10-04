@@ -1,24 +1,23 @@
-package br.com.smartsds.command;
+package br.com.smartpizza.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import br.com.smartpizza.bo.UsuarioBO;
 import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.dao.UsuarioDAO;
 import br.com.smartpizza.dto.PessoaDTO;
 import br.com.smartpizza.model.Usuario;
 
 public class LoginClienteCommand implements Command{
-	private UsuarioDAO userDAO;
+	private UsuarioDAO usuarioDAO;
 	private PessoaDAO pessoaDAO;
 	private PessoaDTO  pessoaLog;
 	@Override
 	public String execute(HttpServletRequest request) {
 		// TODO Auto-generated method stub
 		String proximo = "login.jsp";
-		userDAO = new UsuarioDAO();
-		pessoaDAO = new PessoaDAO();
-
+		
 		
 		
 			
@@ -29,9 +28,8 @@ public class LoginClienteCommand implements Command{
 			user.setSenha(senha);
 			
 			try {		
-				Usuario us = userDAO.consultarUsuario(user);
+				Usuario us = usuarioDAO.consultarUsuario(user);
 			if(us!=null) {
-				System.out.println(us.getGpUs());
 				if(us.getGpUs().equals("Cliente")) {
 					proximo = "cliente/realizar-pedido.jsp";
 				}else {

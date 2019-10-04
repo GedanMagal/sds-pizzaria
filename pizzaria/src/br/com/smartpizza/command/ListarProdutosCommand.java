@@ -1,29 +1,34 @@
-package br.com.smartsds.command;
+package br.com.smartpizza.command;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import br.com.smartpizza.dao.ProdutoDAO;
+import br.com.smartpizza.dao.TipoProdutoDAO;
 import br.com.smartpizza.dto.ProdutoDTO;
-import br.com.smartpizza.model.Estoque;
-import br.com.smartpizza.model.Produto;
-import br.com.smartpizza.model.Sabor;
+import br.com.smartpizza.model.Tamanho;
 import br.com.smartpizza.model.TipoProduto;
 
-public class EditarProdutoCommand implements Command {
+public class ListarProdutosCommand implements Command {
 	private ProdutoDAO produtoDAO;
+	private TipoProdutoDAO tipoDAO;
+
 	@Override
 	public String execute(HttpServletRequest request) {
 		this.produtoDAO = new ProdutoDAO();
-		String proximo  = "gerenciar-produto.jsp";
+		this.tipoDAO = new TipoProdutoDAO();
 		
-		int idProduto = Integer.parseInt(request.getParameter("idProduto"));
-		ProdutoDTO prod = produtoDAO.getProduto(idProduto);
-		request.setAttribute("produto",prod );
+		String proximo = "gerenciar-produto.jsp";
+		
 		List<ProdutoDTO> listaProdutos = produtoDAO.listarProdutos();
+		List<TipoProduto> tipos = tipoDAO.listaTipos();
+		
 		request.setAttribute("produtos", listaProdutos);
+		request.setAttribute("tiposProdutos", tipos);
+	
+		
+		
 		return proximo;
 	}
 

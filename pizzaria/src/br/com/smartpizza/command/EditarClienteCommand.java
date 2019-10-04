@@ -1,15 +1,14 @@
-package br.com.smartsds.command;
+package br.com.smartpizza.command;
+
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import br.com.smartpizza.dao.CidadeDAO;
 import br.com.smartpizza.dao.EstadoDAO;
 import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.dto.PessoaDTO;
 import br.com.smartpizza.model.Estado;
-import br.com.smartsds.command.Command;
 
 public class EditarClienteCommand implements Command {
 	private PessoaDAO pessoaDAO;

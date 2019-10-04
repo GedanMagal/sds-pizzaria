@@ -57,11 +57,12 @@ public class IngredientaDAO {
 	
 
 	public List<Ingrediente> listIngrediente(Integer idSabor) {
-		List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
-		Connection conn = null;
-		StringBuilder sql = new StringBuilder();
+		List<Ingrediente> ingredientes = new ArrayList<>();
+		
 		
 		try {
+			Connection conn = null;
+			StringBuilder sql = new StringBuilder();
 			conn = ConexaoUtil.getConexao();
 			sql.append("SELECT ING.ID_INGREDIENTES,ING.DS_INGREDIENTES, ING.REQUERIDO, ING.VALOR_INGREDIENTE FROM TB_INGREDIENTE ING");
 			sql.append(" 	INNER JOIN TB_INGREDIENTE_SABOR INGSABOR"); 

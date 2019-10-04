@@ -15,11 +15,11 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class ClienteFilter
  */
-@WebFilter(urlPatterns = {"/admin/*"})
+@WebFilter(urlPatterns = {"/admin/*"})	
 public class FuncFilter implements Filter {
 
 	
-	private static final String[] URLS_TO_EXCLUDE = {".css", ".js", ".png", ".jpg", ".gif", "login.jsp"};
+	private static final String[] URLS_TO_EXCLUDE = {".css", ".js", ".png", ".jpg", ".gif", "index.jsp"};
     /**
      * Default constructor. 
      */
@@ -44,7 +44,7 @@ public class FuncFilter implements Filter {
 		if (!isURIToExclusao(uri, httpRequest)) {
 			HttpSession session = httpRequest.getSession();
 			if (session.getAttribute("loginUser") == null) {
-				request.setAttribute("msgErro", "Acesso negado! Voc� precisar logar primeiro.");
+				request.setAttribute("msgErro", "Acesso negado! Você precisar logar primeiro.");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 			} else {
 				chain.doFilter(request, response);

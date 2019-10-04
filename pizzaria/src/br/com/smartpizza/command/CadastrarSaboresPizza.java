@@ -1,4 +1,4 @@
-package br.com.smartsds.command;
+package br.com.smartpizza.command;
 
 import java.util.ArrayList;
 import java.util.List;

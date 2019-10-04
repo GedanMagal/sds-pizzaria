@@ -1,4 +1,4 @@
-package br.com.smartsds.command;
+package br.com.smartpizza.command;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

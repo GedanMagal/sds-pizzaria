@@ -33,7 +33,7 @@
 				</select>
 
 			</div>
-			<div id="add" class= "input-field col s3 dsnone">
+			<div id="add" class= "input-field col s3 ">
 				<select id ="select" onchange="carregaIng(this)">
 					<option value="" disabled selected>Sabor 1</option>
 					<c:forEach items="${sabores}" var="sabor">
@@ -158,6 +158,43 @@
 	
 	
 	<jsp:include page="imports/footer-admin.jsp" />
+<script>
+	$(document).ready(function() {
+
+		$('select[name=sabor]').on('change',function(){
+			$.ajax({
+				method: "POST",
+				  url: "saborServlet",
+				  data: "idSaboe="+ $('select[name=sabor]').val(),
+				  statusCode:{
+					  404: function() {
+						alert('pagina não encontrada')
+					},
+					500: function() {
+						alert('erro no servidor')
+					}
+				  },		 
+				  success: function(dados) {
+					  $('select[name=cidade] option').remove();
+					  var pegaDados = dados.split(":");
+						
+						for(var i=0;i < pegaDados.length - 1;i++){
+							var codigoCidade = pegaDados[i].split("-")[0];
+							var nomeCidade = pegaDados[i].split("-")[1];
+							
+							$('select[name=cidade]').append('<option value= "'+codigoCidade+'">'+nomeCidade+'</option>');							
+							
+						}
+						$('select').formSelect();
+
+				  }
+				 
+				});
+
+			})
+		});
+	
+	</script>
 
 
 </body>

@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.smartsds.command.CadastrarClienteCommand;
-import br.com.smartsds.command.CadastrarFuncionarioCommand;
-import br.com.smartsds.command.CadastrarSaboresPizza;
-import br.com.smartsds.command.CadastroProdutoCommand;
-import br.com.smartsds.command.Command;
-import br.com.smartsds.command.EditarClienteCommand;
-import br.com.smartsds.command.EditarProdutoCommand;
-import br.com.smartsds.command.ListaEstadosCommand;
-import br.com.smartsds.command.ListarProdutosCommand;
-import br.com.smartsds.command.LoginClienteCommand;
-import br.com.smartsds.command.PedidoCommand;
-import br.com.smartsds.command.atualizarClienteCommand;
-import br.com.smartsds.command.listarCliente;
-import br.com.smartsds.command.loginAdmCommand;
+import br.com.smartpizza.command.CadastrarClienteCommand;
+import br.com.smartpizza.command.CadastrarFuncionarioCommand;
+import br.com.smartpizza.command.CadastrarSaboresPizza;
+import br.com.smartpizza.command.CadastroProdutoCommand;
+import br.com.smartpizza.command.Command;
+import br.com.smartpizza.command.EditarClienteCommand;
+import br.com.smartpizza.command.EditarProdutoCommand;
+import br.com.smartpizza.command.ListaEstadosCommand;
+import br.com.smartpizza.command.ListarProdutosCommand;
+import br.com.smartpizza.command.LoginClienteCommand;
+import br.com.smartpizza.command.LogoutCommand;
+import br.com.smartpizza.command.PedidoCommand;
+import br.com.smartpizza.command.atualizarClienteCommand;
+import br.com.smartpizza.command.listarCliente;
+import br.com.smartpizza.command.LoginAdmCommand;
 
 
 @WebServlet(urlPatterns = {"/admin/admin", "/client"})
@@ -43,10 +44,11 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("cadastrarSaborPizza", new CadastrarSaboresPizza());
 		comandos.put("editarProduto", new EditarProdutoCommand());
 		comandos.put("realizarPedido", new PedidoCommand());
+		comandos.put("logout", new LogoutCommand());
 		
 		//comandos.put("listaEstados", new ListaEstadosCommand());
 		
-		comandos.put("loginUser", new loginAdmCommand());
+		comandos.put("loginUser", new LoginAdmCommand());
 		comandos.put("loginC", new LoginClienteCommand());
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)

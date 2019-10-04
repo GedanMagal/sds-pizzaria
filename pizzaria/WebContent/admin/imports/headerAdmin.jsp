@@ -25,7 +25,7 @@
 			
 			
 			<a class="btn-sair right waves-effect waves-light btn modal-trigger"
-				href="index.jsp">SAIR</a>
+				href="admin?acao=logout">SAIR</a>
 	
 		</div>
 	</nav>

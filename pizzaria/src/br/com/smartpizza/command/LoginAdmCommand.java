@@ -1,24 +1,26 @@
-package br.com.smartsds.command;
+package br.com.smartpizza.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
 
+import br.com.smartpizza.bo.UsuarioBO;
 import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.dao.UsuarioDAO;
 import br.com.smartpizza.dto.PessoaDTO;
 import br.com.smartpizza.model.Usuario;
 
-public class loginAdmCommand implements Command{
+public class LoginAdmCommand implements Command{
 	
 
 	private UsuarioDAO userDAO;
 	private PessoaDAO pessoaDAO;
 	private PessoaDTO  pessoaLog;
-	
+	private UsuarioBO userBO;
 	@Override
 	public String execute(HttpServletRequest request) {
+		this.userBO = new UsuarioBO();
 		// TODO Auto-generated method stub
 		userDAO = new UsuarioDAO();
 		pessoaDAO = new PessoaDAO();
@@ -35,8 +37,9 @@ public class loginAdmCommand implements Command{
 			
 			try {		
 				Usuario us = userDAO.consultarUsuario(user);
+				
 			if(us!=null) {
-				System.out.println(us.getGpUs());
+				
 				if(us.getGpUs().equals("Admin")) {
 					proximo = "home-admin.jsp";
 				}else {
@@ -48,9 +51,13 @@ public class loginAdmCommand implements Command{
 				session.setAttribute("pessoa", pessoaLog);
 				session.setMaxInactiveInterval(60*10);
 				 
+		}else {
+			proximo = "login.jsp";
+			request.setAttribute("msgErro", "Erro ao acessar esta tela!");
 		}
-		} catch(Exception e) {
+		}catch(Exception e) {
 			e.printStackTrace();
+			proximo = "login.jsp";
 		}
 		
 		

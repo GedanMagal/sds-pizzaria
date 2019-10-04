@@ -1,4 +1,4 @@
-package br.com.smartsds.command;
+package br.com.smartpizza.command;
 
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -30,7 +30,7 @@ public class CadastrarFuncionarioCommand implements Command {
 	public String execute(HttpServletRequest request) {
 		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		String proximo = "gerenciar-funcionario.jsp";
-		Date dataSF = null;
+
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
 		String sobreNome = request.getParameter("sobrenome");
@@ -45,11 +45,10 @@ public class CadastrarFuncionarioCommand implements Command {
 		String bairro = request.getParameter("bairro");
 		String cidade = request.getParameter("cidade");
 		String idEstado = request.getParameter("estado");
-		// String referencia = request.getParameter("complemento");
+		String referencia = request.getParameter("complemento");
 		String numero = request.getParameter("numero");
-
 		String dataAdmissao = request.getParameter("dataAdmissao");
-		System.out.println(dataAdmissao);
+		
 		String status = request.getParameter("status");
 
 
@@ -87,7 +86,7 @@ public class CadastrarFuncionarioCommand implements Command {
 				endereco.setNumEndereco(numero);
 				endereco.setCep(cep);
 				endereco.setBairro(bairro);
-
+				
 				endereco.setCidade(cid);
 				cid.setIdCidade(Integer.parseInt(cidade));
 
@@ -98,9 +97,12 @@ public class CadastrarFuncionarioCommand implements Command {
 
 			}
 			f.setEndereco(listEndereco);
-
+			
 			int idCargo = cargoDAO.cadastroCargo(cargo);
+		
 			dao.cadastroFuncionario(f, idCargo);
+			
+			
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

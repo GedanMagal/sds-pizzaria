@@ -26,7 +26,7 @@
 				<li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i></a></li>
 				<li><a href="index.jsp"><b>bem vindo !</b></a></li>
 				<li><a class="waves-effect waves-light btn modal-trigger"
-					href="login.jsp">login</a></li>
+					href="entrar.jsp">login</a></li>
 					
 			</ul>
 		</div>

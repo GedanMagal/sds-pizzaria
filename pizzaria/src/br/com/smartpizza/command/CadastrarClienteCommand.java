@@ -1,4 +1,4 @@
-package br.com.smartsds.command;
+package br.com.smartpizza.command;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.smartpizza.bo.PessoaBO;
 import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.model.Cidade;
 import br.com.smartpizza.model.Cliente;
@@ -14,11 +15,12 @@ import br.com.smartpizza.model.Estado;
 import br.com.smartpizza.model.Usuario;
 
 public class CadastrarClienteCommand implements Command {
-	private PessoaDAO dao = new PessoaDAO();
+	private PessoaBO pessoaBO = new PessoaBO();
+	private PessoaDAO pessoaDAO = new PessoaDAO();
 	@Override
 	public String execute(HttpServletRequest request) {
 		
-		String proximo = "servlet?acao=listaEstados";
+		String proximo = "cadastrar-cliente.jsp";
 
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
@@ -77,13 +79,13 @@ public class CadastrarClienteCommand implements Command {
 			
 		}
 		p.setEndereco(listEndereco);
-		
+		pessoaDAO.cadastroPessoaClient(p);
+		request.setAttribute("msgSucesso", "Cadastrado Com sucesso!");
 	
-			dao.cadastroPessoaClient(p);
-			proximo = "cliente/entregas.jsp";
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+		} catch (Exception e) {
+			proximo = "adminis?acao=listaEstado&param=admin";
+			request.setAttribute("msgErro", "Não foi possivel cadastrar!");
 		}
 	
 

@@ -1,4 +1,4 @@
-package br.com.smartsds.command;
+package br.com.smartpizza.command;
 
 import java.util.List;
 
@@ -21,6 +21,7 @@ public class PedidoCommand implements Command {
 		List<Sabor> sabores = saborDAO.listaSAbores();
 		
 		request.setAttribute("sabores", sabores);
+		
 		return proximo;
 	}
 

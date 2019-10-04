@@ -243,6 +243,14 @@ table th:last-of-type{
     float: right;
     margin-right: 3px;
     }
+    
+    .erroDiv{
+   	    margin: 30px 25%;
+    font-size: 1.5em;
+    width: 50%;
+    text-align: center;
+        color: red;
+    }
 .green{background: #2df00f;border:none;cursor: pointer;}
 @media (min-width: 375) .side-content {
 	width: 100%;

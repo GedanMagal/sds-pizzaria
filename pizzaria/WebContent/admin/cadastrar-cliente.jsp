@@ -13,11 +13,14 @@
 <body>
 
 	<jsp:include page="imports/headerAdmin.jsp" />
+	<jsp:include page="imports/msg.jsp" />
 
 	<div class="main-container">
-
+		
 		<div class="col s9 offset-s6">
 			<h4>Cliente</h4>
+			
+			
 		</div>
 		<h6>Dados Pessoais</h6>
 
@@ -36,12 +39,12 @@
 
 			<div class="row">
 				<div class="input-field col s4">
-					<input type="text" name="cpf" id="cpf"> <label
+					<input type="text" name="cpf" id="cpf" maxlength="11"> <label
 						class="active" for="cpf">CPF</label>
 				</div>
 				<div class="input-field col s4">
 					<input type="text" name="telefone" id="telefone1"> <label
-						class="active" for="celular">Telefone 1</label>
+						class="active" for="telefone1">Telefone 1</label>
 				</div>
 				<div class="input-field col s4">
 					<input type="hidden" name="classificador"> <input
@@ -105,7 +108,7 @@
 				</div>
 				<div class="input-field col s3">
 					<input type="text" name="numero" id="numero"> <label
-						class="active" for="nome">nº.</label>
+						class="active" for="numero">nº.</label>
 				</div>
 				<div class="input-field col s3">
 					<input type="text" name="complemento" id="complemento"> <label
