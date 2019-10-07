@@ -13,7 +13,7 @@ import br.com.smartpizza.model.Endereco;
 import br.com.smartpizza.model.Estado;
 import br.com.smartpizza.model.Usuario;
 
-public class atualizarClienteCommand implements Command {
+public class AtualizarClienteCommand implements Command {
 	private PessoaDAO dao = new PessoaDAO();
 	@Override
 	public String execute(HttpServletRequest request) {

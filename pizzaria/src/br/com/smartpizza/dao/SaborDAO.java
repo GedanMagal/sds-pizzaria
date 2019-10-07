@@ -13,8 +13,8 @@ import br.com.smartpizza.model.Sabor;
 import br.com.smartpizza.util.ConexaoUtil;
 
 public class SaborDAO {
-		
-	public Integer cadastrarSabores(Sabor sabor) {
+	private  IngredientaDAO idao  = new IngredientaDAO();
+	public void cadastrarSabores(Sabor sabor) {
 		Connection conn = null;
 		Integer idSabor = null;
 		StringBuilder sql = new StringBuilder();
@@ -29,12 +29,12 @@ public class SaborDAO {
 				if(rs.first()) {
 					idSabor = rs.getInt(1);
 				}
-				
+				idao.cadastarIngredientes(idSabor, sabor.getIngredientes());
 				} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return idSabor;
+		
 	}
 	public Integer findMaxId() {
 		Connection conn = null;
@@ -56,21 +56,21 @@ public class SaborDAO {
 	}
 	
 	public List<Sabor> listaSAbores(){
-		 IngredientaDAO Idao  = new IngredientaDAO();
+		
 		List<Sabor> listaSabor = new ArrayList<Sabor>();
 		Connection conn = null;
 		StringBuilder sql = new StringBuilder();
 		
 		try {
 			conn = ConexaoUtil.getConexao();
-			sql.append("SELECT id_sabor, ds_sabor FROM TB_SABOR");
+			sql.append("SELECT ID_SABOR, DS_SABOR FROM TB_SABOR");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
 				Sabor sabor = new Sabor();
-				sabor.setIdSabor(rs.getInt("id_sabor"));
-				sabor.setDsSabor(rs.getString("ds_sabor"));
-				sabor.setIngredientes(Idao.listIngrediente(sabor.getIdSabor()));
+				sabor.setIdSabor(rs.getInt("ID_SABOR"));
+				sabor.setDsSabor(rs.getString("DS_SABOR"));
+				sabor.setIngredientes(idao.listIngredienteSabor());
 				listaSabor.add(sabor);
 			}
 			

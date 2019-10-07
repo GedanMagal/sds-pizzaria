@@ -75,6 +75,7 @@ function ingredientes() {
 	$("#btn1").click(function() {
 		increment++;		
 		$("#form").append(`<input type='text' class="ingre${increment}" placeholder='ingredientes' name='ingredientes' id='txtIngrediente' >`);
+		$("#form").append(`<input type='text' name='valor' id='valorIngre' class="valorIngre${increment}">`);
 		if(increment > 1){
 			$("#btn3").show();
 		}

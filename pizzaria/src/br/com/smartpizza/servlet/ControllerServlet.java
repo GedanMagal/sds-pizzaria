@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.command.CadastrarClienteCommand;
 import br.com.smartpizza.command.CadastrarFuncionarioCommand;
+import br.com.smartpizza.command.CadastrarIngrediente;
 import br.com.smartpizza.command.CadastrarSaboresPizza;
 import br.com.smartpizza.command.CadastroProdutoCommand;
 import br.com.smartpizza.command.Command;
@@ -22,7 +23,7 @@ import br.com.smartpizza.command.ListarProdutosCommand;
 import br.com.smartpizza.command.LoginClienteCommand;
 import br.com.smartpizza.command.LogoutCommand;
 import br.com.smartpizza.command.PedidoCommand;
-import br.com.smartpizza.command.atualizarClienteCommand;
+import br.com.smartpizza.command.AtualizarClienteCommand;
 import br.com.smartpizza.command.listarCliente;
 import br.com.smartpizza.command.LoginAdmCommand;
 
@@ -37,7 +38,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("salvarCliente", new CadastrarClienteCommand());
 		comandos.put("listarClientes", new listarCliente());
 		comandos.put("editarCliente", new EditarClienteCommand());
-		comandos.put("atualizarCliente", new atualizarClienteCommand());
+		comandos.put("atualizarCliente", new AtualizarClienteCommand());
 		comandos.put("salvarFuncionario", new CadastrarFuncionarioCommand());
 		comandos.put("cadastrarProduto", new CadastroProdutoCommand());
 		comandos.put("listaprodutos", new ListarProdutosCommand());
@@ -45,6 +46,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("editarProduto", new EditarProdutoCommand());
 		comandos.put("realizarPedido", new PedidoCommand());
 		comandos.put("logout", new LogoutCommand());
+		comandos.put("cadastarIngrediente", new CadastrarIngrediente());
 		
 		//comandos.put("listaEstados", new ListaEstadosCommand());
 		
