@@ -34,112 +34,84 @@
 
 			</div>
 			<div id="add" class= "input-field col s3 ">
-				<select id ="select" onchange="carregaIng(this)">
+			
+				<select id ="select" name="sabor" data-sabor="ing">
 					<option value="" disabled selected>Sabor 1</option>
-					<c:forEach items="${sabores}" var="sabor">
-						<option value="${sabor.idSabor}">${sabor.dsSabor }</option>
-					</c:forEach>
-				</select>
-				<div id="ing" class="dsnone">
+				<c:forEach items="${sabores}" var="sabor">
+						<option value="${sabor.idSabor}">${sabor.idSabor} ${sabor.dsSabor }</option>
+				</c:forEach>
+					</select>
+					
+					<div id="ing">
 					<h5>Ingredientes</h5>
-					<c:forEach items="${sabor.ingredientes}" var="ing" varStatus="status">
-					<div class="switch label">
-						<label>
-						<c:set var="ingre" value="${status.first ? ' ' : ingre} ${ing.dsIngrediente}" />
-						 <input type="checkbox"> <span
-							class="lever"></span>
+					
+					<div class="switch">
+						
+						
 
-						</label>
+		
 					</div>
-					</c:forEach>
+					
+					</div>
+				
+					
 				</div>
-			</div>
-			<div id="add2" class="input-field col s3 dsnone">
-				<select id ="select" onchange="carregaIng(this)">
+				<div id="add2" class= "input-field col s3 ">
+			
+				<select id ="select" name="sabor" data-sabor="ing2">
 					<option value="" disabled selected>Sabor 1</option>
-					<c:forEach items="${sabores}" var="sabor">
-						<option value="${sabor.idSabor}">${sabor.dsSabor }</option>
-					</c:forEach>
-				</select>
-				<div id="ing" class=" dsnone">
+				<c:forEach items="${sabores}" var="sabor">
+			
+						<option value="${sabor.idSabor}">${sabor.idSabor} ${sabor.dsSabor }</option>
+				</c:forEach>
+					</select>
+					
+					<div id="ing2">
 					<h5>Ingredientes</h5>
+					
 					<div class="switch">
-						<label> Oregano <input type="checkbox"> <span
-							class="lever"></span>
+						
+						
 
-						</label>
+		
 					</div>
-					<div class="switch">
-						<label> Tomate <input type="checkbox"> <span
-							class="lever"></span>
-						</label>
+					
 					</div>
-					<div class="switch">
-						<label> Azeitona <input type="checkbox"> <span
-							class="lever"></span>
-						</label>
-					</div>
-
-					<div class="switch">
-						<label> cebola <input type="checkbox"> <span
-							class="lever"></span>
-						</label>
-					</div>
-					<div class="switch">
-						<label> Atum <input type="checkbox"> <span
-							class="lever"></span>
-
-						</label>
-					</div>
+				
+					
 				</div>
-
-			</div>
-			<div id="add3" class="input-field col s3 dsnone">
-				<select id ="select" onchange="carregaIng(this)">
+				<div id="add3" class= "input-field col s3 ">
+			
+				<select id ="select" name="sabor" data-sabor="ing3">
 					<option value="" disabled selected>Sabor 1</option>
-					<c:forEach items="${sabores}" var="sabor">
-						<option value="${sabor.idSabor}">${sabor.dsSabor }</option>
-					</c:forEach>
-				</select>
-				<div id="ing" class="dsnone">
+				<c:forEach items="${sabores}" var="sabor">
+				
+					
+						<option value="${sabor.idSabor}">${sabor.idSabor} ${sabor.dsSabor }</option>
+				</c:forEach>
+					</select>
+					
+					<div id="ing3">
 					<h5>Ingredientes</h5>
+					
 					<div class="switch">
-						<label> Oregano <input type="checkbox"> <span
-							class="lever"></span>
 
-						</label>
 					</div>
-					<div class="switch">
-						<label> Tomate <input type="checkbox"> <span
-							class="lever"></span>
-						</label>
+					
 					</div>
-					<div class="switch">
-						<label> Azeitona <input type="checkbox"> <span
-							class="lever"></span>
-						</label>
-					</div>
-
-					<div class="switch">
-						<label> cebola <input type="checkbox"> <span
-							class="lever"></span>
-						</label>
-					</div>
-					<div class="switch">
-						<label> Atum <input type="checkbox"> <span
-							class="lever"></span>
-
-						</label>
-					</div>
+				
+					
 				</div>
+			
+		
+			
+</div>
+	
 
-			</div>
-
-		</div>
-
-
+		<div class="row col s12 cont">
+		<div class=" input-field col s3 dsblock">
+		
 		<h4>Adicione bebidas</h4>
-		<div class="input-field col s3 dsblock">
 			<select id="select" onchange="addSabores()">
 				<option value="" disabled selected>Bebida</option>
 				<option value="1">Coca-cola</option>
@@ -151,8 +123,10 @@
 				<option value="2">2L</option>
 				<option value="3">300ml</option>
 			</select>
+				</div>
 	<div class="clear"></div>
 		</div>
+		
 			<div class="clear"></div>
 	</div>
 	
@@ -161,11 +135,17 @@
 <script>
 	$(document).ready(function() {
 
-		$('select[name=sabor]').on('change',function(){
+		$('select[name=sabor]').on('change',function(e){
+			
+			carregaIngrediente(e.currentTarget.dataset.sabor, e.currentTarget.value);			
+			
+		});
+
+		function carregaIngrediente(param, selector) {
 			$.ajax({
 				method: "POST",
 				  url: "saborServlet",
-				  data: "idSaboe="+ $('select[name=sabor]').val(),
+				  data: "idSabor="+ selector,
 				  statusCode:{
 					  404: function() {
 						alert('pagina não encontrada')
@@ -175,26 +155,25 @@
 					}
 				  },		 
 				  success: function(dados) {
-					  $('select[name=cidade] option').remove();
-					  var pegaDados = dados.split(":");
+					  $("#"+ param).empty();
+					  var pDados = dados.split(":");
+					 
+						for(var i=0;i < pDados.length - 1;i++){
+							var codiIngre = pDados[i].split("-")[0];
+							var dsIngre = pDados[i].split("-")[1];							
+							
+							$("#"+ param).append("<div class='switch'><label>" + 
+									dsIngre + "<input type='checkbox' value='" + codiIngre +
+									"'><span class='lever'></span></label></div>");										
 						
-						for(var i=0;i < pegaDados.length - 1;i++){
-							var codigoCidade = pegaDados[i].split("-")[0];
-							var nomeCidade = pegaDados[i].split("-")[1];
-							
-							$('select[name=cidade]').append('<option value= "'+codigoCidade+'">'+nomeCidade+'</option>');							
-							
 						}
-						$('select').formSelect();
-
+						
 				  }
 				 
 				});
-
-			})
-		});
-	
-	</script>
+		}
+	});
+</script>
 
 
 </body>

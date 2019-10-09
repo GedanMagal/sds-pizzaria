@@ -13,7 +13,7 @@ public class CadastrarIngrediente implements Command {
 	@Override
 	public String execute(HttpServletRequest request) {
 		this.igrDAO = new IngredientaDAO();
-		String proximo = "admin?acao=cadastrarSabor";
+		String proximo = "admin?acao=cadastrarSaborPizza";
 		String[] ingredientes = request.getParameterValues("ingredientes");
 		
 		List<Ingrediente> listaIngred = new ArrayList<Ingrediente>();

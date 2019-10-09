@@ -10,7 +10,7 @@
 	<jsp:include page="imports/headerAdmin.jsp" />
 
 	<div class="main-container">
-	<form action="admin?acao=cadastrarSaborPizza" method="POST">
+	<form action="admin?acao=SalvarSaborPizza" method="POST">
 		<div class="col s9 offset-s6">
 			<h4>Produto</h4>
 		</div>
@@ -25,7 +25,7 @@
 				<c:forEach items="${lista}" var="ing">
 					<label>
 					 ${ing.dsIngrediente} 
-					<input type="checkbox" name="ingrediente"><span class="lever"></span>
+					<input type="checkbox" name="ingredientes" value="${ing.idIngrediente }"><span class="lever"></span>
 					</label>
 				</c:forEach>
 		

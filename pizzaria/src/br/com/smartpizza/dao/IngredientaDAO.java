@@ -14,19 +14,18 @@ import br.com.smartpizza.util.ConexaoUtil;
 public class IngredientaDAO {
 		
 	
-	public void cadastarIngredientes(Integer idSabor, List<Ingrediente> ingredientes) {
+	public void cadastarIngredientes(List<Ingrediente> ingredientes,Integer idSabor) {
 		Connection conn = null;
-	
+		try {
+			conn = ConexaoUtil.getConexao();
 		StringBuilder sql = new StringBuilder();
 		sql.append("INSERT INTO TB_INGREDIENTE_SABOR (id_ingredientes, id_sabor) VALUES (?,?)");	
-		try {
+		
 			for(Ingrediente ing: ingredientes) {
-			conn = ConexaoUtil.getConexao();
-			
-				PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
-				stmt.setInt(1,idSabor);
-				stmt.setInt(2,ing.getIdIngrediente());
-
+			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+				stmt.setInt(1,ing.getIdIngrediente());
+				stmt.setInt(2,idSabor);
+				stmt.execute();
 			}
 				} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
@@ -61,22 +60,24 @@ public class IngredientaDAO {
 	}
 	
 
-	public List<Ingrediente> listIngredienteSabor() {
+	public List<Ingrediente> listIngredienteSabor(int idSabor) {
 		List<Ingrediente> ingredientes = new ArrayList<>();
-		
+		Connection conn = null;
 		
 		try {
-			Connection conn = null;
-			StringBuilder sql = new StringBuilder();
 			conn = ConexaoUtil.getConexao();
-			sql.append("SELECT ING.ID_INGREDIENTES,ING.DS_INGREDIENTES, ING.REQUERIDO, ING.VALOR_INGREDIENTE FROM TB_INGREDIENTE ING");
+			StringBuilder sql = new StringBuilder();
+			
+			sql.append("SELECT ING.ID_INGREDIENTES,ING.DS_INGREDIENTES, ING.REQUERIDO, ING.VALOR_INGREDIENTE");
+			sql.append(" FROM TB_INGREDIENTE ING");
 			sql.append(" 	INNER JOIN TB_INGREDIENTE_SABOR INGSABOR"); 
 			sql.append(" 	   ON ING.ID_INGREDIENTES = INGSABOR.ID_INGREDIENTES"); 
 			sql.append(" 	INNER JOIN TB_SABOR SAB");
 			sql.append(" 	   ON SAB.ID_SABOR = INGSABOR.ID_SABOR");
+			sql.append(" WHERE SAB.ID_SABOR = ?");
 	
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
-			
+			stmt.setInt(1, idSabor);
 			ResultSet rs = stmt.executeQuery();
 		
 			while(rs.next()) {

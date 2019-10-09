@@ -29,7 +29,7 @@ public class SaborDAO {
 				if(rs.first()) {
 					idSabor = rs.getInt(1);
 				}
-				idao.cadastarIngredientes(idSabor, sabor.getIngredientes());
+				idao.cadastarIngredientes(sabor.getIngredientes(), idSabor);
 				} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -70,10 +70,11 @@ public class SaborDAO {
 				Sabor sabor = new Sabor();
 				sabor.setIdSabor(rs.getInt("ID_SABOR"));
 				sabor.setDsSabor(rs.getString("DS_SABOR"));
-				sabor.setIngredientes(idao.listIngredienteSabor());
+				
 				listaSabor.add(sabor);
+				System.out.println(sabor.getIdSabor());
 			}
-			
+				
 				} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

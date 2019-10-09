@@ -23,6 +23,7 @@ import br.com.smartpizza.command.ListarProdutosCommand;
 import br.com.smartpizza.command.LoginClienteCommand;
 import br.com.smartpizza.command.LogoutCommand;
 import br.com.smartpizza.command.PedidoCommand;
+import br.com.smartpizza.command.SalvarSaborCommand;
 import br.com.smartpizza.command.AtualizarClienteCommand;
 import br.com.smartpizza.command.listarCliente;
 import br.com.smartpizza.command.LoginAdmCommand;
@@ -43,6 +44,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("cadastrarProduto", new CadastroProdutoCommand());
 		comandos.put("listaprodutos", new ListarProdutosCommand());
 		comandos.put("cadastrarSaborPizza", new CadastrarSaboresPizza());
+		comandos.put("SalvarSaborPizza", new SalvarSaborCommand());
 		comandos.put("editarProduto", new EditarProdutoCommand());
 		comandos.put("realizarPedido", new PedidoCommand());
 		comandos.put("logout", new LogoutCommand());

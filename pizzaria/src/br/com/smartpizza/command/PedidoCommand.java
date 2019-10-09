@@ -15,12 +15,14 @@ public class PedidoCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request) {
 		this.saborDAO = new SaborDAO();
+		this.ingreDAO = new IngredientaDAO();
 		String proximo = "pedido.jsp";
 		
 		int idCliente =  Integer.parseInt(request.getParameter("idCliente"));
 		List<Sabor> sabores = saborDAO.listaSAbores();
 		
-		request.setAttribute("sabores", sabores);
+		request.getSession().setAttribute("sabores", sabores);
+		
 		
 		return proximo;
 	}
