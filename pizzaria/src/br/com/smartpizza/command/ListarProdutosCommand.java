@@ -3,6 +3,7 @@ package br.com.smartpizza.command;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.ProdutoDAO;
 import br.com.smartpizza.dao.TipoProdutoDAO;
@@ -15,7 +16,7 @@ public class ListarProdutosCommand implements Command {
 	private TipoProdutoDAO tipoDAO;
 
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		this.produtoDAO = new ProdutoDAO();
 		this.tipoDAO = new TipoProdutoDAO();
 		

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.ProdutoDAO;
 import br.com.smartpizza.model.Estoque;
@@ -14,7 +15,7 @@ import br.com.smartpizza.model.TipoProduto;
 public class CadastroProdutoCommand implements Command{
 	private ProdutoDAO produtoDAO;
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		 this.produtoDAO = new ProdutoDAO();
 		String proximo = "cadastrar-produto.jsp";
 		

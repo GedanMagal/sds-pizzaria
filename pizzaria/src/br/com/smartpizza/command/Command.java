@@ -1,6 +1,7 @@
 package br.com.smartpizza.command;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Interface para o padr�o Command
@@ -16,5 +17,5 @@ public interface Command {
 	 * @param request
 	 * @return
 	 */
-	public String execute(HttpServletRequest request);
+	public String execute(HttpServletRequest request,HttpServletResponse response);
 }

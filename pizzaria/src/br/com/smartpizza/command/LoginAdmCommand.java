@@ -1,6 +1,7 @@
 package br.com.smartpizza.command;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.catalina.Session;
@@ -19,7 +20,7 @@ public class LoginAdmCommand implements Command{
 	private PessoaDTO  pessoaLog;
 	private UsuarioBO userBO;
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		this.userBO = new UsuarioBO();
 		// TODO Auto-generated method stub
 		userDAO = new UsuarioDAO();

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.model.Cidade;
@@ -16,7 +17,7 @@ import br.com.smartpizza.model.Usuario;
 public class AtualizarClienteCommand implements Command {
 	private PessoaDAO dao = new PessoaDAO();
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String proximo = "cadastroCliente.jsp";
 		String idCliente = request.getParameter("idCliente");
 		

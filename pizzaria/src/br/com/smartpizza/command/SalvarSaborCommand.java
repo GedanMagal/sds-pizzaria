@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.IngredientaDAO;
 import br.com.smartpizza.dao.SaborDAO;
@@ -16,7 +17,7 @@ public class SalvarSaborCommand implements Command{
 	private SaborDAO saborDAO;
 	private IngredientaDAO ingredienteDAO; 
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		this.saborObj = new Sabor();
 		this.ingredienteDAO = new  IngredientaDAO();
 		this.saborDAO = new SaborDAO();

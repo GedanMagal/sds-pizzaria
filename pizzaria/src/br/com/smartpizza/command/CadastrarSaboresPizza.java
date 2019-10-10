@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.IngredientaDAO;
 import br.com.smartpizza.dao.SaborDAO;
@@ -17,7 +18,7 @@ public class CadastrarSaboresPizza implements Command{
 	private IngredientaDAO igrDAO;
 
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		this.igrDAO = new IngredientaDAO();
 		String proximo = "cadastrarSaboresPizza.jsp";
 		List<Ingrediente> listaLingredientes =  igrDAO.listaIngredientes();

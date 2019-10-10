@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.bo.PessoaBO;
 import br.com.smartpizza.dao.PessoaDAO;
@@ -18,7 +19,7 @@ public class CadastrarClienteCommand implements Command {
 	private PessoaBO pessoaBO = new PessoaBO();
 	private PessoaDAO pessoaDAO = new PessoaDAO();
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		
 		String proximo = "cadastrar-cliente.jsp";
 

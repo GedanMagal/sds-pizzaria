@@ -21,7 +21,9 @@
 		<div class="row">
 			<div class="img_pizza"></div>
 		</div>
+		<form action="admin?acao=salvarPedido" method="post">
 		<div class="row col s12 cont">
+	
 			<h4>Pedido</h4>
 			<div class="input-field col s3 dsblock">
 				<select id="select" onchange="addSabores()">
@@ -36,9 +38,12 @@
 			<div id="add" class= "input-field col s3 ">
 			
 				<select id ="select" name="sabor" data-sabor="ing">
+					
 					<option value="" disabled selected>Sabor 1</option>
-				<c:forEach items="${sabores}" var="sabor">
-						<option value="${sabor.idSabor}">${sabor.idSabor} ${sabor.dsSabor }</option>
+				<c:forEach items="${sabores}" var="sabor">		
+				
+				<option value="${sabor.idSabor}">${sabor.idSabor} ${sabor.dsSabor}</option>
+				
 				</c:forEach>
 					</select>
 					
@@ -56,7 +61,7 @@
 				
 					
 				</div>
-				<div id="add2" class= "input-field col s3 ">
+				<div id="add2" class= "input-field col s3 dsnone">
 			
 				<select id ="select" name="sabor" data-sabor="ing2">
 					<option value="" disabled selected>Sabor 1</option>
@@ -80,14 +85,14 @@
 				
 					
 				</div>
-				<div id="add3" class= "input-field col s3 ">
+				<div id="add3" class= "input-field col s3 dsnone">
 			
 				<select id ="select" name="sabor" data-sabor="ing3">
 					<option value="" disabled selected>Sabor 1</option>
 				<c:forEach items="${sabores}" var="sabor">
 				
 					
-						<option value="${sabor.idSabor}">${sabor.idSabor} ${sabor.dsSabor }</option>
+						<option value="${sabor.idSabor}">${sabor.dsSabor }</option>
 				</c:forEach>
 					</select>
 					
@@ -100,30 +105,45 @@
 					
 					</div>
 				
-					
+					<div class="clear"></div>
 				</div>
 			
-		
 			
-</div>
+		
 	
-
+		
+			</div>
+			<div class="row">
+			<input type="submit" class="btn-sair right waves-effect waves-light btn" value="Adicionar"/>
+		</form>
+		
+		</div>
+		
 		<div class="row col s12 cont">
 		<div class=" input-field col s3 dsblock">
 		
 		<h4>Adicione bebidas</h4>
-			<select id="select" onchange="addSabores()">
-				<option value="" disabled selected>Bebida</option>
-				<option value="1">Coca-cola</option>
-				<option value="2">Guarana</option>
-				<option value="3">Itubaina</option>
-			</select> <select id="select" onchange="addSabores()">
-				<option value="" disabled selected>Tamanho</option>
-				<option value="1">1L</option>
-				<option value="2">2L</option>
-				<option value="3">300ml</option>
-			</select>
+		<div class="input-field col s3 dsblock">
+				
+
+			</div>
+		<c:forEach items="${produtos}" var="prod">
+	<div class="card small sm-card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="img/refrigerante.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">${prod.nomeProduto}</span>
+     
+      <p>
+      <a class="waves-effect waves-light btn-small" href="admin?acao=salvarPedido&produto=${prod.idProduto }">Comprar</a>
+      </p>
+    </div>
+    </div>
+    </c:forEach>
+			
 				</div>
+			
 	<div class="clear"></div>
 		</div>
 		
@@ -162,9 +182,9 @@
 							var codiIngre = pDados[i].split("-")[0];
 							var dsIngre = pDados[i].split("-")[1];							
 							
-							$("#"+ param).append("<div class='switch'><label>" + 
-									dsIngre + "<input type='checkbox' value='" + codiIngre +
-									"'><span class='lever'></span></label></div>");										
+							$("#"+ param).append("<div class='switch'>"+ 
+									dsIngre +"<label><input type='checkbox' value='" + codiIngre +
+									"'checked name='ingredientes'><span class='lever'></span></label></div>");										
 						
 						}
 						

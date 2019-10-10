@@ -23,6 +23,7 @@ import br.com.smartpizza.command.ListarProdutosCommand;
 import br.com.smartpizza.command.LoginClienteCommand;
 import br.com.smartpizza.command.LogoutCommand;
 import br.com.smartpizza.command.PedidoCommand;
+import br.com.smartpizza.command.SalvarPedido;
 import br.com.smartpizza.command.SalvarSaborCommand;
 import br.com.smartpizza.command.AtualizarClienteCommand;
 import br.com.smartpizza.command.listarCliente;
@@ -49,6 +50,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("realizarPedido", new PedidoCommand());
 		comandos.put("logout", new LogoutCommand());
 		comandos.put("cadastarIngrediente", new CadastrarIngrediente());
+		comandos.put("salvarPedido", new SalvarPedido());
 		
 		//comandos.put("listaEstados", new ListaEstadosCommand());
 		
@@ -61,7 +63,7 @@ public class ControllerServlet extends HttpServlet {
 		String proxima = null;
 		try {
 			Command comando = verificarComand(acao);
-			proxima = comando.execute(request);
+			proxima = comando.execute(request,response);
 		} catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());
 		}

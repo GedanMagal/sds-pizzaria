@@ -1,6 +1,7 @@
 package br.com.smartpizza.command;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.smartpizza.bo.UsuarioBO;
@@ -14,7 +15,7 @@ public class LoginClienteCommand implements Command{
 	private PessoaDAO pessoaDAO;
 	private PessoaDTO  pessoaLog;
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String proximo = "login.jsp";
 		

@@ -4,6 +4,7 @@ package br.com.smartpizza.command;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.EstadoDAO;
 import br.com.smartpizza.dao.PessoaDAO;
@@ -16,7 +17,7 @@ public class EditarClienteCommand implements Command {
 	private EstadoDAO estadoDAO;
 
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		proxima = "editar-cliente.jsp";
 		this.pessoaDAO = new PessoaDAO();
 		this.estadoDAO = new EstadoDAO();

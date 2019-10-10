@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.CargoDAO;
 import br.com.smartpizza.dao.PessoaDAO;
@@ -25,12 +26,12 @@ public class CadastrarFuncionarioCommand implements Command {
 
 	private PessoaDAO dao = new PessoaDAO();
 	private CargoDAO cargoDAO = new CargoDAO();
-
+	private String proximo;
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		String proximo = "gerenciar-funcionario.jsp";
-
+		 proximo = "adminis?acao=listaEstado&param=adminFun";
+		 try {
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
 		String sobreNome = request.getParameter("sobrenome");
@@ -54,7 +55,7 @@ public class CadastrarFuncionarioCommand implements Command {
 
 		String descricao = request.getParameter("descricao");
 
-		try {
+
 			Funcionario f = new Funcionario();
 			Cidade cid = new Cidade();
 			Usuario usuar = new Usuario();
@@ -101,12 +102,10 @@ public class CadastrarFuncionarioCommand implements Command {
 			int idCargo = cargoDAO.cadastroCargo(cargo);
 		
 			dao.cadastroFuncionario(f, idCargo);
+			} catch (ClassNotFoundException | SQLException e) {
 			
+			request.setAttribute("msg", "Erroa ao cadastrar funcionario");
 			
-			
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 
 		System.out.println("ok servlet funciona");
