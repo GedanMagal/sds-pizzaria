@@ -20,7 +20,7 @@
 	<div class="footer-copyright">
 		<div class="container">
 			© 2014 Copyright Text <a class="grey-text text-lighten-4 right"
-				href="admin/index.jsp">Admin</a>
+				href="admin/login.jsp">Admin</a>
 		</div>
 	</div>
 	<div class="clear"></div>
