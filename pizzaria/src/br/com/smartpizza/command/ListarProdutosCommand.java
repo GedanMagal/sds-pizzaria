@@ -21,10 +21,9 @@ public class ListarProdutosCommand implements Command {
 		this.tipoDAO = new TipoProdutoDAO();
 		
 		String proximo = "gerenciar-produto.jsp";
-		
+		String produto = request.getParameter("produto");
 		List<ProdutoDTO> listaProdutos = produtoDAO.listarProdutos();
 		List<TipoProduto> tipos = tipoDAO.listaTipos();
-		
 		request.setAttribute("produtos", listaProdutos);
 		request.setAttribute("tiposProdutos", tipos);
 	

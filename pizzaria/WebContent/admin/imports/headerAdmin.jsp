@@ -56,6 +56,9 @@
 	<li><a class="waves-effect" href="admin?acao=cadastrarSaborPizza"> <i
 			class="material-icons">local_pizza</i> Gerenciar pizzas
 	</a></li>
+	<li><a class="waves-effect" href="admin?acao=cadastrarSaborPizza"> <i
+			class="material-icons">local_pizza</i> Gerenciar pizzas
+	</a></li>
 	<li><div class="divider"></div></li>
 	<li><a class="waves-effect" href="admin?acao=listarClientes"> <i
 			class="material-icons">assignment_ind</i> Gerenciar Clientes

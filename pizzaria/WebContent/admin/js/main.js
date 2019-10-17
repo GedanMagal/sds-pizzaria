@@ -1,7 +1,8 @@
 
 $(document).ready(function() {
-	ingredientes();
 	
+	ingredientes();
+	 $('.tooltipped').tooltip();
 	$('select').formSelect();
 	$('.modal').modal();
 	$('.sidenav').sidenav();

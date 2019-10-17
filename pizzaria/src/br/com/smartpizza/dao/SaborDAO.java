@@ -82,4 +82,30 @@ public class SaborDAO {
 		
 		return listaSabor;
 		}
+	public Sabor getSabor(Integer idSabor){
+	
+		Connection conn = null;
+		StringBuilder sql = new StringBuilder();
+		Sabor sabor = null;
+		try {
+			conn = ConexaoUtil.getConexao();
+			sql.append("SELECT ID_SABOR, DS_SABOR FROM TB_SABOR ");
+			sql.append("WHERE id_sabor = ?");
+			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+			stmt.setInt(1, idSabor);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.first()) {
+				sabor = new Sabor();
+				sabor.setIdSabor(rs.getInt("ID_SABOR"));
+				sabor.setDsSabor(rs.getString("DS_SABOR"));
+			}
+				
+				} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return sabor;
+		}
+
 }

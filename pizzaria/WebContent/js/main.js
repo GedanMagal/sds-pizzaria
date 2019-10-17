@@ -1,5 +1,6 @@
 
 $(document).ready(function() {
+	 $('.tooltipped').tooltip();
 	$('select').formSelect();
 	$('.modal').modal();
 	$('.sidenav').sidenav();
