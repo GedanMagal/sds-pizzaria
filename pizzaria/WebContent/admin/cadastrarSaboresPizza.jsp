@@ -19,7 +19,11 @@
 				<input type="text" name="sabor" id="sabor"> <label
 					class="active" for="sabor">Sabor</label>
 			</div>
-			<div class="input-field col s6">
+			<a class="waves-effect waves-light btn modal-trigger" href="#modal1">selecionar ingredientes</a>
+			
+			<div id="modal1" class="modal">
+			 <div class="modal-content">
+			<div class="input-field col s8">
 		
 				<div class="switch label">
 				<c:forEach items="${lista}" var="ing">
@@ -31,7 +35,8 @@
 		
 			</div>
 		</div>
-		
+			</div>
+		</div>
 		<div class="row">
 			<div class="col s3 offset-s6">
 				<button class="btn waves-effect waves-light red" type="submit"name="action">Limpar

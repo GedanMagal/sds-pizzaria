@@ -27,11 +27,11 @@
 		<form method="post" action="admin?acao=salvarCliente">
 			<div class="row">
 				<div class="input-field col s6">
-					<input type="text" name="nome" id="nome"> <label
+					<input type="text" name="nome" id="nome" required="required"> <label
 						class="active" for="nome">Nome</label>
 				</div>
 				<div class="input-field col s6">
-					<input type="text" name="sobrenome" id="sobrenome"> <label
+					<input type="text" name="sobrenome" id="sobrenome" required="required"> <label
 						class="active" for="sobrenome">Sobrenome</label>
 				</div>
 
@@ -39,15 +39,15 @@
 
 			<div class="row">
 				<div class="input-field col s4">
-					<input type="text" name="cpf" id="cpf" maxlength="11"> <label
+					<input type="text" name="cpf" id="cpf" maxlength="11" required="required"> <label
 						class="active" for="cpf">CPF</label>
 				</div>
 				<div class="input-field col s4">
-					<input type="text" name="telefone" id="telefone1"> <label
+					<input type="text" name="telefone" id="telefone1" required="required"> <label
 						class="active" for="telefone1">Telefone 1</label>
 				</div>
 				<div class="input-field col s4">
-					<input type="hidden" name="classificador"> <input
+					<input type="hidden" name="classificador" > <input
 						type="text" name="celular" id="celular"> <label
 						class="active" for="celular">Celular</label>
 				</div>
@@ -67,11 +67,11 @@
 		-->
 			<div class="row">
 				<div class="input-field col s9">
-					<input type="email" name="email" id="email"> <label
+					<input type="email" name="email" id="email" required="required"> <label
 						class="active" for="email">E-mail</label>
 				</div>
 				<div class="input-field col s3">
-					<input type="text" name="senha" id="senha"> <label
+					<input type="password" name="senha" id="senha" required="required"> <label
 						class="active" for="senha">Senha</label>
 				</div>
 			</div>
@@ -79,11 +79,11 @@
 			<h6>Localização Endereço</h6>
 			<div class="row">
 				<div class="input-field col s3">
-					<input type="text" name="cep" id="cep"> <label
+					<input type="text" name="cep" id="cep" required="required"> <label
 						class="active" for="cep">CEP</label>
 				</div>
 				<div class="input-field col s4">
-					<input type="text" name="bairro" id="bairro"> <label
+					<input type="text" name="bairro" id="bairro" required="required"> <label
 						class="active" for="bairro">Bairro.</label>
 				</div>
 				<div class="input-field col s2">
@@ -107,7 +107,7 @@
 						class="active" for="nome">Logradouro (Av. / R. / Pç.)</label>
 				</div>
 				<div class="input-field col s3">
-					<input type="text" name="numero" id="numero"> <label
+					<input type="text" name="numero" id="numero" required="required"> <label
 						class="active" for="numero">nº.</label>
 				</div>
 				<div class="input-field col s3">

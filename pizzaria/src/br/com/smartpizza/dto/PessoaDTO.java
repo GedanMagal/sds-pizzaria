@@ -10,7 +10,12 @@ public class PessoaDTO {
 	private String celular;
 	private String email;
 	private Integer idEndereco;
-	
+	private String endereco;
+	private String numero;
+	private String cep;
+	private String bairro;
+	private String cidade;
+	private String estado;
 	
 	public Integer getIdEndereco() {
 		return idEndereco;
@@ -20,12 +25,7 @@ public class PessoaDTO {
 	public void setIdEndereco(Integer idEndereco) {
 		this.idEndereco = idEndereco;
 	}
-	private String endereco;
-	private String numero;
-	private String cep;
-	private String bairro;
-	private String cidade;
-	private String estado;
+	
 	
 	public PessoaDTO() {
 		
