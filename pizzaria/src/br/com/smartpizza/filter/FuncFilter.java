@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet Filter implementation class ClienteFilter
  */
-@WebFilter(urlPatterns = {"/admin/*"})	
+@WebFilter(urlPatterns = {"/admin/*","/adminis/*"})	
 public class FuncFilter implements Filter {
 
 	
@@ -69,7 +69,7 @@ public class FuncFilter implements Filter {
 				retorno = true;
 			}
 			
-			if (uri != null && uri.endsWith("admin")
+			if (uri != null && uri.endsWith("admin")||uri.endsWith("adminis")
 					&& (httpRequest.getParameter("acao") != null
 					&& httpRequest.getParameter("acao").equals("loginUser"))) {
 				retorno = true;

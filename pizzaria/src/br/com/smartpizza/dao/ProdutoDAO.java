@@ -50,9 +50,9 @@ public class ProdutoDAO {
 		try {
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT pro.id_produto, pro.nm_produto, pro.ds_tamanho, pro.valor_produto,est.qtd_estoque, tip.ds_tipo_produto");
-			sql.append(" from tb_produto pro inner join tb_estoque est on pro.id_estoque = est.id_estoque");
-			sql.append("  inner join tb_tipo_produto tip on tip.id_tipo_produto = pro.id_tipo_produto");
+			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO,EST.QTD_ESTOQUE, TIP.DS_TIPO_PRODUTO");
+			sql.append(" FROM TB_PRODUTO PRO INNER JOIN TB_ESTOQUE EST ON PRO.ID_ESTOQUE = EST.ID_ESTOQUE");
+			sql.append("  INNER JOIN TB_TIPO_PRODUTO TIP ON TIP.ID_TIPO_PRODUTO = PRO.ID_TIPO_PRODUTO");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 					ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {
@@ -106,10 +106,10 @@ public class ProdutoDAO {
 		try {
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT pro.id_produto, pro.nm_produto, pro.ds_tamanho, pro.valor_produto,est.qtd_estoque, tip.ds_tipo_produto");
-			sql.append(" from tb_produto pro inner join tb_estoque est on pro.id_estoque = est.id_estoque");
-			sql.append("  inner join tb_tipo_produto tip on tip.id_tipo_produto = pro.id_tipo_produto");
-			sql.append("  where id_produto = ?");
+			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO,EST.QTD_ESTOQUE, TIP.DS_TIPO_PRODUTO");
+			sql.append(" FROM TB_PRODUTO PRO INNER JOIN TB_ESTOQUE EST ON PRO.ID_ESTOQUE = EST.ID_ESTOQUE");
+			sql.append("  INNER JOIN TB_TIPO_PRODUTO TIP ON TIP.ID_TIPO_PRODUTO = PRO.ID_TIPO_PRODUTO");
+			sql.append("  WHERE ID_PRODUTO = ?");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 					
 			stmt.setInt(1, idProduto);

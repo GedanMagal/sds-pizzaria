@@ -19,7 +19,7 @@ public class UsuarioDAO {
 		
 		StringBuilder sql = new StringBuilder();
 		
-		sql.append("INSERT INTO TB_USUARIO (US_LOGIN,US_SENHA,gp_usuario) VALUES(?,?,?)");
+		sql.append("INSERT INTO TB_USUARIO (US_LOGIN,US_SENHA,GP_USUARIO) VALUES(?,?,?)");
 		
 		try {
 			conn =ConexaoUtil.getConexao();
@@ -47,7 +47,7 @@ public class UsuarioDAO {
 		StringBuilder sql = new StringBuilder();
 		
 		
-		sql.append("SELECT * FROM tb_usuario WHERE us_login = ? and us_senha = ?");
+		sql.append("SELECT * FROM TB_USUARIO WHERE us_login = ? and us_senha = ?");
 		
 		try {
 			
