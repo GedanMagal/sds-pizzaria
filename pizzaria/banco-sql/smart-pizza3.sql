@@ -3,10 +3,6 @@
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
 -- -----------------------------------------------------
 -- Schema pizza_projeto
 -- -----------------------------------------------------
@@ -14,7 +10,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema pizza_projeto
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `pizza_projeto` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+CREATE SCHEMA IF NOT EXISTS `pizza_projeto`;
 USE `pizza_projeto` ;
 
 -- -----------------------------------------------------
@@ -25,8 +21,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_caixa` (
   `cx_descricao` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id_caixa`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -36,9 +31,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_cargo` (
   `id_cargo` INT(2) NOT NULL AUTO_INCREMENT,
   `ds_descricaoCargo` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id_cargo`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -51,8 +44,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_estado` (
   PRIMARY KEY (`id_estado`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -63,14 +55,13 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_cidade` (
   `ds_cidade` VARCHAR(45) NOT NULL,
   `id_estado` INT(11) NOT NULL,
   PRIMARY KEY (`id_cidade`),
-  INDEX `fk_tb_cidade_tb_estado1_idx` (`id_estado` ASC) VISIBLE,
+  INDEX `fk_tb_cidade_tb_estado1_idx` (`id_estado` ASC),
   CONSTRAINT `fk_tb_cidade_tb_estado1`
     FOREIGN KEY (`id_estado`)
     REFERENCES `pizza_projeto`.`tb_estado` (`id_estado`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -84,8 +75,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_usuario` (
   PRIMARY KEY (`us_id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -102,14 +92,13 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_cliente` (
   `cli_celular` VARCHAR(45) NULL DEFAULT NULL,
   `us_id` INT(11) NOT NULL,
   PRIMARY KEY (`id_cliente`),
-  INDEX `fk__tb_usuario1_idx` (`us_id` ASC) VISIBLE,
+  INDEX `fk__tb_usuario1_idx` (`us_id` ASC) ,
   CONSTRAINT `fk__tb_usuario1`
     FOREIGN KEY (`us_id`)
     REFERENCES `pizza_projeto`.`tb_usuario` (`us_id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -124,8 +113,8 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_endereco` (
   `id_cidade` INT(11) NOT NULL,
   `id_cliente` INT(11) NOT NULL,
   PRIMARY KEY (`id_endereco`),
-  INDEX `fk_tb_endereco_tb_cidade1_idx` (`id_cidade` ASC) VISIBLE,
-  INDEX `fk_tb_endereco_1_idx` (`id_cliente` ASC) VISIBLE,
+  INDEX `fk_tb_endereco_tb_cidade1_idx` (`id_cidade` ASC) ,
+  INDEX `fk_tb_endereco_1_idx` (`id_cliente` ASC) ,
   CONSTRAINT `fk_tb_endereco_1`
     FOREIGN KEY (`id_cliente`)
     REFERENCES `pizza_projeto`.`tb_cliente` (`id_cliente`),
@@ -134,8 +123,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_endereco` (
     REFERENCES `pizza_projeto`.`tb_cidade` (`id_cidade`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -151,8 +139,8 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_funcionario` (
   `us_id` INT(11) NOT NULL,
   `id_cargo` INT(2) NOT NULL,
   PRIMARY KEY (`id_funcionario`),
-  INDEX `fk_tb_funcionario_tb_usuario1_idx` (`us_id` ASC) VISIBLE,
-  INDEX `fk_tb_funcionario_tb_cargo1_idx` (`id_cargo` ASC) VISIBLE,
+  INDEX `fk_tb_funcionario_tb_usuario1_idx` (`us_id` ASC) ,
+  INDEX `fk_tb_funcionario_tb_cargo1_idx` (`id_cargo` ASC) ,
   CONSTRAINT `fk_tb_funcionario_tb_usuario1`
     FOREIGN KEY (`us_id`)
     REFERENCES `pizza_projeto`.`tb_usuario` (`us_id`),
@@ -162,8 +150,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_funcionario` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -176,8 +163,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_item_pedido` (
   `total` DOUBLE NOT NULL,
   PRIMARY KEY (`id_item_pedido`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -189,8 +175,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_forma_pagamento` (
   `ds_bandeira` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_forma_pagamento`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -204,13 +189,12 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_historico_caixa` (
   `vl_fechamento` DOUBLE NULL DEFAULT NULL,
   `id_caixa` INT(11) NOT NULL,
   PRIMARY KEY (`id_historico_caixa`),
-  INDEX `fk_tb_historico_caixa_tb_caixa1_idx` (`id_caixa` ASC) VISIBLE,
+  INDEX `fk_tb_historico_caixa_tb_caixa1_idx` (`id_caixa` ASC) ,
   CONSTRAINT `fk_tb_historico_caixa_tb_caixa1`
     FOREIGN KEY (`id_caixa`)
     REFERENCES `pizza_projeto`.`tb_caixa` (`id_caixa`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -222,8 +206,8 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_pagamento` (
   `id_forma_pagamento` INT(11) NOT NULL,
   `id_historico_caixa` INT(11) NOT NULL,
   PRIMARY KEY (`id_pagamento`),
-  INDEX `fk_tb_pagamento_tb_forma_pagamento1_idx` (`id_forma_pagamento` ASC) VISIBLE,
-  INDEX `fk_tb_pagamento_tb_historico_caixa1_idx` (`id_historico_caixa` ASC) VISIBLE,
+  INDEX `fk_tb_pagamento_tb_forma_pagamento1_idx` (`id_forma_pagamento` ASC) ,
+  INDEX `fk_tb_pagamento_tb_historico_caixa1_idx` (`id_historico_caixa` ASC) ,
   CONSTRAINT `fk_tb_pagamento_tb_forma_pagamento1`
     FOREIGN KEY (`id_forma_pagamento`)
     REFERENCES `pizza_projeto`.`tb_forma_pagamento` (`id_forma_pagamento`),
@@ -231,8 +215,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_pagamento` (
     FOREIGN KEY (`id_historico_caixa`)
     REFERENCES `pizza_projeto`.`tb_historico_caixa` (`id_historico_caixa`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -248,10 +231,10 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_pedido` (
   `id_cliente` INT(11) NOT NULL,
   `id_funcionario` INT(11) NOT NULL,
   PRIMARY KEY (`id_pedido`),
-  INDEX `fk_tb_pedido_tb_pagamento1_idx` (`id_pagamento` ASC) VISIBLE,
-  INDEX `fk_tb_pedido_tb_item_pedido1_idx` (`id_item_pedido` ASC) VISIBLE,
-  INDEX `fk_tb_pedido_tb_cliente1_idx` (`id_cliente` ASC) VISIBLE,
-  INDEX `fk_tb_pedido_tb_funcionario1_idx` (`id_funcionario` ASC) VISIBLE,
+  INDEX `fk_tb_pedido_tb_pagamento1_idx` (`id_pagamento` ASC) ,
+  INDEX `fk_tb_pedido_tb_item_pedido1_idx` (`id_item_pedido` ASC) ,
+  INDEX `fk_tb_pedido_tb_cliente1_idx` (`id_cliente` ASC) ,
+  INDEX `fk_tb_pedido_tb_funcionario1_idx` (`id_funcionario` ASC) ,
   CONSTRAINT `fk_tb_pedido_tb_cliente1`
     FOREIGN KEY (`id_cliente`)
     REFERENCES `pizza_projeto`.`tb_cliente` (`id_cliente`),
@@ -265,8 +248,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_pedido` (
     FOREIGN KEY (`id_pagamento`)
     REFERENCES `pizza_projeto`.`tb_pagamento` (`id_pagamento`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -279,8 +261,8 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_entrega` (
   `id_pedido` INT(11) NOT NULL,
   `iid_endereco` INT(11) NOT NULL,
   PRIMARY KEY (`id_entrega`),
-  INDEX `fk_tb_entrega_tb_pedido1_idx` (`id_pedido` ASC) VISIBLE,
-  INDEX `fk_tb_entrega_tb_endereco1_idx` (`iid_endereco` ASC) VISIBLE,
+  INDEX `fk_tb_entrega_tb_pedido1_idx` (`id_pedido` ASC) ,
+  INDEX `fk_tb_entrega_tb_endereco1_idx` (`iid_endereco` ASC) ,
   CONSTRAINT `fk_tb_entrega_tb_endereco1`
     FOREIGN KEY (`iid_endereco`)
     REFERENCES `pizza_projeto`.`tb_endereco` (`id_endereco`),
@@ -288,8 +270,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_entrega` (
     FOREIGN KEY (`id_pedido`)
     REFERENCES `pizza_projeto`.`tb_pedido` (`id_pedido`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -300,8 +281,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_estoque` (
   `qtd_estoque` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id_estoque`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -315,8 +295,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_ingrediente` (
   PRIMARY KEY (`id_ingredientes`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 8
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -328,8 +307,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_sabor` (
   PRIMARY KEY (`id_sabor`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 10
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -339,8 +317,8 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_ingrediente_sabor` (
   `id_ingredientes` INT(11) NOT NULL,
   `id_sabor` INT(11) NOT NULL,
   PRIMARY KEY (`id_ingredientes`, `id_sabor`),
-  INDEX `fk_tb_pizza_ingrediente_has_tb_sabor_tb_sabor1_idx` (`id_sabor` ASC) VISIBLE,
-  INDEX `fk_tb_pizza_ingrediente_has_tb_sabor_tb_pizza_ingrediente1_idx` (`id_ingredientes` ASC) VISIBLE,
+  INDEX `fk_tb_pizza_ingrediente_has_tb_sabor_tb_sabor1_idx` (`id_sabor` ASC) ,
+  INDEX `fk_tb_pizza_ingrediente_has_tb_sabor_tb_pizza_ingrediente1_idx` (`id_ingredientes` ASC) ,
   CONSTRAINT `fk_tb_pizza_ingrediente_has_tb_sabor_tb_pizza_ingrediente1`
     FOREIGN KEY (`id_ingredientes`)
     REFERENCES `pizza_projeto`.`tb_ingrediente` (`id_ingredientes`),
@@ -348,8 +326,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_ingrediente_sabor` (
     FOREIGN KEY (`id_sabor`)
     REFERENCES `pizza_projeto`.`tb_sabor` (`id_sabor`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -360,8 +337,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_tipo_produto` (
   `tb_tipo_produtocol` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_tipo_produto`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -375,8 +351,8 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_produto` (
   `id_estoque` INT(11) NOT NULL,
   `id_tipo_produto` INT(11) NOT NULL,
   PRIMARY KEY (`id_produto`),
-  INDEX `fk_tb_produto_tb_estoque1_idx` (`id_estoque` ASC) VISIBLE,
-  INDEX `fk_tb_produto_tb_tipo_produto1_idx` (`id_tipo_produto` ASC) VISIBLE,
+  INDEX `fk_tb_produto_tb_estoque1_idx` (`id_estoque` ASC) ,
+  INDEX `fk_tb_produto_tb_tipo_produto1_idx` (`id_tipo_produto` ASC) ,
   CONSTRAINT `fk_tb_produto_tb_estoque1`
     FOREIGN KEY (`id_estoque`)
     REFERENCES `pizza_projeto`.`tb_estoque` (`id_estoque`),
@@ -384,8 +360,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_produto` (
     FOREIGN KEY (`id_tipo_produto`)
     REFERENCES `pizza_projeto`.`tb_tipo_produto` (`id_tipo_produto`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -395,8 +370,8 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_item_pedido_produto` (
   `id_item_pedido` INT(11) NOT NULL,
   `id_produto` INT(11) NOT NULL,
   PRIMARY KEY (`id_item_pedido`, `id_produto`),
-  INDEX `fk_tb_item_pedido_has_tb_produto_tb_produto1_idx` (`id_produto` ASC) VISIBLE,
-  INDEX `fk_tb_item_pedido_has_tb_produto_tb_item_pedido1_idx` (`id_item_pedido` ASC) VISIBLE,
+  INDEX `fk_tb_item_pedido_has_tb_produto_tb_produto1_idx` (`id_produto` ASC) ,
+  INDEX `fk_tb_item_pedido_has_tb_produto_tb_item_pedido1_idx` (`id_item_pedido` ASC) ,
   CONSTRAINT `fk_tb_item_pedido_has_tb_produto_tb_item_pedido1`
     FOREIGN KEY (`id_item_pedido`)
     REFERENCES `pizza_projeto`.`tb_item_pedido` (`id_item_pedido`),
@@ -404,8 +379,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_item_pedido_produto` (
     FOREIGN KEY (`id_produto`)
     REFERENCES `pizza_projeto`.`tb_produto` (`id_produto`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -418,13 +392,12 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_movimento_estoque` (
   `quantidade` INT(2) NOT NULL,
   `id_estoque` INT(11) NOT NULL,
   PRIMARY KEY (`id_movimento_estoque`),
-  INDEX `fk_tb_movimento_estoque_tb_estoque1_idx` (`id_estoque` ASC) VISIBLE,
+  INDEX `fk_tb_movimento_estoque_tb_estoque1_idx` (`id_estoque` ASC) ,
   CONSTRAINT `fk_tb_movimento_estoque_tb_estoque1`
     FOREIGN KEY (`id_estoque`)
     REFERENCES `pizza_projeto`.`tb_estoque` (`id_estoque`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 -- -----------------------------------------------------
@@ -434,8 +407,8 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_produto_sabor` (
   `id_produto` INT(11) NOT NULL,
   `id_sabor` INT(11) NOT NULL,
   PRIMARY KEY (`id_produto`, `id_sabor`),
-  INDEX `fk_tb_produto_has_tb_sabor_tb_sabor1_idx` (`id_sabor` ASC) VISIBLE,
-  INDEX `fk_tb_produto_has_tb_sabor_tb_produto1_idx` (`id_produto` ASC) VISIBLE,
+  INDEX `fk_tb_produto_has_tb_sabor_tb_sabor1_idx` (`id_sabor` ASC) ,
+  INDEX `fk_tb_produto_has_tb_sabor_tb_produto1_idx` (`id_produto` ASC) ,
   CONSTRAINT `fk_tb_produto_has_tb_sabor_tb_produto1`
     FOREIGN KEY (`id_produto`)
     REFERENCES `pizza_projeto`.`tb_produto` (`id_produto`),
@@ -443,8 +416,7 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`tb_produto_sabor` (
     FOREIGN KEY (`id_sabor`)
     REFERENCES `pizza_projeto`.`tb_sabor` (`id_sabor`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
