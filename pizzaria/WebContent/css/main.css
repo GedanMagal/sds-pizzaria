@@ -8,7 +8,21 @@
 	margin-left: 10%;
 	margin-right: 10%;
 }
+.erroDiv {
+	margin: 30px 25%;
+	font-size: 1.5em;
+	width: 50%;
+	text-align: center;
+	color: red;
+}
 
+.sucDiv {
+	margin: 30px 25%;
+	font-size: 1.5em;
+	width: 50%;
+	text-align: center;
+	color: green;
+}
 
 .row {
 	margin-bottom: 15px;
