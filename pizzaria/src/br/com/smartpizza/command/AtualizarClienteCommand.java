@@ -87,9 +87,7 @@ public class AtualizarClienteCommand implements Command {
 			e.printStackTrace();
 		}
 		return proximo;
-	
-	
-	
+
 }
 	
 }	
