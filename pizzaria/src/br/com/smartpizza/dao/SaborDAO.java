@@ -18,7 +18,7 @@ public class SaborDAO {
 		Connection conn = null;
 		Integer idSabor = null;
 		StringBuilder sql = new StringBuilder();
-		sql.append("INSERT INTO TB_SABOR (ds_sabor) VALUES (?)");	
+		sql.append("INSERT INTO tb_sabor (ds_sabor) VALUES (?)");	
 		try {
 			conn = ConexaoUtil.getConexao();
 			
@@ -42,7 +42,7 @@ public class SaborDAO {
 		Integer idSabor = null;
 		try {
 			conn = ConexaoUtil.getConexao();
-			sql.append("SELECT MAX(id_sabor) FROM TB_SABOR");
+			sql.append("SELECT MAX(id_sabor) FROM tb_sabor");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 			ResultSet rs = stmt.executeQuery();
 			if(rs.first()) {

@@ -19,7 +19,7 @@ public class TipoProdutoDAO {
 		Connection conn = null;
 		try {
 			conn = ConexaoUtil.getConexao();
-			sql.append("SELECT * FROM TB_TIPO_PRODUTO");
+			sql.append("SELECT * FROM tb_tipo_produto");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 			ResultSet rs  = stmt.executeQuery();
 			while(rs.next()) {

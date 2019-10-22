@@ -92,7 +92,7 @@ public class PessoaDAO {
 			if (rs.first()) {
 				idFuncionario = rs.getInt(1);
 			}
-			enderecoDAO.cadastrarEndereco(f.getEndereco(), idFuncionario);
+		
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -107,10 +107,8 @@ public class PessoaDAO {
 		try {
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append(
-					"SELECT CLI.ID_CLIENTE, CLI.NM_CLIENTE,CLI.SOBRENOME,CLI.DS_EMAIL, CLI.CLI_TELEFONE, CLI.CLI_CELULAR,EN.DS_LOGRADOURO, EN.NM_ENDERECO, EN.NM_CEP,en.ds_bairro");
-			sql.append(
-					" FROM PIZZA_PROJETO.TB_CLIENTE CLI INNER JOIN  TB_ENDERECO EN ON EN.ID_CLIENTE = CLI.ID_CLIENTE");
+			sql.append("SELECT CLI.ID_CLIENTE, CLI.NM_CLIENTE,CLI.SOBRENOME,CLI.DS_EMAIL, CLI.CLI_TELEFONE, CLI.CLI_CELULAR,EN.DS_LOGRADOURO, EN.NM_ENDERECO, EN.NM_CEP,EN.DS_BAIRRO");
+			sql.append(" FROM TB_CLIENTE CLI INNER JOIN  TB_ENDERECO EN ON EN.ID_CLIENTE = CLI.ID_CLIENTE");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -140,9 +138,9 @@ public class PessoaDAO {
 		try {
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT CLI.ID_CLIENTE,CLI.NM_CLIENTE, CLI.NM_CPF,CLI.SOBRENOME,CLI.DS_EMAIL, CLI.CLI_TELEFONE, CLI.CLI_CELULAR, EN.ID_ENDERECO,EN.DS_LOGRADOURO, EN.NM_ENDERECO, EN.NM_CEP,en.ds_bairro");
-			sql.append(" FROM PIZZA_PROJETO.TB_CLIENTE CLI INNER JOIN  TB_ENDERECO EN ON EN.ID_CLIENTE = CLI.ID_CLIENTE");
-			sql.append(" WHERE cli.ID_CLIENTE = ?");
+			sql.append("SELECT CLI.ID_CLIENTE,CLI.NM_CLIENTE, CLI.NM_CPF,CLI.SOBRENOME,CLI.DS_EMAIL, CLI.CLI_TELEFONE, CLI.CLI_CELULAR, EN.ID_ENDERECO,EN.DS_LOGRADOURO, EN.NM_ENDERECO, EN.NM_CEP,EN.DS_BAIRRO");
+			sql.append(" FROM TB_CLIENTE CLI INNER JOIN  TB_ENDERECO EN ON EN.ID_CLIENTE = CLI.ID_CLIENTE");
+			sql.append(" WHERE CLI.ID_CLIENTE = ?");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 			stmt.setInt(1, idPessoa);
 			ResultSet rs = stmt.executeQuery();
