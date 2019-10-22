@@ -18,7 +18,7 @@
 </div>
 
 			<div class="row col s12">
-
+				<jsp:include page="imports/msg.jsp"/>
 				<form class="login_form_admin" method="post" action="admin?acao=loginUser">
 					<div class="row">
 						<div class="input-field col s12">

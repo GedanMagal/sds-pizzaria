@@ -14,8 +14,8 @@
 	<section class="content background-img">
 		<div class="side-content">
 			<div class="row form-log">
-
-				<form class="col s8 " method="post" action="client?acao=loginC">
+			<jsp:include page="imports/msg.jsp" />
+				<form class="col s8 " method="post" action="client?acao=loginCliente">
 					<h3>login</h3>
  
 					<div class="row">

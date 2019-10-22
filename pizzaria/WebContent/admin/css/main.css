@@ -153,7 +153,7 @@ a{text-decoration: none; color: black;}
 }
 
 /*fim flip card pagamento*/
-.login_form_admin{margin: 15% auto;width: 50%}
+.login_form_admin{margin: 4% auto;width: 50%}
 .formu_small{float: right;width: 50%;}
 .dsblock {
 	display: block;
@@ -215,12 +215,12 @@ table th:last-of-type{
 
 .logo {
 	width: 20%;
-	margin: 7% 11% -10% 40%;
-	background-image: url("../img/logo.png");
-	height: 200px;
-	background-size: 200px 200px; 
-	background-position: center;
-	background-repeat: no-repeat;
+    margin: 6% 11% 0 40%;
+    background-image: url(../img/logo.png);
+    height: 201px;
+    background-size: 200px 200px;
+    background-position: center;
+    background-repeat: no-repeat;
 	}
 .ds-none{
 	display: none;

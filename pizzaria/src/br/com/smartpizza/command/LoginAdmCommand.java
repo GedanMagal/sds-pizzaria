@@ -44,7 +44,7 @@ public class LoginAdmCommand implements Command{
 				if(us.getGpUs().equals("Admin")) {
 					proximo = "home-admin.jsp";
 				}else {
-					request.setAttribute("msgErro", "Erro ao acessar esta tela!");
+					request.setAttribute("msgErro", "falha na autenticação!");
 				}
 				pessoaLog = pessoaDAO.getPessoa(user.getId());
 				HttpSession session = request.getSession();
@@ -54,11 +54,12 @@ public class LoginAdmCommand implements Command{
 				 
 		}else {
 			proximo = "login.jsp";
-			request.setAttribute("msgErro", "Erro ao acessar esta tela!");
+			request.setAttribute("msgErro", "falha na autenticação!");
 		}
 		}catch(Exception e) {
 			e.printStackTrace();
 			proximo = "login.jsp";
+			request.setAttribute("msgErro", "falha na autenticação");
 		}
 		
 		

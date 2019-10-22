@@ -55,7 +55,7 @@ public class ControllerServlet extends HttpServlet {
 		//comandos.put("listaEstados", new ListaEstadosCommand());
 		
 		comandos.put("loginUser", new LoginAdmCommand());
-		comandos.put("loginC", new LoginClienteCommand());
+		comandos.put("loginCliente", new LoginClienteCommand());
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {

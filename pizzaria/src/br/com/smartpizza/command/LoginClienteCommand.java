@@ -17,7 +17,7 @@ public class LoginClienteCommand implements Command{
 	@Override
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		String proximo = "login.jsp";
+		String proximo = "entrar.jsp";
 		
 		
 		
@@ -35,6 +35,7 @@ public class LoginClienteCommand implements Command{
 					proximo = "cliente/realizar-pedido.jsp";
 				}else {
 					request.setAttribute("msgErro", "Erro ao acessar esta tela!");
+					proximo = "entrar.jsp";
 				}
 				pessoaLog = pessoaDAO.getPessoa(user.getId());
 				HttpSession session = request.getSession();
@@ -45,6 +46,8 @@ public class LoginClienteCommand implements Command{
 		}
 		} catch(Exception e) {
 			e.printStackTrace();
+			request.setAttribute("msgErro", "Erro ao acessar login!");
+			proximo = "entrar.jsp";
 		}
 		
 		
