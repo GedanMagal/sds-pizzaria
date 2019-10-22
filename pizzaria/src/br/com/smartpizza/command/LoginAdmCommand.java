@@ -36,36 +36,34 @@ public class LoginAdmCommand implements Command{
 			user.setLogin(usuario);
 			user.setSenha(senha);
 			
-			try {		
-				Usuario us = userDAO.consultarUsuario(user);
-				
-			if(us!=null) {
-				
-				if(us.getGpUs().equals("Admin")) {
-					proximo = "home-admin.jsp";
+			try {
+				if(usuario.equals("")&&senha.equals("")) {
+					request.setAttribute("msgErro", "usuario ou senha inválidos!");
 				}else {
-					request.setAttribute("msgErro", "falha na autenticação!");
-				}
+				Usuario us = userDAO.consultarUsuario(user);
+					if(us!=null) {	
+						if(us.getGpUs().equals("Admin")) {
+							proximo = "home-admin.jsp";
+						}else {
+							request.setAttribute("msgErro", "usuario sem permissão!");
+						}
 				pessoaLog = pessoaDAO.getPessoa(user.getId());
 				HttpSession session = request.getSession();
 				session.setAttribute("loginUser", user);
 				session.setAttribute("pessoa", pessoaLog);
 				session.setMaxInactiveInterval(60*10);
-				 
-		}else {
+			}else {
 			proximo = "login.jsp";
 			request.setAttribute("msgErro", "falha na autenticação!");
-		}
-		}catch(Exception e) {
+			}
+		}			
+	}catch(Exception e) {
 			e.printStackTrace();
 			proximo = "login.jsp";
 			request.setAttribute("msgErro", "falha na autenticação");
 		}
+	return proximo;
 		
-		
-		return proximo;
-		
-		
-	}
+}
 
 }
