@@ -28,7 +28,7 @@ public class ProdutoDAO {
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getTamanho());
-			stmt.setFloat(3, produto.getValor());
+			stmt.setDouble(3, produto.getValor());
 			stmt.setInt(4, idEstoque);
 			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
 			stmt.execute();
@@ -86,7 +86,7 @@ public class ProdutoDAO {
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getTamanho());
-			stmt.setFloat(3, produto.getValor());
+			stmt.setDouble(3, produto.getValor());
 			stmt.setInt(4, idEstoque);
 			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
 			stmt.execute();

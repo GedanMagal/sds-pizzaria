@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="img_pizza"></div>
 		</div>
-		<form action="admin?acao=salvarPedido&param=pizza" method="post">
+		<form action="admin?acao=montarpizza" method="post">
 			<div class="row col s12 cont">
 
 				<h4>Pedido</h4>

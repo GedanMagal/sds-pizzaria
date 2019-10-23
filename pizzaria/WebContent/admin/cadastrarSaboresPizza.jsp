@@ -16,9 +16,13 @@
 		</div>
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="text" name="sabor" id="sabor"> <label
-					class="active" for="sabor">Sabor</label>
+				<input type="text" name="sabor" id="sabor">
+				 <label class="active" for="sabor">Sabor</label>
+				 
 			</div>
+			<div class="input-field col s6">
+			<input type="text" name="valor" id="valor"> 
+				 <label	class="active" for="valor">valor</label></div>
 			<a class="waves-effect waves-light btn modal-trigger" href="#modal1">selecionar ingredientes</a>
 			
 			<div id="modal1" class="modal">
