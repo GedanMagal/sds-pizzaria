@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 public class FuncFilter implements Filter {
 
 	
-	private static final String[] URLS_TO_EXCLUDE = {".css", ".js", ".png", ".jpg", ".gif", "index.jsp","login.jsp","admin/"};
+	private static final String[] URLS_TO_EXCLUDE = {".css", ".js", ".png", ".jpg", ".gif", "index.jsp","login.jsp"};
     /**
      * Default constructor. 
      */
@@ -69,7 +69,12 @@ public class FuncFilter implements Filter {
 				retorno = true;
 			}
 			
-			if (uri != null && uri.endsWith("admin")||uri.endsWith("adminis")
+			if (uri != null && uri.endsWith("admin")
+					&& (httpRequest.getParameter("acao") != null
+					&& httpRequest.getParameter("acao").equals("loginUser"))) {
+				retorno = true;
+			}
+			if (uri != null && uri.endsWith("adminis")
 					&& (httpRequest.getParameter("acao") != null
 					&& httpRequest.getParameter("acao").equals("loginUser"))) {
 				retorno = true;

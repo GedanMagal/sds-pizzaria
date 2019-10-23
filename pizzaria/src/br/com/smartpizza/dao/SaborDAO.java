@@ -18,7 +18,7 @@ public class SaborDAO {
 		Connection conn = null;
 		Integer idSabor = null;
 		StringBuilder sql = new StringBuilder();
-		sql.append("INSERT INTO tb_sabor (ds_sabor) VALUES (?)");	
+		sql.append("INSERT INTO TB_SABOR (ds_sabor) VALUES (?)");	
 		try {
 			conn = ConexaoUtil.getConexao();
 			

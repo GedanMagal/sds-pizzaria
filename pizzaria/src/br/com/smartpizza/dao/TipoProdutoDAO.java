@@ -19,13 +19,13 @@ public class TipoProdutoDAO {
 		Connection conn = null;
 		try {
 			conn = ConexaoUtil.getConexao();
-			sql.append("SELECT * FROM tb_tipo_produto");
+			sql.append("SELECT * FROM TB_TIPO_PRODUTO");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 			ResultSet rs  = stmt.executeQuery();
 			while(rs.next()) {
 				 tipo = new TipoProduto();
-				 tipo.setIdTipoProduto(rs.getInt("id_TIPO_PRODUTO"));
-				tipo.setDsTipoProduto(rs.getString("ds_tipo_produto"));
+				 tipo.setIdTipoProduto(rs.getInt("ID_TIPO_PRODUTO"));
+				tipo.setDsTipoProduto(rs.getString("DS_TIPO_PRODUTO"));
 				tipos.add(tipo);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
