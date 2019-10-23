@@ -17,35 +17,37 @@ public class MontaProduto implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		this.produtoDAO = new ProdutoDAO();
-		
+			String  proximo ="admin?acao=cadastrarSaborPizza";
 			String nomeProd = "pizza +1 sabor";
-			String tipo = request.getParameter("tipo");
+		
 			String tamanho = request.getParameter("tamanho");
-			String valor = request.getParameter("valor");
+			
 			String quantidade = request.getParameter("quantidade");
 			
 			String[] sab =  request.getParameterValues("sabor");
+			String valor = request.getParameter("valor");
 			Produto prod = new Produto();
 			prod.setNomeProduto(nomeProd);
 			prod.setTamanho(tamanho);
-			prod.setValor(Float.parseFloat(valor));
+			prod.setValor(0.0);
 			TipoProduto tipoProd = new TipoProduto();
 			prod.setTipoProduto(tipoProd);
-			tipoProd.setIdTipoProduto(Integer.parseInt(tipo));
+			tipoProd.setIdTipoProduto(1);
 			Estoque estoque = new Estoque();
 			prod.setEstoque(estoque);
-			Sabor s = new Sabor();
+			
 			estoque.setQtdEstoque(Integer.parseInt(quantidade));
 			List<Sabor> ListaSabores = new ArrayList<Sabor>();
 			for (String sabor: sab ) {
-				
+				Sabor s = new Sabor();
 				s.setDsSabor(sabor);
+				s.setPreco(Double.parseDouble(valor));
 				ListaSabores.add(s);
 			}
 			
 			produtoDAO.cadastrarProduto(prod);
 		
-		return null;
+		return proximo;
 	}
 
 }

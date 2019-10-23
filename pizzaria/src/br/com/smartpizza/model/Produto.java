@@ -7,7 +7,7 @@ public class Produto {
 	private int idProduto;
 	private String nomeProduto;
 	private String tamanho;
-	private float valor;
+	private Double valor;
 	private List<Sabor> sabor;
 	private Estoque estoque;
 	public Estoque getEstoque() {
@@ -24,7 +24,7 @@ public class Produto {
 
 	
 
-	public Produto(int idProduto, String nomeProduto, String tamanho, float valor, List<Sabor> sabor, Estoque estoque,
+	public Produto(int idProduto, String nomeProduto, String tamanho, double valor, List<Sabor> sabor, Estoque estoque,
 			TipoProduto tipoProduto) {
 		super();
 		this.idProduto = idProduto;
@@ -76,11 +76,11 @@ public class Produto {
 		this.tamanho = tamanho;
 	}
 
-	public float getValor() {
+	public double getValor() {
 		return valor;
 	}
 
-	public void setValor(float valor) {
+	public void setValor(double valor) {
 		this.valor = valor;
 	}
 	

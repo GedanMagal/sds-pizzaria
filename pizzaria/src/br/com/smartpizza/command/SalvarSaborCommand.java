@@ -24,10 +24,11 @@ public class SalvarSaborCommand implements Command{
 		this.saborObj = new Sabor();
 
 	
-
+		
 		String proximo ="admin?acao=cadastrarSaborPizza";
 		
 		String sabor =  request.getParameter("sabor");
+		String valor = request.getParameter("valor");
 		String[] ingredientes = request.getParameterValues("ingredientes");
 		
 		Ingrediente ingrediente  =  new Ingrediente();
@@ -39,6 +40,7 @@ public class SalvarSaborCommand implements Command{
 			listaIngred.add(ingr);
 		}
 		 saborObj.setDsSabor(sabor);
+		 saborObj.setPreco(Double.parseDouble(valor));
 		 saborObj.setIngredientes(listaIngred);
 		 saborDAO.cadastrarSabores(saborObj);
 
