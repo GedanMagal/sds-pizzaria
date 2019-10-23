@@ -11,7 +11,7 @@ public class ConexaoUtil {
 		
 		try {
 			 Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pizza_projeto?useSSL=false", "root", "root");
+			con = DriverManager.getConnection("jdbc:mysql://pizza-projeto.mysql.uhserver.com:3306/pizza_projeto?useSSL=false", "pizza_user", "J1ck50nb@");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Conexão invalida");
