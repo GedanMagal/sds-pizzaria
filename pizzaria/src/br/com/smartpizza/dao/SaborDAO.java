@@ -18,12 +18,13 @@ public class SaborDAO {
 		Connection conn = null;
 		Integer idSabor = null;
 		StringBuilder sql = new StringBuilder();
-		sql.append("INSERT INTO TB_SABOR (ds_sabor) VALUES (?)");	
+		sql.append("INSERT INTO TB_SABOR (ds_sabor,valor) VALUES (?)");	
 		try {
 			conn = ConexaoUtil.getConexao();
 			
 				PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 				stmt.setString(1, sabor.getDsSabor());
+				stmt.setDouble(2, sabor.getPreco());
 				stmt.execute();
 				ResultSet rs = stmt.getGeneratedKeys();
 				if(rs.first()) {

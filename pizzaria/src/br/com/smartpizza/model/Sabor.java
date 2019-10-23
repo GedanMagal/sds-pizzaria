@@ -5,6 +5,13 @@ import java.util.List;
 public class Sabor {
 	private int idSabor;
 	private String dsSabor;
+	private double preco;
+	public double getPreco() {
+		return preco;
+	}
+	public void setPreco(double preco) {
+		this.preco = preco;
+	}
 	private List< Ingrediente> ingredientes;
 	 
 	
@@ -14,16 +21,13 @@ public class Sabor {
 	public void setIngredientes(List<Ingrediente> ingredientes) {
 		this.ingredientes = ingredientes;
 	}
-	public Sabor(int idSabor, String dsSabor, List<Ingrediente> ingredientes) {
+	
+	public Sabor(int idSabor, String dsSabor, double preco, List<Ingrediente> ingredientes) {
 		super();
 		this.idSabor = idSabor;
 		this.dsSabor = dsSabor;
+		this.preco = preco;
 		this.ingredientes = ingredientes;
-	}
-	public Sabor(int idSabor, String dsSabor) {
-		super();
-		this.idSabor = idSabor;
-		this.dsSabor = dsSabor;
 	}
 	public Sabor() {}
 	public int getIdSabor() {

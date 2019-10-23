@@ -69,16 +69,12 @@ public class FuncFilter implements Filter {
 				retorno = true;
 			}
 			
-			if (uri != null && uri.endsWith("admin")
+			if (uri != null && uri.endsWith("admin")||(uri != null && uri.endsWith("adminis"))
 					&& (httpRequest.getParameter("acao") != null
 					&& httpRequest.getParameter("acao").equals("loginUser"))) {
 				retorno = true;
 			}
-			if (uri != null && uri.endsWith("adminis")
-					&& (httpRequest.getParameter("acao") != null
-					&& httpRequest.getParameter("acao").equals("loginUser"))) {
-				retorno = true;
-			}
+			
 		}
 		return retorno;
 	}
