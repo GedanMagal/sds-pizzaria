@@ -7,7 +7,11 @@ public class MontaProduto implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		String proximo = "";
 		
+			String tamanho = request.getParameter("tamnho");
+			String nomeprodudo = "pizza";
+			
 		return null;
 	}
 

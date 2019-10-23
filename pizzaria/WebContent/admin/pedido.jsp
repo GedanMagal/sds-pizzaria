@@ -26,14 +26,21 @@
 
 				<h4>Pedido</h4>
 				<div class="input-field col s3 dsblock">
+				<select name="tamanho">
+						<option value="0" disabled selected>Escolha o Tamanho</option>
+						<option value="Broto">Broto</option>
+						<option value="8 Pedacos">8 Pedaços</option>
+						
+					</select>
 					<select id="select" onchange="addSabores()" name="quantidadeSabor">
-						<option value="0" disabled selected>Escolha</option>
+						<option value="0" disabled selected>Qtd sabores</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
 					</select>
-
+					
 				</div>
+				
 				<div id="add" class="input-field col s3 dsnone">
 
 					<select id="select" name="sabor1" data-sabor="ing" class="sabores">

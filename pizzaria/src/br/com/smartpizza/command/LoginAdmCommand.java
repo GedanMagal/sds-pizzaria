@@ -43,7 +43,7 @@ public class LoginAdmCommand implements Command{
 				Usuario us = userDAO.consultarUsuario(user);
 					if(us!=null) {	
 						if(us.getGpUs().equals("Admin")) {
-							proximo = "home-admin.jsp";
+							proximo = "admin?acao=listarClientes";
 						}else {
 							request.setAttribute("msgErro", "usuario sem permissão!");
 						}
