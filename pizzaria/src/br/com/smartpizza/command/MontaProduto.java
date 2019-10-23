@@ -40,11 +40,10 @@ public class MontaProduto implements Command {
 			List<Sabor> ListaSabores = new ArrayList<Sabor>();
 			for (String sabor: sab ) {
 				Sabor s = new Sabor();
-				s.setDsSabor(sabor);
-				s.setPreco(Double.parseDouble(valor));
+				s.setIdSabor(Integer.parseInt(sabor));
 				ListaSabores.add(s);
 			}
-			
+			prod.setSabor(ListaSabores);
 			produtoDAO.cadastrarProduto(prod);
 		
 		return proximo;
