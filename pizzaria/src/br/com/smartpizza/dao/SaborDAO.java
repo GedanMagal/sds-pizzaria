@@ -73,7 +73,7 @@ public class SaborDAO {
 				sabor.setDsSabor(rs.getString("DS_SABOR"));
 				
 				listaSabor.add(sabor);
-				System.out.println(sabor.getIdSabor());
+				
 			}
 				
 				} catch (ClassNotFoundException | SQLException e) {

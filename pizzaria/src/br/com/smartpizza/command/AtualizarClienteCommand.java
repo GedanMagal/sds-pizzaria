@@ -58,7 +58,7 @@ public class AtualizarClienteCommand implements Command {
 			
 			p.setUsuario(usuar);
 		
-			System.out.println(idEstado);
+			
 			List<Endereco> listEndereco = new ArrayList<Endereco>();
 		
 		for (String end: logradouro) {

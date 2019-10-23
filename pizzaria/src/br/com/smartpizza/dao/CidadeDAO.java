@@ -83,7 +83,7 @@ public class CidadeDAO {
 				idCidade = rs.getInt(1);
 			}
 			
-			System.out.println(idCidade);
+			
 		} catch (SQLException | ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

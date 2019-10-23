@@ -90,8 +90,6 @@ public class CadastrarClienteCommand implements Command {
 		}
 	
 
-	System.out.println("ok servlet funciona");
-		
 		
 		return proximo;
 	}
