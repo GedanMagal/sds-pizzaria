@@ -239,6 +239,7 @@ table th:last-of-type{
 .ds-none{
 	display: none;
 }
+
 @media (min-width: 375) .side-content {
 	width: 100%;
 	

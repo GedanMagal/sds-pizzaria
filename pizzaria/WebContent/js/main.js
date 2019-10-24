@@ -62,6 +62,13 @@ function carregaIng() {
  function flip() {
 	 document.querySelector("#flip-container").classList.toggle("flip")
 }
+ 
+ function displaycadastro() {
+	let tipo = document.getElementbyId("tipo").value;
+	if(tipo==="1"){
+		alert("pizza")
+	}
+}
 
 
 

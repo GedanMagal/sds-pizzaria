@@ -65,7 +65,7 @@ function carregaIng() {
 	 document.querySelector("#flip-container").classList.toggle("flip")
 }
  
- let increment = 1;
+var increment = 1;
 
 function ingredientes() {	
 	
@@ -92,3 +92,20 @@ function ingredientes() {
 	});
 }
 
+
+function displaycadastro() {
+	let tipo = document.getElementById("tipo").value;
+	let form1 = document.getElementById("form1");
+	let form2 = document.getElementById("form2");
+	if(tipo==='1'){
+		form1.classList.add("blocks");
+		form1.classList.remove("none");
+		form2.classList.add("none");
+		form2.classList.remove("blocks");
+	}else{
+		form1.classList.add("none");
+		form1.classList.remove("blocks");
+		form2.classList.add("blocks");
+		form2.classList.add("none");
+	}
+}

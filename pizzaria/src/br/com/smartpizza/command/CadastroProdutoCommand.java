@@ -18,13 +18,13 @@ public class CadastroProdutoCommand implements Command{
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		 this.produtoDAO = new ProdutoDAO();
 		String proximo = "cadastrar-produto.jsp";
-		
-		String nomeProd = request.getParameter("descricao");
 		String tipo = request.getParameter("tipo");
+		if(tipo.equals("pizza")) {
+		String nomeProd = request.getParameter("descricao");
+		
 		String tamanho = request.getParameter("tamanho");
 		String valor = request.getParameter("valor");
 		String quantidade = request.getParameter("quantidade");
-		
 		String[] sab =  request.getParameterValues("sabor");
 		Produto prod = new Produto();
 		prod.setNomeProduto(nomeProd);
@@ -45,6 +45,7 @@ public class CadastroProdutoCommand implements Command{
 		}
 		
 		produtoDAO.cadastrarProduto(prod);
+		}
 		proximo = "admin?acao=listaprodutos";
 		return proximo;
 	}

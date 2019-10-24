@@ -332,6 +332,13 @@ table th:last-of-type {
 	cursor: pointer;
 }
 
+.none{
+	display: none;
+}
+.blocks{
+	display:block;
+}
+
 @media ( min-width : 375) .side-content {
 	width
 	:

@@ -18,36 +18,98 @@
 		<div class="col s9 offset-s6">
 			<h4>Gerenciar Produto</h4>
 		</div>
-		<form action="admin?acao=cadastrarProduto" method="POST">
-		<div class="col s9 offset-s6">
-			<h4>Produto</h4>
-		</div>
-		<div class="row">
-			<div class="input-field col s6">
-				<input type="text" name="descricao" id="descricao" value="${produto != null ? produto.nomeProduto : param.nomeProduto}"> <label
-					class="active" for="descricao">Descrição</label>
-			</div>
-			<div class="input-field col s6">
-			<select name="tipo">
+		<div class="input-field col s6">
+		<div class="input-field col s6">
+		<label class="active" for="tipo">Tipo</label>
+			<select name="tipo" onchange="displaycadastro()" id="tipo">
 				<option value="0">Selecione </option>
 				<c:forEach items="${tiposProdutos}" var="t">
 				<option value="${t.idTipoProduto}">${t.dsTipoProduto} </option>
 				
 				</c:forEach>
 			</select>
-			<label
-					class="active" for="tipo">Tipo</label>
+		</div>
+		<form action="admin?acao=cadastrarProduto" method="POST" class="none" id="form1">
+		<div class="col s9 offset-s6">
+			<h4>Pizza</h4>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<input type="text" name="descricao" id="descricao" value="${produto != null ? produto.nomeProduto : param.nomeProduto}"> <label
+					class="active" for="descricao">Descrição</label>
+			</div>
+			
+			
 			</div>
 
+		
+
+		<div class="row">
+			<div class="input-field col s6">
+				<select name="tamanho">
+				<option value="0">Selecione </option>
+				<option value="Broto ">Broto </option>
+				<option value="8 pedaços ">8 pedaços </option>
+				
+			</select>
+				
+			</div>
+				<div class="input-field col s6">
+				<select name="tipo" onchange="displaycadastro()" id="tipo">
+				<option value="0">Selecione </option>
+				<c:forEach items="${sabores}" var="sab">
+				<option value="${sab.idSabor}">${sab.dsSabor} </option>
+				
+				</c:forEach>
+			</select>
+		</div>
+		<div class="row">
+		<div class="input-field col s6">
+				<input type="text" name="quantidade" id="quantidade"> <label
+					class="active" for="quantidade">Quantidade</label>
+			</div>
+		
+			<div class="input-field col s6">
+				<input type="text" name="valor" id="valor" value="${sab.preco}" > <label
+					class="active" for="valor">Valor</label>
+			</div>
+			</div>
+			</div>
+		<div class="row">
+			<div class="col s3 offset-s6">
+				<button class="btn waves-effect waves-light red" type="submit"
+					name="action">
+					Limpar <i class="material-icons right">clear</i>
+				</button>
+			</div>
+			<div class="col s3">
+				<button class="btn waves-effect waves-light" type="submit"
+					name="action">
+					Salvar <i class="material-icons right">send</i>
+				</button>
+
+			</div>
+		</div>
+		</form>
+		
+	<form action="admin?acao=cadastrarProduto" method="POST" class="none" id="form2">
+		<div class="col s9 offset-s6">
+			<h4>bebida</h4>
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				<input type="text" name="descricao" id="descricao"> <label
+					class="active" for="descricao">Descrição</label>
+			</div>
+	
 		</div>
 
 		<div class="row">
 			<div class="input-field col s6">
 				<select name="tamanho">
 				<option value="0">Selecione </option>
-				<option value="600ML">600ML </option>
-				<option value="2L">2 Litros </option>
-				
+				<option value="600ml">600ml </option>
+				<option value="2 litros">2 litros </option>
 			</select>
 				
 			</div>
@@ -82,6 +144,8 @@
 			</div>
 		</div>
 		</form>
+	
+		
 		<div class="row">
 			<div class="input-field col s6">
 				<input type="text" name="nome" id="nome"> <label
@@ -94,7 +158,7 @@
 				</button>
 			</div>
 		</div>
-
+</div>
 
 		<div class="row">
 			<table  class="striped centered">
@@ -106,6 +170,7 @@
 						<th>Valor</th>
 						<th>estoque</th>
 						<th>tipo</th>
+						<th>ação</th>
 					</tr>
 				</thead>
 
@@ -129,20 +194,24 @@
 								Excluir <i class="material-icons right">delete</i>
 						</a>
 						</td>
+						</tr>
 						</c:forEach>
-					</tr>
+					
 					
 				</tbody>
 			</table>
 		</div>
 
 		
-	
-
 	</div>
 
-	<jsp:include page="imports/footer-admin.jsp" />
 
+	<jsp:include page="imports/footer-admin.jsp" />
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.mask.js"></script>
+	<script type="text/javascript" src="js/getLocation.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 
 
