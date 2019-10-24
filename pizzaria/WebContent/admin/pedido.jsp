@@ -43,7 +43,7 @@
 				
 				<div id="add" class="input-field col s3 dsnone">
 
-					<select id="select" name="sabor1" data-sabor="ing" class="sabores">
+					<select id="select" name="sabor" data-sabor="ing" class="sabores">
 
 						<option value="" disabled selected>Sabor 1</option>
 						<c:forEach items="${sabores}" var="sabor">
@@ -64,7 +64,7 @@
 				</div>
 				<div id="add2" class="input-field col s3 dsnone">
 
-					<select id="select" name="sabor2" data-sabor="ing2"class="sabores">
+					<select id="select" name="sabor" data-sabor="ing2"class="sabores">
 						<option value="" disabled selected>Sabor 1</option>
 						<c:forEach items="${sabores}" var="sabor">
 
@@ -83,7 +83,7 @@
 				</div>
 				<div id="add3" class="input-field col s3 dsnone">
 
-					<select id="select" name="sabor3" data-sabor="ing3" class="sabores">
+					<select id="select" name="sabor" data-sabor="ing3" class="sabores">
 						<option value="" disabled selected>Sabor 1</option>
 						<c:forEach items="${sabores}" var="sabor">
 							<option value="${sabor.idSabor}">${sabor.dsSabor }</option>
@@ -114,10 +114,10 @@
 
 
 	<div class="row col s12 cont">
-		<div class=" input-field col s3 dsblock">
+	
 
 			<h4>Adicione bebidas</h4>
-			<div class="input-field col s3 dsblock"></div>
+		
 			<c:forEach items="${produtos}" var="prod">
 				<div class="card medium sm-card">
 					<div class="card-image waves-effect waves-block waves-light">

@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import br.com.smartpizza.model.Ingrediente;
 import br.com.smartpizza.model.Sabor;
 import br.com.smartpizza.util.ConexaoUtil;
 
@@ -108,5 +108,25 @@ public class SaborDAO {
 		
 		return sabor;
 		}
+	
+	
+	public void cadastrarSabores(List<Sabor> sabores,Integer idProduto) {
+		Connection conn = null;
+		try {
+			conn = ConexaoUtil.getConexao();
+		StringBuilder sql = new StringBuilder();
+		sql.append("INSERT INTO TB_PRODUTO_SABOR (id_produto, id_sabor) VALUES (?,?)");	
+		
+			for(Sabor sabor: sabores) {
+				PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+				stmt.setInt(1,sabor.getIdSabor());
+				stmt.setInt(2,idProduto);
+				stmt.execute();
+			}
+				} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
