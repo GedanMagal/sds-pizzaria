@@ -108,4 +108,5 @@ function displaycadastro() {
 		form2.classList.add("blocks");
 		form2.classList.add("none");
 	}
+	
 }
