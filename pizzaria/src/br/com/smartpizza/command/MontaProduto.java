@@ -22,10 +22,6 @@ public class MontaProduto implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		this.produtoDAO = new ProdutoDAO();
-	
-	
-			
-		
 
 			//int idCliente =  Integer.parseInt(request.getParameter("idCliente"));
 			proximo ="admin?acao=cadastrarSaborPizza";
@@ -55,7 +51,7 @@ public class MontaProduto implements Command {
 			prod.setSabor(ListaSabores);
 			
 			
-			produtoDAO.cadastrarProdutoPizza(prod);
+		 produtoDAO.cadastrarProdutoPizza(prod);
 			
 		
 		return proximo;

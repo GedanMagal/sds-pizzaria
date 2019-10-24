@@ -40,7 +40,7 @@ public class ProdutoDAO {
 			e.printStackTrace();
 		}
 	}
-	public void cadastrarProdutoPizza(Produto produto) {
+	public Integer cadastrarProdutoPizza(Produto produto) {
 		Connection conn = null;
 		
 		Integer idProduto = null;
@@ -71,6 +71,7 @@ public class ProdutoDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return idProduto;
 	}
 	
 	public List<ProdutoDTO> listarProdutospizza(String tipo){
