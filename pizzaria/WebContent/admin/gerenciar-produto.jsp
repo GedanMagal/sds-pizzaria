@@ -22,7 +22,7 @@
 		<div class="input-field col s6">
 		<label class="active" for="tipo">Tipo</label>
 			<select name="tipo" onchange="displaycadastro()" id="tipo">
-				<option value="0">Selecione </option>
+				<option value="0">Tipo produto </option>
 				<c:forEach items="${tiposProdutos}" var="t">
 				<option value="${t.idTipoProduto}">${t.dsTipoProduto} </option>
 				
@@ -55,7 +55,7 @@
 				
 			</div>
 				<div class="input-field col s6">
-				<select name="tipo" onchange="displaycadastro()" id="tipo">
+				<select name="sabores" onchange="displaycadastro()" id="tipo">
 				<option value="0">Selecione </option>
 				<c:forEach items="${sabores}" var="sab">
 				<option value="${sab.idSabor}">${sab.dsSabor} </option>
@@ -63,11 +63,7 @@
 				</c:forEach>
 			</select>
 		</div>
-		<div class="row">
-		<div class="input-field col s6">
-				<input type="text" name="quantidade" id="quantidade"> <label
-					class="active" for="quantidade">Quantidade</label>
-			</div>
+		
 		
 			<div class="input-field col s6">
 				<input type="text" name="valor" id="valor" value="${sab.preco}" > <label
@@ -158,7 +154,6 @@
 				</button>
 			</div>
 		</div>
-</div>
 
 		<div class="row">
 			<table  class="striped centered">

@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.smartpizza.model.Estoque;
 import br.com.smartpizza.util.ConexaoUtil;
@@ -30,6 +32,27 @@ public class EstoqueDAO {
 			e.printStackTrace();
 		}
 		return idEstoque;
-		
-	}
+		}
+	public List<Estoque> cadastroEstoque() {
+		List<Estoque> listaEstoque = new ArrayList<Estoque>();
+		Connection conn = null;
+		Estoque estoque =null;
+		StringBuilder sql =  new StringBuilder();
+		sql.append("SELECT * FROM TB_ESTOQUE");
+		try {
+			conn = ConexaoUtil.getConexao();
+			PreparedStatement stmt = conn.prepareStatement(sql.toString());
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				estoque = new Estoque();
+				estoque.setIdEstoque(rs.getInt("id_estoque"));
+				estoque.setQtdEstoque(rs.getInt("qtd_estoque"));
+				listaEstoque.add(estoque);
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listaEstoque;
+		}
 }

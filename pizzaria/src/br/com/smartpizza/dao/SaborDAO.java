@@ -118,7 +118,7 @@ public class SaborDAO {
 		sql.append("INSERT INTO TB_PRODUTO_SABOR (id_produto, id_sabor) VALUES (?,?)");	
 		
 			for(Sabor sabor: sabores) {
-				PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+				PreparedStatement stmt = conn.prepareStatement(sql.toString());
 				stmt.setInt(1,sabor.getIdSabor());
 				stmt.setInt(2,idProduto);
 				stmt.execute();

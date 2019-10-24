@@ -13,15 +13,13 @@ import br.com.smartpizza.model.Produto;
 import br.com.smartpizza.util.ConexaoUtil;
 
 public class ProdutoDAO {
-	private EstoqueDAO estoqueDAO;
+
 	private SaborDAO saborDAO = new SaborDAO();
 	public void cadastrarProduto(Produto produto) {
 		Connection conn = null;
-		
-		estoqueDAO = new EstoqueDAO();
+	
 		StringBuilder sql =  new StringBuilder();
 		try {
-			Integer idEstoque = estoqueDAO.cadastroEstoque(produto.getEstoque());
 			conn = ConexaoUtil.getConexao();
 			sql.append("INSERT INTO TB_PRODUTO (nm_produto, ds_tamanho, valor_produto, id_estoque, id_tipo_produto) ");
 			sql.append("VALUES(?,?,?,?,?)");
@@ -30,7 +28,7 @@ public class ProdutoDAO {
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getTamanho());
 			stmt.setDouble(3, produto.getValor());
-			stmt.setInt(4, idEstoque);
+			stmt.setInt(4, produto.getEstoque().getIdEstoque());
 			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
 			stmt.execute();
 			
@@ -44,20 +42,20 @@ public class ProdutoDAO {
 	}
 	public void cadastrarProdutoPizza(Produto produto) {
 		Connection conn = null;
-		estoqueDAO = new EstoqueDAO();
+		
 		Integer idProduto = null;
 		StringBuilder sql =  new StringBuilder();
 		try {
-			Integer idEstoque = estoqueDAO.cadastroEstoque(produto.getEstoque());
+			
 			conn = ConexaoUtil.getConexao();
-			sql.append("INSERT INTO TB_PRODUTO (nm_produto, ds_tamanho, valor_produto, id_estoque, id_tipo_produto) ");
-			sql.append("VALUES(?,?,?,?,?)");
+			sql.append("INSERT INTO TB_PRODUTO (nm_produto, ds_tamanho, valor_produto, id_estoque, id_tipo_produto)");
+			sql.append(" VALUES(?,?,?,?,?)");
 	
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getTamanho());
 			stmt.setDouble(3, produto.getValor());
-			stmt.setInt(4, idEstoque);
+			stmt.setInt(4, produto.getEstoque().getIdEstoque());
 			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
 			stmt.execute();
 			ResultSet rs = stmt.getGeneratedKeys();
@@ -85,11 +83,12 @@ public class ProdutoDAO {
 			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO,EST.QTD_ESTOQUE, TIP.DS_TIPO_PRODUTO");
 			sql.append(" FROM TB_PRODUTO PRO INNER JOIN TB_ESTOQUE EST ON PRO.ID_ESTOQUE = EST.ID_ESTOQUE");
 			sql.append("  INNER JOIN TB_TIPO_PRODUTO TIP ON TIP.ID_TIPO_PRODUTO = PRO.ID_TIPO_PRODUTO");
-			sql.append("  WHERE TIP.DS_TIPO_PRODUTO LIKE = ?");
+			sql.append("  WHERE PRO.NM_PRODUTO NOT LIKE ? ");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 			
+					
+					stmt.setString(1, "%"+tipo+"%");
 					ResultSet rs = stmt.executeQuery();
-					rs.getString(tipo);
 					while(rs.next()) {
 				ProdutoDTO p = new ProdutoDTO();
 				p.setIdProduto(rs.getInt("id_produto"));
@@ -141,10 +140,9 @@ public class ProdutoDAO {
 	
 	public void atualizarProduto(Produto produto) {
 		Connection conn = null;
-		estoqueDAO = new EstoqueDAO();
+		
 		StringBuilder sql =  new StringBuilder();
 		try {
-			Integer idEstoque = estoqueDAO.cadastroEstoque(produto.getEstoque());
 			conn = ConexaoUtil.getConexao();
 			sql.append("UPDATE TB_PRODUTO SET nm_produto = ?, ds_tamanho =?, valor_produto = ?, id_estoque ?, id_tipo_produto = ? ");
 			
@@ -152,7 +150,7 @@ public class ProdutoDAO {
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getTamanho());
 			stmt.setDouble(3, produto.getValor());
-			stmt.setInt(4, idEstoque);
+			stmt.setInt(4, produto.getEstoque().getIdEstoque());
 			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
 			stmt.execute();
 			

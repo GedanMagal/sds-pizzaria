@@ -28,8 +28,8 @@ public class MontaProduto implements Command {
 		
 
 			//int idCliente =  Integer.parseInt(request.getParameter("idCliente"));
-			  proximo ="admin?acao=cadastrarSaborPizza";
-			String nomeProd = "pizza +1 sabor";
+			proximo ="admin?acao=cadastrarSaborPizza";
+			String nomeProd = "Personalizada";
 			String tamanho = request.getParameter("tamanho");
 			
 			String[] sab =  request.getParameterValues("sabor");
@@ -38,15 +38,6 @@ public class MontaProduto implements Command {
 			prod.setNomeProduto(nomeProd);
 			prod.setTamanho(tamanho);
 			prod.setValor(0.0);
-			TipoProduto tipoProd = new TipoProduto();
-			tipoProd.setIdTipoProduto(1);
-			tipoProd.setDsTipoProduto("pizza");
-			prod.setTipoProduto(tipoProd);
-			Estoque estoque = new Estoque();
-			
-			prod.setEstoque(estoque);
-			
-			estoque.setQtdEstoque(-1);
 			
 			List<Sabor> ListaSabores = new ArrayList<Sabor>();
 			for (String sabor: sab ) {
@@ -55,6 +46,14 @@ public class MontaProduto implements Command {
 				ListaSabores.add(s);
 			}
 			prod.setSabor(ListaSabores);
+			TipoProduto tipoProd = new TipoProduto();
+			tipoProd.setIdTipoProduto(1);
+			tipoProd.setDsTipoProduto("pizza");
+			prod.setTipoProduto(tipoProd);
+			Estoque estoque = new Estoque();
+			estoque.setIdEstoque(1);
+			estoque.setQtdEstoque(-1);
+			prod.setEstoque(estoque);
 			produtoDAO.cadastrarProdutoPizza(prod);
 			
 		

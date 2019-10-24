@@ -18,35 +18,40 @@ public class CadastroProdutoCommand implements Command{
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		 this.produtoDAO = new ProdutoDAO();
 		String proximo = "cadastrar-produto.jsp";
-		String tipo = request.getParameter("tipo");
-		if(tipo.equals("pizza")) {
-		String nomeProd = request.getParameter("descricao");
-		
-		String tamanho = request.getParameter("tamanho");
-		String valor = request.getParameter("valor");
-		String quantidade = request.getParameter("quantidade");
-		String[] sab =  request.getParameterValues("sabor");
-		Produto prod = new Produto();
-		prod.setNomeProduto(nomeProd);
-		prod.setTamanho(tamanho);
-		prod.setValor(Float.parseFloat(valor));
-		TipoProduto tipoProd = new TipoProduto();
-		prod.setTipoProduto(tipoProd);
-		tipoProd.setIdTipoProduto(Integer.parseInt(tipo));
-		Estoque estoque = new Estoque();
-		prod.setEstoque(estoque);
-		Sabor s = new Sabor();
-		estoque.setQtdEstoque(Integer.parseInt(quantidade));
-		List<Sabor> ListaSabores = new ArrayList<Sabor>();
-		for (String sabor: sab ) {
+		int tipo = Integer.parseInt(request.getParameter("tipo"));
+		System.out.println("ok");
+		if(tipo ==1) {
+			String nomeProd = request.getParameter("descricao");
+			String tamanho = request.getParameter("tamanho");
 			
-			s.setDsSabor(sabor);
-			ListaSabores.add(s);
+			String[] sab =  request.getParameterValues("sabor");
+		
+			Produto prod = new Produto();
+			prod.setNomeProduto(nomeProd);
+			prod.setTamanho(tamanho);
+			prod.setValor(0.0);
+			TipoProduto tipoProd = new TipoProduto();
+			tipoProd.setIdTipoProduto(1);
+			tipoProd.setDsTipoProduto("pizza");
+			prod.setTipoProduto(tipoProd);
+			Estoque estoque = new Estoque();
+			
+			
+			estoque.setIdEstoque(1);
+			estoque.setQtdEstoque(-1);
+			prod.setEstoque(estoque);
+			List<Sabor> ListaSabores = new ArrayList<Sabor>();
+			for (String sabor: sab ) {
+				Sabor s = new Sabor();
+				s.setIdSabor(Integer.parseInt(sabor));
+				ListaSabores.add(s);
+			}
+			prod.setSabor(ListaSabores);
+			produtoDAO.cadastrarProdutoPizza(prod);
+			
+			proximo = "admin?acao=listaprodutos";
 		}
 		
-		produtoDAO.cadastrarProduto(prod);
-		}
-		proximo = "admin?acao=listaprodutos";
 		return proximo;
 	}
 
