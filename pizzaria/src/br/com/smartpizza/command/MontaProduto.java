@@ -38,7 +38,14 @@ public class MontaProduto implements Command {
 			prod.setNomeProduto(nomeProd);
 			prod.setTamanho(tamanho);
 			prod.setValor(0.0);
+			Estoque estoque = new Estoque();
+			estoque.setIdEstoque(1);
 			
+			prod.setEstoque(estoque);
+			TipoProduto tipoProd = new TipoProduto();
+			tipoProd.setIdTipoProduto(1);
+	
+			prod.setTipoProduto(tipoProd);
 			List<Sabor> ListaSabores = new ArrayList<Sabor>();
 			for (String sabor: sab ) {
 				Sabor s = new Sabor();
@@ -46,14 +53,8 @@ public class MontaProduto implements Command {
 				ListaSabores.add(s);
 			}
 			prod.setSabor(ListaSabores);
-			TipoProduto tipoProd = new TipoProduto();
-			tipoProd.setIdTipoProduto(1);
-			tipoProd.setDsTipoProduto("pizza");
-			prod.setTipoProduto(tipoProd);
-			Estoque estoque = new Estoque();
-			estoque.setIdEstoque(1);
-			estoque.setQtdEstoque(-1);
-			prod.setEstoque(estoque);
+			
+			
 			produtoDAO.cadastrarProdutoPizza(prod);
 			
 		

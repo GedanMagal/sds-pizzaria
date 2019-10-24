@@ -119,8 +119,9 @@ public class SaborDAO {
 		
 			for(Sabor sabor: sabores) {
 				PreparedStatement stmt = conn.prepareStatement(sql.toString());
-				stmt.setInt(1,sabor.getIdSabor());
-				stmt.setInt(2,idProduto);
+				
+				stmt.setInt(1,idProduto);
+				stmt.setInt(2,sabor.getIdSabor());
 				stmt.execute();
 			}
 				} catch (ClassNotFoundException | SQLException e) {
