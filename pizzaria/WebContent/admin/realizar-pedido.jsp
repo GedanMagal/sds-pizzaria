@@ -16,7 +16,7 @@
 	
 	<div class="main-container">
 		<div class="col s9 offset-s6">
-			<h4>Gerenciar cliente</h4>
+			<h4>Realizar Pedido</h4>
 		</div>		
 		<div class="row">
 			<div class="input-field col s6">
@@ -60,10 +60,10 @@
 	          	<td> ${p.numero}</td>
 	          	<td> ${p.cep}</td>
 	          	<td> ${p.bairro}</td>
-	          	<td><a href="admin?acao=editarCliente&idCliente=${p.idPessoa}"
+	          	<td> <a href="admin?acao=realizarPedido&idCliente=${p.idPessoa }"
 							class="btn waves-effect waves-light " name="action">
-								 <i class="material-icons right">create</i>
-						</a>	</td>
+								 <i class="material-icons right">local_grocery_store</i>
+						</a></td>
 	          </tr>
 	          	</c:forEach>
 	           

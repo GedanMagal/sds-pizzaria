@@ -49,12 +49,16 @@
 	<li><a class="waves-effect" href="gerenciar-estoque.jsp"> <i
 			class="material-icons">account_balance</i> Gerenciar Estoque
 	</a></li>
+	
+	<li><a class="waves-effect" href="realizar-pedido.jsp"> <i
+			class="material-icons">local_grocery_store</i> Realizar Pedidos
+	</a></li>
 	<li><div class="divider"></div></li>
 	<li><a class="waves-effect" href="admin?acao=listaprodutos"> <i
 			class="material-icons">event_note</i> Gerenciar Produto
 	</a></li>
 	<li><a class="waves-effect" href="admin?acao=cadastrarSaborPizza"> <i
-			class="material-icons">local_pizza</i> gerenciar cardápio
+			class="material-icons">local_pizza</i> Gerenciar cardápio
 	</a></li>
 	
 	<li><div class="divider"></div></li>
@@ -65,6 +69,7 @@
 	<li><a class="waves-effect" href="gerenciar-funcionario.jsp"> <i
 			class="material-icons">assignment_ind</i> Gerenciar Funcionario
 	</a></li>
+	
 </ul>
 
 

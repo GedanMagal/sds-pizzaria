@@ -199,7 +199,7 @@ DEFAULT CHARACTER SET = latin1;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pizza_projeto`.`TB_PAGAMENTO` (
   `ID_PAGAMENTO` INT(11) NOT NULL AUTO_INCREMENT,
-  `DT_HORAPAGGAMENTO` DATETIME(2) NOT NULL,
+  `DT_HORAPAGGAMENTO` DATETIME NOT NULL,
   `ID_FORMA_PAGAMENTO` INT(11) NOT NULL,
   `ID_HISTORICO_CAIXA` INT(11) NOT NULL,
   PRIMARY KEY (`ID_PAGAMENTO`),
@@ -288,6 +288,8 @@ CREATE TABLE IF NOT EXISTS `pizza_projeto`.`TB_INGREDIENTE` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = latin1;
+INSERT INTO `pizza_projeto`.`tb_tipo_produto` (`ID_TIPO_PRODUTO`, `DS_TIPO_PRODUTO`) VALUES ('1', 'pizza');
+INSERT INTO `pizza_projeto`.`tb_tipo_produto` (`ID_TIPO_PRODUTO`, `DS_TIPO_PRODUTO`) VALUES ('2', 'bebida');
 
 
 -- -----------------------------------------------------
