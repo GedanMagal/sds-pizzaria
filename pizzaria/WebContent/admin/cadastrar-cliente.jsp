@@ -31,7 +31,7 @@
 						class="active" for="nome">Nome</label>
 				</div>
 				<div class="input-field col s6">
-					<input type="text" name="sobrenome" id="sobrenome" required="required"> <label
+					<input type="text" name="sobrenome" id="sobrenome" required> <label
 						class="active" for="sobrenome">Sobrenome</label>
 				</div>
 

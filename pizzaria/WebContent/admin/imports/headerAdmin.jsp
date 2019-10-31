@@ -50,7 +50,7 @@
 			class="material-icons">account_balance</i> Gerenciar Estoque
 	</a></li>
 	
-	<li><a class="waves-effect" href="realizar-pedido.jsp"> <i
+	<li><a class="waves-effect" href="admin?acao=realizarPedido"> <i
 			class="material-icons">local_grocery_store</i> Realizar Pedidos
 	</a></li>
 	<li><div class="divider"></div></li>

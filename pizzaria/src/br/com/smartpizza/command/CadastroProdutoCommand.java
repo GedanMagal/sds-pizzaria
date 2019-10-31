@@ -17,28 +17,24 @@ public class CadastroProdutoCommand implements Command{
 	@Override
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		 this.produtoDAO = new ProdutoDAO();
-		String proximo = "cadastrar-produto.jsp";
+		String proximo = "admin?acao=listaprodutos";
 		int tipo = Integer.parseInt(request.getParameter("tipo"));
 		System.out.println("ok");
-		if(tipo ==1) {
+		if(tipo==1) {
 			String nomeProd = request.getParameter("descricao");
 			String tamanho = request.getParameter("tamanho");
-			
-			String[] sab =  request.getParameterValues("sabor");
+			String valor = request.getParameter("valor");
+			String[] sab =  request.getParameterValues("sabores");
 		
 			Produto prod = new Produto();
 			prod.setNomeProduto(nomeProd);
 			prod.setTamanho(tamanho);
-			prod.setValor(0.0);
+			prod.setValor(Float.parseFloat(valor));
 			TipoProduto tipoProd = new TipoProduto();
-			tipoProd.setIdTipoProduto(1);
-			tipoProd.setDsTipoProduto("pizza");
+			tipoProd.setIdTipoProduto(tipo);
 			prod.setTipoProduto(tipoProd);
 			Estoque estoque = new Estoque();
-			
-			
 			estoque.setIdEstoque(1);
-			estoque.setQtdEstoque(-1);
 			prod.setEstoque(estoque);
 			List<Sabor> ListaSabores = new ArrayList<Sabor>();
 			for (String sabor: sab ) {
@@ -47,9 +43,26 @@ public class CadastroProdutoCommand implements Command{
 				ListaSabores.add(s);
 			}
 			prod.setSabor(ListaSabores);
-			produtoDAO.cadastrarProdutoPizza(prod);
+			produtoDAO.cadastrarProduto(prod);
+		}else {
+			String nomeProd = request.getParameter("descricao");
+			String tamanho = request.getParameter("tamanho");
+			String valor = request.getParameter("valor");
+			String[] sab =  request.getParameterValues("sabores");
+			String quantidade = request.getParameter("quantidade");
+			Produto prod = new Produto();
+			prod.setNomeProduto(nomeProd);
+			prod.setTamanho(tamanho);
+			prod.setValor(Float.parseFloat(valor));
+			TipoProduto tipoProd = new TipoProduto();
+			tipoProd.setIdTipoProduto(tipo);
+			prod.setTipoProduto(tipoProd);
+			Estoque estoque = new Estoque();
+			prod.setEstoque(estoque);
+			estoque.setQtdEstoque(Integer.parseInt(quantidade));
 			
-			proximo = "admin?acao=listaprodutos";
+			
+			produtoDAO.cadastrarProdutoBebidas(prod);
 		}
 		
 		return proximo;

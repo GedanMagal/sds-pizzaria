@@ -49,9 +49,8 @@ public class MontaProduto implements Command {
 				ListaSabores.add(s);
 			}
 			prod.setSabor(ListaSabores);
+			produtoDAO.cadastrarProduto(prod);
 			
-			
-		 produtoDAO.cadastrarProdutoPizza(prod);
 			
 		
 		return proximo;

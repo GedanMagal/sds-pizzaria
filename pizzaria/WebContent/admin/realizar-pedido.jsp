@@ -20,68 +20,175 @@
 		</div>		
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="text" name="cliente" id="cliente"> <label
-					class="active" for="nome">Cliente</label>
-			</div>	
+			<select>
+			<option>selecionar</option>
+			<c:forEach items="${pessoas}" var="p">
+				<option ${p.idPessoa }>${p.nome } ${p.sobrenome }</option>
+			</c:forEach>
+			</select>
+				<label class="active" for="nome">Cliente</label>
+			</div>
+			<div id="resultado">
+			
+			</div>
 			<div class="input-field col s6">
+				<form action="admin?acao=pesquisaCliente" method="post">
+	
 				<button class="btn waves-effect waves-light red" type="submit"
 					name="action">
 					Filtrar <i class="material-icons right">search</i>
 				</button>
+				</form>
 			</div>				
 		</div>
 		
+		<div class="main-container">
 		<div class="row">
-		  <table class="striped centered">
-	        <thead >
-	          <tr >
-	              <th align="center">Nome</th>
-	              <th align="center">E-mail</th>
-	              <th align="center">Telefone</th>
-	                  <th align="center">Celular</th>
-	              <th align="center">Endereço</th>
-	              <th align="center">numero</th>
-	                  <th align="center">Cep</th>
-	              <th align="center">bairro</th>
-	              
-	              <th>Ação</th>	              
-	          </tr>
-	        </thead>
-	
-	        <tbody>
-	        <c:forEach items="${pessoas}" var="p">
-	          <tr>
-	          <!-- nm_cliente, sobrenome, ds_email, cli_telefone, cli_celular, ds_logradouro, nm_endereco, nm_cep, ds_bairro -->
-	          	<td> ${p.nome} ${p.sobrenome} </td>
-	          	<td> ${p.email}</td>
-	          	<td> ${p.telefone}</td>
-	          	<td> ${p.celular}</td>
-	          	<td> ${p.endereco}</td>
-	          	<td> ${p.numero}</td>
-	          	<td> ${p.cep}</td>
-	          	<td> ${p.bairro}</td>
-	          	<td> <a href="admin?acao=realizarPedido&idCliente=${p.idPessoa }"
-							class="btn waves-effect waves-light " name="action">
-								 <i class="material-icons right">local_grocery_store</i>
-						</a></td>
-	          </tr>
-	          	</c:forEach>
-	           
-	        </tbody>
-	      </table>
-	       <br>
-	      <div class="fl-right row">
-	      <a href="adminis?acao=listaEstado&param=admin" title="adicionar cliente"  class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+			<div class="img_pizza"></div>
 		</div>
-		</div>
-		
-	</div>
+		<form action="admin?acao=montarpizza" method="post">
+			<div class="row col s12 cont">
 
-	
-	<jsp:include page="imports/footer-admin.jsp" />
+				<h4>Pedido</h4>
+				<div class="input-field col s3 dsblock">
+				<select name="tamanho">
+						<option value="0" disabled selected>Escolha o Tamanho</option>
+						<option value="Broto">Broto</option>
+						<option value="8 Pedacos">8 Pedaços</option>
+						
+					</select>
+					<select id="select" onchange="addSabores()" name="quantidadeSabor">
+						<option value="0" disabled selected>Qtd sabores</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
+					
+				</div>
+				
+				<div id="add" class="input-field col s3 dsnone">
+
+					<select id="select" name="sabor" data-sabor="ing" class="sabores">
+
+						<option value="" disabled selected>Sabor 1</option>
+						<c:forEach items="${sabores}" var="sabor">
+
+							<option value="${sabor.idSabor}">${sabor.dsSabor}</option>
+
+						</c:forEach>
+					</select>
+
+					<div id="ing">
+						<h5>Ingredientes</h5>
+
+						<div class="switch"></div>
+
+					</div>
+
+
+				</div>
+				<div id="add2" class="input-field col s3 dsnone">
+
+					<select id="select" name="sabor" data-sabor="ing2"class="sabores">
+						<option value="" disabled selected>Sabor 1</option>
+						<c:forEach items="${sabores}" var="sabor">
+
+							<option value="${sabor.idSabor}">${sabor.dsSabor }</option>
+						</c:forEach>
+					</select>
+
+					<div id="ing2">
+						<h5>Ingredientes</h5>
+
+						<div class="switch"></div>
+
+					</div>
+
+
+				</div>
+				<div id="add3" class="input-field col s3 dsnone">
+
+					<select id="select" name="sabor" data-sabor="ing3" class="sabores">
+						<option value="" disabled selected>Sabor 1</option>
+						<c:forEach items="${sabores}" var="sabor">
+							<option value="${sabor.idSabor}">${sabor.dsSabor }</option>
+						</c:forEach>
+					</select>
+
+					<div id="ing3">
+						<h5>Ingredientes</h5>
+
+						<div class="switch"></div>
+
+					</div>
+
+					<div class="clear"></div>
+				</div>
+				
+				</div>
+				<input type="submit" value="inserir pizza">
+			</form>
+	       <br>
+	    
+		</div>
+			
+	</div>
+<jsp:include page="imports/footer-admin.jsp" />
+<script>
+		$(document)
+				.ready(
+						function() {
+
+							$('.sabores').on(
+									'change',
+									function(e) {
+
+										carregaIngrediente(
+												e.currentTarget.dataset.sabor,
+												e.currentTarget.value);
+
+									});
+
+							function carregaIngrediente(param, selector) {
+								$
+										.ajax({
+											method : "POST",
+											url : "saborServlet",
+											data : "idSabor=" + selector,
+											statusCode : {
+												404 : function() {
+													alert('pagina não encontrada')
+												},
+												500 : function() {
+													alert('erro no servidor')
+												}
+											},
+											success : function(dados) {
+												$("#" + param).empty();
+												var pDados = dados.split(":");
+
+												for (var i = 0; i < pDados.length - 1; i++) {
+													var codiIngre = pDados[i]
+															.split("-")[0];
+													var dsIngre = pDados[i]
+															.split("-")[1];
+
+													$("#" + param)
+															.append(
+																	"<div class='switch'>"
+																			+ dsIngre
+																			+ "<label><input type='checkbox' value='" + codiIngre +
+									"'checked name='ingredientes'><span class='lever'></span></label></div>");
+
+												}
+
+											}
+
+										});
+							}
+						});
+	</script>
 
 	
 </body>
-
-
 </html>

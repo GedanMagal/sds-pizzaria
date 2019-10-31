@@ -152,61 +152,7 @@
 	</div>
 
 	<jsp:include page="imports/footer-admin.jsp" />
-	<script>
-		$(document)
-				.ready(
-						function() {
-
-							$('.sabores').on(
-									'change',
-									function(e) {
-
-										carregaIngrediente(
-												e.currentTarget.dataset.sabor,
-												e.currentTarget.value);
-
-									});
-
-							function carregaIngrediente(param, selector) {
-								$
-										.ajax({
-											method : "POST",
-											url : "saborServlet",
-											data : "idSabor=" + selector,
-											statusCode : {
-												404 : function() {
-													alert('pagina não encontrada')
-												},
-												500 : function() {
-													alert('erro no servidor')
-												}
-											},
-											success : function(dados) {
-												$("#" + param).empty();
-												var pDados = dados.split(":");
-
-												for (var i = 0; i < pDados.length - 1; i++) {
-													var codiIngre = pDados[i]
-															.split("-")[0];
-													var dsIngre = pDados[i]
-															.split("-")[1];
-
-													$("#" + param)
-															.append(
-																	"<div class='switch'>"
-																			+ dsIngre
-																			+ "<label><input type='checkbox' value='" + codiIngre +
-									"'checked name='ingredientes'><span class='lever'></span></label></div>");
-
-												}
-
-											}
-
-										});
-							}
-						});
-	</script>
-
+	
 
 </body>
 </html>

@@ -15,32 +15,8 @@ import br.com.smartpizza.util.ConexaoUtil;
 public class ProdutoDAO {
 
 	private SaborDAO saborDAO = new SaborDAO();
-	public void cadastrarProduto(Produto produto) {
-		Connection conn = null;
-	
-		StringBuilder sql =  new StringBuilder();
-		try {
-			conn = ConexaoUtil.getConexao();
-			sql.append("INSERT INTO TB_PRODUTO (nm_produto, ds_tamanho, valor_produto, id_estoque, id_tipo_produto) ");
-			sql.append("VALUES(?,?,?,?,?)");
-	
-			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, produto.getNomeProduto());
-			stmt.setString(2, produto.getTamanho());
-			stmt.setDouble(3, produto.getValor());
-			stmt.setInt(4, produto.getEstoque().getIdEstoque());
-			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
-			stmt.execute();
-			
-			conn.close();
-			
-			
-		} catch (SQLException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public Integer cadastrarProdutoPizza(Produto produto) {
+	private EstoqueDAO estoque = new EstoqueDAO();
+	public Integer cadastrarProduto(Produto produto) {
 		Connection conn = null;
 		
 		Integer idProduto = null;
@@ -63,6 +39,38 @@ public class ProdutoDAO {
 				idProduto = rs.getInt(1);
 			}
 			saborDAO.cadastrarSabores(produto.getSabor(), idProduto);
+			
+			conn.close();
+			
+			
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return idProduto;
+	}
+	public Integer cadastrarProdutoBebidas(Produto produto) {
+		Connection conn = null;
+		
+		Integer idProduto = null;
+		StringBuilder sql =  new StringBuilder();
+		try {
+			Integer idEstoque = estoque.cadastroEstoque(produto.getEstoque());
+			conn = ConexaoUtil.getConexao();
+			sql.append("INSERT INTO TB_PRODUTO (nm_produto, ds_tamanho, valor_produto, id_estoque, id_tipo_produto)");
+			sql.append(" VALUES(?,?,?,?,?)");
+	
+			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, produto.getNomeProduto());
+			stmt.setString(2, produto.getTamanho());
+			stmt.setDouble(3, produto.getValor());
+			stmt.setInt(4, idEstoque);
+			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
+			stmt.execute();
+			ResultSet rs = stmt.getGeneratedKeys();
+			if (rs.next()) {
+				idProduto = rs.getInt(1);
+			}
 			
 			conn.close();
 			

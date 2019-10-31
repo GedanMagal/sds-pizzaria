@@ -30,6 +30,7 @@
 			</select>
 		</div>
 		<form action="admin?acao=cadastrarProduto" method="POST" class="none" id="form1">
+		<input type="hidden" name="tipo" value="1">
 		<div class="col s9 offset-s6">
 			<h4>Pizza</h4>
 		</div>
@@ -70,7 +71,7 @@
 					class="active" for="valor">Valor</label>
 			</div>
 			</div>
-			</div>
+			
 		<div class="row">
 			<div class="col s3 offset-s6">
 				<button class="btn waves-effect waves-light red" type="submit"
@@ -89,6 +90,7 @@
 		</form>
 		
 	<form action="admin?acao=cadastrarProduto" method="POST" class="none" id="form2">
+		<input type="hidden" name="tipo" value="2">
 		<div class="col s9 offset-s6">
 			<h4>bebida</h4>
 		</div>
@@ -119,10 +121,7 @@
 				<input type="text" name="quantidade" id="quantidade"> <label
 					class="active" for="quantidade">Quantidade</label>
 			</div>
-			<div class="input-field col s6">
-				<input type="text" name="sabor" id="sabor"> <label
-					class="active" for="sabor">Sabor</label>
-			</div>
+		
 			</div>
 		<div class="row">
 			<div class="col s3 offset-s6">
@@ -199,14 +198,16 @@
 
 		
 	</div>
-
-
-	<jsp:include page="imports/footer-admin.jsp" />
+	<div class="clear"></div>
+</div>
+<div class="clear"></div>
+	
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/jquery.mask.js"></script>
 	<script type="text/javascript" src="js/getLocation.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
+<jsp:include page="imports/footer-admin.jsp" />
 </body>
 
 
