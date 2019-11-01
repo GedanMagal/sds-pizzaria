@@ -89,7 +89,7 @@
 				</div>
 				<div id="add2" class="input-field col s3 dsnone">
 
-					<select id="select" name="sabor" data-sabor="ing2"class="sabores">
+					<select id="select" name="sabor" data-sabor="ing2" class="sabores">
 						<option value="" disabled selected>Sabor 1</option>
 						<c:forEach items="${sabores}" var="sabor">
 
