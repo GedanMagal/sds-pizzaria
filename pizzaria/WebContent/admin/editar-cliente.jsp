@@ -19,7 +19,7 @@
 		</div>
 		<h6>Dados Pessoais</h6>
 		
-		<form method="POST" action="admin?acao=atualizarCliente">  
+		<form method="POST" >  
 		<div class="row">
 			<div class="input-field col s6">
 			<input type="hidden" name="idCliente" value="${pessoa.idPessoa}">
@@ -118,14 +118,24 @@
 		
 			
 		<div class="row">
-			<div class="col s3 offset-s6">
-				<a href="gerenciar-cliente.jsp" class="btn waves-effect waves-light red" 
-						name="action">Cancelar <i class="material-icons right">clear</i>
-				</a>
-			</div>
+<!-- 			<div class="col s3 offset-s6"> -->
+<!-- 				<a href="gerenciar-cliente.jsp" class="btn waves-effect waves-light red"  -->
+<!-- 						name="action">Cancelar <i class="material-icons right">clear</i> -->
+<!-- 				</a> -->
+<!-- 			</div> -->
+			
 			<div class="col s3 offset-s6">
 				<button class="btn waves-effect waves-light" type="submit"
-					name="action">
+					name="action" formaction="admin?acao=listarClientes">
+					Cancelar <i class="material-icons right">clear</i>
+				</button>
+
+			</div>
+			
+			
+			<div class="col s3 offset-s6">
+				<button class="btn waves-effect waves-light" type="submit"
+					name="action" formaction="admin?acao=atualizarCliente">
 					Salvar <i class="material-icons right">check</i>
 				</button>
 
