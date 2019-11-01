@@ -27,34 +27,33 @@ public class CadastrarFuncionarioCommand implements Command {
 	private PessoaDAO dao = new PessoaDAO();
 	private CargoDAO cargoDAO = new CargoDAO();
 	private String proximo;
+
 	@Override
-	public String execute(HttpServletRequest request,HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		 proximo = "adminis?acao=listaEstado&param=adminFun";
-		 try {
-		String nome = request.getParameter("nome");
-		String cpf = request.getParameter("cpf");
-		String sobreNome = request.getParameter("sobrenome");
-		String telefone = request.getParameter("telefone");
+		proximo = "adminis?acao=listaEstado&param=adminFun";
 
-		
-		String email = request.getParameter("email");
-		String senha = request.getParameter("senha");
+		try {
+			String nome = request.getParameter("nome");
+			String cpf = request.getParameter("cpf");
+			String sobreNome = request.getParameter("sobrenome");
+			String telefone = request.getParameter("telefone");
 
-		String[] logradouro = request.getParameterValues("logradouro");
-		String cep = request.getParameter("cep");
-		String bairro = request.getParameter("bairro");
-		String cidade = request.getParameter("cidade");
-		String idEstado = request.getParameter("estado");
-		String referencia = request.getParameter("complemento");
-		String numero = request.getParameter("numero");
-		String dataAdmissao = request.getParameter("dataAdmissao");
-		
-		String status = request.getParameter("status");
+			String email = request.getParameter("email");
+			String senha = request.getParameter("senha");
 
+			String[] logradouro = request.getParameterValues("logradouro");
+			String cep = request.getParameter("cep");
+			String bairro = request.getParameter("bairro");
+			String cidade = request.getParameter("cidade");
+			String idEstado = request.getParameter("estado");
+			String referencia = request.getParameter("complemento");
+			String numero = request.getParameter("numero");
+			String dataAdmissao = request.getParameter("dataAdmissao");
 
-		String descricao = request.getParameter("descricao");
+			String status = request.getParameter("status");
 
+			String descricao = request.getParameter("descricao");
 
 			Funcionario f = new Funcionario();
 			Cidade cid = new Cidade();
@@ -65,9 +64,9 @@ public class CadastrarFuncionarioCommand implements Command {
 			f.setNome(nome);
 			f.setSobrenome(sobreNome);
 			f.setCpf(cpf);
-		
+
 			f.setTelefone(telefone);
-			
+
 			f.setDataAdmissao(dataAdmissao);
 			f.setStatus(Integer.parseInt(status));
 
@@ -87,7 +86,7 @@ public class CadastrarFuncionarioCommand implements Command {
 				endereco.setNumEndereco(numero);
 				endereco.setCep(cep);
 				endereco.setBairro(bairro);
-				
+
 				endereco.setCidade(cid);
 				cid.setIdCidade(Integer.parseInt(cidade));
 
@@ -98,17 +97,17 @@ public class CadastrarFuncionarioCommand implements Command {
 
 			}
 			f.setEndereco(listEndereco);
-			
-			int idCargo = cargoDAO.cadastroCargo(cargo);
-		
-			dao.cadastroFuncionario(f, idCargo);
-			} catch (ClassNotFoundException | SQLException e) {
-			
-			request.setAttribute("msg", "Erroa ao cadastrar funcionario");
-			
-		}
 
-		
+			int idCargo = cargoDAO.cadastroCargo(cargo);
+			dao.cadastroFuncionario(f, idCargo);
+			request.setAttribute("msgSucesso", "Funcionario cadastrado com sucesso!");
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+
+			request.setAttribute("msg", "Erro ao cadastrar funcionario");
+
+		}
 
 		return proximo;
 	}
