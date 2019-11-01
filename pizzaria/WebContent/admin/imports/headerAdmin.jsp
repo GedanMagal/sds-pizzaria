@@ -16,7 +16,9 @@
 <div class="navbar-fixed">
 	<nav>
 		<div class="nav-wrapper">
-			<a href="#" class="brand-logo center">Logo</a>
+			<a href="#" class="brand-logo center">
+			<img src="pp.jpg" alt="logo"/>
+			</a>
 			<ul id="nav-mobile" class="left hide-on-med-and-down">
 				<li><a href="#" data-target="slide-out" class="sidenav-trigger">
 						<i class="material-icons">dehaze</i>

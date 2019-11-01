@@ -131,6 +131,12 @@
 	       <br>
 	    
 		</div>
+		<div>
+		${produto.nomeProduto}
+		${produto.tamanho}
+		
+		
+		</div>
 			
 	</div>
 <jsp:include page="imports/footer-admin.jsp" />

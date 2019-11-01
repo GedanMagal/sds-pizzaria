@@ -15,6 +15,7 @@
 		<jsp:include page="imports/headerAdmin.jsp" />
 	
 	<div class="main-container">
+	<jsp:include page="imports/msg.jsp" />
 		<div class="col s9 offset-s6">
 			<h4>Gerenciar cliente</h4>
 		</div>		

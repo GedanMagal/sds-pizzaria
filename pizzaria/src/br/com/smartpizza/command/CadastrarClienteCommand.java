@@ -21,7 +21,7 @@ public class CadastrarClienteCommand implements Command {
 	@Override
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		
-		String proximo = "cadastrar-cliente.jsp";
+		String proximo = "admin?acao=listarClientes";
 
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");

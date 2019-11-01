@@ -2,7 +2,7 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="iso-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -87,12 +87,6 @@
 						class="active" for="bairro">Bairro.</label>
 				</div>
 				<div class="input-field col s2">
-					<select name="cidade" id="cidade">
-						<option value="0">Selecione</option>
-
-					</select><label class="active" for="cidade">Cidade</label>
-				</div>
-				<div class="input-field col s2">
 					<select name="estado" id="estado" class="Sel">
 						<option value="0">Selecione</option>
 						<c:forEach items="${estados}" var="est">
@@ -100,6 +94,13 @@
 						</c:forEach>
 					</select> <label class="active" for="estado">Estado</label>
 				</div>
+				<div class="input-field col s2">
+					<select name="cidade" id="cidade">
+						<option value="0">Selecione</option>
+
+					</select><label class="active" for="cidade">Cidade</label>
+				</div>
+				
 			</div>
 			<div class="row">
 				<div class="input-field col s6">

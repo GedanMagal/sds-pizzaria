@@ -24,7 +24,7 @@ public class MontaProduto implements Command {
 		this.produtoDAO = new ProdutoDAO();
 
 			//int idCliente =  Integer.parseInt(request.getParameter("idCliente"));
-			proximo ="admin?acao=cadastrarSaborPizza";
+			proximo ="realizar-pedido.jsp";
 			String nomeProd = "Personalizada";
 			String tamanho = request.getParameter("tamanho");
 			
@@ -49,7 +49,7 @@ public class MontaProduto implements Command {
 				ListaSabores.add(s);
 			}
 			prod.setSabor(ListaSabores);
-			produtoDAO.cadastrarProduto(prod);
+			request.setAttribute("produto", prod);
 			
 			
 		
