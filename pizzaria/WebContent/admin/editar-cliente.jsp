@@ -125,7 +125,7 @@
 <!-- 			</div> -->
 			
 			<div class="col s3 offset-s6">
-				<button class="btn waves-effect waves-light" type="submit"
+				<button class="btn waves-effect waves-light red" type="submit"
 					name="action" formaction="admin?acao=listarClientes">
 					Cancelar <i class="material-icons right">clear</i>
 				</button>
