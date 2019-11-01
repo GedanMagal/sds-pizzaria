@@ -120,7 +120,7 @@
 		<div class="row">
 			<div class="col s3 offset-s6">
 				<a href="gerenciar-cliente.jsp" class="btn waves-effect waves-light red" 
-						name="action">Cancelar <i class="material-icons right">add</i>
+						name="action">Cancelar <i class="material-icons right">clear</i>
 				</a>
 			</div>
 			<div class="col s3 offset-s6">
