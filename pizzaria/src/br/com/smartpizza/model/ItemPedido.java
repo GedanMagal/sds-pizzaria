@@ -6,14 +6,24 @@ import java.util.List;
 public class ItemPedido {
 	private long idItemPedido;
 	private int quantidade;
-	private BigDecimal desconto; 
-	private BigDecimal total;
-	private List<Produto> produtos;
-	public List<Produto> getProdutos() {
+	private double desconto; 
+	private double total;
+	private Produto produtos;
+		
+	
+	public ItemPedido(long idItemPedido, int quantidade, double desconto, double total, Produto produtos) {
+		this.idItemPedido = idItemPedido;
+		this.quantidade = quantidade;
+		this.desconto = desconto;
+		this.total = total;
+		this.produtos = produtos;
+	}
+
+	public Produto getProdutos() {
 		return produtos;
 	}
 
-	public void setProdutos(List<Produto> produtos) {
+	public void setProdutos(Produto produtos) {
 		this.produtos = produtos;
 	}
 
@@ -35,19 +45,19 @@ public class ItemPedido {
 		this.quantidade = quantidade;
 	}
 
-	public BigDecimal getDesconto() {
+	public double getDesconto() {
 		return desconto;
 	}
 
-	public void setDesconto(BigDecimal desconto) {
+	public void setDesconto(double desconto) {
 		this.desconto = desconto;
 	}
 
-	public BigDecimal getTotal() {
+	public double getTotal() {
 		return total;
 	}
 
-	public void setTotal(BigDecimal total) {
+	public void setTotal(double total) {
 		this.total = total;
 	}
 	

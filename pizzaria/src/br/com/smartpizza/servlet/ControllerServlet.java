@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.smartpizza.command.AtualizarClienteCommand;
 import br.com.smartpizza.command.CadastrarClienteCommand;
 import br.com.smartpizza.command.CadastrarFuncionarioCommand;
 import br.com.smartpizza.command.CadastrarIngrediente;
@@ -18,17 +19,14 @@ import br.com.smartpizza.command.CadastroProdutoCommand;
 import br.com.smartpizza.command.Command;
 import br.com.smartpizza.command.EditarClienteCommand;
 import br.com.smartpizza.command.EditarProdutoCommand;
-import br.com.smartpizza.command.ListaEstadosCommand;
 import br.com.smartpizza.command.ListarProdutosCommand;
+import br.com.smartpizza.command.LoginAdmCommand;
 import br.com.smartpizza.command.LoginClienteCommand;
 import br.com.smartpizza.command.LogoutCommand;
-import br.com.smartpizza.command.MontaProduto;
-import br.com.smartpizza.command.PedidoCommand;
+import br.com.smartpizza.command.RealizarPedido;
 import br.com.smartpizza.command.SalvarPedido;
 import br.com.smartpizza.command.SalvarSaborCommand;
-import br.com.smartpizza.command.AtualizarClienteCommand;
 import br.com.smartpizza.command.listarCliente;
-import br.com.smartpizza.command.LoginAdmCommand;
 
 
 @WebServlet(urlPatterns = {"/admin/admin", "/client"})
@@ -48,14 +46,10 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("cadastrarSaborPizza", new CadastrarSaboresPizza());
 		comandos.put("SalvarSaborPizza", new SalvarSaborCommand());
 		comandos.put("editarProduto", new EditarProdutoCommand());
-		comandos.put("realizarPedido", new PedidoCommand());
 		comandos.put("logout", new LogoutCommand());
 		comandos.put("cadastarIngrediente", new CadastrarIngrediente());
 		comandos.put("salvarPedido", new SalvarPedido());
-		comandos.put("montarpizza", new MontaProduto());
-		comandos.put("pesquisacliente", new MontaProduto());
-		//comandos.put("listaEstados", new ListaEstadosCommand());
-		
+		comandos.put("realizarPedido", new RealizarPedido());
 		comandos.put("loginUser", new LoginAdmCommand());
 		comandos.put("loginCliente", new LoginClienteCommand());
 	}

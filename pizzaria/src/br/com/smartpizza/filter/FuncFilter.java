@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 public class FuncFilter implements Filter {
 
 	
-	private static final String[] URLS_TO_EXCLUDE = {".css", ".js", ".png", ".jpg", ".gif", "index.jsp","login.jsp"};
+	private static final String[] URLS_TO_EXCLUDE = {".css", ".js", ".png", ".gif", "index.jsp","login.jsp"};
     /**
      * Default constructor. 
      */

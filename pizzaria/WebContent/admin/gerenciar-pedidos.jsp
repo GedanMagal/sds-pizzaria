@@ -60,10 +60,11 @@
 	          	<td> ${p.numero}</td>
 	          	<td> ${p.cep}</td>
 	          	<td> ${p.bairro}</td>
-	          	<td> <a href="admin?acao=realizarPedido&idCliente=${p.idPessoa }"
+	          	<td> <a href="admin?acao=realizarPedido
 							class="btn waves-effect waves-light " name="action">
 								 <i class="material-icons right">local_grocery_store</i>
-						</a></td>
+						</a>
+				</td>
 	          </tr>
 	          	</c:forEach>
 
@@ -71,7 +72,7 @@
 	      </table>
 	       <br>
 	      <div class="fl-right row">
-	      <a href="admin?acao=realizarPedido&idCliente=${p.idPessoa }" title="Adicionar Pedido"  class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+	      <a href="admin?acao=realizarPedido" title="Adicionar Pedido"  class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
 		</div>
 		</div>
 

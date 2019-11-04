@@ -82,7 +82,7 @@ public class ProdutoDAO {
 		return idProduto;
 	}
 	
-	public List<ProdutoDTO> listarProdutospizza(String tipo){
+	public List<ProdutoDTO> listarProdutospizza(String tipo, int id){
 		List<ProdutoDTO> listaProdutos = new ArrayList<ProdutoDTO>();
 		Connection conn = null;
 		
@@ -92,11 +92,13 @@ public class ProdutoDAO {
 			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO,EST.QTD_ESTOQUE, TIP.DS_TIPO_PRODUTO");
 			sql.append(" FROM TB_PRODUTO PRO INNER JOIN TB_ESTOQUE EST ON PRO.ID_ESTOQUE = EST.ID_ESTOQUE");
 			sql.append("  INNER JOIN TB_TIPO_PRODUTO TIP ON TIP.ID_TIPO_PRODUTO = PRO.ID_TIPO_PRODUTO");
-			sql.append("  WHERE PRO.NM_PRODUTO NOT LIKE ? ");
+			sql.append("  WHERE PRO.NM_PRODUTO NOT LIKE ? and TIP.ID_TIPO_PRODUTO = ?");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 			
 					
 					stmt.setString(1, "%"+tipo+"%");
+					stmt.setInt(2, id);
+
 					ResultSet rs = stmt.executeQuery();
 					while(rs.next()) {
 				ProdutoDTO p = new ProdutoDTO();

@@ -25,7 +25,7 @@ public class ListarProdutosCommand implements Command {
 		String proximo = "gerenciar-produto.jsp";
 		String produto = request.getParameter("produto");
 		List<ProdutoDTO> listaProdutos = produtoDAO.listarProdutos();
-		List<ProdutoDTO> listaPizza = produtoDAO.listarProdutospizza("pizza +1 sabor");
+		List<ProdutoDTO> listaPizza = produtoDAO.listarProdutospizza("Personalizada",1);
 		List<Sabor> sabores = saborDAO.listaSAbores();
 
 		request.setAttribute("produtos", listaProdutos);

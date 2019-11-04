@@ -17,21 +17,15 @@ public class ItemPedidoDAO {
 	public void cadastrarItemPedido(ItemPedido itemPedido) {
 		Connection con = null;
 		try {
-			Integer idItemPedido =null;
+			
 			con = ConexaoUtil.getConexao();
 		StringBuilder sql = new StringBuilder();
 		sql.append("INSERT INTO TB_ITEM_PEDIDO(quantidade, desconto, total)");
 		sql.append(" VALUES(?,?,?)");
 		PreparedStatement stmt = con.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 		stmt.setInt(1, itemPedido.getQuantidade());
-		stmt.setBigDecimal(2, itemPedido.getDesconto());
-		stmt.setBigDecimal(3, itemPedido.getTotal());
-		ResultSet rs = stmt.getGeneratedKeys();
-		if(rs.first()) {
-			idItemPedido = rs.getInt(1);
-		}
-		cadastraItemPedidoProduto(itemPedido.getProdutos(),idItemPedido);
-		
+		stmt.setDouble(2, itemPedido.getDesconto());
+		stmt.setDouble(3, itemPedido.getTotal());
 		stmt.close();
 		con.close();
 		} catch (SQLException | ClassNotFoundException e) {

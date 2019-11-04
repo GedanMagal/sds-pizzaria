@@ -83,7 +83,7 @@ public List<Sabor> listaSAbores(){
 	
 	return listaSabor;
 	}
-public Sabor getSabor(Integer idSabor){
+	public Sabor getSabor(Integer idSabor){
 	
 	Connection conn = null;
 	StringBuilder sql = new StringBuilder();
