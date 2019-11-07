@@ -16,7 +16,40 @@ public class PessoaDTO {
 	private String bairro;
 	private String cidade;
 	private String estado;
+	private String gpUsuario;
+	private String descricaoCargo; 
+	private String dataAdmissao;
 	
+	public String getDataAdmissao() {
+		return dataAdmissao;
+	}
+
+
+	public void setDataAdmissao(String dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
+	}
+
+
+	public String getDescricaoCargo() {
+		return descricaoCargo;
+	}
+
+
+	public void setDescricaoCargo(String descricaoCargo) {
+		this.descricaoCargo = descricaoCargo;
+	}
+
+
+	public String getGpUsuario() {
+		return gpUsuario;
+	}
+
+
+	public void setGpUsuario(String gpUsuario) {
+		this.gpUsuario = gpUsuario;
+	}
+
+
 	public Integer getIdEndereco() {
 		return idEndereco;
 	}

@@ -47,10 +47,10 @@ public class LoginAdmCommand implements Command{
 						}else {
 							request.setAttribute("msgErro", "usuario sem permissão!");
 						}
-				pessoaLog = pessoaDAO.getPessoa(user.getId());
+				pessoaLog = pessoaDAO.getFuncionarioUsuario(user.getId());
 				HttpSession session = request.getSession();
-				session.setAttribute("loginUser", user);
-				session.setAttribute("pessoa", pessoaLog);
+				session.setAttribute("loginUser", us);
+				session.setAttribute("id", pessoaLog);
 				session.setMaxInactiveInterval(60*10);
 			}else {
 			proximo = "login.jsp";

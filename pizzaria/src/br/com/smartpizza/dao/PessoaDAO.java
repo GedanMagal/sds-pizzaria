@@ -168,7 +168,44 @@ public class PessoaDAO {
 		}
 		return p;
 	}
+	
+	public PessoaDTO getFuncionarioUsuario(Integer idPessoa) {
+		Connection conn = null;
+		PessoaDTO p = null;
+		try {
+			conn = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT F.ID_FUNCIONARIO, F.NM_FUNCIONARIO, F.NM_CPF, F.DATAADMISSAO, F.TELEFONE, US.US_LOGIN,");
+			sql.append(" US.GP_USUARIO, C.DS_DESCRICAOCARGO FROM TB_FUNCIONARIO F INNER JOIN TB_USUARIO US on US.US_ID = F.US_ID");
+			sql.append(" INNER JOIN TB_CARGO C ON C.ID_CARGO = F.ID_CARGO WHERE US.US_ID = ?");
+			PreparedStatement stmt = conn.prepareStatement(sql.toString());
+			stmt.setInt(1, idPessoa);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.first()) {
+				p = new PessoaDTO();
+				p.setIdPessoa(rs.getInt("ID_FUNCIONARIO"));
+				p.setNome(rs.getString("NM_FUNCIONARIO"));
+				
+				p.setCpf(rs.getString("NM_CPF"));
+				
+				p.setDataAdmissao(rs.getString("DATAADMISSAO"));
+				p.setTelefone(rs.getString("TELEFONE"));
+				p.setEmail(rs.getString("US_LOGIN"));
+				p.setGpUsuario(rs.getString("GP_USUARIO"));
+				p.setDescricaoCargo(rs.getString("DS_DESCRICAOCARGO"));
+			
+			}
+			stmt.close();
+			conn.close();
+			rs.close();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return p;
+	}
 
+	
 	public void atualizarPessoa(Cliente p) throws ClassNotFoundException, SQLException {
 
 		Integer idPessoa = null;

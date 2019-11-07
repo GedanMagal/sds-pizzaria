@@ -1,16 +1,17 @@
 package br.com.smartpizza.model;
 
-import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Pedido {
 	private long idPedido;
 	private String dataPedido;
-	private BigDecimal valorPedido;
-	private BigDecimal valorTroco;
-	private Pagamento pagamento;
-	private ItemPedido itemPadido;
-	private Cliente cliente;
-	private Funcionario funcionario;
+	private double valorPedido;
+	private double valorTroco;
+	private int pagamento;
+	private int idcliente;
+	private int funcionario;
 	public Pedido() {}
 	public long getIdPedido() {
 		return idPedido;
@@ -18,46 +19,45 @@ public class Pedido {
 	public void setIdPedido(long idPedido) {
 		this.idPedido = idPedido;
 	}
+	
+	public void setValorTroco(double valorTroco) {
+		this.valorTroco = valorTroco;
+	}
+	public double getValorPedido() {
+		return valorPedido;
+	}
+	public double getValorTroco() {
+		return valorTroco;
+	}
+	public void setValorPedido(double valorPedido) {
+		this.valorPedido = valorPedido;
+	}
+	public int getPagamento() {
+		return pagamento;
+	}
+	public void setPagamento(int pagamento) {
+		this.pagamento = pagamento;
+	}
+	
+	public int getIdcliente() {
+		return idcliente;
+	}
+	public void setIdcliente(int idcliente) {
+		this.idcliente = idcliente;
+	}
+	public int getFuncionario() {
+		return funcionario;
+	}
+	public void setFuncionario(int funcionario) {
+		this.funcionario = funcionario;
+	}
 	public String getDataPedido() {
 		return dataPedido;
 	}
 	public void setDataPedido(String dataPedido) {
 		this.dataPedido = dataPedido;
 	}
-	public BigDecimal getValorPedido() {
-		return valorPedido;
-	}
-	public void setValorPedido(BigDecimal valorPedido) {
-		this.valorPedido = valorPedido;
-	}
-	public BigDecimal getValorTroco() {
-		return valorTroco;
-	}
-	public void setValorTroco(BigDecimal valorTroco) {
-		this.valorTroco = valorTroco;
-	}
-	public Pagamento getPagamento() {
-		return pagamento;
-	}
-	public void setPagamento(Pagamento pagamento) {
-		this.pagamento = pagamento;
-	}
-	public ItemPedido getItemPadido() {
-		return itemPadido;
-	}
-	public void setItemPadido(ItemPedido itemPadido) {
-		this.itemPadido = itemPadido;
-	}
-	public Cliente getCliente() {
-		return cliente;
-	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	public Funcionario getFuncionario() {
-		return funcionario;
-	}
-	public void setFuncionario(Funcionario funcionario) {
-		this.funcionario = funcionario;
-	}
+	
+	
+	
 }

@@ -311,19 +311,25 @@ table th:last-of-type {
 }
 
 .erroDiv {
-	margin: 30px 25%;
-	font-size: 1.5em;
-	width: 50%;
-	text-align: center;
-	color: red;
+	margin: 30px 15%;
+    font-size: 1.5em;
+    width: 70%;
+    text-align: center;
+    color: black;
+    background: #f29b9b;
+    padding: 10px 31px;
+    border-radius: 10px;
 }
 
 .sucDiv {
-	margin: 30px 25%;
-	font-size: 1.5em;
-	width: 50%;
-	text-align: center;
-	color: green;
+	margin: 30px 15%;
+    font-size: 1.5em;
+    width: 70%;
+    text-align: center;
+    color: black;
+    background: #96f288;
+    padding: 10px 31px;
+    border-radius: 10px;
 }
 
 .green {
