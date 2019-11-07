@@ -19,9 +19,6 @@
 		<jsp:include page="/imports/msg.jsp" />
 		
 			<h4>Realizar Pedido</h4>
-	
-	
-		
 			<form action="montapizza?acao=finalizar" method="post">
 				<div class="row">
 			<div class="input-field col s6">
@@ -38,67 +35,45 @@
 				
 			</div>
 			</div>
-					<div class="row col s12 cont">
+			<div class="row col s12 cont">
 
-					<h4>Pedido</h4>
-					<div class="input-field col s6 dsblock">
+				<h4>Pedido</h4>
+				<div class="input-field col s6 dsblock">
 					<div class="row col s6">
-						
-						
-							<h4>Tradicional</h4>
-							<div class="row col s12">
-							<a class="waves-effect waves-light btn modal-trigger" href="#modal1">1
-								Sabor</a> <a class="waves-effect waves-light btn modal-trigger" href="#modal2"">2 Sabores</a>
-								
-						
-						
-						
-							<h4>Broto</h4>
-							<a class="waves-effect waves-light btn modal-trigger" href="#modal3">1 Sabor</a> 
-							<a class="waves-effect waves-light btn modal-trigger" href="#modal4">2 Sabores</a>
-						
+					<h4>Selecione</h4>
+						<div class="row col s12">
+							<a class="waves-effect waves-light btn modal-trigger" href="#modal1">1 Sabor</a> 
+							<a class="waves-effect waves-light btn modal-trigger" href="#modal2">2 Sabores</a>
 						</div>
-						</div>
-				
 					</div>
-				
-			
-		
-			
-					<div class="col s6 m6">
-						<div class="row">
-      						<div class="card">
+				</div>
+			<div class="col s6 m6">
+					<div class="row">
+						<div class="card">
 							<div class="input-field col s10">
-							<input type="hidden" value="${produto.idProduto}" name="produto">
+								<input type="hidden" value="${produto.idProduto}" name="produto">
 							</div>
 							<div class="input-field col s10">
-							<input type="text" value="${total}" disabled="disabled">
+								<input type="text" value="${total}" disabled="disabled">
 							</div>
-								<div class="input-field col s10">
-							<input type="text" value="${pedido.dataPedido}" disabled="disabled"> 
+							<div class="input-field col s10">
+								<input type="text" value="${pedido.dataPedido}"
+									disabled="disabled">
 							</div>
-								<div class="input-field col s10">
-							<input type="text" value="${pedido.valorPedido}" disabled="disabled"> 
+							<div class="input-field col s10">
+								<input type="text" value="${pedido.valorPedido}"
+									disabled="disabled">
 							</div>
+						</div>
 					</div>
-					</div>
-					</div>
-					</div>
-					
-				<div class="row">
-				<input class="btn waves-effect waves-light" type="submit"name="botao" value="finalizar">
-						
-					</div>
-						
+				</div>
+			</div>
 
-						</form>	
-			
-		
-			
-
-		
-			
-			<div id="dados" class="col s6">
+					<div class="row">
+							<input class="btn waves-effect waves-light" type="submit"name="botao" value="finalizar">
+					</div>
+			</form>	
+		<div id="dados" class="col s6">
 				<c:forEach items="${itens}" var="p">
 					<div class="card sm-card">
 						<div class="card-image waves-effect waves-block waves-light">
@@ -122,15 +97,19 @@
 			<div class="modal-content">
 			<div class="col s12">
 				<div class="col s6">
+				<select name="tamanho">
+					<option value="0">selecionar</option>
+					<option value="tradicional">Tradicional</option>
+					<option value="tradicional">broto</option>
+				</select> <label class="active" for="nome">Tamanho</label>
 					<h4>Sabores</h4>
 					<ul class="collection">
 						<c:forEach items="${prd}" var="produto">
 							<li class="collection-item avatar"><img
-								src="img/pizzaDese.jpg" alt="" class="circle"> <label>
-									<a
-									href="montapizza?acao=adicionarcarrinho&idproduto=${produto.idProduto}"><span>${produto.nomeProduto }</span></a>
+								src="img/pizzaDese.jpg" alt="" class="circle"> <h4>
+									<a href="montapizza?acao=adicionarcarrinho&idproduto=${produto.idProduto}"><span>${produto.nomeProduto }</span></a>
 
-							</label></li>
+							</h4></li>
 						</c:forEach>
 
 					</ul>
@@ -145,78 +124,27 @@
 				<div class="row">
 					<div class="col s12">
 						<div class="col s6">
+							<select name="tamanho">
+								<option value="0">selecionar</option>
+								<option value="tradicional">Tradicional</option>
+								<option value="tradicional">broto</option>
+							</select> <label class="active" for="nome">Tamanho</label>
 							<h4>Sabores</h4>
-							<ul>
+
+							<div id="checkboxes">
+
 								<c:forEach items="${sabores}" var="sabor">
-									<li><label> <input type="radio" name="sabor"
-											value="${sabor.idSabor}"> <span>${sabor.dsSabor }</span>
-									</label></li>
+									<input type="checkbox" name="sabor2" value="${sabor.idSabor}"
+										id="${sabor.idSabor}" />
+
+									<label class="whatever" for="${sabor.idSabor}"> <img
+										src="img/pizzaDese.jpg" alt="" width="50px">
+										${sabor.dsSabor}
+									</label>
 								</c:forEach>
 
-							</ul>
-						</div>
+							</div>
 
-						<div class="col s6">
-							<h4>Sabores</h4>
-							<ul>
-								<c:forEach items="${sabores}" var="sabor">
-									<li><label> <input type="radio" name="sabor"
-											value="${sabor.idSabor}"> <span>${sabor.dsSabor }</span>
-									</label></li>
-								</c:forEach>
-
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-			</div>
-		</div>
-		<div id="modal3" class="modal modal-fixed-footer">
-			<div class="modal-content">
-				<h4>Sabores</h4>
-				<ul>
-					<c:forEach items="${sabores}" var="sabor">
-						<li><label> <input type="radio" name="sabor"
-								value="${sabor.idSabor}"> <span>${sabor.dsSabor }</span>
-						</label></li>
-					</c:forEach>
-
-				</ul>
-			</div>
-			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-			</div>
-		</div>
-
-		<div id="modal4" class="modal modal-fixed-footer">
-			<div class="modal-content">
-				<div class="row">
-					<div class="col s12">
-						<div class="col s6">
-							<h4>Sabores</h4>
-							<ul>
-								<c:forEach items="${sabores}" var="sabor">
-									<li><label> <input type="radio" name="sabor"
-											value="${sabor.idSabor}"> <span>${sabor.dsSabor }</span>
-									</label></li>
-								</c:forEach>
-
-							</ul>
-						</div>
-
-						<div class="col s6">
-							<h4>Sabores</h4>
-							<ul>
-								<c:forEach items="${sabores}" var="sabor">
-									<li><label> <input type="radio" name="sabor"
-											value="${sabor.idSabor}"> <span>${sabor.dsSabor }</span>
-									</label></li>
-								</c:forEach>
-
-							</ul>
 						</div>
 					</div>
 				</div>
@@ -224,11 +152,10 @@
 			<div class="modal-footer">
 				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
 			</div>
-			<div class="clear"></div>
 		</div>
-	<div class="clear"></div>
+		<div class="clear"></div>
+	</div>
 
-</div>
 	<jsp:include page="imports/footer-admin.jsp" />
 	<script>
         $(document).ready(function () {

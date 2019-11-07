@@ -3,6 +3,23 @@
     right: 3%;
 }
 
+.whatever{
+    background-color: red;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+#checkboxes input[type=checkbox]{
+    display: none;
+}
+
+#checkboxes input[type=checkbox]:checked + .whatever{
+  border-left: solid 5px green;
+}
+
+
+
 .main-container {
 	width: 80%;
 	margin-left: 10%;

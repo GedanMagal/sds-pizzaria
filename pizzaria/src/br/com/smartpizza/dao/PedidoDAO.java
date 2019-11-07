@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 import br.com.smartpizza.model.Pedido;
 import br.com.smartpizza.util.ConexaoUtil;
-import br.com.smartpizza.util.Utils;
+
 
 public class PedidoDAO {
 	

@@ -87,14 +87,11 @@ public class MontaProduto extends HttpServlet{
 			System.out.println(subtotal);	
 			break;
 		case "finalizar":
+
 			try {
-					
-				String  pessoa = request.getParameter("pessoa");
+			String  pessoa = request.getParameter("pessoa");
 			String itItem  = request.getParameter("produto");
-			if(pessoa.equals("0")&&itItem.equals("")) {
-				request.setAttribute("msgErro", "cod 2: não foi possivel cadastrar campo cliente vazio!");
-				System.out.println("ok");
-			}else {
+		
 			ProdutoDTO p2 = produtoDAO.getProduto(Integer.parseInt(itItem));
 			Pedido pedido = new Pedido();
 			String data = sdf.format(Calendar.getInstance().getTime());
@@ -119,14 +116,15 @@ public class MontaProduto extends HttpServlet{
 			}
 			
 			listaCarrinho.clear();
-				
-			}
+			proximo = "gerenciar-pedidos.jsp";
+			
 			} catch (ClassNotFoundException | SQLException e) {
 				request.setAttribute("msg", "cod 1: não foi possivel cadastrar!");
+				proximo = "admin?acao=realizarPedido";
 				e.printStackTrace();
 			}
 			
-					
+			
 				
 			break;
 	

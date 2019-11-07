@@ -4,3 +4,18 @@
   margin-left: auto;   
   width: 100%;
 }
+.whatever{
+    background-color: red;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+
+#checkboxes input[type=radio]{
+    display: none;
+}
+
+#checkboxes input[type=radio]:checked + .whatever{
+  border-left: solid 5px green;
+}
+
