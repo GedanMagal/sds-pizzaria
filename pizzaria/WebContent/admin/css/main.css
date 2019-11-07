@@ -18,6 +18,7 @@
   
   border:solid 1px #abedbc; 
   border-left: solid 5px green;
+  background-color: #d4edda;
 }
 
 
@@ -335,7 +336,7 @@ table th:last-of-type {
     width: 70%;
     text-align: center;
     color: black;
-    background: #f29b9b;
+    background: #d4edda;
     padding: 10px 31px;
     border-radius: 10px;
 }
