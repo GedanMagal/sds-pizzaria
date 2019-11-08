@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.smartpizza.command.AdicionaCArrinhoCommand;
 import br.com.smartpizza.command.AtualizarClienteCommand;
 import br.com.smartpizza.command.CadastrarClienteCommand;
 import br.com.smartpizza.command.CadastrarFuncionarioCommand;
@@ -19,6 +20,7 @@ import br.com.smartpizza.command.CadastroProdutoCommand;
 import br.com.smartpizza.command.Command;
 import br.com.smartpizza.command.EditarClienteCommand;
 import br.com.smartpizza.command.EditarProdutoCommand;
+import br.com.smartpizza.command.FinalizarPedidoCommand;
 import br.com.smartpizza.command.ListarProdutosCommand;
 import br.com.smartpizza.command.LoginAdmCommand;
 import br.com.smartpizza.command.LoginClienteCommand;
@@ -52,6 +54,8 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("realizarPedido", new RealizarPedido());
 		comandos.put("loginUser", new LoginAdmCommand());
 		comandos.put("loginCliente", new LoginClienteCommand());
+		comandos.put("adicionarcarrinho", new AdicionaCArrinhoCommand());
+		comandos.put("finalizar", new FinalizarPedidoCommand());
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {

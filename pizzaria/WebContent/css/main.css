@@ -26,20 +26,28 @@
 	margin-right: 10%;
 }
 .erroDiv {
-	margin: 30px 25%;
-	font-size: 1.5em;
-	width: 50%;
-	text-align: center;
-	color: 
+	margin: 30px 15%;
+    font-size: 1.5em;
+    width: 70%;
+    text-align: center;
+    color: #6d1717;
+    background: #efa5a5;
+    padding: 10px 31px;
+    border-radius: 10px;
+    border: solid 1px #6d1717;
 }
 
 .sucDiv {
-	margin: 30px 25%;
-	font-size: 1.5em;
-	width: 50%;
-	text-align: center;
-	color: #d4edda;
-}
+	margin: 30px 15%;
+    font-size: 1.5em;
+    width: 70%;
+    text-align: center;
+    color: #176f0e;
+    background: #d4edda;
+    padding: 10px 31px;
+    border-radius: 10px;
+    border: solid 1px #176f0e;
+	}
 
 .row {
 	margin-bottom: 15px;

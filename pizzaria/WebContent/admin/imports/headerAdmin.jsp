@@ -16,9 +16,11 @@
 <div class="navbar-fixed">
 	<nav>
 		<div class="nav-wrapper">
+			<div class="brand">
 			<a href="#" class="brand-logo center">
-			<img src="pp.jpg" alt="logo"/>
+			<img src="../img/LogoFinal.png" alt="logo"/>
 			</a>
+			</div>
 			<ul id="nav-mobile" class="left hide-on-med-and-down">
 				<li><a href="#" data-target="slide-out" class="sidenav-trigger">
 						<i class="material-icons">dehaze</i>

@@ -299,11 +299,13 @@ table th:last-of-type {
 .logo {
 	width: 20%;
 	margin: 6% 11% 0 40%;
-	background-image: url(../img/logo.png);
+	background-image: url(../img/LogoFinal.png);
 	height: 201px;
 	background-size: 200px 200px;
 	background-position: center;
 	background-repeat: no-repeat;
+	 -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
 .ds-none {
@@ -318,6 +320,14 @@ table th:last-of-type {
 	font-size: 31px;
 	float: right;
 	margin-right: 3px;
+}
+.brand img{
+	width: 100px;
+	
+}
+img { 
+	  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(5px 5px 5px #222);
 }
 
 .btn3 {
@@ -335,10 +345,11 @@ table th:last-of-type {
     font-size: 1.5em;
     width: 70%;
     text-align: center;
-    color: black;
-    background: #d4edda;
+    color: #6d1717;
+    background: #efa5a5;
     padding: 10px 31px;
     border-radius: 10px;
+    border: solid 1px #6d1717;
 }
 
 .sucDiv {
@@ -346,10 +357,11 @@ table th:last-of-type {
     font-size: 1.5em;
     width: 70%;
     text-align: center;
-    color: black;
-    background: #96f288;
+    color: #176f0e;
+    background: #d4edda;
     padding: 10px 31px;
     border-radius: 10px;
+    border: solid 1px #176f0e;
 }
 
 .green {

@@ -19,7 +19,7 @@
 		<jsp:include page="/imports/msg.jsp" />
 		
 			<h4>Realizar Pedido</h4>
-			<form action="montapizza?acao=finalizar" method="post">
+			<form action="admin?acao=finalizar" method="post">
 				<div class="row">
 			<div class="input-field col s6">
 				<select name="pessoa">
@@ -107,7 +107,7 @@
 						<c:forEach items="${prd}" var="produto">
 							<li class="collection-item avatar"><img
 								src="img/pizzaDese.jpg" alt="" class="circle"> <h4>
-									<a href="montapizza?acao=adicionarcarrinho&idproduto=${produto.idProduto}"><span>${produto.nomeProduto }</span></a>
+									<a href="admin?acao=adicionarcarrinho&idproduto=${produto.idProduto}"><span>${produto.nomeProduto }</span></a>
 
 							</h4></li>
 						</c:forEach>
@@ -150,7 +150,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+				<a href="#!" class="modal-close waves-effect waves-green btn-flat">FECHAR</a>
 			</div>
 		</div>
 		<div class="clear"></div>
