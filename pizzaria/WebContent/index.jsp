@@ -27,89 +27,10 @@
 
 	
 	<h1>Promoções</h1>
-	<div class="card small sm-card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/pizza-1.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Mussarela<i class="material-icons right">menu</i></span>
-      <p><a class="waves-effect waves-teal btn-small" href="#">Comprar</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Mussarela<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-      
-      
-    </div>
-    </div>
+	<div id="produtos">
+	
     
-	<div class="card small sm-card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/pizza-1.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Calabresa<i class="material-icons right">menu</i></span>
-      <p><a class="waves-effect waves-light btn-small" href="#">Comprar</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Calabresa<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-    </div>
-    <div class="card small sm-card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/pizza-1.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Atum<i class="material-icons right">menu</i></span>
-      <p><a class="waves-effect waves-light btn-small" href="#">Comprar</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Atum<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-    </div>
-        <div class="card small sm-card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/pizza-1.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">menu</i></span>
-      <p><a class="waves-effect waves-light btn-small" href="#">Comprar</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-    
-    </div>
-    <div class="card small sm-card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="img/pizza-1.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">menu</i></span>
-      <p><a class="waves-effect waves-light btn-small" href="#">Comprar</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-    </div>
-    <div class="card small sm-card">
-    <div class="card-image waves-effect waves-block waves-light">
-    	<img class="activator"src="img/pizza-1.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">menu</i></span>
-      <p><a class="waves-effect waves-light btn-small" href="#">Comprar</a></p>
-     
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-    </div>
+</div>
 
 	<div class="clear"></div>
 	<h1>Bebidas</h1>
@@ -177,6 +98,36 @@
 
 </section>
         <jsp:include page="imports/footer.jsp"/>
-            
+         <script type="text/javascript">
+     
+       
+             $(document).ready(function () {
+            	   $.ajax({
+            		   method:"POST",
+                       url: "index",
+                       data: "acao",
+                       success: function(data){
+                    	 for(i=0;i<data.length;i++){
+                    	 $("#produtos").append("<div class='card small sm-card'>"+
+                    	   "<div class='card-image waves-effect waves-block waves-light'>"+
+                    	      "<img class='activator' src='img/pizzass.png'>"+
+                    	    "</div>"+
+                    	    "<div class='card-content'>"+
+                    	      "<span class='card-title activator grey-text text-darken-4'>"+data[i].nomeProduto+"<i class='material-icons right'>menu</i></span>"+
+                    	      "<p><a class='waves-effect waves-teal btn-small' href='#''>Comprar</a></p>"+
+                    	    "</div>"+
+                    	    "<div class='card-reveal'>"+
+                    	      "<span class='card-title grey-text text-darken-4'>"+data[i].nomeProduto+"<i class='material-icons right'>close</i></span>"+
+                    	      "<p>Here is some more information about this product that is only revealed once clicked on.</p>"+                 	      
+                    	      "</div>"+
+                    	    "</div>");
+                    	    
+
+                    	 }
+                       }
+            	   });
+            	 
+             }); 
+         </script>   
 </body>
 </html>

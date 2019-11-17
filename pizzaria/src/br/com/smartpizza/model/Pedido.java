@@ -9,7 +9,7 @@ public class Pedido {
 	private String dataPedido;
 	private double valorPedido;
 	private double valorTroco;
-	private int pagamento;
+	private Pagamento pagamento;
 	private int idcliente;
 	private int funcionario;
 	public Pedido() {}
@@ -32,10 +32,10 @@ public class Pedido {
 	public void setValorPedido(double valorPedido) {
 		this.valorPedido = valorPedido;
 	}
-	public int getPagamento() {
+	public Pagamento getPagamento() {
 		return pagamento;
 	}
-	public void setPagamento(int pagamento) {
+	public void setPagamento(Pagamento pagamento) {
 		this.pagamento = pagamento;
 	}
 	

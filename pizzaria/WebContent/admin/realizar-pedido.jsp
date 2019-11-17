@@ -19,7 +19,7 @@
 		<jsp:include page="/imports/msg.jsp" />
 		
 			<h4>Realizar Pedido</h4>
-			<form action="admin?acao=finalizar" method="post">
+			<form id="finalizar">
 				<div class="row">
 			<div class="input-field col s6">
 				<select name="pessoa">
@@ -50,15 +50,11 @@
 			<div class="col s6 m6">
 					<div class="row">
 						<div class="card">
+							<div class="input-field col s10 datapedido">
+								<input type="hidden" id="itemproduto" name="produto">
+								</div>
 							<div class="input-field col s10">
-								<input type="hidden" value="${produto.idProduto}" name="produto">
-							</div>
-							<div class="input-field col s10">
-								<input type="text" value="${total}" disabled="disabled">
-							</div>
-							<div class="input-field col s10">
-								<input type="text" value="${pedido.dataPedido}"
-									disabled="disabled">
+								<input type="hidden"  name="datapedido" class="datapedido">
 							</div>
 							<div class="input-field col s10">
 								<input type="text" value="${pedido.valorPedido}"
@@ -66,11 +62,63 @@
 							</div>
 						</div>
 					</div>
+							<div class="row">
+			<div class="card-pagamento">
+
+
+				<div id="flip-container" class="flip-container">
+				<input type="hidden" name="pagamento" value="dinheiro">
+					<div class="flipper">
+						<div class="front" id="front">
+							<a class="waves-effect waves-light btn" id="btn1"
+								onclick="document.querySelector('#flip-container').classList.toggle('hover');">Cartão</a>
+							<!-- Conteï¿½do da frente -->
+							<br>
+							<label>Valor total:</label>
+							<input type="hidden" name="valorPagamento" id="valorPagamento">
+							<div id="total"></div>
+							<label>Troco para</label>
+							<input type="text" name="troco">
+						</div>
+						<div class="back">
+							<a class="waves-effect waves-light btn" id="btn1"
+								onclick="document.querySelector('#flip-container').classList.toggle('hover');">Dinheiro</a>
+							<div class="pay-card">
+								<i class="material-icons">credit_card</i>
+								<label>
+									<input name="cartao" type="radio" value="visa" />
+									<span>visa</span>
+								</label>
+								<i class="material-icons">credit_card</i>
+								<label>
+									<input name="cartao" type="radio" value="master"/>
+									<span>Master</span>
+								</label>
+								<i class="material-icons">credit_card</i>
+								<label>
+									<input name="cartao" type="radio" value="elo" />
+									<span for="elo">Elo</span>
+								</label>
+							</div>
+							<div class="tarja">
+								<h5 align="center" style="color: lime;" >Total: ${total}</h5>
+							</div>
+
+						</div>
+						<div class="clear"></div>
+					</div>
+
+
+				</div>
+				
+
+			</div>
+		</div>
 				</div>
 			</div>
 
 					<div class="row">
-							<input class="btn waves-effect waves-light" type="submit"name="botao" value="finalizar">
+							<input class="btn waves-effect waves-light" type="button"name="botao" value="finalizar" onclick="finalizarpedid()">
 					</div>
 			</form>	
 		<div id="dados" class="col s6">
@@ -96,18 +144,27 @@
 		<div id="modal1" class="modal modal-fixed-footer">
 			<div class="modal-content">
 			<div class="col s12">
+			<div class="row">
 				<div class="col s6">
-				<select name="tamanho">
-					<option value="0">selecionar</option>
-					<option value="tradicional">Tradicional</option>
-					<option value="tradicional">broto</option>
-				</select> <label class="active" for="nome">Tamanho</label>
-					<h4>Sabores</h4>
+					<h4>Tradicionais</h4>
 					<ul class="collection">
 						<c:forEach items="${prd}" var="produto">
 							<li class="collection-item avatar"><img
 								src="img/pizzaDese.jpg" alt="" class="circle"> <h4>
-									<a href="admin?acao=adicionarcarrinho&idproduto=${produto.idProduto}"><span>${produto.nomeProduto }</span></a>
+									<a  href="javascript:void(0);" onclick="addproduto(${produto.idProduto})"><span>${produto.nomeProduto }</span></a>
+
+							</h4></li>
+						</c:forEach>
+
+					</ul>
+				</div>
+				<div class="col s6">
+					<h4>Broto</h4>
+					<ul class="collection">
+						<c:forEach items="${brotos}" var="produto">
+							<li class="collection-item avatar"><img
+								src="img/pizzaDese.jpg" alt="" class="circle"> <h4>
+									<a  href="javascript:void(0);" onclick="addproduto(${produto.idProduto})"><span>${produto.nomeProduto }</span></a>
 
 							</h4></li>
 						</c:forEach>
@@ -116,25 +173,30 @@
 				</div>
 			</div>
 			</div>
+			</div>
 
 
 		</div>
 		<div id="modal2" class="modal modal-fixed-footer">
+		<form id="montarpizza">
 			<div class="modal-content">
+		
 				<div class="row">
+				
 					<div class="col s12">
 						<div class="col s6">
+						
 							<select name="tamanho">
 								<option value="0">selecionar</option>
 								<option value="tradicional">Tradicional</option>
-								<option value="tradicional">broto</option>
+								<option value="broto">broto</option>
 							</select> <label class="active" for="nome">Tamanho</label>
 							<h4>Sabores</h4>
 
 							<div id="checkboxes">
 
 								<c:forEach items="${sabores}" var="sabor">
-									<input type="checkbox" name="sabor2" value="${sabor.idSabor}"
+									<input type="checkbox" name="sabores" value="${sabor.idSabor}"
 										id="${sabor.idSabor}" />
 
 									<label class="whatever" for="${sabor.idSabor}"> <img
@@ -144,13 +206,16 @@
 								</c:forEach>
 
 							</div>
-
 						</div>
 					</div>
+					
+						
 				</div>
 			</div>
+			
 			<div class="modal-footer">
-				<a href="#!" class="modal-close waves-effect waves-green btn-flat">FECHAR</a>
+				<input type="button" onclick="montarPizza()" class="modal-close waves-effect waves-green btn-flat" value="montar"/>
+				</form>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -200,6 +265,62 @@
                         });
                 }
             });
+        
+        function addproduto(idproduto){
+        	 $.ajax({
+        	method: "POST",
+        	url: "carrinho?acao=add",
+        	data: "idproduto="+ idproduto,
+        	success: function(data) {
+				$("#dados").append("<div id='dados' class='col s6'>"
+					+"<div class='card sm-card'>"+
+					"<div class='card-image waves-effect waves-block waves-light'>"+
+						"<img class='activator' src='img/pizzaDese.jpg'>"+
+					"</div>"+
+					"<div class='card-content'>"+
+						"<span class='card-title activator grey-text text-darken-4'>"
+							+data.nome+"<br></span><p></p></div></div></div>");
+				alert("adiconaro ao pedido!");
+				$("#total").html("<h5>"+ data.total+"</h5>");
+				$("#valorPagamento").val(data.total);
+				$("#itemproduto").val(data.idProduto);
+			}
+        	 });
+        }
+        function finalizarpedid() {
+        	 $.ajax({
+             	method: "POST",
+             	url: "carrinho?acao=finalizar",
+             	data: $("#finalizar").serialize(),
+             	success: function(data) {
+     			alert(data.resposta)
+     			$(".datapedido").html("<h5> data do pedido"+data.datapedido+"</h5>");
+     				}
+             	 });
+		}
+        
+        function montarPizza() {
+       	 $.ajax({
+            	method: "POST",
+            	url: "carrinho?acao=montar",
+            	data: $("#montarpizza").serialize(),
+            	success: function(data) {
+            		$("#dados").append("<div id='dados' class='col s6'>"
+        					+"<div class='card sm-card'>"+
+        					"<div class='card-image waves-effect waves-block waves-light'>"+
+        						"<img class='activator' src='img/pizzaDese.jpg'>"+
+        					"</div>"+
+        					"<div class='card-content'>"+
+        						"<span class='card-title activator grey-text text-darken-4'>"
+        							+data.nome+"<br></span><p></p></div></div></div>");
+        				alert("adiconaro ao pedido!");
+        				$("#total").html("<h5>"+ data.total+"</h5>");
+        				$("#valorPagamento").val(data.total);
+        				$("#itemproduto").val(data.idProduto);
+        			
+            	}
+            	 });
+		}
     </script>
 </body>
 </html>

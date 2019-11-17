@@ -6,12 +6,18 @@ import java.util.List;
 public class ItemPedido {
 	private long idItemPedido;
 	private int quantidade;
+	private double desconto;
 	private double total;
 	private int idProduto;
 	private long idPedido;
 	
 	
-
+	public double getDesconto() {
+		return desconto;
+	}
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
+	}
 	public int getIdProduto() {
 		return idProduto;
 	}
@@ -32,7 +38,9 @@ public class ItemPedido {
 		this.idPedido = idPedido;
 	}
 
-	public ItemPedido() {	}
+	public ItemPedido() {	
+		desconto = 0.0;
+	}
 
 	public long getIdItemPedido() {
 		return idItemPedido;
@@ -62,6 +70,15 @@ public class ItemPedido {
 		super();
 		this.idItemPedido = idItemPedido;
 		this.quantidade = quantidade;
+		this.total = total;
+		this.idProduto = idProduto;
+		this.idPedido = idPedido;
+	}
+	public ItemPedido(long idItemPedido, int quantidade, double desconto, double total, int idProduto, long idPedido) {
+		super();
+		this.idItemPedido = idItemPedido;
+		this.quantidade = quantidade;
+		this.desconto = desconto;
 		this.total = total;
 		this.idProduto = idProduto;
 		this.idPedido = idPedido;

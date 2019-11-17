@@ -90,7 +90,7 @@ public List<Sabor> listaSAbores(){
 	Sabor sabor = null;
 	try {
 		conn = ConexaoUtil.getConexao();
-		sql.append("SELECT ID_SABOR, DS_SABOR FROM TB_SABOR ");
+		sql.append("SELECT * FROM TB_SABOR ");
 		sql.append("WHERE id_sabor = ?");
 		PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 		stmt.setInt(1, idSabor);
@@ -99,6 +99,7 @@ public List<Sabor> listaSAbores(){
 			sabor = new Sabor();
 			sabor.setIdSabor(rs.getInt("ID_SABOR"));
 			sabor.setDsSabor(rs.getString("DS_SABOR"));
+			sabor.setPreco(rs.getDouble("VALOR"));
 		}
 			
 			} catch (ClassNotFoundException | SQLException e) {

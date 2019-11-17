@@ -8,7 +8,13 @@ public class Carrinho {
 	private String nomeProduto;
 	private String tamanho;
 	private float valorProduto;
-	
+	private float total;
+	public float getTotal() {
+		return total;
+	}
+	public void setTotal(float total) {
+		this.total = total;
+	}
 	
 	public float getValorProduto() {
 		return valorProduto;
@@ -40,15 +46,17 @@ public class Carrinho {
 	public void setTamanho(String tamanho) {
 		this.tamanho = tamanho;
 	}
-	public Carrinho(int item, int idProduto, String nomeProduto, String tamanho, float valorProduto) {
+
+	 public Carrinho(int item, int idProduto, String nomeProduto, String tamanho, float valorProduto, float total) {
 		super();
 		this.item = item;
 		this.idProduto = idProduto;
 		this.nomeProduto = nomeProduto;
 		this.tamanho = tamanho;
 		this.valorProduto = valorProduto;
+		this.total = total;
 	}
-	 public Carrinho() {
+	public Carrinho() {
 		// TODO Auto-generated constructor stub
 	}
 	

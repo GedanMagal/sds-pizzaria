@@ -24,8 +24,10 @@ public class RealizarPedido implements Command {
 		String proximo = "realizar-pedido.jsp";
 		List<PessoaDTO> pessoas = pessoa.listaPessoas();
 		List<Sabor> sabores = saborDAO.listaSAbores();
-		List<ProdutoDTO> listaProdutos =  produtoDAO.listarProdutospizza("Personalizada",1);
+		List<ProdutoDTO> listaProdutos =  produtoDAO.listarProdutospizza(1);
+		List<ProdutoDTO> listaProdutosbroto =  produtoDAO.listarProdutoPizzaBroto("Personalizada",1, "broto");
 		request.setAttribute("prd", listaProdutos);
+		request.setAttribute("brotos", listaProdutosbroto);
 		request.getSession().setAttribute("sabores", sabores);
 		request.getSession().setAttribute("pessoas", pessoas);
 		return proximo;
