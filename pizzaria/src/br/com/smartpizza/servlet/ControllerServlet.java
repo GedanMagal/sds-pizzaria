@@ -53,7 +53,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("salvarPedido", new SalvarPedido());
 		comandos.put("realizarPedido", new RealizarPedido());
 		comandos.put("loginUser", new LoginAdmCommand());
-		comandos.put("loginCliente", new LoginClienteCommand());
+	
 		
 	}
 	protected void service(HttpServletRequest request, HttpServletResponse response)

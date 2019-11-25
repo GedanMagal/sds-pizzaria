@@ -54,6 +54,7 @@ public class UsuarioDAO {
 			con = ConexaoUtil.getConexao();
 			PreparedStatement stmt = con.prepareStatement(sql.toString());
 			stmt.setString(1, usuario.getLogin());
+
 			stmt.setString(2, usuario.getSenha());
 			ResultSet rs = stmt.executeQuery();
 			if(rs.first()) {

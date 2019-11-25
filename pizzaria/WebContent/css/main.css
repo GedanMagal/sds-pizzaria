@@ -101,6 +101,25 @@ a{text-decoration: none; color: black;}
 	border-radius: 20px;
 		background: #fff;
 }
+
+.side-content-index {
+	float: left;
+	width: 60%;
+	margin: 20px 5%;
+	padding: 4px 60px;
+	border-radius: 20px;
+	background: #fff;
+}
+
+.form-total{
+    width: 28%;
+    background: #fff;
+    float: right;
+    margin-top: -17.5%;
+    margin-right: 5%;
+    border-radius: 23px;
+    padding: 50px;
+}
 .form-log{
 	    width: 80%;
     margin: 5% 10%;

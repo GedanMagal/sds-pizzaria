@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,10 @@
 <body>
 <jsp:include page="imports/header.jsp"/>
 <section class="content background-img">
-    <div class="container side-content">
+<div class="row">
+    <div class="container side-content-index">
 		<h3>carrinho</h3>
-		<div class="row">
+		
 			<table class="table_cart">
 				<tr>
 				<th>Produto</th>
@@ -19,30 +21,32 @@
 				<th>Quantidade</th>
 				<th>acao</th>
 				</tr>
+				<c:forEach items="${carrinho}" var="car">
 				<tr>
-				<td>pizza</td>
-				<td>Mussarela/Calabresa</td>
-				
-				<td><input class="number_form"type="number" name="qtd"></td>
-				<td><a href=""><i class="material-icons icone">remove_circle</i></a></td>
+					<td>${car.nomeProduto}</td>
+					<td>${car.tamanho}</td>
+					<td>${car.quantidade}</td>
 				</tr>
-				<tr>
-				<td>Refrigerante</td>
-				<td>Coca-cola</td>
-				<td><input class="number_form"type="number" name="qtd"></td>
-				<td><a href=""><i class="material-icons icone">remove_circle</i></a></td>
-				</tr>
+				</c:forEach>
 			</table>
 			
 				<div class="row btn_proximo right">
-				<a class="waves-effect waves-light btn" href="pagamento.jsp">Finalizar Pedidoj</a>
+				<a class="waves-effect waves-light btn" href="index?acao=finalizarpedido">Finalizar Pedidoj</a>
 				</div>
-		</div>
+				
 		
-    </div> 
-    <div class="clear"></div> 
-</section>
+		</div>
 
+    
+    <div class="clear"></div> 
+   		
+    </div> 
+    <div class="form-total">
+   		<h2>Total</h2>
+   		<input type="text" value="${totalpagar}" disabled="disabled">
+   		</div>
+</section>
+		
 <jsp:include page="imports/footer.jsp"/>
 </body>
 </html>

@@ -42,7 +42,7 @@
 				<img src="img/office.jpg">
 			</div>
 			<a href="#user"> <img class="circle" src="img/user.png">
-			</a> <a href="#name"> <span class="white-text name">${id.id}</span>
+			</a> <a href="#name"> <span class="white-text name">${id.idPessoa}</span>
 			</a> <a href="#email"><span class="white-text email">${loginUser.login}</span></a>
 		</div>
 	</li>

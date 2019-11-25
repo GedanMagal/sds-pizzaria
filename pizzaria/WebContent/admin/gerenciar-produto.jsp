@@ -48,7 +48,7 @@
 		<div class="row">
 			<div class="input-field col s6">
 				<select name="tamanho">
-				<option value="0">Selecione </option>
+				<option value="0">Tamanho </option>
 				<option value="Broto ">Broto </option>
 				<option value="8 pedaços ">8 pedaços </option>
 				
@@ -57,7 +57,7 @@
 			</div>
 				<div class="input-field col s6">
 				<select name="sabores" onchange="displaycadastro()" id="tipo">
-				<option value="0">Selecione </option>
+				<option value="0">Sabor </option>
 				<c:forEach items="${sabores}" var="sab">
 				<option value="${sab.idSabor}">${sab.dsSabor} </option>
 				

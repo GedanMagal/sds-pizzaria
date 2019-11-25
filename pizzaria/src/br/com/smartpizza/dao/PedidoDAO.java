@@ -21,8 +21,8 @@ public class PedidoDAO {
 			idPagamento = new PagamentoDAO().cadastrarPagamento(pedido.getPagamento());
 			con = ConexaoUtil.getConexao();
 		StringBuilder sql = new StringBuilder();
-		sql.append("INSERT INTO TB_PEDIDO (DATA_PEDIDO,VL_VLAOR_PEDIDO,ID_PAGAMENTO, ID_CLIENTE,ID_FUNCIONARIO)");
-		sql.append(" VALUES(?,?,?,?,?)");
+		sql.append("INSERT INTO TB_PEDIDO (DATA_PEDIDO,VL_VLAOR_PEDIDO,VL_TROCO,ID_PAGAMENTO, ID_CLIENTE,ID_FUNCIONARIO)");
+		sql.append(" VALUES(?,?,?,?,?,?)");
 		PreparedStatement stmt = con.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 		String dia = pedido.getDataPedido().substring(0,2);
 		String mes = pedido.getDataPedido().substring(3,5);
@@ -30,9 +30,10 @@ public class PedidoDAO {
 		String data = ano+"-"+ mes+"-"+dia;
 		stmt.setString(1, data);
 		stmt.setDouble(2, pedido.getValorPedido());
-		stmt.setInt(3, idPagamento);
-		stmt.setInt(4, pedido.getIdcliente());
-		stmt.setInt(5, pedido.getFuncionario());
+		stmt.setDouble(3, pedido.getValorTroco());
+		stmt.setInt(4, idPagamento);
+		stmt.setInt(5, pedido.getIdcliente());
+		stmt.setInt(6, pedido.getFuncionario());
 		stmt.execute();
 		
 		ResultSet rs = stmt.getGeneratedKeys();

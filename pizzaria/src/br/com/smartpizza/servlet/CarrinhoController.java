@@ -96,10 +96,10 @@ public class CarrinhoController extends HttpServlet{
 			request.setAttribute("produto",p);
 			quantidade++;
 			json.addProperty("pessoa", pessoa);
-			json.addProperty("nome", p.getNomeProduto());
+			
 
 			json.addProperty("total", carrinho.getTotal());
-			json.addProperty("nome", p.getNomeProduto());
+			
 
 			json.addProperty("idProduto", p.getIdProduto());
 			json.addProperty("nome", p.getNomeProduto());
@@ -113,15 +113,16 @@ public class CarrinhoController extends HttpServlet{
 		
 			try {
 			String  pessoa = request.getParameter("pessoa");
-			String itItem  = request.getParameter("produto");
+			String[] itItem  = request.getParameterValues("itemproduto");
 			String troco = request.getParameter("troco");
 			String valorPagamento = request.getParameter("valorPagamento");
+			String tamanho = request.getParameter("tamanho");
 			String cartao = request.getParameter("cartao");
 			Pedido pedido = new Pedido();
 			
 			Pagamento pagamento =  new Pagamento();
 			pagamento.setVlPagamento(Double.parseDouble(valorPagamento));
-			
+			pagamento.setTroco(pagamento.getVlPagamento() - pedido.getValorPedido());
 			pedido.setPagamento(pagamento);
 			if(cartao==null||cartao.equals("")) {
 				pagamento.setDsPagamento("dinheiro");
@@ -129,28 +130,35 @@ public class CarrinhoController extends HttpServlet{
 			}else {
 				pagamento.setDsPagamento(cartao);
 			}
-		
-			ProdutoDTO p2 = produtoDAO.getProduto(Integer.parseInt(itItem));
+			
 			
 			String data = sdf.format(Calendar.getInstance().getTime());
 			pedido.setDataPedido(data);
 			pedido.setValorPedido(subtotal);
-			
+			pedido.setValorTroco(pagamento.getTroco());
 			pedido.setFuncionario(pessoaid.getIdPessoa());
 			pedido.setIdcliente(Integer.parseInt(pessoa));
 			
 			System.out.println(idItemPedio);
 			int idpedido = pedidoDAO.cadastrarPedido(pedido);
 			int i=0;
+			List<ItemPedido> listaItens = new ArrayList<ItemPedido>();
 			for (Carrinho lis: listaCarrinho) {
+				for(String p: itItem)
+				{
+					ProdutoDTO p2 = produtoDAO.getProduto(Integer.parseInt(p));
+				
+				
 				ItemPedido ped = new ItemPedido();
 				ped.setIdPedido(idpedido);
 				ped.setQuantidade(item);
 				ped.setIdProduto(p2.getIdProduto());
+				listaItens.add(ped);
 				ped.setTotal(pedido.getValorPedido()* ped.getQuantidade());
 				ItemPedidoDAO idpd = new ItemPedidoDAO();
 				i++;
 				idpd.cadastrarItemPedido(ped);
+				}
 			}
 			json.addProperty("resposta","pedido finalizado!" );
 			json.addProperty("datapedido", pedido.getDataPedido());
@@ -186,9 +194,7 @@ public class CarrinhoController extends HttpServlet{
 			System.out.println(nomePerso);
 			prod.setNomeProduto(nomePerso);
 			prod.setTamanho(tamanho);
-			
-			json.addProperty("resposta", nomePerso );
-			out.print(json.toString());
+		
 			TipoProduto tipoProd = new TipoProduto();
 			tipoProd.setIdTipoProduto(1);
 			prod.setTipoProduto(tipoProd);
@@ -220,12 +226,9 @@ public class CarrinhoController extends HttpServlet{
 			carrinho.setValorProduto((float) prod.getValor());
 			listaCarrinho.add(carrinho);
 			json.addProperty("nome", prod.getNomeProduto());
-
+			json.addProperty("preco", prod.getValor());
 			json.addProperty("total", carrinho.getTotal());
-			json.addProperty("nome", prod.getNomeProduto());
-
 			json.addProperty("idProduto", prod.getIdProduto());
-			json.addProperty("nome", prod.getNomeProduto());
 			out.print(json.toString());
 			break;
 		default:

@@ -105,7 +105,7 @@
             	   $.ajax({
             		   method:"POST",
                        url: "index",
-                       data: "acao",
+                       data: "acao=listar",
                        success: function(data){
                     	 for(i=0;i<data.length;i++){
                     	 $("#produtos").append("<div class='card small sm-card'>"+
@@ -114,7 +114,7 @@
                     	    "</div>"+
                     	    "<div class='card-content'>"+
                     	      "<span class='card-title activator grey-text text-darken-4'>"+data[i].nomeProduto+"<i class='material-icons right'>menu</i></span>"+
-                    	      "<p><a class='waves-effect waves-teal btn-small' href='#''>Comprar</a></p>"+
+                    	      "<p><a class='waves-effect waves-teal btn-small' href='index?acao=add&idproduto="+data[i].idProduto+"'>Comprar</a></p>"+
                     	    "</div>"+
                     	    "<div class='card-reveal'>"+
                     	      "<span class='card-title grey-text text-darken-4'>"+data[i].nomeProduto+"<i class='material-icons right'>close</i></span>"+

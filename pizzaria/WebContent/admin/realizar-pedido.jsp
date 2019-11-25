@@ -117,10 +117,7 @@
 				</div>
 			</div>
 
-					<div class="row">
-							<input class="btn waves-effect waves-light" type="button"name="botao" value="finalizar" onclick="finalizarpedid()">
-					</div>
-			</form>	
+					
 		<div id="dados" class="col s6">
 				<c:forEach items="${itens}" var="p">
 					<div class="card sm-card">
@@ -138,7 +135,10 @@
 					</div>
 				</c:forEach>
 			</div>
-
+			<div class="row">
+							<input class="btn waves-effect waves-light" type="button"name="botao" value="finalizar" onclick="finalizarpedid()">
+					</div>
+			</form>	
 			<div class="clear"></div>
 		
 		<div id="modal1" class="modal modal-fixed-footer">
@@ -273,6 +273,7 @@
         	data: "idproduto="+ idproduto,
         	success: function(data) {
 				$("#dados").append("<div id='dados' class='col s6'>"
+					+"<input type='hidden' name='itemproduto' value="+data.idProduto+" >"
 					+"<div class='card sm-card'>"+
 					"<div class='card-image waves-effect waves-block waves-light'>"+
 						"<img class='activator' src='img/pizzaDese.jpg'>"+
@@ -295,7 +296,11 @@
              	success: function(data) {
      			alert(data.resposta)
      			$(".datapedido").html("<h5> data do pedido"+data.datapedido+"</h5>");
-     				}
+     			$("#dados").empty();
+     			$("#total").html("<h5></h5>");
+				$("#valorPagamento").val("");
+				$("#itemproduto").val("");
+             	}
              	 });
 		}
         
@@ -305,6 +310,7 @@
             	url: "carrinho?acao=montar",
             	data: $("#montarpizza").serialize(),
             	success: function(data) {
+            	
             		$("#dados").append("<div id='dados' class='col s6'>"
         					+"<div class='card sm-card'>"+
         					"<div class='card-image waves-effect waves-block waves-light'>"+
@@ -312,8 +318,9 @@
         					"</div>"+
         					"<div class='card-content'>"+
         						"<span class='card-title activator grey-text text-darken-4'>"
-        							+data.nome+"<br></span><p></p></div></div></div>");
-        				alert("adiconaro ao pedido!");
+        							+data.nome+"<br></span><span class='card-title activator grey-text text-darken-4'>"
+        							+data.preco+"<br></span><p></p></div></div></div>");
+        				console.log(data.nome)
         				$("#total").html("<h5>"+ data.total+"</h5>");
         				$("#valorPagamento").val(data.total);
         				$("#itemproduto").val(data.idProduto);

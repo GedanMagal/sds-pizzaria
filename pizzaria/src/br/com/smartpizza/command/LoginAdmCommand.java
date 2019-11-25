@@ -22,12 +22,13 @@ public class LoginAdmCommand implements Command{
 	@Override
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		this.userBO = new UsuarioBO();
+		this.pessoaLog = new PessoaDTO();
 		// TODO Auto-generated method stub
 		userDAO = new UsuarioDAO();
 		pessoaDAO = new PessoaDAO();
 		
 		String proximo = "login.jsp";
-		
+		HttpSession session = request.getSession();
 		
 			
 			String usuario = request.getParameter("usuario");
@@ -44,14 +45,23 @@ public class LoginAdmCommand implements Command{
 					if(us!=null) {	
 						if(us.getGpUs().equals("Admin")) {
 							proximo = "admin?acao=listarClientes";
+							pessoaLog = pessoaDAO.getFuncionarioUsuario(us.getId());
+							session.setAttribute("loginUser", us);
+							session.setAttribute("id", pessoaLog);
+							session.setMaxInactiveInterval(60*10);
+						}else if(us.getGpUs().equals("Cliente")) {
+							proximo = "index?acao=finalizarpedido";
+							pessoaLog = pessoaDAO.getClienteUsuario(us.getId());
+							session.setAttribute("loginUser", us);
+							session.setAttribute("id", pessoaLog);
+						
+							session.setMaxInactiveInterval(60*10);
 						}else {
 							request.setAttribute("msgErro", "usuario sem permissão!");
 						}
-				pessoaLog = pessoaDAO.getFuncionarioUsuario(user.getId());
-				HttpSession session = request.getSession();
-				session.setAttribute("loginUser", us);
-				session.setAttribute("id", pessoaLog);
-				session.setMaxInactiveInterval(60*10);
+				
+				
+			
 			}else {
 			proximo = "login.jsp";
 			request.setAttribute("msgErro", "falha na autenticação!");

@@ -204,6 +204,37 @@ public class PessoaDAO {
 		}
 		return p;
 	}
+	public PessoaDTO getClienteUsuario(Integer idPessoa) {
+		Connection conn = null;
+		PessoaDTO p = null;
+		try {
+			conn = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT C.ID_CLIENTE, C.NM_CLIENTE, C.NM_CPF, C.SOBRENOME, C.DS_EMAIL, C.CLI_TELEFONE, C.CLI_CELULAR, C.US_ID,");
+			sql.append("	US.GP_USUARIO FROM TB_CLIENTE C INNER JOIN TB_USUARIO US on US.US_ID = C.US_ID WHERE US.US_ID=?");
+			PreparedStatement stmt = conn.prepareStatement(sql.toString());
+			stmt.setInt(1, idPessoa);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.first()) {
+				p = new PessoaDTO();
+				p.setIdPessoa(rs.getInt("ID_CLIENTE"));
+				p.setNome(rs.getString("NM_CLIENTE"));
+				p.setCpf(rs.getString("NM_CPF"));
+				p.setSobrenome(rs.getString("SOBRENOME"));
+				p.setEmail(rs.getString("DS_EMAIL"));
+				p.setGpUsuario(rs.getString("GP_USUARIO"));
+	
+			
+			}
+			stmt.close();
+			conn.close();
+			rs.close();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return p;
+	}
 
 	
 	public void atualizarPessoa(Cliente p) throws ClassNotFoundException, SQLException {

@@ -10,52 +10,30 @@ import br.com.smartpizza.dao.UsuarioDAO;
 import br.com.smartpizza.dto.PessoaDTO;
 import br.com.smartpizza.model.Usuario;
 
-public class LoginClienteCommand implements Command{
+public class LoginClienteCommand implements Command {
 	private UsuarioDAO usuarioDAO;
 	private PessoaDAO pessoaDAO;
-	private PessoaDTO  pessoaLog;
+	private PessoaDTO pessoaLog;
+
 	@Override
-	public String execute(HttpServletRequest request,HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		String proximo = "entrar.jsp";
-		
-		
-		
-			
-			String usuario = request.getParameter("usuario");
-			String senha = request.getParameter("senha");
-			Usuario user = new Usuario();
-			user.setLogin(usuario);
-			user.setSenha(senha);
-			
-			try {		
-				Usuario us = usuarioDAO.consultarUsuario(user);
-			if(us!=null) {
-				if(us.getGpUs().equals("Cliente")) {
-					proximo = "cliente/realizar-pedido.jsp";
-				}else {
-					request.setAttribute("msgErro", "Erro ao acessar esta tela!");
-					proximo = "entrar.jsp";
-				}
-				pessoaLog = pessoaDAO.getPessoa(user.getId());
-				HttpSession session = request.getSession();
-				session.setAttribute("loginUser", user);
-				session.setAttribute("pessoa", pessoaLog);
-				session.setMaxInactiveInterval(60);
-				 
-		}
-		} catch(Exception e) {
+
+		String usuario = request.getParameter("usuario");
+		String senha = request.getParameter("senha");
+		Usuario user = new Usuario();
+		user.setLogin(usuario);
+		user.setSenha(senha);
+
+		try {
+			Usuario us = usuarioDAO.consultarUsuario(user);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			request.setAttribute("msgErro", "Erro ao acessar login!");
-			proximo = "entrar.jsp";
 		}
-		
-		
 		return proximo;
-		
+
 	}
-	
-	
-	
 
 }

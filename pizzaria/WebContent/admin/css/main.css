@@ -88,6 +88,14 @@ a {
 	border-radius: 20px;
 	background: #fff;
 }
+.side-content-index {
+	float: left;
+	width: 80%;
+	margin: 20px 10%;
+	padding: 4px 60px;
+	border-radius: 20px;
+	background: #fff;
+}
 
 .form-log {
 	width: 80%;

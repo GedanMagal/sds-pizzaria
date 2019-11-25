@@ -20,11 +20,12 @@
 		<div class="nav-wrapper main-menu">
 
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="index.jsp">home</a></li>
+				<li><a href="index?acao=index">home</a></li>
 				<li><a href="cardapio.jsp">cardapio</a></li>
 				<li><a href="montaPizza.jsp">Monte seu pedido</a></li>
-				<li><a href="carrinho.jsp"><i class="material-icons">shopping_cart</i></a></li>
-				<li><a href="index.jsp"><b>bem vindo !</b></a></li>
+				<li><a href="index?acao=carrinho"><i class="material-icons">shopping_cart </i></a></li>
+				<li><b>(${quantidade })</b></li>
+				<li><a href="index.jsp"><b>bem vindo ${id.nome}!</b></a></li>
 				<li><a class="waves-effect waves-light btn modal-trigger"
 					href="entrar.jsp">login</a></li>
 					

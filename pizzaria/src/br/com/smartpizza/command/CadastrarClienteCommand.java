@@ -37,7 +37,7 @@ public class CadastrarClienteCommand implements Command {
 		String bairro = request.getParameter("bairro");
 		String cidade = request.getParameter("cidade");
 		String idEstado = request.getParameter("estado");
-		//String referencia = request.getParameter("complemento");
+		String referencia = request.getParameter("complemento");
 		String numero = request.getParameter("numero");
 	
 		

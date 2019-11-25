@@ -24,7 +24,7 @@
 							<!-- Conte�do da frente -->
 							<br>
 							<label>Valor total:</label>
-							<input type="text" value="0.00">
+							<input type="text" value="${totalPagar}">
 							<label>Troco para</label>
 							<input type="text" value="0.00">
 						</div>
