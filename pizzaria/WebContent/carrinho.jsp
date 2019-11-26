@@ -23,6 +23,7 @@
 				</tr>
 				<c:forEach items="${carrinho}" var="car">
 				<tr>
+					
 					<td>${car.nomeProduto}</td>
 					<td>${car.tamanho}</td>
 					<td>${car.quantidade}</td>

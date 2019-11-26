@@ -172,6 +172,7 @@ a {
 }
 
 .back {
+	padding: 21px;
 	width: 401px;
 	background: black;
 	height: 266px;

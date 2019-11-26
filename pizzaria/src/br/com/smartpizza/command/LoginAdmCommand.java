@@ -33,6 +33,7 @@ public class LoginAdmCommand implements Command{
 			
 			String usuario = request.getParameter("usuario");
 			String senha = request.getParameter("senha");
+			
 			Usuario user = new Usuario();
 			user.setLogin(usuario);
 			user.setSenha(senha);
@@ -42,30 +43,16 @@ public class LoginAdmCommand implements Command{
 					request.setAttribute("msgErro", "usuario ou senha inválidos!");
 				}else {
 				Usuario us = userDAO.consultarUsuario(user);
-					if(us!=null) {	
-						if(us.getGpUs().equals("Admin")) {
+					if(us.getGpUs().equals("Admin")) {
 							proximo = "admin?acao=listarClientes";
 							pessoaLog = pessoaDAO.getFuncionarioUsuario(us.getId());
 							session.setAttribute("loginUser", us);
 							session.setAttribute("id", pessoaLog);
 							session.setMaxInactiveInterval(60*10);
-						}else if(us.getGpUs().equals("Cliente")) {
-							proximo = "index?acao=finalizarpedido";
-							pessoaLog = pessoaDAO.getClienteUsuario(us.getId());
-							session.setAttribute("loginUser", us);
-							session.setAttribute("id", pessoaLog);
-						
-							session.setMaxInactiveInterval(60*10);
-						}else {
+					}else {
 							request.setAttribute("msgErro", "usuario sem permissão!");
-						}
+					}
 				
-				
-			
-			}else {
-			proximo = "login.jsp";
-			request.setAttribute("msgErro", "falha na autenticação!");
-			}
 		}			
 	}catch(Exception e) {
 			e.printStackTrace();

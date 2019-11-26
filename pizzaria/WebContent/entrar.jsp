@@ -15,9 +15,9 @@
 		<div class="side-content">
 			<div class="row form-log">
 			<jsp:include page="imports/msg.jsp" />
-				<form class="col s8 " method="post" action="client?acao=loginUser">
+				<form class="col s8 " method="post" action="client?acao=loginCliente">
 					<h3>login</h3>
- 
+ 					<input type="hidden" name="user" value="cliente"> 
 					<div class="row">
 						<div class="input-field col s12">
 							<input type="text" name="usuario" id="emailLogin"> <label
