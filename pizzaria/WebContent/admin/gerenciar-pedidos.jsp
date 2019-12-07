@@ -20,7 +20,7 @@
 		</div>		
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="text" name="cliente" id="cliente"> <label
+				<input type="text" name="nome" id="nome"> <label
 					class="active" for="nome">Cliente</label>
 			</div>	
 			<div class="input-field col s6">
@@ -35,21 +35,18 @@
 		  <table class="striped centered">
 	        <thead >
 	          <tr >
-	              <th align="center">Nome</th>
-	              <th align="center">E-mail</th>
-	              <th align="center">Telefone</th>
-	                  <th align="center">Celular</th>
-	              <th align="center">Endereço</th>
-	              <th align="center">numero</th>
-	                  <th align="center">Cep</th>
-	              <th align="center">bairro</th>
-
+	              <th align="center">id</th>
+	              <th align="center">data</th>
+	              <th align="center">cliente</th>
+	                  <th align="center">quantidade</th>
+	              <th align="center">descProduto</th>
+	              <th align="center">total</th>
 	              <th>Ação</th>	              
 	          </tr>
 	        </thead>
 
-	        <tbody>
-	        <c:forEach items="${pessoas}" var="p">
+	        <tbody id="dados">
+	        
 	          <tr>
 	          <!-- nm_cliente, sobrenome, ds_email, cli_telefone, cli_celular, ds_logradouro, nm_endereco, nm_cep, ds_bairro -->
 	          	<td> ${p.nome} ${p.sobrenome} </td>
@@ -66,8 +63,7 @@
 						</a>
 				</td>
 	          </tr>
-	          	</c:forEach>
-
+	          
 	        </tbody>
 	      </table>
 	       <br>
@@ -83,6 +79,35 @@
 
 
 </body>
+<script type="text/javascript">
+$(document).ready(function () {
+	listar();
+});
 
+function listar(){
+	$.ajax({
+	method:"POST",
+    url: "pedidos",
+    data: "acao=listar",
+    success: function(data){
+    	 $("#dados").empty();
+    	 for(i=0;i<data.length;i++){
+        	 $("#dados").append("<tr>")
+        	 .append("<td>"+data[i].idPedido+"</td>")
+        	 .append("<td>"+data[i].dataPedido+"</td>")
+        	  .append("<td>"+data[i].valorPedido+"</td>")
+        	   .append("<td>"+data[i].nomeCliente+" "+data[i].sobrenome+"</td>")
+        	    .append("<td>"+data[i].tipoPagamento+"</td>")
+        	    .append("<td>"+data[i].valorPagemnto+"</td>")
+        	    .append("<td>"+data[i].vlTroco+"</td>")
+        	    .append("<td>"+data[i].total+"</td>")
+    			.append("<td><a href=admin?acao=editarCliente&idproduto="+data[i].idPedido+" class='btn waves-effect waves-light' name='action'><i class='material-icons right'>create</i></a></td></tr>");
+    			
+    	 }
+  }
+	 });
+}
+
+</script>
 
 </html> 

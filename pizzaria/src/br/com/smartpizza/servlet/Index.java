@@ -74,7 +74,7 @@ public class Index extends HttpServlet {
 			proximo = "index.jsp";
 			item = item + 1;
 			String idProduto = request.getParameter("idproduto");
-			ProdutoDTO p = produtoDAO.getProduto(Integer.parseInt(idProduto));
+			ProdutoDTO p = produtoDAO.getProdutoById(Integer.parseInt(idProduto));
 			carrinho.setItem(item);
 			carrinho.setIdProdutp(Integer.parseInt(idProduto));
 			carrinho.setNomeProduto(p.getNomeProduto());
@@ -93,9 +93,10 @@ public class Index extends HttpServlet {
 			request.setAttribute("carrinho", listaCarrinho);
 			request.setAttribute("totalpagar", totalpagar);
 			request.setAttribute("quantidade", listaCarrinho.size());
-			
+			jsonObject.addProperty("quantidade", listaCarrinho.size());
 			session.setAttribute("carrinho", listaCarrinho);
-			request.getRequestDispatcher(proximo).forward(request, response);
+			out.print(jsonObject.toString());
+			//request.getRequestDispatcher(proximo).forward(request, response);
 			break;
 		case "carrinho":
 			totalpagar = 0.0;
@@ -104,7 +105,7 @@ public class Index extends HttpServlet {
 			request.setAttribute("carrinho", listaCarrinho);	
 			request.setAttribute("quantidade", listaCarrinho.size());
 				for (int i=0;i<listaCarrinho.size();i++) {
-					totalpagar +=listaCarrinho.get(i).getTotal();
+					totalpagar =listaCarrinho.get(i).getTotal();
 				
 				}
 				Cookie qtd = new Cookie("quantidade", listaCarrinho.size()+"");
@@ -114,7 +115,7 @@ public class Index extends HttpServlet {
 				response.addCookie(qtd);
 				response.addCookie(total);
 			request.setAttribute("totalpagar", totalpagar);
-		
+			request.setAttribute("quantidade", listaCarrinho.size());
 			
 			
 			request.getRequestDispatcher(proximo).forward(request, response);
@@ -157,7 +158,7 @@ public class Index extends HttpServlet {
 			request.setAttribute("carrinho", listaCarrinho);	
 			request.setAttribute("quantidade", listaCarrinho.size());
 				for (int i=0;i<listaCarrinho.size();i++) {
-					totalpagar +=listaCarrinho.get(i).getTotal();
+					totalpagar =listaCarrinho.get(i).getTotal();
 				}
 				request.setAttribute("totalpagar", totalpagar);
 				request.getRequestDispatcher(proximo).forward(request, response);
@@ -198,7 +199,7 @@ public class Index extends HttpServlet {
 			 int i=0;
 			 List<ItemPedido> listaItens = new ArrayList<ItemPedido>();
 			 for (Carrinho lc: dados) {
-          		ProdutoDTO p2 = produtoDAO.getProduto(lc.getIdProduto());
+          		ProdutoDTO p2 = produtoDAO.getProdutoById(lc.getIdProduto());
           
           	ItemPedido ped = new ItemPedido();
 			ped.setIdPedido(idpedido);

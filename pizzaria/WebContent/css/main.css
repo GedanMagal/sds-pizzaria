@@ -96,7 +96,7 @@ a{text-decoration: none; color: black;}
 .side-content{
 	float: left;
 	width: 80%;
-	margin: 20px 10%;
+    margin: 6.5% 10%;
 	padding: 4px 60px; 
 	border-radius: 20px;
 		background: #fff;
@@ -105,18 +105,19 @@ a{text-decoration: none; color: black;}
 .side-content-index {
 	float: left;
 	width: 60%;
-	margin: 20px 5%;
+	margin: 20px 0% 15% 10%;
 	padding: 4px 60px;
 	border-radius: 20px;
 	background: #fff;
 }
 
+.page-footer{margin-top: 0%;}
 .form-total{
-    width: 28%;
+    width: 20%;
     background: #fff;
     float: right;
-    margin-top: -17.5%;
-    margin-right: 5%;
+        margin: 20px 5%;
+
     border-radius: 23px;
     padding: 50px;
 }

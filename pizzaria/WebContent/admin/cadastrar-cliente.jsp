@@ -159,13 +159,12 @@
 				  success: function(dados) {
 					  $('select[name=cidade] option').remove();
 					  var pegaDados = dados.split(":");
-						
+					  $('select[name=cidade]').append("<option>selecione</option>")
 						for(var i=0;i < pegaDados.length - 1;i++){
 							var codigoCidade = pegaDados[i].split("-")[0];
 							var nomeCidade = pegaDados[i].split("-")[1];
-							
 							$('select[name=cidade]').append('<option value= "'+codigoCidade+'">'+nomeCidade+'</option>');							
-							
+						console.log(nomeCidade)	
 						}
 						$('select').formSelect();
 

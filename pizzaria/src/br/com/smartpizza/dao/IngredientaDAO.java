@@ -69,12 +69,16 @@ public class IngredientaDAO {
 			StringBuilder sql = new StringBuilder();
 			
 			sql.append("SELECT ING.ID_INGREDIENTES,ING.DS_INGREDIENTES, ING.REQUERIDO, ING.VALOR_INGREDIENTE");
-			sql.append(" FROM TB_INGREDIENTE ING");
-			sql.append(" 	INNER JOIN TB_INGREDIENTE_SABOR INGSABOR"); 
-			sql.append(" 	   ON ING.ID_INGREDIENTES = INGSABOR.ID_INGREDIENTES"); 
-			sql.append(" 	INNER JOIN TB_SABOR SAB");
-			sql.append(" 	   ON SAB.ID_SABOR = INGSABOR.ID_SABOR");
-			sql.append(" WHERE SAB.ID_SABOR = ?");
+			sql.append("			 FROM TB_INGREDIENTE ING"); 
+			sql.append("			 	INNER JOIN TB_INGREDIENTE_SABOR INGSABOR "); 
+			sql.append("			 	   ON ING.ID_INGREDIENTES = INGSABOR.ID_INGREDIENTES "); 
+			sql.append("			 	INNER JOIN TB_SABOR SAB"); 
+			sql.append("					ON SAB.ID_SABOR = INGSABOR.ID_SABOR"); 
+			sql.append("				INNER JOIN TB_PRODUTO_SABOR PS "); 
+			sql.append("					ON PS.ID_SABOR = SAB.ID_SABOR"); 
+			sql.append("				INNER JOIN TB_PRODUTO PRO"); 
+			sql.append("					ON PRO.ID_PRODUTO = PS.ID_PRODUTO"); 
+			sql.append("			 WHERE PRO.ID_PRODUTO = ?");
 	
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 			stmt.setInt(1, idSabor);

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
+
 import br.com.smartpizza.dao.IngredientaDAO;
 import br.com.smartpizza.dao.SaborDAO;
 import br.com.smartpizza.model.Ingrediente;
@@ -20,22 +22,21 @@ public class ListaIngredientes extends HttpServlet {
 	private static final long serialVersionUID = -2907232175023620317L;
 	private SaborDAO saborDAO;
 	private IngredientaDAO ingreDAO;
+	
+	
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.saborDAO = new SaborDAO();
 		this.ingreDAO = new IngredientaDAO();
-		int idSabor = Integer.parseInt(req.getParameter("idSabor"));
-		
+		response.setContentType("application/json");
+		response.setCharacterEncoding("UTF-8");
+		int idSabor = Integer.parseInt(request.getParameter("idSabor"));
+		PrintWriter out = response.getWriter();
+		String resp="";
 		List<Ingrediente> ingredientes = ingreDAO.listIngredienteSabor(idSabor);
-		PrintWriter out = resp.getWriter();
-		StringBuilder sb = new StringBuilder("");
-		if(ingredientes!=null) {
-			for(int i=0;i<ingredientes.size();i++) {
-			sb.append(ingredientes.get(i).getIdIngrediente()+ "-" + ingredientes.get(i).getDsIngrediente()+":");
-		}
-			out.write(sb.toString());
-		}
-		
+		resp = new Gson().toJson(ingredientes);
+		out.print(resp);
+		System.out.println(resp);
 	}
 
 }

@@ -18,4 +18,4 @@
 #checkboxes input[type=radio]:checked + .whatever{
   border-left: solid 5px green;
 }
-
+.page-footer{margin-top: 10%;}

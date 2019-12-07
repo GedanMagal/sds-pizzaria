@@ -21,7 +21,7 @@ public class EditarProdutoCommand implements Command {
 		String proximo  = "gerenciar-produto.jsp";
 		
 		int idProduto = Integer.parseInt(request.getParameter("idProduto"));
-		ProdutoDTO prod = produtoDAO.getProduto(idProduto);
+		ProdutoDTO prod = produtoDAO.getProdutoById(idProduto);
 		request.setAttribute("produto",prod );
 		List<ProdutoDTO> listaProdutos = produtoDAO.listarProdutos();
 		request.setAttribute("produtos", listaProdutos);

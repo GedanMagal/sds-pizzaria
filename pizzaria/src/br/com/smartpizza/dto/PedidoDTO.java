@@ -1,58 +1,81 @@
 package br.com.smartpizza.dto;
 
+import java.util.Date;
+
 public class PedidoDTO {
-
-	private String nomeClient;
-	private String pedidoNome;
-	private String sabor;
-	private String codigo;
-	private String endereco;
-
-	public PedidoDTO(String nomeClient, String pedidoNome, String sabor, String codigo) {
-		this.nomeClient = nomeClient;
-		this.pedidoNome = pedidoNome;
-		this.sabor = sabor;
-		this.codigo = codigo;
+	private int idPedido;
+	private Date dataPedido;
+	private Double valorPedido;
+	private String nomeCliente;
+	private String sobrenome;
+	private String tipoPagamento;
+	private Double valorPagemnto;
+	private Double vlTroco;
+	public int getIdPedido() {
+		return idPedido;
 	}
-
-	public String getEndereco() {
-		return endereco;
+	public void setIdPedido(int idPedido) {
+		this.idPedido = idPedido;
 	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public Date getDataPedido() {
+		return dataPedido;
 	}
-
-	public String getNomeClient() {
-		return nomeClient;
+	public void setDataPedido(Date dataPedido) {
+		this.dataPedido = dataPedido;
 	}
-
-	public void setNomeClient(String nomeClient) {
-		this.nomeClient = nomeClient;
+	public Double getValorPedido() {
+		return valorPedido;
 	}
-
-	public String getPedidoNome() {
-		return pedidoNome;
+	public void setValorPedido(Double valorPedido) {
+		this.valorPedido = valorPedido;
 	}
-
-	public void setPedidoNome(String pedidoNome) {
-		this.pedidoNome = pedidoNome;
+	public String getNomeCliente() {
+		return nomeCliente;
 	}
-
-	public String getSabor() {
-		return sabor;
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
 	}
-
-	public void setSabor(String sabor) {
-		this.sabor = sabor;
+	public String getSobrenome() {
+		return sobrenome;
 	}
-
-	public String getCodigo() {
-		return codigo;
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
 	}
-
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
+	public String getTipoPagamento() {
+		return tipoPagamento;
 	}
+	public void setTipoPagamento(String tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
+	}
+	public Double getValorPagemnto() {
+		return valorPagemnto;
+	}
+	public void setValorPagemnto(Double valorPagemnto) {
+		this.valorPagemnto = valorPagemnto;
+	}
+	public Double getVlTroco() {
+		return vlTroco;
+	}
+	public void setVlTroco(Double vlTroco) {
+		this.vlTroco = vlTroco;
+	}
+	public PedidoDTO() {
+	
+	}
+	public PedidoDTO(int idPedido, Date dataPedido, Double valorPedido, String nomeCliente, String sobrenome,
+			String tipoPagamento, Double valorPagemnto, Double vlTroco) {
+		super();
+		this.idPedido = idPedido;
+		this.dataPedido = dataPedido;
+		this.valorPedido = valorPedido;
+		this.nomeCliente = nomeCliente;
+		this.sobrenome = sobrenome;
+		this.tipoPagamento = tipoPagamento;
+		this.valorPagemnto = valorPagemnto;
+		this.vlTroco = vlTroco;
+	}
+	
+	
+	
 
 }

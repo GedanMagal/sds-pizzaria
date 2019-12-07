@@ -49,7 +49,14 @@ public class LoginAdmCommand implements Command{
 							session.setAttribute("loginUser", us);
 							session.setAttribute("id", pessoaLog);
 							session.setMaxInactiveInterval(60*10);
-					}else {
+					}else if(us.getGpUs().equals("Funcionario")) {
+						proximo = "admin?acao=listarClientes";
+						pessoaLog = pessoaDAO.getFuncionarioUsuario(us.getId());
+						session.setAttribute("loginUser", us);
+						session.setAttribute("id", pessoaLog);
+						session.setMaxInactiveInterval(60*10);
+					}
+					else {
 							request.setAttribute("msgErro", "usuario sem permissão!");
 					}
 				

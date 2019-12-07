@@ -258,7 +258,7 @@
                                         .append(
                                             "<div class='switch'>"
                                             + dsIngre
-                                            + "<label><input type='checkbox' value='" + codiIngre +
+                                            + "<label><input type='checkbox'id='ingr' value='" + codiIngre +
                                             "'checked name='ingredientes'><span class='lever'></span></label></div>");
                                 }
                             }
@@ -280,7 +280,7 @@
 					"</div>"+
 					"<div class='card-content'>"+
 						"<span class='card-title activator grey-text text-darken-4'>"
-							+data.nome+"<br></span><p></p></div></div></div>");
+							+data.nome+"<br>"+data.valor+"</span><p></p></div></div></div>");
 				alert("adiconaro ao pedido!");
 				$("#total").html("<h5>"+ data.total+"</h5>");
 				$("#valorPagamento").val(data.total);
@@ -303,6 +303,8 @@
              	}
              	 });
 		}
+        
+      
         
         function montarPizza() {
        	 $.ajax({

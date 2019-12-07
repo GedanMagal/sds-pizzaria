@@ -7,7 +7,7 @@ import java.util.List;
 public class Funcionario extends Pessoa {
 
 	private String dataAdmissao;
-	private int status;
+	
 	private Cargo cargo;
 	 
 
@@ -16,7 +16,7 @@ public class Funcionario extends Pessoa {
 			List<Endereco> endereco, Usuario usuario, String dataAdmissao, int status, Cargo cargo) {
 		super(id, nome, sobrenome, cpf, telefone, celular, endereco, usuario);
 		this.dataAdmissao = dataAdmissao;
-		this.status = status;
+		
 		this.cargo = cargo;
 	}
 
@@ -42,11 +42,4 @@ public class Funcionario extends Pessoa {
 		this.dataAdmissao = dataAdmissao;
 	}
 
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
 }

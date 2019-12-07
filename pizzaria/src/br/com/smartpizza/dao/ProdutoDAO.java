@@ -90,9 +90,12 @@ public class ProdutoDAO {
 		try {
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO,EST.QTD_ESTOQUE, TIP.DS_TIPO_PRODUTO");
-			sql.append(" FROM TB_PRODUTO PRO INNER JOIN TB_ESTOQUE EST ON PRO.ID_ESTOQUE = EST.ID_ESTOQUE");
-			sql.append("  INNER JOIN TB_TIPO_PRODUTO TIP ON TIP.ID_TIPO_PRODUTO = PRO.ID_TIPO_PRODUTO");
+			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO,EST.QTD_ESTOQUE, TIP.DS_TIPO_PRODUTO, SABOR.DS_SABOR"); 
+			sql.append(" FROM TB_PRODUTO PRO");
+			sql.append(" INNER JOIN TB_PRODUTO_SABOR PS on PS.ID_PRODUTO = PRO.ID_PRODUTO");
+			sql.append("   INNER JOIN TB_SABOR SABOR on SABOR.ID_SABOR = PS.ID_SABOR");
+			sql.append("	INNER JOIN TB_ESTOQUE EST ON PRO.ID_ESTOQUE = EST.ID_ESTOQUE"); 
+			sql.append(" 	INNER JOIN TB_TIPO_PRODUTO TIP ON TIP.ID_TIPO_PRODUTO = PRO.ID_TIPO_PRODUTO"); 
 			sql.append("  WHERE TIP.ID_TIPO_PRODUTO = ?");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
 			stmt.setInt(1, tipo);
@@ -262,7 +265,7 @@ public class ProdutoDAO {
 			e.printStackTrace();
 		}
 	}
-	public ProdutoDTO getProduto(Integer idProduto){
+	public ProdutoDTO getProdutoById(Integer idProduto){
 		Connection conn = null;
 		ProdutoDTO p = null;
 		try {
@@ -293,5 +296,38 @@ public class ProdutoDAO {
 			e.printStackTrace();
 		}
 	return p;
+	}
+	public List<ProdutoDTO> getProdutoByName(String nome){
+		List<ProdutoDTO> listaProdutos = new ArrayList<ProdutoDTO>();
+		Connection conn = null;
+		
+		try {
+			conn = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO,EST.QTD_ESTOQUE, TIP.DS_TIPO_PRODUTO");
+			sql.append(" FROM TB_PRODUTO PRO INNER JOIN TB_ESTOQUE EST ON PRO.ID_ESTOQUE = EST.ID_ESTOQUE");
+			sql.append("  INNER JOIN TB_TIPO_PRODUTO TIP ON TIP.ID_TIPO_PRODUTO = PRO.ID_TIPO_PRODUTO");
+			sql.append("  WHERE ID_PRODUTO = ?");
+			PreparedStatement stmt = conn.prepareStatement(sql.toString());
+					
+			stmt.setString(1, nome+"%");
+			ResultSet rs = stmt.executeQuery();
+			if(rs.first()) {
+				ProdutoDTO p = new ProdutoDTO();
+				p.setIdProduto(rs.getInt("id_produto"));
+				p.setNomeProduto(rs.getString("nm_produto"));
+				p.setTamanho(rs.getString("ds_tamanho"));
+				p.setValorProduto(rs.getFloat("valor_produto"));
+				p.setQuantidade(rs.getInt("qtd_estoque"));
+				p.setDsTipo(rs.getString("ds_tipo_produto"));
+				listaProdutos.add(p);
+			}
+			
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	return listaProdutos;
 	}
 }

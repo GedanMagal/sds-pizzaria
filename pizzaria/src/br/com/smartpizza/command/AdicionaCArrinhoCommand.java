@@ -34,7 +34,7 @@ public class AdicionaCArrinhoCommand implements Command{
 		try {
 		String  pessoa = request.getParameter("pessoa");
 		int idproduto  = Integer.parseInt(request.getParameter("idproduto"));
-		ProdutoDTO p = produtoDAO.getProduto(idproduto);
+		ProdutoDTO p = produtoDAO.getProdutoById(idproduto);
 		
 		String tamanho = request.getParameter("tamanho");
 		String sabor = request.getParameter("quantidadeSabores");

@@ -68,8 +68,7 @@ public class CadastrarFuncionarioCommand implements Command {
 			f.setTelefone(telefone);
 
 			f.setDataAdmissao(dataAdmissao);
-			f.setStatus(Integer.parseInt(status));
-
+			
 			f.setCargo(cargo);
 			cargo.setDescricao(descricao);
 

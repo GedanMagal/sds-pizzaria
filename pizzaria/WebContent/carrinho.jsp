@@ -38,15 +38,15 @@
 		
 		</div>
 
+   <div class="form-total">
+   		<h2>Total</h2>
+   		<input type="text" value="${totalpagar}" disabled="disabled">
+   		</div>
     
     <div class="clear"></div> 
    		
     </div> 
-    <div class="form-total">
-   		<h2>Total</h2>
-   		<input type="text" value="${totalpagar}" disabled="disabled">
-   		</div>
-</section>
+    </section>
 		
 <jsp:include page="imports/footer.jsp"/>
 </body>

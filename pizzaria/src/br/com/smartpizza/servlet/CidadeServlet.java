@@ -29,14 +29,14 @@ public class CidadeServlet extends HttpServlet{
 			PrintWriter out = resp.getWriter();
 			StringBuilder sb = new StringBuilder("");
 		
-		
-		if(listaCidade!=null) {
+		if(listaCidade!=null){
+			sb.append("");
 			for(int i= 0;i<listaCidade.size();i++) {
 				sb.append(listaCidade.get(i).getIdCidade()+ "-"+  listaCidade.get(i).getCidade()+":");
-				System.out.println(listaCidade.get(i).getIdCidade()+ " - "+  listaCidade.get(i).getCidade());
-				out.write(sb.toString());
+				
+				
 			}
-			
+			out.write(sb.toString());
 		}
 		
 	}

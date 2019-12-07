@@ -16,18 +16,18 @@
 		</div>
 		<div class="row">
 			<div class="input-field col s3 offset-s1">
-				<input type="text" id="codPedido" placeholder="Código Pedido">
+				<input type="text" id="codPedido" placeholder="Código Pedido" name="codPedido">
 			</div>
 			<div class="input-field col s3 offset-s1">
-				<input type="text" class="datepicker" id="dataInicio"
+				<input type="date"  id="dataInicio" name="dataInicio"
 					placeholder="Data de Inicio">
 			</div>
 			<div class="input-field col s3 offset-s1">
-				<input type="text" class="datepicker" id="dataFim"
+				<input type="date"  id="dataFim" name="dataFim"
 					placeholder="Data Final">
 			</div>
 			<div class="input-field col s3 offset-s1">
-				<button class="btn waves-effect waves-light" type="submit"
+				<button class="btn waves-effect waves-light" id="filtrar" type="submit"
 					name="action">
 					Gerar <i class="material-icons right">send</i>
 				</button>
@@ -35,83 +35,25 @@
 		</div>
 
 		<table class="highlight centered responsive-table">
-			<thead>
+			
 				<tr>
-					<th>Cod. Pedido</th>
+					<th>Código do Pedido</th>
 					<th>Data</th>
-					<th>Cliente</th>
-					<th>Quantidade de Pedido</th>
-					<th>Valor Total</th>
-			<thead>
-				<tr>
-					<th>9999999</th>
-					<th>Nome</th>
-					<th>Quantidade de Pedido</th>
+					<th>Nome do cliente</th>
+					<th>Descrição</th>
+					<th>Quantidade</th>
 					<th>Valor</th>
 
 				</tr>
 			</thead>
-			<tbody>
-				<tr>
-					<td>999999</td>
-
-					<td>01/01/2001</td>
-
-
-					<td>José</td>
-					<td>2</td>
-					<td>56.90</td>
-				</tr>
-				<tr>
-					<td>999999</td>
-
-					<td>01/01/2001</td>
-					<td>José</td>
-					<td>2</td>
-					<td>56.90</td>
-				</tr>
-				<tr>
-					<td>999999</td>
-
-					<td>01/01/2001</td>
-
-					<td>José</td>
-					<td>2</td>
-					<td>56.90</td>
-				</tr>
-				<tr>
-					<td>999999</td>
-
-					<td>01/01/2001</td>
-					<td>José</td>
-					<td>2</td>
-					<td>56.90</td>
-				</tr>
-				<tr>
-					<td>999999</td>
-					<td>01/01/2001</td>
-					<td>José</td>
-					<td>2</td>
-					<td>56.90</td>
-				</tr>
-				<tr>
-					<td>999999</td>
-
-					<td>01/01/2001</td>
-
-					<td>José</td>
-					<td>2</td>
-					<td>56.90</td>
-				</tr>
+			<tbody id="dados">
+				
 			</tbody>
 		</table>
 
 		<div class="row">
 			<div class="input-field col s3 offset-s9">
-				<button class="btn waves-effect waves-light" type="submit"
-					name="action">
-					Exportar <i class="material-icons right">send</i>
-				</button>
+				
 			</div>
 		</div>
 
@@ -121,5 +63,59 @@
 	<jsp:include page="imports/footer-admin.jsp" />
 
 
+<script type="text/javascript">
+$(document).ready(function () {
+	var allItems = [];
+	listar();
+});
+
+$("#filtrar").on("click", function(){
+	var codPedido = $("#codPedido").val();
+	var dataInicio = $("#dataInicio").val();
+	var dataFim = $("#dataFim").val();
+	filtrar(codPedido,dataInicio,dataFim);
+	
+});
+
+function filtrar(codPedido,dataInicio,dataFim){
+	$.ajax({
+	method:"POST",
+    url: "pedidos?acao=listar",
+    data: "codPedido="+codPedido+"&dataInicio="+dataInicio+"&dataFim="+dataFim,
+    success: function(data){
+    	allItems = data;
+    	 renderData(allItems);
+  }
+	 });
+}
+function listar(){
+	$.ajax({
+	method:"POST",
+    url: "pedidos",
+    data: "acao=listar",
+    success: function(data){
+    	allItems = data;
+    	 renderData(allItems);
+  }
+	 });
+}
+
+function renderData(data){
+	$("#dados").empty();
+	 for(i=0;i<data.length;i++){
+   	 $("#dados").append("<tr>")
+   	 .append("<td>"+data[i].idPedido+"</td>")
+   	 .append("<td>"+data[i].dataPedido+"</td>")
+   	  .append("<td>"+data[i].nomeCliente+" "+data[i].sobrenome+"</td>")
+   	  .append("<td>"+data[i].valorPedido+"</td>")
+   	    .append("<td>"+data[i].tipoPagamento+"</td>")
+   	    .append("<td>"+data[i].valorPagemnto+"</td>")
+   	    .append("<td>"+data[i].vlTroco+"</td>")
+			.append("<td><a href=admin?acao=editarCliente&idCliente="+data[i].idPedido+" class='btn waves-effect waves-light' name='action'><i class='material-icons right'>create</i></a></td></tr>");
+			
+	 }
+}
+
+</script>
 </body>
 </html>

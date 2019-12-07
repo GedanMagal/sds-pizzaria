@@ -69,7 +69,7 @@ public class CarrinhoController extends HttpServlet{
 				
 			String  pessoa = request.getParameter("pessoa");
 			int idproduto  = Integer.parseInt(request.getParameter("idproduto"));
-			ProdutoDTO p = produtoDAO.getProduto(idproduto);
+			ProdutoDTO p = produtoDAO.getProdutoById(idproduto);
 			
 			String tamanho = request.getParameter("tamanho");
 			String sabor = request.getParameter("quantidadeSabores");
@@ -146,7 +146,7 @@ public class CarrinhoController extends HttpServlet{
 			for (Carrinho lis: listaCarrinho) {
 				for(String p: itItem)
 				{
-					ProdutoDTO p2 = produtoDAO.getProduto(Integer.parseInt(p));
+					ProdutoDTO p2 = produtoDAO.getProdutoById(Integer.parseInt(p));
 				
 				
 				ItemPedido ped = new ItemPedido();

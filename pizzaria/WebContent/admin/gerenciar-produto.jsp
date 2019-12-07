@@ -168,9 +168,9 @@
 					</tr>
 				</thead>
 
-				<tbody>
-				<c:forEach items="${produtos}" var="prod">
-					<tr>
+				<tbody id="dados">
+				
+					<tr">
 						
 						<td>${prod.idProduto}</td>
 						<td>${prod.nomeProduto}</td>
@@ -189,7 +189,7 @@
 						</a>
 						</td>
 						</tr>
-						</c:forEach>
+					
 					
 					
 				</tbody>
@@ -208,6 +208,54 @@
 	<script type="text/javascript" src="js/getLocation.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 <jsp:include page="imports/footer-admin.jsp" />
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	$("#nome").keyup(function() {
+		pesquisa();
+	})
+	listar();
+});
+function pesquisa(){
+		$.ajax({
+		method:"POST",
+        url: "busca?acao=busca",
+        data: "nome="+$("#nome").val(),
+        success: function(data){
+        	 $("#dados").empty();
+        	 for(i=0;i<data.length;i++){
+            	 $("#dados").append("<tr>")
+            	 .append("<td>"+data[i].idProduto+"</td>")
+            	 .append("<td>"+data[i].nomeProduto+"</td>")
+            	  .append("<td>"+data[i].tamanho+"</td>")
+            	   .append("<td>"+data[i].valorProduto+"</td>")
+            	    .append("<td>"+data[i].quantidade+"</td>")
+            	    .append("<td>"+data[i].dsTipo+"</td></tr>")
+        }
+	  }
+		 });
+}
+
+function listar(){
+	$.ajax({
+	method:"POST",
+    url: "busca",
+    data: "acao=listar",
+    success: function(data){
+    	 $("#dados").empty();
+    	 for(i=0;i<data.length;i++){
+        	 $("#dados").append("<tr>")
+        	 .append("<td>"+data[i].idProduto+"</td>")
+        	 .append("<td>"+data[i].nomeProduto+"</td>")
+        	  .append("<td>"+data[i].tamanho+"</td>")
+        	   .append("<td>"+data[i].valorProduto+"</td>")
+        	    .append("<td>"+data[i].quantidade+"</td>")
+        	    .append("<td>"+data[i].dsTipo+"</td></tr>")
+    }
+  }
+	 });
+}
+</script>
 </body>
 
 

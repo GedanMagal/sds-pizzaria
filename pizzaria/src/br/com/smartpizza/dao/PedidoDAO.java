@@ -6,7 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import br.com.smartpizza.dto.PedidoDTO;
 import br.com.smartpizza.model.Pedido;
 import br.com.smartpizza.util.ConexaoUtil;
 
@@ -51,35 +54,74 @@ public class PedidoDAO {
 	}
 	
 	
-//	public List<PedidosDTO> listaPedidos() {
-//		List<PedidosDTO> listaPedidos = new ArrayList<PedidosDTO>();
-//		Connection conn = null;
-//
-//		try {
-//			conn = ConexaoUtil.getConexao();
-//			StringBuilder sql = new StringBuilder();
-//			sql.append("SELECT CLI.ID_CLIENTE, CLI.NM_CLIENTE,CLI.SOBRENOME,CLI.DS_EMAIL, CLI.CLI_TELEFONE, CLI.CLI_CELULAR,EN.DS_LOGRADOURO, EN.NM_ENDERECO, EN.NM_CEP,EN.DS_BAIRRO");
-//			sql.append(" FROM TB_CLIENTE CLI INNER JOIN  TB_ENDERECO EN ON EN.ID_CLIENTE = CLI.ID_CLIENTE");
-//			PreparedStatement stmt = conn.prepareStatement(sql.toString());
-//			ResultSet rs = stmt.executeQuery();
-//			while (rs.next()) {
-//				PessoaDTO p = new PessoaDTO();
-//				p.setIdPessoa(rs.getInt("CLI.ID_CLIENTE"));
-//				p.setNome(rs.getString("NM_CLIENTE"));
-//				p.setSobrenome(rs.getString("SOBRENOME"));
-//				p.setEmail(rs.getString("DS_EMAIL"));
-//				p.setTelefone(rs.getString("CLI_TELEFONE"));
-//				p.setCelular(rs.getString("CLI_CELULAR"));
-//				p.setEndereco(rs.getString("DS_LOGRADOURO"));
-//				p.setNumero(rs.getString("NM_ENDERECO"));
-//				p.setCep(rs.getString("NM_CEP"));
-//				p.setBairro(rs.getString("DS_BAIRRO"));
-//				listPessoas.add(p);
-//			}
-//		} catch (ClassNotFoundException | SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return listPessoas;
-//	}
+	public List<PedidoDTO> listaPedidos() {
+		List<PedidoDTO> listaPedidos = new ArrayList<PedidoDTO>();
+		Connection conn = null;
+
+		try {
+			conn = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT DISTINCT PEDIDO.ID_PEDIDO,PEDIDO.DATA_PEDIDO,CLIENTE.NM_CLIENTE, CLIENTE.SOBRENOME,");
+			sql.append("	PEDIDO.VL_VLAOR_PEDIDO, PAGAMENTO.DS_TIPO_PAGAMENTO,");
+			sql.append(" 	PAGAMENTO.VALOR_PAGAMENTO, PAGAMENTO.TROCO");
+			sql.append("	FROM TB_PEDIDO PEDIDO INNER JOIN TB_PAGAMENTO PAGAMENTO ON PAGAMENTO.ID_PAGAMENTO = PEDIDO.ID_PAGAMENTO"); 
+			sql.append("		INNER JOIN TB_CLIENTE CLIENTE ON CLIENTE.ID_CLIENTE = PEDIDO.ID_CLIENTE");
+			sql.append("		INNER JOIN TB_ITEM_PEDIDO ITEM ON ITEM.ID_PEDIDO = PEDIDO.ID_PEDIDO");
+			sql.append("		INNER JOIN TB_PRODUTO ON TB_PRODUTO.ID_PRODUTO = ITEM.ID_PRODUTO");
+			sql.append("		INNER JOIN TB_TIPO_PRODUTO ON TB_TIPO_PRODUTO.ID_TIPO_PRODUTO = TB_PRODUTO.ID_TIPO_PRODUTO");
+			PreparedStatement stmt = conn.prepareStatement(sql.toString());
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				PedidoDTO pedido = new PedidoDTO();
+				pedido.setIdPedido(rs.getInt("ID_PEDIDO"));
+				pedido.setDataPedido(rs.getDate("DATA_PEDIDO"));
+				pedido.setNomeCliente(rs.getString("NM_CLIENTE"));
+				pedido.setSobrenome(rs.getString("SOBRENOME"));
+				pedido.setValorPedido(rs.getDouble("VL_VLAOR_PEDIDO"));
+				pedido.setTipoPagamento(rs.getString("DS_TIPO_PAGAMENTO"));
+				pedido.setValorPagemnto(rs.getDouble("VALOR_PAGAMENTO"));
+				pedido.setVlTroco(rs.getDouble("TROCO"));
+				listaPedidos.add(pedido);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listaPedidos;
+	}
+	public List<PedidoDTO> filtrar() {
+		List<PedidoDTO> listaPedidos = new ArrayList<PedidoDTO>();
+		Connection conn = null;
+
+		try {
+			conn = ConexaoUtil.getConexao();
+			StringBuilder sql = new StringBuilder();
+			sql.append("SELECT DISTINCT PEDIDO.ID_PEDIDO,PEDIDO.DATA_PEDIDO,CLIENTE.NM_CLIENTE, CLIENTE.SOBRENOME,");
+			sql.append("	PEDIDO.VL_VLAOR_PEDIDO, PAGAMENTO.DS_TIPO_PAGAMENTO,");
+			sql.append(" 	PAGAMENTO.VALOR_PAGAMENTO, PAGAMENTO.TROCO");
+			sql.append("	FROM TB_PEDIDO PEDIDO INNER JOIN TB_PAGAMENTO PAGAMENTO ON PAGAMENTO.ID_PAGAMENTO = PEDIDO.ID_PAGAMENTO"); 
+			sql.append("		INNER JOIN TB_CLIENTE CLIENTE ON CLIENTE.ID_CLIENTE = PEDIDO.ID_CLIENTE");
+			sql.append("		INNER JOIN TB_ITEM_PEDIDO ITEM ON ITEM.ID_PEDIDO = PEDIDO.ID_PEDIDO");
+			sql.append("		INNER JOIN TB_PRODUTO ON TB_PRODUTO.ID_PRODUTO = ITEM.ID_PRODUTO");
+			sql.append("		INNER JOIN TB_TIPO_PRODUTO ON TB_TIPO_PRODUTO.ID_TIPO_PRODUTO = TB_PRODUTO.ID_TIPO_PRODUTO");
+			PreparedStatement stmt = conn.prepareStatement(sql.toString());
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				PedidoDTO pedido = new PedidoDTO();
+				pedido.setIdPedido(rs.getInt("ID_PEDIDO"));
+				pedido.setDataPedido(rs.getDate("DATA_PEDIDO"));
+				pedido.setNomeCliente(rs.getString("NM_CLIENTE"));
+				pedido.setSobrenome(rs.getString("SOBRENOME"));
+				pedido.setValorPedido(rs.getDouble("VL_VLAOR_PEDIDO"));
+				pedido.setTipoPagamento(rs.getString("DS_TIPO_PAGAMENTO"));
+				pedido.setValorPagemnto(rs.getDouble("VALOR_PAGAMENTO"));
+				pedido.setVlTroco(rs.getDouble("TROCO"));
+				listaPedidos.add(pedido);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return listaPedidos;
+	}
 }

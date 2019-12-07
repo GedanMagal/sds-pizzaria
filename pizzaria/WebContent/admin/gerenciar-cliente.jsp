@@ -21,7 +21,7 @@
 		</div>		
 		<div class="row">
 			<div class="input-field col s6">
-				<input type="text" name="cliente" id="cliente"> <label
+				<input type="text" name="cliente" id="nome"> <label
 					class="active" for="nome">Cliente</label>
 			</div>	
 			<div class="input-field col s6">
@@ -49,7 +49,7 @@
 	          </tr>
 	        </thead>
 	
-	        <tbody>
+	        <tbody id="dados">
 	        <c:forEach items="${pessoas}" var="p">
 	          <tr>
 	          <!-- nm_cliente, sobrenome, ds_email, cli_telefone, cli_celular, ds_logradouro, nm_endereco, nm_cep, ds_bairro -->
@@ -80,7 +80,41 @@
 
 	
 	<jsp:include page="imports/footer-admin.jsp" />
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	$("#nome").keyup(function() {
+		pesquisa();
+	})
+	
+});
+function pesquisa(){
+		$.ajax({
+		method:"POST",
+        url: "buscacliente",
+        data: "nome="+$("#nome").val(),
+        success: function(data){
+        	 $("#dados").empty();
+        	 for(i=0;i<data.length;i++){
+            	 $("#dados").append("<tr>")
+            	 .append("<td>"+data[i].nome+"</td>")
+            	 .append("<td>"+data[i].sobrenome+"</td>")
+            	  .append("<td>"+data[i].cpf+"</td>")
+            	   .append("<td>"+data[i].telefone+"</td>")
+            	    .append("<td>"+data[i].celular+"</td>")
+            	    .append("<td>"+data[i].endereco+"</td>")
+        			.append("<td>"+data[i].numero+"</td>")
+        			.append("<td>"+data[i].cep+"</td>")
+        			.append("<td>"+data[i].bairro+"</td>")
+        			.append("<td><a href=admin?acao=editarCliente&idCliente="+data[i].idPessoa+" class='btn waves-effect waves-light' name='action'><i class='material-icons right'>create</i></a></td></tr>");
+        			
+        	 }
+	  }
+		 });
+}
 
+
+</script>
 	
 </body>
 
