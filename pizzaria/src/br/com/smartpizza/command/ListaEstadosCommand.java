@@ -5,11 +5,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import br.com.smartpizza.dao.EstadoDAO;
 import br.com.smartpizza.model.Estado;
 
 public class ListaEstadosCommand implements Command {
-	private EstadoDAO estadoDAO = new EstadoDAO();
+	@Autowired
+	private EstadoDAO estadoDAO;
 	
 	
 	
@@ -21,11 +24,11 @@ public class ListaEstadosCommand implements Command {
 		
 		if(permission.equals("true")) {
 			proxima ="cadastrar-cliente.jsp";
-			List<Estado> listEstados = estadoDAO.listarEstados();
+			List<Estado> listEstados = estadoDAO.listAll();
 			request.setAttribute("estados", listEstados);
 		} else {
 			proxima ="cadastroCliente.jsp";
-			List<Estado> listEstados = estadoDAO.listarEstados();
+			List<Estado> listEstados = estadoDAO.listAll();
 			request.setAttribute("estados", listEstados);
 		}
 	

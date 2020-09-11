@@ -7,34 +7,35 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import br.com.smartpizza.dao.PedidoDAO;
-import br.com.smartpizza.dao.PessoaDAO;
-import br.com.smartpizza.dao.ProdutoDAO;
-import br.com.smartpizza.dto.ProdutoDTO;
+import br.com.smartpizza.dao.PessoaDAOImpl;
+import br.com.smartpizza.dao.ProdutoDAOImpl;
 import br.com.smartpizza.model.Carrinho;
 import br.com.smartpizza.model.Produto;
 
 public class AdicionaCArrinhoCommand implements Command{
 	private String proximo;
+	@Autowired
 	private PedidoDAO pedidoDAO;
-	private ProdutoDAO produtoDAO;
+	@Autowired
+	private ProdutoDAOImpl produtoDAO;
 
-	private PessoaDAO pessoaDAO;
+	private PessoaDAOImpl pessoaDAO;
 	List<Produto> lista = new ArrayList<Produto>();
 	List<Carrinho> listaCarrinho = new ArrayList<Carrinho>();
 	int item =0;
 	double subtotal= 0.0;      
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		this.pedidoDAO = new PedidoDAO();
-		this.produtoDAO = new ProdutoDAO();
-		this.pessoaDAO = new PessoaDAO();
+		
 		proximo = "admin?acao=realizarPedido";
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		try {
 		String  pessoa = request.getParameter("pessoa");
 		int idproduto  = Integer.parseInt(request.getParameter("idproduto"));
-		ProdutoDTO p = produtoDAO.getProdutoById(idproduto);
+		Produto p = produtoDAO.findById((long) idproduto);
 		
 		String tamanho = request.getParameter("tamanho");
 		String sabor = request.getParameter("quantidadeSabores");
@@ -45,13 +46,13 @@ public class AdicionaCArrinhoCommand implements Command{
 		item  = item+1;
 		
 		Carrinho carrinho = new Carrinho();
-		carrinho.setItem(item);
+		carrinho.setItem((long) item);
 		carrinho.setNomeProduto(p.getNomeProduto());
 		carrinho.setTamanho(p.getTamanho());
-		carrinho.setValorProduto(p.getValorProduto());
+		carrinho.setValorProduto((float) p.getValor());
 		listaCarrinho.add(carrinho);
 		System.out.println(item);
-		subtotal = subtotal+p.getValorProduto();
+		subtotal = subtotal+p.getValor();
 		proximo = "admin?acao=realizarPedido";
 		request.setAttribute("itens", listaCarrinho);
 		request.setAttribute("p", pessoa);

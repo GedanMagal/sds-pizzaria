@@ -1,38 +1,43 @@
 package br.com.smartpizza.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+@Entity
 public class Endereco {
-	
-
-	private int idEndereco;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idEndereco;
 	private String dsLogradouro;
 	private String numEndereco;
 	private String cep;
 	private String bairro;
+	@ManyToOne
+	@JoinColumn(name = "cidade_id")
 	private Cidade cidade;
+	@ManyToOne
+	@JoinColumn(name = "pessoa_id")
+	private Pessoa pessoa;
 	
-	public Endereco(int idEndereco, String dsLogradouro, String numEndereco, String cep, String bairro, Cidade cidade) {
-		super();
-		this.idEndereco = idEndereco;
-		this.dsLogradouro = dsLogradouro;
-		this.numEndereco = numEndereco;
-		this.cep = cep;
-		this.bairro = bairro;
-		this.cidade = cidade;
+	public Pessoa getPessoa() {
+		return pessoa;
 	}
-	public Endereco() {
-		// TODO Auto-generated constructor stub
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
-	
 	public Cidade getCidade() {
 		return cidade;
 	}
 	public void setCidade(Cidade cidade) {
 		this.cidade = cidade;
 	}
-	public int getIdEndereco() {
+	public Long getIdEndereco() {
 		return idEndereco;
 	}
-	public void setIdEndereco(int idEndereco) {
+	public void setIdEndereco(Long idEndereco) {
 		this.idEndereco = idEndereco;
 	}
 	public String getDsLogradouro() {

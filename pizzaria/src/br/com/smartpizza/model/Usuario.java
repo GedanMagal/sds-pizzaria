@@ -1,29 +1,31 @@
 package br.com.smartpizza.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Usuario {
-		private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private Long id;
 		private String login;
 		private String senha;
 		private String gpUs;
 		
 		
-		public Usuario(int id, String login, String senha, String gpUs) {
-			super();
-			this.id = id;
-			this.login = login;
-			this.senha = senha;
-			this.gpUs = gpUs;
-		}
+		
 		public String getGpUs() {
 			return gpUs;
 		}
 		public void setGpUs(String gpUs) {
 			this.gpUs = gpUs;
 		}
-		public int getId() {
+		public Long getId() {
 			return id;
 		}
-		public void setId(int id) {
+		public void setId(Long id) {
 			this.id = id;
 		}
 		public String getLogin() {
@@ -39,12 +41,7 @@ public class Usuario {
 			this.senha = senha;
 		}
 		
-		public Usuario(int id, String login, String senha) {
-			super();
-			this.id = id;
-			this.login = login;
-			this.senha = senha;
-		}
+		
 		public Usuario() {
 			// TODO Auto-generated constructor stub
 		}

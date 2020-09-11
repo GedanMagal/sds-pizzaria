@@ -2,21 +2,17 @@ package br.com.smartpizza.command;
 
 import java.sql.SQLException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.CargoDAO;
-import br.com.smartpizza.dao.PessoaDAO;
+import br.com.smartpizza.dao.PessoaDAOImpl;
 import br.com.smartpizza.model.Cargo;
 import br.com.smartpizza.model.Cidade;
-import br.com.smartpizza.model.Cliente;
 import br.com.smartpizza.model.Endereco;
 import br.com.smartpizza.model.Estado;
 import br.com.smartpizza.model.Funcionario;
@@ -24,7 +20,7 @@ import br.com.smartpizza.model.Usuario;
 
 public class CadastrarFuncionarioCommand implements Command {
 
-	private PessoaDAO dao = new PessoaDAO();
+	private PessoaDAOImpl dao = new PessoaDAOImpl();
 	private CargoDAO cargoDAO = new CargoDAO();
 	private String proximo;
 
@@ -69,7 +65,7 @@ public class CadastrarFuncionarioCommand implements Command {
 
 			f.setDataAdmissao(dataAdmissao);
 			
-			f.setCargo(cargo);
+//			f.setCargo(cargo);
 			cargo.setDescricao(descricao);
 
 			f.setUsuario(usuar);
@@ -87,10 +83,10 @@ public class CadastrarFuncionarioCommand implements Command {
 				endereco.setBairro(bairro);
 
 				endereco.setCidade(cid);
-				cid.setIdCidade(Integer.parseInt(cidade));
+				cid.setIdCidade(Long.parseLong(cidade));
 
 				cid.setEstado(est);
-				est.setIdEstado(Integer.parseInt(idEstado));
+				est.setIdEstado((long) Integer.parseInt(idEstado));
 
 				listEndereco.add(endereco);
 
@@ -98,7 +94,7 @@ public class CadastrarFuncionarioCommand implements Command {
 			f.setEndereco(listEndereco);
 
 			int idCargo = cargoDAO.cadastroCargo(cargo);
-			dao.cadastroFuncionario(f, idCargo);
+//			dao.cadastroFuncionario(f, idCargo);
 			request.setAttribute("msgSucesso", "Funcionario cadastrado com sucesso!");
 			
 			

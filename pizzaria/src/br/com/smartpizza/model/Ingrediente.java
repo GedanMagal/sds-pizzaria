@@ -1,27 +1,28 @@
 package br.com.smartpizza.model;
 
-public class Ingrediente {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-	private int idIngrediente;
+@Entity
+public class Ingrediente {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idIngrediente;
 	private String dsIngrediente;
 	private boolean isRequerido;
 	private float valorIngrediente;
 	
 	public Ingrediente() {}
 
-	public Ingrediente(int idIngrediente, String dsIngrediente, boolean isRequerido, float valorIngrediente) {
-		super();
-		this.idIngrediente = idIngrediente;
-		this.dsIngrediente = dsIngrediente;
-		this.isRequerido = isRequerido;
-		this.valorIngrediente = valorIngrediente;
-	}
+	
 
-	public int getIdIngrediente() {
+	public Long getIdIngrediente() {
 		return idIngrediente;
 	}
 
-	public void setIdIngrediente(int idIngrediente) {
+	public void setIdIngrediente(Long idIngrediente) {
 		this.idIngrediente = idIngrediente;
 	}
 

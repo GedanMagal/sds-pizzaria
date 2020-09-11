@@ -1,6 +1,5 @@
 package br.com.smartpizza.command;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.bo.PessoaBO;
-import br.com.smartpizza.dao.PessoaDAO;
+import br.com.smartpizza.dao.PessoaDAOImpl;
 import br.com.smartpizza.model.Cidade;
 import br.com.smartpizza.model.Cliente;
 import br.com.smartpizza.model.Endereco;
@@ -17,7 +16,7 @@ import br.com.smartpizza.model.Usuario;
 
 public class CadastrarClienteCommand implements Command {
 	private PessoaBO pessoaBO = new PessoaBO();
-	private PessoaDAO pessoaDAO = new PessoaDAO();
+	private PessoaDAOImpl pessoaDAO = new PessoaDAOImpl();
 	@Override
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		
@@ -71,16 +70,16 @@ public class CadastrarClienteCommand implements Command {
 			endereco.setBairro(bairro);
 			
 			endereco.setCidade(cid);
-			cid.setIdCidade(Integer.parseInt(cidade));
+			cid.setIdCidade(Long.parseLong(cidade));
 			
 			cid.setEstado(est);
-			est.setIdEstado(Integer.parseInt(idEstado));
+			est.setIdEstado((long) Integer.parseInt(idEstado));
 			
 			listEndereco.add(endereco);
 			
 		}
 		p.setEndereco(listEndereco);
-		pessoaDAO.cadastroPessoaClient(p);
+		pessoaDAO.save(p);
 		request.setAttribute("msgSucesso", "Cadastrado Com sucesso!");
 	
 			

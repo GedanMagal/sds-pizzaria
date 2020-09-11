@@ -1,24 +1,31 @@
 package br.com.smartpizza.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+@Entity
 public class Estado {
-	private int idEstado;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idEstado;
 	private String dsuf;
 	private String dsSigla;
 	
+	@OneToMany(mappedBy = "estado")
+	private List<Cidade> cidades = new ArrayList<>();
 	public Estado() {
 	
 	}
-	
-	public Estado(int idEstado, String dsuf, String dsSigla) {
-		super();
-		this.idEstado = idEstado;
-		this.dsuf = dsuf;
-		this.dsSigla = dsSigla;
-	}
-	public int getIdEstado() {
+	public Long getIdEstado() {
 		return idEstado;
 	}
-	public void setIdEstado(int idEstado) {
+	public void setIdEstado(Long idEstado) {
 		this.idEstado = idEstado;
 	}
 	public String getDsuf() {

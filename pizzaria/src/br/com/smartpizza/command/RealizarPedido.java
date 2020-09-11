@@ -5,30 +5,24 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.smartpizza.dao.PessoaDAO;
-import br.com.smartpizza.dao.ProdutoDAO;
-import br.com.smartpizza.dao.SaborDAO;
-import br.com.smartpizza.dto.PessoaDTO;
-import br.com.smartpizza.dto.ProdutoDTO;
-import br.com.smartpizza.model.Sabor;
+import br.com.smartpizza.dao.PessoaDAOImpl;
+import br.com.smartpizza.dao.ProdutoDAOImpl;
+import br.com.smartpizza.model.Pessoa;
+import br.com.smartpizza.model.Produto;
 
 public class RealizarPedido implements Command {
-	private SaborDAO saborDAO;
-	private ProdutoDAO produtoDAO;
-	private PessoaDAO pessoa;
+	private ProdutoDAOImpl produtoDAO;
+	private PessoaDAOImpl pessoa;
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		this.saborDAO = new SaborDAO();
-		this.produtoDAO = new ProdutoDAO();
-		this.pessoa = new PessoaDAO();
+		
+		this.pessoa = new PessoaDAOImpl();
 		String proximo = "realizar-pedido.jsp";
-		List<PessoaDTO> pessoas = pessoa.listaPessoas();
-		List<Sabor> sabores = saborDAO.listaSAbores();
-		List<ProdutoDTO> listaProdutos =  produtoDAO.listarProdutospizza(1);
-		List<ProdutoDTO> listaProdutosbroto =  produtoDAO.listarProdutoPizzaBroto("Personalizada",1, "broto");
+		List<Pessoa> pessoas = pessoa.listAll();
+		List<Produto> listaProdutos =  produtoDAO.listAll();
+		List<Produto> listaProdutosbroto =  produtoDAO.listAll();
 		request.setAttribute("prd", listaProdutos);
 		request.setAttribute("brotos", listaProdutosbroto);
-		request.getSession().setAttribute("sabores", sabores);
 		request.getSession().setAttribute("pessoas", pessoas);
 		return proximo;
 	}

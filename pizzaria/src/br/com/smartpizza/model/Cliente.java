@@ -2,9 +2,13 @@ package br.com.smartpizza.model;
 
 import java.util.List;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+@Entity
+@DiscriminatorValue(Cliente.TYPE_PERSON)
 public class Cliente extends Pessoa {
  
-
+	public static final String TYPE_PERSON = "cliente";
 	private String email;
 	private String senha;
 
@@ -27,20 +31,6 @@ public class Cliente extends Pessoa {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-
-
-
-	public Cliente(int id, String nome, String sobrenome, String cpf, String email, String senha,
-			List<Endereco> endereco, Usuario usuario, String email2, String senha2) {
-		super(id, nome, sobrenome, cpf, email, senha, endereco, usuario);
-		email = email2;
-		senha = senha2;
-	}
-
-
-
-
 
 
 }

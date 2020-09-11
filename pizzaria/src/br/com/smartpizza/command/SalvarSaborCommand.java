@@ -6,23 +6,18 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import br.com.smartpizza.dao.IngredientaDAO;
-import br.com.smartpizza.dao.SaborDAO;
 import br.com.smartpizza.model.Ingrediente;
-import br.com.smartpizza.model.Sabor;
 
 public class SalvarSaborCommand implements Command{
 	private String proximo;
-	private Sabor saborObj;
-	private SaborDAO saborDAO;
+	@Autowired
 	private IngredientaDAO ingredienteDAO; 
 	@Override
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
-		this.saborObj = new Sabor();
-		this.ingredienteDAO = new  IngredientaDAO();
-		this.saborDAO = new SaborDAO();
-		this.saborObj = new Sabor();
-
+		
 	
 		
 		String proximo ="admin?acao=cadastrarSaborPizza";
@@ -36,13 +31,10 @@ public class SalvarSaborCommand implements Command{
 		
 		 for(String ing: ingredientes) {
 			Ingrediente ingr = new Ingrediente();
-			ingr.setIdIngrediente(Integer.parseInt(ing));
+			ingr.setIdIngrediente((long) Integer.parseInt(ing));
 			listaIngred.add(ingr);
 		}
-		 saborObj.setDsSabor(sabor);
-		 saborObj.setPreco(Double.parseDouble(valor));
-		 saborObj.setIngredientes(listaIngred);
-		 saborDAO.cadastrarSabores(saborObj);
+		 
 
 		
 		

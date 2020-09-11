@@ -5,16 +5,16 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.smartpizza.dao.PessoaDAO;
-import br.com.smartpizza.dto.PessoaDTO;
+import br.com.smartpizza.dao.PessoaDAOImpl;
+import br.com.smartpizza.model.Pessoa;
 
 public class listarCliente implements Command {
-	private PessoaDAO pessoaDAO = new PessoaDAO();
+	private PessoaDAOImpl pessoaDAO = new PessoaDAOImpl();
 	@Override
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		String proxima = "gerenciar-cliente.jsp";
 		
-		List<PessoaDTO> lista = pessoaDAO.listaPessoas();
+		List<Pessoa> lista = pessoaDAO.listAll();
 		request.setAttribute("pessoas", lista);
 		return proxima;
 	}

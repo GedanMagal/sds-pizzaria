@@ -5,40 +5,35 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.smartpizza.dao.ProdutoDAO;
-import br.com.smartpizza.dao.SaborDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.smartpizza.dao.ProdutoDAOImpl;
 import br.com.smartpizza.dao.TipoProdutoDAO;
-import br.com.smartpizza.dto.ProdutoDTO;
-import br.com.smartpizza.model.Sabor;
-import br.com.smartpizza.model.Tamanho;
+import br.com.smartpizza.model.Produto;
 import br.com.smartpizza.model.TipoProduto;
 
 public class ListarProdutosCommand implements Command {
-	private ProdutoDAO produtoDAO;
+	@Autowired
+	private ProdutoDAOImpl produtoDAO;
+	@Autowired
 	private TipoProdutoDAO tipoDAO;
-	private SaborDAO saborDAO;
+
 	@Override
-	public String execute(HttpServletRequest request,HttpServletResponse response) {
-		this.produtoDAO = new ProdutoDAO();
-		this.tipoDAO = new TipoProdutoDAO();
-		this.saborDAO = new SaborDAO();
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
+
 		String proximo = "gerenciar-produto.jsp";
 		String produto = request.getParameter("produto");
-		List<ProdutoDTO> listaProdutos = produtoDAO.listarProdutos();
-		List<ProdutoDTO> listaPizza = produtoDAO.listarProdutospizza(1);
-		List<ProdutoDTO> broto = produtoDAO.listarProdutoPizzaBroto("Personalizada", 1, "broto");
-				List<Sabor> sabores = saborDAO.listaSAbores();
+		List<Produto> listaProdutos = produtoDAO.listAll();
+		List<Produto> listaPizza = produtoDAO.findBySizeAndType("Pizza", 1L);
+		List<Produto> broto = produtoDAO.findBySizeAndType("Pizza", 1L);
 
 		request.setAttribute("produtos", listaProdutos);
 		request.setAttribute("broto", broto);
-		request.getSession().setAttribute("sabores", sabores);
-		
-		List<TipoProduto> tipos = tipoDAO.listaTipos();
+
+		List<TipoProduto> tipos = tipoDAO.listAll();
 		request.setAttribute("produtos", listaPizza);
 		request.setAttribute("tiposProdutos", tipos);
-	
-		
-		
+
 		return proximo;
 	}
 

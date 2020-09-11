@@ -10,21 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
-import br.com.smartpizza.dao.CidadeDAO;
+import br.com.smartpizza.dao.CidadeDAOImpl;
 import br.com.smartpizza.model.Cidade;
 @WebServlet(urlPatterns = {"/admin/cidadeServlet","/cidadeServlet"})
 public class CidadeServlet extends HttpServlet{
 
 
 	private static final long serialVersionUID = 1L;
-	private CidadeDAO cidadeDAO = new CidadeDAO();
+	@Autowired
+	private CidadeDAOImpl cidadeDAO;
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int idEstado = Integer.parseInt(req.getParameter("idEstado"));
 		
 	 
-		List<Cidade> listaCidade =  cidadeDAO.consultaCidades(idEstado);
+		List<Cidade> listaCidade =  cidadeDAO.listAll();	
 		
 			PrintWriter out = resp.getWriter();
 			StringBuilder sb = new StringBuilder("");

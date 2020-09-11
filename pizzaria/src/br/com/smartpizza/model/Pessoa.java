@@ -1,23 +1,37 @@
 package br.com.smartpizza.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Pessoa  {
-	private int id;
+import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type_person", discriminatorType = DiscriminatorType.STRING)
+public abstract class Pessoa  {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String nome;
 	private String sobrenome;
 	private String cpf;
 	private String telefone;
 	private String celular;
-	private List<Endereco> endereco;
 	
+	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+	private List<Endereco> endereco = new ArrayList<Endereco>();
+	@OneToOne
 	private Usuario usuario;
 	
-	
-	
-	
-
-
 	public String getTelefone() {
 		return telefone;
 	}
@@ -39,22 +53,6 @@ public class Pessoa  {
 	public void setCelular(String celular) {
 		this.celular = celular;
 	}
-
-
-
-	public Pessoa(int id, String nome, String sobrenome, String cpf, String telefone, String celular,
-			List<Endereco> endereco, Usuario usuario) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.cpf = cpf;
-		this.telefone = telefone;
-		this.celular = celular;
-		this.endereco = endereco;
-		this.usuario = usuario;
-	}
-
 	
 
 	public List<Endereco> getEndereco() {
@@ -82,11 +80,11 @@ public class Pessoa  {
 		
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

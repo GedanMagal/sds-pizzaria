@@ -1,14 +1,40 @@
 package br.com.smartpizza.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+@Entity
 public class Produto {
-	
-	private int idProduto;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idProduto;
 	private String nomeProduto;
-	private String tamanho;
+	@ManyToOne
+	@JoinColumn(name = "tamanho_id")
+	private Tamanho tamanho;
 	private Double valor;
-	private List<Sabor> sabor;
+	@ManyToOne
+	@JoinColumn(name = "tipo_produto_id")
+	private TipoProduto tipoProduto;
+	@JsonIgnore
+	@ManyToMany
+	@JoinTable(name = "PRODUTO_INGREDIENTE",
+			joinColumns = @JoinColumn(name="produto_id"),
+			inverseJoinColumns = @JoinColumn(name="ingrediente_id"))
+	private List<Ingrediente> ingredientes = new ArrayList<>();
+	
+	@ManyToOne
+	@JoinColumn(name = "produto_id")
 	private Estoque estoque;
 	public Estoque getEstoque() {
 		return estoque;
@@ -18,23 +44,9 @@ public class Produto {
 		this.estoque = estoque;
 	}
 
-	private TipoProduto tipoProduto;
-
 	
 
-	
 
-	public Produto(int idProduto, String nomeProduto, String tamanho, double valor, List<Sabor> sabor, Estoque estoque,
-			TipoProduto tipoProduto) {
-		super();
-		this.idProduto = idProduto;
-		this.nomeProduto = nomeProduto;
-		this.tamanho = tamanho;
-		this.valor = valor;
-		this.sabor = sabor;
-		this.estoque = estoque;
-		this.tipoProduto = tipoProduto;
-	}
 
 	public TipoProduto getTipoProduto() {
 		return tipoProduto;
@@ -44,19 +56,19 @@ public class Produto {
 		this.tipoProduto = tipoProduto;
 	}
 
-	public List<Sabor> getSabor() {
-		return sabor;
+	public List<Ingrediente> getSabor() {
+		return ingredientes;
 	}
 
-	public void setSabor(List<Sabor> sabor) {
-		this.sabor = sabor;
+	public void setSabor(List<Ingrediente> ingredientes) {
+		this.ingredientes = ingredientes;
 	}
 
-	public int getIdProduto() {
+	public Long getIdProduto() {
 		return idProduto;
 	}
 
-	public void setIdProduto(int idProduto) {
+	public void setIdProduto(Long idProduto) {
 		this.idProduto = idProduto;
 	}
 
@@ -68,11 +80,11 @@ public class Produto {
 		this.nomeProduto = nomeProduto;
 	}
 
-	public String getTamanho() {
+	public Tamanho getTamanho() {
 		return tamanho;
 	}
 
-	public void setTamanho(String tamanho) {
+	public void setTamanho(Tamanho tamanho) {
 		this.tamanho = tamanho;
 	}
 

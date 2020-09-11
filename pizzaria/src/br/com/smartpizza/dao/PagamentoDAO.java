@@ -1,46 +1,53 @@
 package br.com.smartpizza.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.List;
 
 import br.com.smartpizza.model.Pagamento;
-import br.com.smartpizza.model.Pedido;
-import br.com.smartpizza.util.ConexaoUtil;
 
-public class PagamentoDAO {
+public class PagamentoDAO implements GenericDao<Pagamento, Long> {
 
 	
-	public Integer cadastrarPagamento(Pagamento pagamento) {
-		Connection con = null;
-		Integer idPedido = null;
-		try {
-			
-			con = ConexaoUtil.getConexao();
-		StringBuilder sql = new StringBuilder();
-		sql.append("INSERT INTO TB_PAGAMENTO (DS_TIPO_PAGAMENTO, VALOR_PAGAMENTO, TROCO)");
-		sql.append(" VALUES(?,?,?)");
-		PreparedStatement stmt = con.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
-		stmt.setString(1, pagamento.getDsPagamento());
-		stmt.setDouble(2, pagamento.getVlPagamento());
-		stmt.setDouble(3, pagamento.getTroco());
+	
+
+	@Override
+	public void saveOrUpdate(Pagamento entity) {
+		// TODO Auto-generated method stub
 		
-		stmt.execute();
+	}
+
+	@Override
+	public void save(Pagamento entity) {
+		// TODO Auto-generated method stub
 		
-		ResultSet rs = stmt.getGeneratedKeys();
-		if (rs.first()) {
-			idPedido = rs.getInt(1);
-		}
+	}
+
+	@Override
+	public void update(Pagamento entity) {
+		// TODO Auto-generated method stub
 		
-		stmt.close();
-		con.close();
-		} catch (SQLException | ClassNotFoundException e) {
-			
-			e.printStackTrace();
-		}
-		return idPedido;
+	}
+
+	@Override
+	public void delete(Pagamento entity) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Pagamento findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Pagamento> listAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Pagamento> findByNames(String name) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -1,16 +1,23 @@
 package br.com.smartpizza.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
 public class Estoque {
-	private int idEstoque;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idEstoque;
 	private int qtdEstoque;
 	
 	public Estoque() {}
 
-	public int getIdEstoque() {
+	public Long getIdEstoque() {
 		return idEstoque;
 	}
 
-	public void setIdEstoque(int idEstoque) {
+	public void setIdEstoque(Long idEstoque) {
 		this.idEstoque = idEstoque;
 	}
 
@@ -22,11 +29,6 @@ public class Estoque {
 		this.qtdEstoque = qtdEstoque;
 	}
 
-	public Estoque(int idEstoque, int qtdEstoque) {
-		super();
-		this.idEstoque = idEstoque;
-		this.qtdEstoque = qtdEstoque;
-	}
-	
+
 	
 }

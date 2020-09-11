@@ -10,31 +10,49 @@ import java.util.List;
 import br.com.smartpizza.model.TipoProduto;
 import br.com.smartpizza.util.ConexaoUtil;
 
-public class TipoProdutoDAO {
+public class TipoProdutoDAO implements GenericDao<TipoProduto, Long> {
 	
-	public List<TipoProduto> listaTipos(){
-		List<TipoProduto> tipos = new ArrayList<TipoProduto>();
-		StringBuilder sql = new StringBuilder();
-		TipoProduto tipo = null;
-		Connection conn = null;
-		try {
-			conn = ConexaoUtil.getConexao();
-			sql.append("SELECT * FROM TB_TIPO_PRODUTO");
-			PreparedStatement stmt = conn.prepareStatement(sql.toString());
-			ResultSet rs  = stmt.executeQuery();
-			while(rs.next()) {
-				 tipo = new TipoProduto();
-				 tipo.setIdTipoProduto(rs.getInt("ID_TIPO_PRODUTO"));
-				tipo.setDsTipoProduto(rs.getString("DS_TIPO_PRODUTO"));
-				tipos.add(tipo);
-			}
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	
+
+	@Override
+	public void saveOrUpdate(TipoProduto entity) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void save(TipoProduto entity) {
+		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void update(TipoProduto entity) {
+		// TODO Auto-generated method stub
 		
-		return tipos;
+	}
+
+	@Override
+	public void delete(TipoProduto entity) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public TipoProduto findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TipoProduto> listAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<TipoProduto> findByNames(String name) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
