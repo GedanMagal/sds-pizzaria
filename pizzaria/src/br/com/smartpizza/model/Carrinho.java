@@ -1,20 +1,20 @@
 package br.com.smartpizza.model;
 
-import org.springframework.web.context.annotation.SessionScope;
-@SessionScope
+import java.util.List;
+
 public class Carrinho {
-	private Long item;
-	private Long idProduto;
+	private int item;
+	private int idProduto;
 	private String nomeProduto;
-	private Tamanho tamanho;
-	private Long quantidade;
-	public Long getQuantidade() {
+	private String tamanho;
+	private int quantidade;
+	public int getQuantidade() {
 		return quantidade;
 	}
-	public void setQuantidade(Long quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	public void setIdProduto(Long idProduto) {
+	public void setIdProduto(int idProduto) {
 		this.idProduto = idProduto;
 	}
 	private float valorProduto;
@@ -32,16 +32,16 @@ public class Carrinho {
 	public void setValorProduto(float valorProduto) {
 		this.valorProduto = valorProduto;
 	}
-	public Long getItem() {
+	public int getItem() {
 		return item;
 	}
-	public void setItem(Long item) {
+	public void setItem(int item) {
 		this.item = item;
 	}
-	public Long getIdProduto() {
+	public int getIdProduto() {
 		return idProduto;
 	}
-	public void setIdProdutp(Long idProduto) {
+	public void setIdProdutp(int idProduto) {
 		this.idProduto = idProduto;
 	}
 	public String getNomeProduto() {
@@ -50,13 +50,23 @@ public class Carrinho {
 	public void setNomeProduto(String nomeProduto) {
 		this.nomeProduto = nomeProduto;
 	}
-	public Tamanho getTamanho() {
+	public String getTamanho() {
 		return tamanho;
 	}
-	public void setTamanho(Tamanho tamanho) {
+	public void setTamanho(String tamanho) {
 		this.tamanho = tamanho;
 	}
 
+	 public Carrinho(int item, int idProduto, String nomeProduto, String tamanho, float valorProduto, float total, int quantidade) {
+		super();
+		this.item = item;
+		this.idProduto = idProduto;
+		this.nomeProduto = nomeProduto;
+		this.tamanho = tamanho;
+		this.valorProduto = valorProduto;
+		this.total = total;
+		this.quantidade = quantidade;
+	}
 	public Carrinho() {
 		// TODO Auto-generated constructor stub
 	}

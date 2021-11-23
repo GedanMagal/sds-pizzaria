@@ -1,21 +1,19 @@
 package br.com.smartpizza.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
 public class Cargo {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCargo;
+
+	private int idCargo;
 	private String descricao;
 
 	public Cargo() {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Cargo(int idCargo, String descricao) {
+		super();
+		this.idCargo = idCargo;
+		this.descricao = descricao;
+	}
 
 	public String getDescricao() {
 		return descricao;
@@ -25,11 +23,11 @@ public class Cargo {
 		this.descricao = descricao;
 	}
 
-	public Long getIdCargo() {
+	public int getIdCargo() {
 		return idCargo;
 	}
 
-	public void setIdCargo(Long idCargo) {
+	public void setIdCargo(int idCargo) {
 		this.idCargo = idCargo;
 	}
 

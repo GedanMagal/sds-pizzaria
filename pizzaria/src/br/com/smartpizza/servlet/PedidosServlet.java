@@ -16,7 +16,6 @@ import com.google.gson.JsonObject;
 import br.com.smartpizza.dao.PedidoDAO;
 import br.com.smartpizza.dto.PedidoDTO;
 import br.com.smartpizza.dto.PessoaDTO;
-import br.com.smartpizza.model.Pedido;
 @WebServlet(urlPatterns = {"/admin/pedidos", "/pedidos"})
 public class PedidosServlet extends HttpServlet {
 	private PedidoDAO pedidoDAO;
@@ -31,7 +30,7 @@ public class PedidosServlet extends HttpServlet {
 		String resp="";
 		switch (acao) {
 		case "listar":
-			List<Pedido> pedidos = pedidoDAO.listAll();
+			List<PedidoDTO> pedidos = pedidoDAO.listaPedidos();
 			 resp = new Gson().toJson(pedidos);
 			out.print(resp);
 			break;
@@ -42,7 +41,7 @@ public class PedidosServlet extends HttpServlet {
 
 			String dataFim = request.getParameter("dataFim");
 			
-			List<Pedido> filtro = pedidoDAO.listAll();
+			List<PedidoDTO> filtro = pedidoDAO.listaPedidos();
 			resp = new Gson().toJson(filtro);
 			out.print(resp);
 			break;

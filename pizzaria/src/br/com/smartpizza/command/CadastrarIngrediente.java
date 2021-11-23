@@ -23,7 +23,7 @@ public class CadastrarIngrediente implements Command {
 			 ingrediente.setDsIngrediente(ing);
 			 ingrediente.setRequerido(true);
 			 listaIngred.add(ingrediente);
-			 igrDAO.save(ingrediente);
+			 igrDAO.insereIngredienteSabor(ingrediente);
 		}
 		
 		return proximo;

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.com.smartpizza.model.Cliente;
 import br.com.smartpizza.model.Usuario;
 import br.com.smartpizza.util.ConexaoUtil;
 
@@ -58,7 +59,7 @@ public class UsuarioDAO {
 			ResultSet rs = stmt.executeQuery();
 			if(rs.first()) {
 				usuario = new Usuario();
-				usuario.setId(rs.getLong("US_ID"));
+				usuario.setId(rs.getInt("US_ID"));
 				usuario.setLogin(rs.getString("us_login"));
 				usuario.setGpUs(rs.getString("gp_usuario"));
 			}

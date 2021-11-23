@@ -2,25 +2,12 @@ package br.com.smartpizza.model;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-@Entity
 public class Cidade {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCidade;
+	private int idCidade;
 	private String cidade;
-	@ManyToOne
-	@JoinColumn(name = "cidade_id")
 	private Estado estado;
-	@OneToMany(mappedBy = "cidade")
 	private List<Endereco> endereco;
-	
+
 	public List<Endereco> getEndereco() {
 		return endereco;
 	}
@@ -29,7 +16,14 @@ public class Cidade {
 		this.endereco = endereco;
 	}
 
-	
+	public Cidade(int idCidade, String cidade, Estado estado, List<Endereco> endereco) {
+		super();
+		this.idCidade = idCidade;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.endereco = endereco;
+	}
+
 	public Cidade() {
 		// TODO Auto-generated constructor stub
 	}
@@ -50,11 +44,11 @@ public class Cidade {
 		this.estado = estado;
 	}
 	
-	public Long getIdCidade() {
+	public int getIdCidade() {
 		return idCidade;
 	}
 
-	public void setIdCidade(Long idCidade) {
+	public void setIdCidade(int idCidade) {
 		this.idCidade = idCidade;
 	}
 }
