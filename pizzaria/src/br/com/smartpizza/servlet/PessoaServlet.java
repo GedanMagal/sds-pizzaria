@@ -1,6 +1,5 @@
 package br.com.smartpizza.servlet;
 
-import java.awt.peer.ListPeer;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;

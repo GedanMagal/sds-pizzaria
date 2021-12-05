@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.com.smartpizza.bo.UsuarioBO;
 import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.dao.UsuarioDAO;
 import br.com.smartpizza.dto.PessoaDTO;
@@ -33,21 +32,31 @@ public class LoginClienteCommand implements Command {
 		try {
 			Usuario us = userDAO.consultarUsuario(user);
 			pessoaLog = pessoaDAO.getClienteUsuario(us.getId());
-		if(us.getGpUs().equals("Cliente")) {
-			proximo = "index?acao=finalizarpedido";
+		
 			String valor = "";
 			Cookie cookies[] = request.getCookies();
+			if(us.getGpUs().equals("Cliente")) {
+				
 			if(cookies!=null) {
 				for (int i=0;i<cookies.length;i++) {
 					if(cookies[i].getName().equals("total"))
 					valor = cookies[i].getValue();
 				}
 			}
+			
+			
 			request.setAttribute("totalPagar", valor);
 			session.setAttribute("loginUser", us);
 			session.setAttribute("id", pessoaLog);
 		
 			session.setMaxInactiveInterval(60*10);
+			
+			if(!valor.equals("")||valor.equals("0.0")) {
+				proximo = "index?acao=finalizarpedido";
+				
+			}else {
+				proximo = "/areadocliente/meus-pedidos.jsp";
+			}
 		}else {
 			request.setAttribute("msgErro", "usuario sem permissão!");
 		}

@@ -1,12 +1,8 @@
 package br.com.smartpizza.command;
 
-import java.sql.SQLException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.CargoDAO;
 import br.com.smartpizza.dao.PessoaDAO;
+import br.com.smartpizza.dao.UsuarioDAO;
 import br.com.smartpizza.model.Cargo;
 import br.com.smartpizza.model.Cidade;
-import br.com.smartpizza.model.Cliente;
 import br.com.smartpizza.model.Endereco;
 import br.com.smartpizza.model.Estado;
 import br.com.smartpizza.model.Funcionario;
@@ -26,10 +22,11 @@ public class CadastrarFuncionarioCommand implements Command {
 
 	private PessoaDAO dao = new PessoaDAO();
 	private CargoDAO cargoDAO = new CargoDAO();
+	private UsuarioDAO usuarioDAO = new UsuarioDAO();
 	private String proximo;
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response){
 		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		proximo = "adminis?acao=listaEstado&param=adminFun";
 
@@ -98,11 +95,12 @@ public class CadastrarFuncionarioCommand implements Command {
 			f.setEndereco(listEndereco);
 
 			int idCargo = cargoDAO.cadastroCargo(cargo);
-			dao.cadastroFuncionario(f, idCargo);
+			Integer usId = usuarioDAO.cadastrarUsuario(usuar);
+			dao.cadastroFuncionario(f, idCargo, usId);
 			request.setAttribute("msgSucesso", "Funcionario cadastrado com sucesso!");
 			
 			
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (Exception e) {
 
 			request.setAttribute("msg", "Erro ao cadastrar funcionario");
 

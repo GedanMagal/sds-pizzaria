@@ -2,11 +2,11 @@ package br.com.smartpizza.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.HttpCookie;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -20,23 +20,30 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import br.com.smartpizza.dao.FormaPagamentoDAO;
 import br.com.smartpizza.dao.ItemPedidoDAO;
+import br.com.smartpizza.dao.PagamentoDAO;
 import br.com.smartpizza.dao.PedidoDAO;
-import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.dao.ProdutoDAO;
-import br.com.smartpizza.dto.PessoaDTO;
 import br.com.smartpizza.dto.ProdutoDTO;
 import br.com.smartpizza.model.Carrinho;
+import br.com.smartpizza.model.FormaPagamento;
 import br.com.smartpizza.model.ItemPedido;
 import br.com.smartpizza.model.Pagamento;
 import br.com.smartpizza.model.Pedido;
+import br.com.smartpizza.model.Pessoa;
 import br.com.smartpizza.model.Produto;
 import br.com.smartpizza.model.Usuario;
 @WebServlet(urlPatterns = "/index")
 public class Index extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private PedidoDAO pedidoDAO;
 	private ProdutoDAO produtoDAO;
-	private PessoaDAO pessoaDAO;
+	private FormaPagamentoDAO formaPagamentoDAO;
+	private PagamentoDAO pagamentoDAO;
 	String proximo ="";
 	List<Produto> lista = new ArrayList<Produto>();
 	List<Carrinho> listaCarrinho = new ArrayList<Carrinho>();
@@ -48,7 +55,9 @@ public class Index extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.pedidoDAO = new PedidoDAO();
 		this.produtoDAO = new ProdutoDAO();
-		this.pessoaDAO = new PessoaDAO();
+		this.formaPagamentoDAO =  new FormaPagamentoDAO();
+		this.pagamentoDAO = new PagamentoDAO();
+		
 		int quantidade=0;
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		response.setContentType("application/json");
@@ -165,6 +174,8 @@ public class Index extends HttpServlet {
 			break;
 		case "gerarpedido":
 			try {
+				
+			proximo = "/areadocliente/meus-pedidos.jsp";
 			String  pessoa = request.getParameter("idcliente");
 			
 			String troco = request.getParameter("troco");
@@ -173,15 +184,20 @@ public class Index extends HttpServlet {
 			String cartao = request.getParameter("cartao");
 			Pedido pedido = new Pedido();
 			
-			Pagamento pagamento =  new Pagamento();
+			Pagamento pagamento = new Pagamento();
+			 Date agora = new Date();
+			pagamento.setDataHoraPagamento(agora);
 			pagamento.setVlPagamento(Double.parseDouble(valorPagamento));
 			pagamento.setTroco(pagamento.getVlPagamento() - pedido.getValorPedido());
 			pedido.setPagamento(pagamento);
+			FormaPagamento formaPagamento = new FormaPagamento();
 			if(cartao==null||cartao.equals("")) {
-				pagamento.setDsPagamento("dinheiro");
+				pagamento.setFormaPagamento(formaPagamento);
+				formaPagamento.setTipo(FormaPagamento.PAGAMENTO_DINHEiRO);
 				pagamento.setTroco(Double.parseDouble(troco)-pagamento.getVlPagamento());
 			}else {
-				pagamento.setDsPagamento(cartao);
+				pagamento.setFormaPagamento(formaPagamento);
+				formaPagamento.setTipo(FormaPagamento.PAGAMENTO_DINHEiRO);
 			}
 			String data = sdf.format(Calendar.getInstance().getTime());
 			pedido.setDataPedido(data);
@@ -190,12 +206,17 @@ public class Index extends HttpServlet {
 			pedido.setFuncionario(3);
 			pedido.setIdcliente(Integer.parseInt(pessoa));
 			pagamento.setVlPagamento(Double.parseDouble(valorPagamento));
+			
+			pagamento.setDataHoraPagamento(agora);
 			pagamento.setTroco(pagamento.getVlPagamento() - pedido.getValorPedido());
 			request.setAttribute("carrinho", listaCarrinho);
 			request.setAttribute("totalpagar", totalpagar);
 			request.setAttribute("quantidade", listaCarrinho.size());
 			 List<Carrinho> dados = (List<Carrinho>) session.getAttribute("carrinho");
-			 int idpedido = pedidoDAO.cadastrarPedido(pedido);
+			
+			 Integer idFPagamento = formaPagamentoDAO.cadastrarPagamento(formaPagamento);
+			 Integer idPagamento =pagamentoDAO.cadastrarPagamento(pagamento, idFPagamento);
+			 Integer idpedido = pedidoDAO.cadastrarPedido(pedido,idPagamento);
 			 int i=0;
 			 List<ItemPedido> listaItens = new ArrayList<ItemPedido>();
 			 for (Carrinho lc: dados) {
@@ -212,6 +233,12 @@ public class Index extends HttpServlet {
 			 
 				idpd.cadastrarItemPedido(ped);
 			 }
+				
+			 
+			request.setAttribute("carrinho", listaCarrinho);	
+			request.setAttribute("quantidade", listaCarrinho.size());
+			request.setAttribute("totalpagar", totalpagar);
+			request.getRequestDispatcher(proximo).forward(request, response);
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -1,7 +1,6 @@
 package br.com.smartpizza.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,13 +8,11 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import br.com.smartpizza.dto.PessoaDTO;
 import br.com.smartpizza.model.Cliente;
 import br.com.smartpizza.model.Funcionario;
-import br.com.smartpizza.model.Pessoa;
 import br.com.smartpizza.util.ConexaoUtil;
 
 public class PessoaDAO {
@@ -23,11 +20,10 @@ public class PessoaDAO {
 	private EnderecoDAO enderecoDAO = new EnderecoDAO();
 	private CargoDAO cargoDAO = new CargoDAO();
 	private DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-	public PessoaDAO() {
 
-	}
+	
 
-	public void cadastroPessoaClient(Cliente p) throws ClassNotFoundException, SQLException {
+	public Integer cadastroPessoaClient(Cliente p, Integer id) throws ClassNotFoundException, SQLException {
 
 		Connection conn = null;
 		Integer idPessoa = null;
@@ -36,7 +32,6 @@ public class PessoaDAO {
 
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			Integer us_id = us.cadastrarUsuario(p.getUsuario());
 			sql.append(
 					"INSERT INTO TB_CLIENTE (nm_cliente, nm_cpf,sobrenome,ds_email,senha,cli_telefone,cli_celular,us_id)");
 			sql.append(" VALUES (?,?,?,?,?,?,?,?)");
@@ -49,21 +44,22 @@ public class PessoaDAO {
 			stmt.setString(5, p.getSenha());
 			stmt.setString(6, p.getTelefone());
 			stmt.setString(7, p.getCelular());
-			stmt.setInt(8, us_id);
+			stmt.setInt(8, id);
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.first()) {
 				idPessoa = rs.getInt(1);
 			}
 			enderecoDAO.cadastrarEndereco(p.getEndereco(), idPessoa);
-
+			return idPessoa;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return idPessoa;
 	}
 
-	public void cadastroFuncionario(Funcionario f, int idCargo) throws ClassNotFoundException, SQLException {
+	public void cadastroFuncionario(Funcionario f, int idCargo, Integer id) throws ClassNotFoundException, SQLException {
 
 		Connection conn = null;
 		Integer idFuncionario = null;
@@ -72,7 +68,6 @@ public class PessoaDAO {
 
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			Integer us_id = us.cadastrarUsuario(f.getUsuario());
 			sql.append("INSERT INTO TB_FUNCIONARIO");
 			sql.append(" (nm_funcionario, nm_cpf, sobrenome, dataAdmissao, telefone, id_cargo, us_id)");
 			sql.append(" VALUES (?,?,?,?,?,?,?)");
@@ -85,7 +80,7 @@ public class PessoaDAO {
 			stmt.setDate(4, dataAdmiss);
 			stmt.setString(5, f.getTelefone());
 			stmt.setInt(6, idCargo);
-			stmt.setInt(7, us_id);
+			stmt.setInt(7, id);
 			
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();

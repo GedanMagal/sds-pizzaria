@@ -16,12 +16,10 @@ import br.com.smartpizza.util.ConexaoUtil;
 
 public class PedidoDAO {
 	
-	public Integer cadastrarPedido(Pedido pedido) {
+	public Integer cadastrarPedido(Pedido pedido, Integer idPagamento) {
 		Connection con = null;
 		Integer idPedido = null;
-		Integer idPagamento = null;
 		try {
-			idPagamento = new PagamentoDAO().cadastrarPagamento(pedido.getPagamento());
 			con = ConexaoUtil.getConexao();
 		StringBuilder sql = new StringBuilder();
 		sql.append("INSERT INTO TB_PEDIDO (DATA_PEDIDO,VL_VLAOR_PEDIDO,VL_TROCO,ID_PAGAMENTO, ID_CLIENTE,ID_FUNCIONARIO)");

@@ -1,14 +1,13 @@
 package br.com.smartpizza.command;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.smartpizza.bo.PessoaBO;
 import br.com.smartpizza.dao.PessoaDAO;
+import br.com.smartpizza.dao.UsuarioDAO;
 import br.com.smartpizza.model.Cidade;
 import br.com.smartpizza.model.Cliente;
 import br.com.smartpizza.model.Endereco;
@@ -16,12 +15,12 @@ import br.com.smartpizza.model.Estado;
 import br.com.smartpizza.model.Usuario;
 
 public class CadastrarClienteCommand implements Command {
-	private PessoaBO pessoaBO = new PessoaBO();
 	private PessoaDAO pessoaDAO = new PessoaDAO();
+	private UsuarioDAO userDao = new  UsuarioDAO();
 	@Override
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		
-		String proximo = "admin?acao=listarClientes";
+		String proximo = "index?acao=carrinho";
 
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
@@ -80,10 +79,13 @@ public class CadastrarClienteCommand implements Command {
 			
 		}
 		p.setEndereco(listEndereco);
-		pessoaDAO.cadastroPessoaClient(p);
+		
+		Integer idUS = userDao.cadastrarUsuario(usuar);
+		pessoaDAO.cadastroPessoaClient(p,idUS);
+		
 		request.setAttribute("msgSucesso", "Cadastrado Com sucesso!");
-	
-			
+		userDao.consultarUsuario(usuar);
+		proximo = "index?acao=finalizarpedido";
 		} catch (Exception e) {
 			proximo = "adminis?acao=listaEstado&param=admin";
 			request.setAttribute("msgErro", "Não foi possivel cadastrar!");

@@ -15,7 +15,6 @@ import com.google.gson.JsonObject;
 
 import br.com.smartpizza.dao.PedidoDAO;
 import br.com.smartpizza.dto.PedidoDTO;
-import br.com.smartpizza.dto.PessoaDTO;
 @WebServlet(urlPatterns = {"/admin/pedidos", "/pedidos"})
 public class PedidosServlet extends HttpServlet {
 	private PedidoDAO pedidoDAO;

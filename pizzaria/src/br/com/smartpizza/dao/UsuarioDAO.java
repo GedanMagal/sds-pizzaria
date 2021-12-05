@@ -6,18 +6,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import br.com.smartpizza.model.Cliente;
 import br.com.smartpizza.model.Usuario;
 import br.com.smartpizza.util.ConexaoUtil;
 
 public class UsuarioDAO {
-
+	private PessoaDAO pessoaDAO;
 	
 	public Integer cadastrarUsuario(Usuario usuario) throws Exception {
-		Integer id = null;
 		Connection conn = null;
-		
+		Integer id = null;
 		StringBuilder sql = new StringBuilder();
+		
+		
+		
 		
 		sql.append("INSERT INTO TB_USUARIO (US_LOGIN,US_SENHA,GP_USUARIO) VALUES(?,?,?)");
 		

@@ -3,7 +3,6 @@ package br.com.smartpizza.command;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,10 +11,7 @@ import br.com.smartpizza.dao.ProdutoDAO;
 import br.com.smartpizza.dao.SaborDAO;
 import br.com.smartpizza.dao.TipoProdutoDAO;
 import br.com.smartpizza.dto.ProdutoDTO;
-import br.com.smartpizza.model.ItemPedido;
-import br.com.smartpizza.model.Pedido;
 import br.com.smartpizza.model.Produto;
-import br.com.smartpizza.model.Sabor;
 import br.com.smartpizza.model.TipoProduto;
 
 public class SalvarPedido implements Command {

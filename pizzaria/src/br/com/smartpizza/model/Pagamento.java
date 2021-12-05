@@ -1,38 +1,20 @@
 package br.com.smartpizza.model;
 
+import java.util.Date;
 public class Pagamento {
-	private int idPagamento;
-	private String dsPagamento;
-	private double vlPagamento;
+	
+	
+	private Integer id;	
+	
+	private Double vlPagamento;
+	
+	private Date dataHoraPagamento;
+	
+	private FormaPagamento formaPagamento;
+	
 	private double troco;
 	
-	public Pagamento() {
-		
-	}
-
-	public int getIdPagamento() {
-		return idPagamento;
-	}
-
-	public void setIdPagamento(int idPagamento) {
-		this.idPagamento = idPagamento;
-	}
-
-	public String getDsPagamento() {
-		return dsPagamento;
-	}
-
-	public void setDsPagamento(String dsPagamento) {
-		this.dsPagamento = dsPagamento;
-	}
-
-	public double getVlPagamento() {
-		return vlPagamento;
-	}
-
-	public void setVlPagamento(double vlPagamento) {
-		this.vlPagamento = vlPagamento;
-	}
+	
 
 	public double getTroco() {
 		return troco;
@@ -42,13 +24,39 @@ public class Pagamento {
 		this.troco = troco;
 	}
 
-	public Pagamento(int idPagamento, String dsPagamento, double vlPagamento, double troco) {
-		super();
-		this.idPagamento = idPagamento;
-		this.dsPagamento = dsPagamento;
-		this.vlPagamento = vlPagamento;
-		this.troco = troco;
+	public Integer getId() {
+		return id;
 	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Double getVlPagamento() {
+		return vlPagamento;
+	}
+	
+	public void setVlPagamento(Double vlPagamento) {
+		this.vlPagamento = vlPagamento;
+	}
+	
+	
+	public Date getDataHoraPagamento() {
+		return dataHoraPagamento;
+	}
+
+	public void setDataHoraPagamento(Date dataHoraPagamento) {
+		this.dataHoraPagamento = dataHoraPagamento;
+	}
+
+	public FormaPagamento getFormaPagamento() {
+		return formaPagamento;
+	}
+
+	public void setFormaPagamento(FormaPagamento formaPagamento) {
+		this.formaPagamento = formaPagamento;
+	}
+	
+	
 	
 }

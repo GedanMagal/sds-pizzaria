@@ -10,7 +10,6 @@ import br.com.smartpizza.dao.SaborDAO;
 import br.com.smartpizza.dao.TipoProdutoDAO;
 import br.com.smartpizza.dto.ProdutoDTO;
 import br.com.smartpizza.model.Sabor;
-import br.com.smartpizza.model.Tamanho;
 import br.com.smartpizza.model.TipoProduto;
 
 public class ListarProdutosCommand implements Command {

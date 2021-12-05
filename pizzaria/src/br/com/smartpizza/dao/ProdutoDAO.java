@@ -25,14 +25,14 @@ public class ProdutoDAO {
 		try {
 			
 			conn = ConexaoUtil.getConexao();
-			sql.append("INSERT INTO TB_PRODUTO (nm_produto, ds_tamanho, valor_produto, id_estoque, id_tipo_produto)");
-			sql.append(" VALUES(?,?,?,?,?)");
+			sql.append("INSERT INTO TB_PRODUTO (nm_produto, ds_tamanho, valor_produto,id_estoque id_tipo_produto)");
+			sql.append(" VALUES(?,?,?,?)");
 	
 			PreparedStatement stmt = conn.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getTamanho());
 			stmt.setDouble(3, produto.getValor());
-			stmt.setInt(4, produto.getEstoque().getIdEstoque());
+			stmt.setDouble(4, produto.getEstoque().getIdEstoque());
 			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
 			stmt.execute();
 			ResultSet rs = stmt.getGeneratedKeys();
@@ -65,7 +65,7 @@ public class ProdutoDAO {
 			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getTamanho());
 			stmt.setDouble(3, produto.getValor());
-			stmt.setInt(4, idEstoque);
+			stmt.setDouble(4, produto.getEstoque().getIdEstoque());
 			stmt.setInt(5, produto.getTipoProduto().getIdTipoProduto());
 			stmt.execute();
 			ResultSet rs = stmt.getGeneratedKeys();
@@ -90,11 +90,10 @@ public class ProdutoDAO {
 		try {
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO,EST.QTD_ESTOQUE, TIP.DS_TIPO_PRODUTO, SABOR.DS_SABOR"); 
+			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO, TIP.DS_TIPO_PRODUTO, SABOR.DS_SABOR"); 
 			sql.append(" FROM TB_PRODUTO PRO");
 			sql.append(" INNER JOIN TB_PRODUTO_SABOR PS on PS.ID_PRODUTO = PRO.ID_PRODUTO");
 			sql.append("   INNER JOIN TB_SABOR SABOR on SABOR.ID_SABOR = PS.ID_SABOR");
-			sql.append("	INNER JOIN TB_ESTOQUE EST ON PRO.ID_ESTOQUE = EST.ID_ESTOQUE"); 
 			sql.append(" 	INNER JOIN TB_TIPO_PRODUTO TIP ON TIP.ID_TIPO_PRODUTO = PRO.ID_TIPO_PRODUTO"); 
 			sql.append("  WHERE TIP.ID_TIPO_PRODUTO = ?");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
@@ -108,7 +107,6 @@ public class ProdutoDAO {
 				p.setNomeProduto(rs.getString("nm_produto"));
 				p.setTamanho(rs.getString("ds_tamanho"));
 				p.setValorProduto(rs.getFloat("valor_produto"));
-				p.setQuantidade(rs.getInt("qtd_estoque"));
 				p.setDsTipo(rs.getString("ds_tipo_produto"));
 				listaProdutos.add(p);
 			}
@@ -271,8 +269,8 @@ public class ProdutoDAO {
 		try {
 			conn = ConexaoUtil.getConexao();
 			StringBuilder sql = new StringBuilder();
-			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO,EST.QTD_ESTOQUE, TIP.DS_TIPO_PRODUTO");
-			sql.append(" FROM TB_PRODUTO PRO INNER JOIN TB_ESTOQUE EST ON PRO.ID_ESTOQUE = EST.ID_ESTOQUE");
+			sql.append("SELECT PRO.ID_PRODUTO, PRO.NM_PRODUTO, PRO.DS_TAMANHO, PRO.VALOR_PRODUTO, TIP.DS_TIPO_PRODUTO");
+			sql.append(" FROM TB_PRODUTO PRO ");
 			sql.append("  INNER JOIN TB_TIPO_PRODUTO TIP ON TIP.ID_TIPO_PRODUTO = PRO.ID_TIPO_PRODUTO");
 			sql.append("  WHERE ID_PRODUTO = ?");
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
@@ -285,7 +283,7 @@ public class ProdutoDAO {
 				p.setNomeProduto(rs.getString("nm_produto"));
 				p.setTamanho(rs.getString("ds_tamanho"));
 				p.setValorProduto(rs.getFloat("valor_produto"));
-				p.setQuantidade(rs.getInt("qtd_estoque"));
+				
 				p.setDsTipo(rs.getString("ds_tipo_produto"));
 				
 			}

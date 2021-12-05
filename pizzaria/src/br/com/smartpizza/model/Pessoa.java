@@ -2,7 +2,7 @@ package br.com.smartpizza.model;
 
 import java.util.List;
 
-public class Pessoa  {
+public abstract class Pessoa  {
 	private int id;
 	private String nome;
 	private String sobrenome;
@@ -14,10 +14,6 @@ public class Pessoa  {
 	private Usuario usuario;
 	
 	
-	
-	
-
-
 	public String getTelefone() {
 		return telefone;
 	}

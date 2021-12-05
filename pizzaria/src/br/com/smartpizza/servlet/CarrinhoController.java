@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.JsonObject;
 
+import br.com.smartpizza.dao.FormaPagamentoDAO;
 import br.com.smartpizza.dao.ItemPedidoDAO;
+import br.com.smartpizza.dao.PagamentoDAO;
 import br.com.smartpizza.dao.PedidoDAO;
 import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.dao.ProdutoDAO;
@@ -25,6 +27,7 @@ import br.com.smartpizza.dto.PessoaDTO;
 import br.com.smartpizza.dto.ProdutoDTO;
 import br.com.smartpizza.model.Carrinho;
 import br.com.smartpizza.model.Estoque;
+import br.com.smartpizza.model.FormaPagamento;
 import br.com.smartpizza.model.ItemPedido;
 import br.com.smartpizza.model.Pagamento;
 import br.com.smartpizza.model.Pedido;
@@ -40,6 +43,8 @@ public class CarrinhoController extends HttpServlet{
 	private ProdutoDAO produtoDAO;
 	private SaborDAO saborDAO;
 	private PessoaDAO pessoaDAO;
+	private FormaPagamentoDAO formaPagamentoDAO;
+	private PagamentoDAO pagamentoDAO;
 	List<Produto> lista = new ArrayList<Produto>();
 	List<Carrinho> listaCarrinho = new ArrayList<Carrinho>();
 	int item =0;
@@ -50,6 +55,10 @@ public class CarrinhoController extends HttpServlet{
 		this.pedidoDAO = new PedidoDAO();
 		this.produtoDAO = new ProdutoDAO();
 		this.pessoaDAO = new PessoaDAO();
+		this.pedidoDAO = new PedidoDAO();
+		this.produtoDAO = new ProdutoDAO();
+		this.formaPagamentoDAO =  new FormaPagamentoDAO();
+		this.pagamentoDAO = new PagamentoDAO();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
 		
@@ -124,11 +133,14 @@ public class CarrinhoController extends HttpServlet{
 			pagamento.setVlPagamento(Double.parseDouble(valorPagamento));
 			pagamento.setTroco(pagamento.getVlPagamento() - pedido.getValorPedido());
 			pedido.setPagamento(pagamento);
+			FormaPagamento formaPagamento = new FormaPagamento();
 			if(cartao==null||cartao.equals("")) {
-				pagamento.setDsPagamento("dinheiro");
+				pagamento.setFormaPagamento(formaPagamento);
+				formaPagamento.setTipo(FormaPagamento.PAGAMENTO_DINHEiRO);
 				pagamento.setTroco(Double.parseDouble(troco)-pagamento.getVlPagamento());
 			}else {
-				pagamento.setDsPagamento(cartao);
+				pagamento.setFormaPagamento(formaPagamento);
+				formaPagamento.setTipo(FormaPagamento.PAGAMENTO_DINHEiRO);
 			}
 			
 			
@@ -140,7 +152,9 @@ public class CarrinhoController extends HttpServlet{
 			pedido.setIdcliente(Integer.parseInt(pessoa));
 			
 			System.out.println(idItemPedio);
-			int idpedido = pedidoDAO.cadastrarPedido(pedido);
+			 Integer idFPagamento = formaPagamentoDAO.cadastrarPagamento(formaPagamento);
+			 Integer idPagamento =pagamentoDAO.cadastrarPagamento(pagamento, idFPagamento);
+			 Integer idpedido = pedidoDAO.cadastrarPedido(pedido,idPagamento);
 			int i=0;
 			List<ItemPedido> listaItens = new ArrayList<ItemPedido>();
 			for (Carrinho lis: listaCarrinho) {

@@ -6,7 +6,23 @@ public class Usuario {
 		private String senha;
 		private String gpUs;
 		
+		private Cliente Cliente;
 		
+		private Funcionario funcionario;
+		
+		
+		public Cliente getCliente() {
+			return Cliente;
+		}
+		public void setCliente(Cliente cliente) {
+			Cliente = cliente;
+		}
+		public Funcionario getFuncionario() {
+			return funcionario;
+		}
+		public void setFuncionario(Funcionario funcionario) {
+			this.funcionario = funcionario;
+		}
 		public Usuario(int id, String login, String senha, String gpUs) {
 			super();
 			this.id = id;

@@ -1,30 +1,28 @@
 package br.com.smartpizza.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import br.com.smartpizza.model.Pagamento;
+import br.com.smartpizza.model.FormaPagamento;
 import br.com.smartpizza.util.ConexaoUtil;
 
-public class PagamentoDAO {
+public class FormaPagamentoDAO {
 
 	
-	public Integer cadastrarPagamento(Pagamento pagamento,Integer idFormaPagamento) {
+	public Integer cadastrarPagamento(FormaPagamento formaPagamento) {
 		Connection con = null;
 		Integer idPedido = null;
 		try {
 			
 			con = ConexaoUtil.getConexao();
 		StringBuilder sql = new StringBuilder();
-		sql.append("INSERT INTO TB_PAGAMENTO (DT_HORAPAGGAMENTO, ID_FORMA_PAGAMENTO)");
-		sql.append(" VALUES(?,?)");
+		sql.append("INSERT INTO TB_FORMA_PAGAMENTO ( DS_TIPO_PAGAMENTO )");
+		sql.append(" VALUES(?)");
 		PreparedStatement stmt = con.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
-		stmt.setDate(1, new Date(pagamento.getDataHoraPagamento().getTime()));
-		stmt.setInt(2, idFormaPagamento);
+		stmt.setString(1, formaPagamento.getTipo());
 		
 		stmt.execute();
 		

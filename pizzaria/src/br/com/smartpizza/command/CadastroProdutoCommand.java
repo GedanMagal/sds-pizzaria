@@ -35,9 +35,6 @@ public class CadastroProdutoCommand implements Command{
 			TipoProduto tipoProd = new TipoProduto();
 			tipoProd.setIdTipoProduto(tipo);
 			prod.setTipoProduto(tipoProd);
-			Estoque estoque = new Estoque();
-			estoque.setIdEstoque(1);
-			prod.setEstoque(estoque);
 			List<Sabor> ListaSabores = new ArrayList<Sabor>();
 			
 				Sabor s = new Sabor();
@@ -46,6 +43,7 @@ public class CadastroProdutoCommand implements Command{
 			
 			prod.setSabor(ListaSabores);
 			produtoDAO.cadastrarProduto(prod);
+			return proximo;
 		}else {
 			String nomeProd = request.getParameter("descricao");
 			String tamanho = request.getParameter("tamanho");
@@ -65,9 +63,9 @@ public class CadastroProdutoCommand implements Command{
 			
 			
 			produtoDAO.cadastrarProdutoBebidas(prod);
+			return proximo;
 		}
 		
-		return proximo;
 	}
 
 }
