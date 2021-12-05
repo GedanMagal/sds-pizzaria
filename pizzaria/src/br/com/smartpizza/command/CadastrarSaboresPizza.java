@@ -16,7 +16,7 @@ public class CadastrarSaboresPizza implements Command{
 	public String execute(HttpServletRequest request,HttpServletResponse response) {
 		this.igrDAO = new IngredientaDAO();
 		String proximo = "cadastrarSaboresPizza.jsp";
-		List<Ingrediente> listaLingredientes =  igrDAO.listAll();
+		List<Ingrediente> listaLingredientes =  igrDAO.listaIngredientes();
 		
 		request.setAttribute("lista", listaLingredientes);
 		return proximo;

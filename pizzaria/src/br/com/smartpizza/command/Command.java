@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Interface para o padr�o Command
  * 
- * @author Devmedia
+ * @author Jackson Novaes
  * 
  */
 public interface Command {

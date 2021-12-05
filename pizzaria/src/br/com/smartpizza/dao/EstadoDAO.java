@@ -10,49 +10,30 @@ import java.util.List;
 import br.com.smartpizza.model.Estado;
 import br.com.smartpizza.util.ConexaoUtil;
 
-public class EstadoDAO implements GenericDao<Estado, Long> {
+public class EstadoDAO {
 
-	@Override
-	public void saveOrUpdate(Estado entity) {
-		// TODO Auto-generated method stub
+	public List<Estado> listarEstados(){
+		List<Estado> listEstados = new  ArrayList<Estado>();
+		Connection conn = null;
 		
-	}
-
-	@Override
-	public void save(Estado entity) {
-		// TODO Auto-generated method stub
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT * FROM TB_ESTADO");
+		try {
+			conn = ConexaoUtil.getConexao();
+			PreparedStatement stmt = conn.prepareStatement(sql.toString());
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				Estado estado = new Estado();
+				estado.setIdEstado(rs.getInt(1));
+				estado.setDsuf(rs.getString(2));
+				estado.setDsSigla(rs.getString(3));
+				listEstados.add(estado);
+			}
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		return listEstados;
 	}
-
-	@Override
-	public void update(Estado entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(Estado entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Estado findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Estado> listAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Estado> findByNames(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
 }

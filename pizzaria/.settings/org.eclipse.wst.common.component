@@ -2,7 +2,7 @@
                 
     
     
-    <wb-module deploy-name="pizzaria-0.0.1-SNAPSHOT">
+    <wb-module deploy-name="pizzaria-PIZZARIA-0.0.1-SNAPSHOT">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
                                 
         

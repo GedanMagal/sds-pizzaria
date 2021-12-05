@@ -26,38 +26,18 @@
 	<!-- 		</div> -->
 	<!-- 	</nav> -->
 
-	<div class="col s12 content-fix ">
 	
-	<nav>
+	<jsp:include page="../imports/header.jsp">
+			<jsp:param name="pedido" value="${pedido}" />
+			<jsp:param name="totalpagar" value="${totalpagar}" />
+			<jsp:param name="quantidade" value="${quantidade}" />
+			
+			
+	</jsp:include>
+		<div class="clear"></div>
 	
-		<a href="#" data-target="slide-out" class="sidenav-trigger"><i
-			class="material-icons">menu</i></a>
-		<div class="nav-wrapper main-menu">
-
-			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="../index?acao=index">home</a></li>
-				<li><a href="cardapio.jsp">cardapio</a></li>
-				<li><a href="../montaPizza.jsp">Monte seu pedido</a></li>
-				<li><a href="index?acao=meus-pedidos"> Meus pedidos</a></li>
-				<li><a href="index?acao=meus-pedidos"><b>bem vindo ${id.nome}!</b></a></li>
-				<li><a class="waves-effect waves-light btn modal-trigger"
-					href="entrar.jsp">sair</a></li>
-					
-			</ul>
-		</div>
-	</nav>
-		
-	<ul class="sidenav	" id="mobile-demo">
-
-		<li><a href="">home</a></li>
-		<li><a href="">cardapio</a></li>
-		<li><a href="">Monte seu pedido</a></li>
-		<li><a href="">carrinho</a></li>
-		<li><a class="waves-effect waves-light btn modal-trigger"href="#modal1">login</a></li>
-
-	</ul>
 	<div class="clear"></div>
-</div>
+
 	
 
 	<div class="content bg-red-sal">

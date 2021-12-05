@@ -13,22 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import br.com.smartpizza.dao.PessoaDAOImpl;
-import br.com.smartpizza.model.Pessoa;
+import br.com.smartpizza.dao.PessoaDAO;
+import br.com.smartpizza.dto.PessoaDTO;
 
 @WebServlet(urlPatterns = {"/buscacliente", "/admin/buscacliente"})
 public class PessoaServlet extends HttpServlet{
-	private PessoaDAOImpl pessoaDAO;
+	private PessoaDAO pessoaDAO;
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.pessoaDAO = new PessoaDAOImpl();
+		this.pessoaDAO = new PessoaDAO();
 		JsonObject jsonObject = new JsonObject();
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
 		String nome = request.getParameter("nome");
 		
-		List<Pessoa> pessoas = pessoaDAO.findByNames(nome);
+		List<PessoaDTO> pessoas = pessoaDAO.getClientes(nome);
 		String resp = new Gson().toJson(pessoas);
 		out.print(resp);
 	}

@@ -10,13 +10,15 @@ import br.com.smartpizza.model.Usuario;
 import br.com.smartpizza.util.ConexaoUtil;
 
 public class UsuarioDAO {
-
+	private PessoaDAO pessoaDAO;
 	
 	public Integer cadastrarUsuario(Usuario usuario) throws Exception {
-		Integer id = null;
 		Connection conn = null;
-		
+		Integer id = null;
 		StringBuilder sql = new StringBuilder();
+		
+		
+		
 		
 		sql.append("INSERT INTO TB_USUARIO (US_LOGIN,US_SENHA,GP_USUARIO) VALUES(?,?,?)");
 		
@@ -58,7 +60,7 @@ public class UsuarioDAO {
 			ResultSet rs = stmt.executeQuery();
 			if(rs.first()) {
 				usuario = new Usuario();
-				usuario.setId(rs.getLong("US_ID"));
+				usuario.setId(rs.getInt("US_ID"));
 				usuario.setLogin(rs.getString("us_login"));
 				usuario.setGpUs(rs.getString("gp_usuario"));
 			}

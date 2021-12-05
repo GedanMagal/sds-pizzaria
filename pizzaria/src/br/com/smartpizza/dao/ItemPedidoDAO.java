@@ -12,49 +12,49 @@ import br.com.smartpizza.model.ItemPedido;
 import br.com.smartpizza.model.Produto;
 import br.com.smartpizza.util.ConexaoUtil;
 
-public class ItemPedidoDAO implements GenericDao<ItemPedido, Long>{
+public class ItemPedidoDAO {
+	
+	public void cadastrarItemPedido(ItemPedido itemPedido) throws ClassNotFoundException, SQLException {
+		Connection con = null;
+		Integer idItemPedido = null;
 
-	@Override
-	public void saveOrUpdate(ItemPedido entity) {
-		// TODO Auto-generated method stub
+			
 		
-	}
-
-	@Override
-	public void save(ItemPedido entity) {
-		// TODO Auto-generated method stub
+				con = ConexaoUtil.getConexao();
+			
+		StringBuilder sql = new StringBuilder();
+		sql.append("INSERT INTO TB_ITEM_PEDIDO(quantidade, desconto, total, id_produto, id_pedido)");
+		sql.append(" VALUES(?,?,?,?,?)");
+		PreparedStatement stmt;
+	
+			stmt = con.prepareStatement(sql.toString(),Statement.RETURN_GENERATED_KEYS);
 		
-	}
-
-	@Override
-	public void update(ItemPedido entity) {
-		// TODO Auto-generated method stub
+		stmt.setInt(1, itemPedido.getQuantidade());
+		stmt.setDouble(2, itemPedido.getDesconto());
+		stmt.setDouble(3, itemPedido.getTotal());
 		
-	}
-
-	@Override
-	public void delete(ItemPedido entity) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ItemPedido findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ItemPedido> listAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ItemPedido> findByNames(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		stmt.setInt(4, itemPedido.getIdProduto());
+		stmt.setLong(5, itemPedido.getIdPedido());
+		stmt.execute();
+		stmt.close();
+		con.close();
+			
 	}
 	
-	
+	public void cadastraItemPedidoProduto(List<Produto>produtos ,Integer idItemPedido) {
+		Connection con = null;
+		StringBuilder sql = new StringBuilder();
+		sql.append("INSERT INTO (id_item_pedido, id_produto) VALUES(?,?)");
+		try {
+			con = ConexaoUtil.getConexao();
+			for(Produto prod : produtos) {
+			PreparedStatement stmt = con.prepareStatement(sql.toString());
+			stmt.setInt(1, prod.getIdProduto());
+			stmt.setInt(2, idItemPedido);
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 }

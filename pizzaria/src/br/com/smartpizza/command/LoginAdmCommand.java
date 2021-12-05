@@ -4,10 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.Session;
-
 import br.com.smartpizza.bo.UsuarioBO;
-import br.com.smartpizza.dao.PessoaDAOImpl;
+import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.dao.UsuarioDAO;
 import br.com.smartpizza.dto.PessoaDTO;
 import br.com.smartpizza.model.Usuario;
@@ -16,7 +14,7 @@ public class LoginAdmCommand implements Command{
 	
 
 	private UsuarioDAO userDAO;
-	private PessoaDAOImpl pessoaDAO;
+	private PessoaDAO pessoaDAO;
 	private PessoaDTO  pessoaLog;
 	private UsuarioBO userBO;
 	@Override
@@ -25,7 +23,7 @@ public class LoginAdmCommand implements Command{
 		this.pessoaLog = new PessoaDTO();
 		// TODO Auto-generated method stub
 		userDAO = new UsuarioDAO();
-		pessoaDAO = new PessoaDAOImpl();
+		pessoaDAO = new PessoaDAO();
 		
 		String proximo = "login.jsp";
 		HttpSession session = request.getSession();
@@ -45,13 +43,13 @@ public class LoginAdmCommand implements Command{
 				Usuario us = userDAO.consultarUsuario(user);
 					if(us.getGpUs().equals("Admin")) {
 							proximo = "admin?acao=listarClientes";
-							//pessoaLog = pessoaDAO.getFuncionarioUsuario(us.getId());
+							pessoaLog = pessoaDAO.getFuncionarioUsuario(us.getId());
 							session.setAttribute("loginUser", us);
 							session.setAttribute("id", pessoaLog);
 							session.setMaxInactiveInterval(60*10);
 					}else if(us.getGpUs().equals("Funcionario")) {
 						proximo = "admin?acao=listarClientes";
-						//pessoaLog = pessoaDAO.getFuncionarioUsuario(us.getId());
+						pessoaLog = pessoaDAO.getFuncionarioUsuario(us.getId());
 						session.setAttribute("loginUser", us);
 						session.setAttribute("id", pessoaLog);
 						session.setMaxInactiveInterval(60*10);

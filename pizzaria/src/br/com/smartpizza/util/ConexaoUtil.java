@@ -8,8 +8,14 @@ public class ConexaoUtil {
 
 	public static Connection getConexao() throws ClassNotFoundException {
 		Connection con = null;
-
-	
+		
+		try {
+			 Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pizza_projeto?useSSL=false", "root", "root");
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Conexão invalida");
+		}
 		return con;
 	}
 	

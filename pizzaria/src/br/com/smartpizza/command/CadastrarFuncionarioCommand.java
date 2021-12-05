@@ -1,6 +1,5 @@
 package br.com.smartpizza.command;
 
-import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.smartpizza.dao.CargoDAO;
-import br.com.smartpizza.dao.PessoaDAOImpl;
+import br.com.smartpizza.dao.PessoaDAO;
+import br.com.smartpizza.dao.UsuarioDAO;
 import br.com.smartpizza.model.Cargo;
 import br.com.smartpizza.model.Cidade;
 import br.com.smartpizza.model.Endereco;
@@ -20,12 +20,13 @@ import br.com.smartpizza.model.Usuario;
 
 public class CadastrarFuncionarioCommand implements Command {
 
-	private PessoaDAOImpl dao = new PessoaDAOImpl();
+	private PessoaDAO dao = new PessoaDAO();
 	private CargoDAO cargoDAO = new CargoDAO();
+	private UsuarioDAO usuarioDAO = new UsuarioDAO();
 	private String proximo;
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response){
 		DateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		proximo = "adminis?acao=listaEstado&param=adminFun";
 
@@ -65,7 +66,7 @@ public class CadastrarFuncionarioCommand implements Command {
 
 			f.setDataAdmissao(dataAdmissao);
 			
-//			f.setCargo(cargo);
+			f.setCargo(cargo);
 			cargo.setDescricao(descricao);
 
 			f.setUsuario(usuar);
@@ -83,10 +84,10 @@ public class CadastrarFuncionarioCommand implements Command {
 				endereco.setBairro(bairro);
 
 				endereco.setCidade(cid);
-				cid.setIdCidade(Long.parseLong(cidade));
+				cid.setIdCidade(Integer.parseInt(cidade));
 
 				cid.setEstado(est);
-				est.setIdEstado((long) Integer.parseInt(idEstado));
+				est.setIdEstado(Integer.parseInt(idEstado));
 
 				listEndereco.add(endereco);
 
@@ -94,11 +95,12 @@ public class CadastrarFuncionarioCommand implements Command {
 			f.setEndereco(listEndereco);
 
 			int idCargo = cargoDAO.cadastroCargo(cargo);
-//			dao.cadastroFuncionario(f, idCargo);
+			Integer usId = usuarioDAO.cadastrarUsuario(usuar);
+			dao.cadastroFuncionario(f, idCargo, usId);
 			request.setAttribute("msgSucesso", "Funcionario cadastrado com sucesso!");
 			
 			
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (Exception e) {
 
 			request.setAttribute("msg", "Erro ao cadastrar funcionario");
 

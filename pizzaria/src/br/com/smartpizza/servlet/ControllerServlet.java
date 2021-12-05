@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.smartpizza.command.AtualizarClienteCommand;
 import br.com.smartpizza.command.CadastrarClienteCommand;
 import br.com.smartpizza.command.CadastrarFuncionarioCommand;
 import br.com.smartpizza.command.CadastrarIngrediente;
@@ -38,6 +39,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("salvarCliente", new CadastrarClienteCommand());
 		comandos.put("listarClientes", new listarCliente());
 		comandos.put("editarCliente", new EditarClienteCommand());
+		comandos.put("atualizarCliente", new AtualizarClienteCommand());
 		comandos.put("salvarFuncionario", new CadastrarFuncionarioCommand());
 		comandos.put("cadastrarProduto", new CadastroProdutoCommand());
 		comandos.put("listaprodutos", new ListarProdutosCommand());
@@ -50,6 +52,7 @@ public class ControllerServlet extends HttpServlet {
 		comandos.put("realizarPedido", new RealizarPedido());
 		comandos.put("loginUser", new LoginAdmCommand());
 		comandos.put("loginCliente", new LoginClienteCommand());
+		comandos.put("cadastrarProduto", new CadastroProdutoCommand());
 		
 	
 		
@@ -61,10 +64,11 @@ public class ControllerServlet extends HttpServlet {
 		try {
 			Command comando = verificarComand(acao);
 			proxima = comando.execute(request,response);
+			request.getRequestDispatcher(proxima).forward(request, response);
+
 		} catch (Exception e) {
 			request.setAttribute("msgErro", e.getMessage());
 		}
-		request.getRequestDispatcher(proxima).forward(request, response);
 	}
 	
 	private Command verificarComand(String acao) {

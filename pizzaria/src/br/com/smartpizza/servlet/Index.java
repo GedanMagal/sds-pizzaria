@@ -2,8 +2,11 @@ package br.com.smartpizza.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,28 +17,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
+import br.com.smartpizza.dao.FormaPagamentoDAO;
+import br.com.smartpizza.dao.ItemPedidoDAO;
+import br.com.smartpizza.dao.PagamentoDAO;
 import br.com.smartpizza.dao.PedidoDAO;
-import br.com.smartpizza.dao.PessoaDAOImpl;
-import br.com.smartpizza.dao.ProdutoDAOImpl;
+import br.com.smartpizza.dao.ProdutoDAO;
+import br.com.smartpizza.dto.ProdutoDTO;
 import br.com.smartpizza.model.Carrinho;
+import br.com.smartpizza.model.FormaPagamento;
+import br.com.smartpizza.model.ItemPedido;
 import br.com.smartpizza.model.Pagamento;
 import br.com.smartpizza.model.Pedido;
+import br.com.smartpizza.model.Pessoa;
 import br.com.smartpizza.model.Produto;
 import br.com.smartpizza.model.Usuario;
 @WebServlet(urlPatterns = "/index")
 public class Index extends HttpServlet {
-	
-	@Autowired
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private PedidoDAO pedidoDAO;
-	@Autowired
-	private ProdutoDAOImpl produtoDAO;
-	@Autowired
-	private PessoaDAOImpl pessoaDAO;
+	private ProdutoDAO produtoDAO;
+	private FormaPagamentoDAO formaPagamentoDAO;
+	private PagamentoDAO pagamentoDAO;
 	String proximo ="";
 	List<Produto> lista = new ArrayList<Produto>();
 	List<Carrinho> listaCarrinho = new ArrayList<Carrinho>();
@@ -45,6 +53,10 @@ public class Index extends HttpServlet {
 	float subtotal= 0;
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		this.pedidoDAO = new PedidoDAO();
+		this.produtoDAO = new ProdutoDAO();
+		this.formaPagamentoDAO =  new FormaPagamentoDAO();
+		this.pagamentoDAO = new PagamentoDAO();
 		
 		int quantidade=0;
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -60,7 +72,7 @@ public class Index extends HttpServlet {
 		
 		case "listar":
 			
-			List<Produto> produto = produtoDAO.listAll();
+			List<ProdutoDTO> produto = new ProdutoDAO().listarProdutospizza(1);
 			String resp = new Gson().toJson(produto);
 			out.print(resp);
 		break;
@@ -71,13 +83,13 @@ public class Index extends HttpServlet {
 			proximo = "index.jsp";
 			item = item + 1;
 			String idProduto = request.getParameter("idproduto");
-			Produto p = produtoDAO.findById(Long.parseLong(idProduto));
-			carrinho.setItem((long) item);
-			carrinho.setIdProdutp((long) Integer.parseInt(idProduto));
+			ProdutoDTO p = produtoDAO.getProdutoById(Integer.parseInt(idProduto));
+			carrinho.setItem(item);
+			carrinho.setIdProdutp(Integer.parseInt(idProduto));
 			carrinho.setNomeProduto(p.getNomeProduto());
 			carrinho.setTamanho(p.getTamanho());
-			carrinho.setTotal(subtotal+=p.getValor());
-			carrinho.setQuantidade((long) quantidade);
+			carrinho.setTotal(subtotal+=p.getValorProduto());
+			carrinho.setQuantidade(quantidade);
 			listaCarrinho.add(carrinho);
 			
 			
@@ -161,7 +173,9 @@ public class Index extends HttpServlet {
 				request.getRequestDispatcher(proximo).forward(request, response);
 			break;
 		case "gerarpedido":
-			
+			try {
+				
+			proximo = "/areadocliente/meus-pedidos.jsp";
 			String  pessoa = request.getParameter("idcliente");
 			
 			String troco = request.getParameter("troco");
@@ -170,55 +184,73 @@ public class Index extends HttpServlet {
 			String cartao = request.getParameter("cartao");
 			Pedido pedido = new Pedido();
 			
-			Pagamento pagamento =  new Pagamento();
-//			pagamento.setVlPagamento(Double.parseDouble(valorPagamento));
-//			pagamento.setTroco(pagamento.getVlPagamento() - pedido.getValorPedido());
-//			pedido.setPagamento(pagamento);
-//			if(cartao==null||cartao.equals("")) {
-//				pagamento.setDsPagamento("dinheiro");
-//				pagamento.setTroco(Double.parseDouble(troco)-pagamento.getVlPagamento());
-//			}else {
-//				pagamento.setDsPagamento(cartao);
-//			}
-//			String data = sdf.format(Calendar.getInstance().getTime());
-//			pedido.setDataPedido(data);
-//			pedido.setValorPedido(subtotal);
-//			pedido.setValorTroco(pagamento.getTroco());
-//			pedido.setFuncionario(3);
-//			pedido.setIdcliente(Integer.parseInt(pessoa));
-//			pagamento.setVlPagamento(Double.parseDouble(valorPagamento));
-//			pagamento.setTroco(pagamento.getVlPagamento() - pedido.getValorPedido());
-//			request.setAttribute("carrinho", listaCarrinho);
-//			request.setAttribute("totalpagar", totalpagar);
-//			request.setAttribute("quantidade", listaCarrinho.size());
-//			 List<Carrinho> dados = (List<Carrinho>) session.getAttribute("carrinho");
-//			 int idpedido = pedidoDAO.cadastrarPedido(pedido);
-//			 int i=0;
-//			 List<ItemPedido> listaItens = new ArrayList<ItemPedido>();
-//			 for (Carrinho lc: dados) {
-//          		ProdutoDTO p2 = produtoDAO.getProdutoById(lc.getIdProduto());
-//          
-//          	ItemPedido ped = new ItemPedido();
-//			ped.setIdPedido(idpedido);
-//			ped.setQuantidade(item);
-//			ped.setIdProduto(p2.getIdProduto());
-//			listaItens.add(ped);
-//			ped.setTotal(pedido.getValorPedido()* ped.getQuantidade());
-//			ItemPedidoDAO idpd = new ItemPedidoDAO();
-//			i++;
-//			 
-//				idpd.cadastrarItemPedido(ped);
-//			 }
-//			} catch (ClassNotFoundException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			
+			Pagamento pagamento = new Pagamento();
+			 Date agora = new Date();
+			pagamento.setDataHoraPagamento(agora);
+			pagamento.setVlPagamento(Double.parseDouble(valorPagamento));
+			pagamento.setTroco(pagamento.getVlPagamento() - pedido.getValorPedido());
+			pedido.setPagamento(pagamento);
+			FormaPagamento formaPagamento = new FormaPagamento();
+			if(cartao==null||cartao.equals("")) {
+				pagamento.setFormaPagamento(formaPagamento);
+				formaPagamento.setTipo(FormaPagamento.PAGAMENTO_DINHEiRO);
+				pagamento.setTroco(Double.parseDouble(troco)-pagamento.getVlPagamento());
+			}else {
+				pagamento.setFormaPagamento(formaPagamento);
+				formaPagamento.setTipo(FormaPagamento.PAGAMENTO_DINHEiRO);
+			}
+			String data = sdf.format(Calendar.getInstance().getTime());
+			pedido.setDataPedido(data);
+			pedido.setValorPedido(subtotal);
+			pedido.setValorTroco(pagamento.getTroco());
+			pedido.setFuncionario(3);
+			pedido.setIdcliente(Integer.parseInt(pessoa));
+			pagamento.setVlPagamento(Double.parseDouble(valorPagamento));
+			
+			pagamento.setDataHoraPagamento(agora);
+			pagamento.setTroco(pagamento.getVlPagamento() - pedido.getValorPedido());
+			request.setAttribute("carrinho", listaCarrinho);
+			request.setAttribute("totalpagar", totalpagar);
+			request.setAttribute("quantidade", listaCarrinho.size());
+			 List<Carrinho> dados = (List<Carrinho>) session.getAttribute("carrinho");
+			
+			 Integer idFPagamento = formaPagamentoDAO.cadastrarPagamento(formaPagamento);
+			 Integer idPagamento =pagamentoDAO.cadastrarPagamento(pagamento, idFPagamento);
+			 Integer idpedido = pedidoDAO.cadastrarPedido(pedido,idPagamento);
+			 int i=0;
+			 List<ItemPedido> listaItens = new ArrayList<ItemPedido>();
+			 for (Carrinho lc: dados) {
+          		ProdutoDTO p2 = produtoDAO.getProdutoById(lc.getIdProduto());
+          
+          	ItemPedido ped = new ItemPedido();
+			ped.setIdPedido(idpedido);
+			ped.setQuantidade(item);
+			ped.setIdProduto(p2.getIdProduto());
+			listaItens.add(ped);
+			ped.setTotal(pedido.getValorPedido()* ped.getQuantidade());
+			ItemPedidoDAO idpd = new ItemPedidoDAO();
+			i++;
+			 
+				idpd.cadastrarItemPedido(ped);
+			 }
+				
+			 
+			request.setAttribute("carrinho", listaCarrinho);	
+			request.setAttribute("quantidade", listaCarrinho.size());
+			request.setAttribute("totalpagar", totalpagar);
+			request.getRequestDispatcher(proximo).forward(request, response);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			listaCarrinho.clear();
 			break;
-		}	
+		
+	
+}
 	}
 }

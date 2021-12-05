@@ -1,18 +1,18 @@
 package br.com.smartpizza.dto;
 
 public class ProdutoDTO {
-	private int idProduto;
+	private Integer idProduto;
 	private String nomeProduto;
 	private String tamanho;
 	private float valorProduto;
-	private int quantidade;
+	private Integer quantidade;
 	private String dsTipo;
 	
 	public ProdutoDTO() {
 	
 	}
 
-	public ProdutoDTO(int idProduto, String nomeProduto, String tamanho, float valorProduto, int quantidade,
+	public ProdutoDTO(Integer idProduto, String nomeProduto, String tamanho, float valorProduto, Integer quantidade,
 			String dsTipo) {
 		super();
 		this.idProduto = idProduto;
@@ -55,7 +55,7 @@ public class ProdutoDTO {
 		this.valorProduto = valorProduto;
 	}
 
-	public int getQuantidade() {
+	public Integer getQuantidade() {
 		return quantidade;
 	}
 

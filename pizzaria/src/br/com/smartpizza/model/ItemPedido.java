@@ -3,37 +3,32 @@ package br.com.smartpizza.model;
 import java.math.BigDecimal;
 import java.util.List;
 
-import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-@Entity
 public class ItemPedido {
-	@EmbeddedId
-	private ItemPedidoPK id = new ItemPedidoPK();
+	private long idItemPedido;
 	private int quantidade;
-	private Double desconto;
+	private double desconto;
 	private double total;
-	private Long idProduto;
-	private Long idPedido;
+	private int idProduto;
+	private long idPedido;
 	
 	
-	public Double getDesconto() {
+	public double getDesconto() {
 		return desconto;
 	}
-	public void setDesconto(Double desconto) {
+	public void setDesconto(double desconto) {
 		this.desconto = desconto;
 	}
-	public Long getIdProduto() {
+	public int getIdProduto() {
 		return idProduto;
 	}
 
-	public void setIdProduto(Long idProduto) {
+	public void setIdProduto(int idProduto) {
 		this.idProduto = idProduto;
 	}
 
+	public void setIdPedido(long idPedido) {
+		this.idPedido = idPedido;
+	}
 
 	public Long getIdPedido() {
 		return idPedido;
@@ -47,13 +42,14 @@ public class ItemPedido {
 		desconto = 0.0;
 	}
 
+	public long getIdItemPedido() {
+		return idItemPedido;
+	}
 
-	public ItemPedidoPK getId() {
-		return id;
+	public void setIdItemPedido(long idItemPedido) {
+		this.idItemPedido = idItemPedido;
 	}
-	public void setId(ItemPedidoPK id) {
-		this.id = id;
-	}
+
 	public int getQuantidade() {
 		return quantidade;
 	}
@@ -69,4 +65,24 @@ public class ItemPedido {
 	public void setTotal(double total) {
 		this.total = total;
 	}
+
+	public ItemPedido(long idItemPedido, int quantidade, double total, int idProduto, int idPedido) {
+		super();
+		this.idItemPedido = idItemPedido;
+		this.quantidade = quantidade;
+		this.total = total;
+		this.idProduto = idProduto;
+		this.idPedido = idPedido;
+	}
+	public ItemPedido(long idItemPedido, int quantidade, double desconto, double total, int idProduto, long idPedido) {
+		super();
+		this.idItemPedido = idItemPedido;
+		this.quantidade = quantidade;
+		this.desconto = desconto;
+		this.total = total;
+		this.idProduto = idProduto;
+		this.idPedido = idPedido;
+	}
+	
+
 }

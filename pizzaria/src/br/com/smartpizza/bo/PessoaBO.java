@@ -1,11 +1,11 @@
 package br.com.smartpizza.bo;
 
-import br.com.smartpizza.dao.PessoaDAOImpl;
+import br.com.smartpizza.dao.PessoaDAO;
 import br.com.smartpizza.model.Cliente;
 import br.com.smartpizza.model.Pessoa;
 
 public class PessoaBO {
-	private PessoaDAOImpl dao = new PessoaDAOImpl();
+	private PessoaDAO dao = new PessoaDAO();
 	
 	public boolean validarPessoa(Pessoa pessoa) throws Exception {
 		boolean isValid;
@@ -23,7 +23,7 @@ public class PessoaBO {
 	
 	public void cadastrarPessoa(Cliente cliente) throws Exception {
 		try {
-			dao.save(cliente);
+			dao.cadastroPessoaClient(cliente);
 		}catch(Exception e) {
 			e.printStackTrace();
 			throw new   Exception();
